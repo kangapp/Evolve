@@ -1,0 +1,23 @@
+{
+  "parent_pid": 95114,
+  "lock": {
+    "generation": "54fa9e87-ddc8-49a2-a109-f59d2b743fc6",
+    "host": "liufukangdeMacBook-Pro-M5.local",
+    "pid": 95116
+  },
+  "actual_lock_owner_alive": false,
+  "operation_id": "9be7f060-82ce-4f32-9f7a-7e74bd392737",
+  "data": [
+    [
+      10
+    ]
+  ],
+  "ordinary": {
+    "code": "WRITER_ACTIVE",
+    "message": "Another local write needs completion or recovery"
+  },
+  "after_specific_dead_lock_takeover": {
+    "code": "CHECK_EXECUTION_UNKNOWN",
+    "message": "Check execution requires specific stopping evidence before recovery"
+  }
+}

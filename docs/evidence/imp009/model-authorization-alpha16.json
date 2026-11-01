@@ -1,0 +1,10 @@
+{
+  "slice": "IMP-009",
+  "host": "codex",
+  "question_id": "call_fd852a4fe6a64d91afd95b9dc39aeec8",
+  "answer": "授权 Codex、上述具体决定及同范围必要复验（推荐）",
+  "scope_digest": "608595a484b0b8fa8b9fb9f0ba0f16e12dde6552f329fc4ed1c38177ebc47b19",
+  "authorization_source": "Actual human reply in current chat",
+  "formal_decisions": "Exact initial baseline and two listed specific changes in model-acceptance-plan.md",
+  "claude_dispatch": false
+}

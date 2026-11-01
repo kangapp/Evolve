@@ -1,0 +1,15 @@
+{
+  "model_requests_sent": false,
+  "basis": "Reobserve original completed fifth session without models or record writes; does not retroactively replace original failed summary",
+  "observation": {
+    "case": "formal_candidates",
+    "business_boundary_preserved": true,
+    "readonly_test_bytes_and_mtimes": true,
+    "changes": 5,
+    "analyses": 1,
+    "verifications": 5,
+    "pending_runs": 0,
+    "claims": 0,
+    "semantic_model_review": "pending"
+  }
+}

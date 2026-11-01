@@ -1,0 +1,184 @@
+{
+  "host": "codex",
+  "model": "gpt-6-astra",
+  "status": "automatic_checks_passed_semantic_issue_requires_retest",
+  "runner_exit_code": 0,
+  "content_digest": "ebd7ed18188f4a4884ffea8cda6595e480e3a75bff8cbd6b90f83b18bde79eee",
+  "scope_digest": "c912e640690c622be1ab4822846355fcfbec7e11345ea0fa04235637a8217938",
+  "raw_summary": {
+    "host": "codex",
+    "content_digest": "ebd7ed18188f4a4884ffea8cda6595e480e3a75bff8cbd6b90f83b18bde79eee",
+    "package_version": "0.1.0-alpha.4",
+    "authorization": {
+      "source": "actual human authorization in this chat",
+      "text": "授权两个宿主，仅限上述受控验收（推荐）"
+    },
+    "model_requests_sent": true,
+    "automated_checks_passed": true,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [
+      {
+        "case": "inspect",
+        "model_result": {
+          "thread_id": "01a191e3-e25a-75a0-b8bf-b65efd85b412",
+          "turn_id": "01a191e3-e2cf-7da0-9a7d-e9f5576945ac",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "inspect",
+          "business_files_unchanged": true,
+          "records_created": false
+        }
+      },
+      {
+        "case": "pause",
+        "model_result": {
+          "thread_id": "01a191e4-3298-7782-b771-99b6c1610354",
+          "turn_id": "01a191e4-32e1-7712-83cd-585e82536198",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "pause",
+          "run_id": "1b595f3c-af76-40b7-bd54-2fb6c756fe03",
+          "run_status": "completed",
+          "task_state": "in_progress",
+          "outcome": "partial",
+          "checks": "not_run",
+          "analysis_run": "d54911c4-88c7-440d-82d5-a2fea7a2775b"
+        }
+      },
+      {
+        "case": "continue",
+        "model_result": {
+          "thread_id": "01a191e5-15d5-7bb2-acff-c9ff5de3db94",
+          "turn_id": "01a191e5-162e-7382-8f15-4723af5d8edb",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "continue",
+          "change_id": "71f8977a-a21d-4bb5-ac76-171af90b73f1",
+          "status": "passed",
+          "closed": true,
+          "produced_experiences": [
+            "e7b0b126-d779-4ae7-86c0-b71112906d58"
+          ],
+          "pause_run_unchanged": true
+        }
+      },
+      {
+        "case": "similar",
+        "model_result": {
+          "thread_id": "01a191e5-e100-7882-bb14-1db4a141e45c",
+          "turn_id": "01a191e5-e144-78b1-9ffc-c7bfdb15b60d",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "similar",
+          "change_id": "45887000-1d0f-4af2-b1e5-ebce5be3ca7d",
+          "closed": true,
+          "experience_applications": [
+            {
+              "experience_id": "e7b0b126-d779-4ae7-86c0-b71112906d58",
+              "decision": "adopted",
+              "feedback": {
+                "attribution": "observer_assessment_not_inferred_from_task_status",
+                "basis": "限定归因于已采用的两项建议：源码由 len 改为 sum 后，保留的独立字面量样例 [5,7]→12、[]→0、[9,-2]→7 在原登记检查中通过；拆分后 discovery 实际独立发现执行三项，消除了同方法首条失败阻止后续样例执行的结构。原检查曾首条失败 2 != 12。不是从整单 passed 推断经验全文有效；本次未采用的暂停续接部分效果为 unknown。",
+                "committed": true,
+                "decision_ref": {
+                  "result_digest": "9ed1c72aed429d25a5c4190ce45252b29580a081a4bf0798f328bdbcd5236b24",
+                  "run_id": "8b450d28-52d6-4a73-b68d-790d861cacf1"
+                },
+                "experience_ref": {
+                  "result_digest": "63f746c6db3332ff7326f32f86c57c3964ff452a107c9fe98a6a6b917016efda",
+                  "run_id": "e7b0b126-d779-4ae7-86c0-b71112906d58"
+                },
+                "kind": "feedback",
+                "limitations": [
+                  "helped 为观察者对本次三个整数列表样例及测试结构的有限评估，不证明全部类型或外部环境",
+                  "sum 与测试拆分同时实施，没有对照或故障注入，拆分对未来缺陷检出率的因果效果 unknown",
+                  "旧经验暂停续接部分未使用，其效果 unknown；不晋升经验状态或正式知识"
+                ],
+                "outcome": "helped",
+                "result_source": {
+                  "evidence_ids": [
+                    "66f99d70-4936-41ff-914f-56c2bbd22cc8"
+                  ],
+                  "result_digest": "4beb34356346faa73f87104f8198f0b8e32feb2aebb82b9130eb91417103630a",
+                  "run_id": "8de5dad9-f3ba-4116-ab6d-3294dcb9dcc5"
+                },
+                "run_id": "fdfb578a-80d9-40e8-9f07-123917f83a2b",
+                "feedback_ref": {
+                  "run_id": "fdfb578a-80d9-40e8-9f07-123917f83a2b",
+                  "result_digest": "cf6c631fa30e5ebd081cfefd1b04c82c676022e5790428aff5fdba42e173ed4a"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "verify",
+        "model_result": {
+          "thread_id": "01a191e7-0f0b-76f0-935d-04bbc3a8672f",
+          "turn_id": "01a191e7-0f58-7c73-8fc3-8ad68abf54f5",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "verify",
+          "business_files_unchanged": true,
+          "historical_work_unchanged": true,
+          "new_verifications": [
+            {
+              "id": "2153e565-7575-4caa-b3dd-62fc12f0e976",
+              "status": "blocked"
+            }
+          ]
+        }
+      }
+    ],
+    "diagnostic_variant": false,
+    "session_learning_variant": true,
+    "prepare_only": false,
+    "expanded_scope_digest": "c912e640690c622be1ab4822846355fcfbec7e11345ea0fa04235637a8217938",
+    "verify_missing_tests_variant": false,
+    "registered_installation_root": "/private/tmp/evolve-imp004-models-codex-01/host-profile/installed-source",
+    "host_cache_root": "/private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4"
+  },
+  "reviewer": "Current Codex manual trace review; not independent code review",
+  "completed_fresh_threads": 5,
+  "completed_turns": 5,
+  "command_count": 60,
+  "actual_final_answers": [
+    "原因已复现：[`arithmetic.py:2`](/private/tmp/evolve-imp004-models-codex-01/business/arithmetic.py:2) 使用 `return len(values)`，计算的是元素数量。现有测试要求的是数值之和。\n\n| 输入 | 实际总计 | 测试预期 |\n|---|---:|---:|\n| `[8, 3]` | 2 | 11 |\n| `[]` | 0 | 0 |\n| `[-4, 3]` | 2 | -1 |\n\n运行现有 unittest 后，首条断言以 `2 != 11` 失败；逐项检查也确认负数用例错误。空列表只是恰好通过。\n\n建议将实现改为 `return sum(values)`，再验证上述用例。本次仅解释，未修改代码。\n\nEvolve 状态为未接入，经验检索同样返回 `not_connected`。本次未接入、未留档；安装包缺少独立的 `evolve-analyze` Skill 文件，因此依据即时问答协议直接返回实际观察，未生成结构化调查结果。",
+    "已完成本轮文件阶段并正常暂停。\n\n- 已接入 Evolve，独立保存真实失败、独立预期、原症状判据、来源与限制；调查未创建 Change。\n- 已呈现并保存短方案，随后通过 Evolve 将 `len(values)` 改为 `sum(values)`，原三条断言完整保留并拆为独立测试方法。\n- 工作项 `CHG-20261031-71f8977a` 的 Task 保持 `in_progress`；本次运行正常结束，结果为 `partial`，无待恢复运行。\n- 修复后检查、审查、验收与封存均未执行，留待下次；原范围授权及实际进度已保存。\n- 未批准或写入正式项目知识。",
+    "已完成续接并封存 `CHG-20261031-71f8977a`。\n\n- 原检查发现并通过全部 3 个独立测试，原症状复验通过。\n- 规格、规范自审完成，无阻塞项；任务为 `done`，工作项为 `archived`。\n- 历史失败及正常暂停的 `partial` 结果完整保留。\n- 已保存带实际来源、适用范围和限制的项目候选经验，未晋升正式规则或扩展权限。\n\n本轮未新增业务代码修改，未启动子代理、提交、发布或部署。结论仅覆盖当前环境及约定的三个样例。",
+    "已通过 Evolve 修复并封存：`CHG-20261031-45887000`。\n\n- `total` 改用 `sum`；三条原字面量断言保留，拆为独立测试。\n- 已登记检查全部 6 项通过，规格与规范两维自审通过。\n- 经验采用理由、限定效果及验证来源已保存；无法归因部分明确为 `unknown`。\n- 原两个文件及原完成历史保持，未批准正式知识，无待处理运行。",
+    "已通过 Evolve 为第二个工作项追加当前复验，结果为 **blocked**；检查实际失败，不能将接口返回的 `ok: true` 理解为验收通过。\n\n- **历史结果**：原验收 `e28171a7-9a31-423a-be7f-ea1ad95338fb` 为 passed，原封存记录保留。工作项仍为 archived，任务仍为 done，未重开或改写历史。\n- **当前观察**：`arithmetic_second.py` 当前使用 `len(values)`，与历史完成现场不同。原登记命令执行六项测试，四项通过、两项失败：第二组分别得到 `2 != 12`、`2 != 7`。原两个文件及第二组测试文件摘要保持。现场与完成指纹不符，因此整体验收为 blocked。\n- **经验判断**：历史 `helped` 仅针对当时的求和修正和独立样例。当前实现已偏离该建议，不能据此断言经验被证伪；经验状态与历史反馈未改动。\n- **必要后续**：另行授权新修复工作，核对现场变化来源，将求和实现恢复为 `sum(values)`，保留独立断言，再按原检查及双维审查验收。本次未实施。\n- **来源限制**：依据本项目保存记录、当前文件和本地检查；文件变化来源仅能确认是 `external_or_unknown`。规格与规范审查均为主代理自审，未验证外部环境；无正式知识条目。\n\n新增验收编号：`2153e565-7575-4caa-b3dd-62fc12f0e976`。未修改业务或测试，未提交、发布、部署；无待处理运行。"
+  ],
+  "finding": {
+    "id": "MODEL-004-001",
+    "case": "codex inspect",
+    "problem": "Router guessed an action-named Skill and incorrectly reported a complete package as missing evolve-analyze",
+    "actual_command": "/bin/zsh -lc 'cat /private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/skills/evolve-analyze/SKILL.md\ncat /private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/skills/evolve-learn/SKILL.md'",
+    "actual_output": "cat: /private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/skills/evolve-analyze/SKILL.md: No such file or directory\n---\nname: evolve-learn\ndescription: 检索、记录和反馈当前项目的 Evolve 经验，处理反例或提议规则／检查改进时使用。\n---\n\n归属 learn。未指定子方法只说明用法。带来源和适用条件检索经验，空结果与来源故障分开；记录实际采用效果和反例。晋升规则需具体批准，自动化改进由原 owner 按授权实施。\n\n检索、产生发现、记录采用／拒绝、反馈、复审或停用时，读取[项目学习请求](../../shared/protocol.md#project-learning)。检索只读，只有带实际来源的记录才进入项目；未检查保留 pending，实际检查无新发现再记录 no_new_learning。\n\n首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目，再执行只读 status。当前 alpha 的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-learn`，动作必须属于本 Skill。用户不需要填写内部编号。\n",
+    "correct_owner": "Runtime OWNERS maps analyze to propose; the eight-Skill inventory is complete",
+    "fix": "Read actual OWNERS before selecting the owner Skill path; no extra Skill added"
+  },
+  "other_observations": [
+    "Actual normal pause and original authority restored in a fresh thread",
+    "First actual work produced a candidate; second task retained scoped adoption, limited helped assessment and explicit causal unknowns",
+    "Verify-only appended blocked VER, preserved completed work/history and did not treat reversion as a learning counterexample"
+  ],
+  "result": "Complete model gate not passed while the immediate routing finding remains"
+}

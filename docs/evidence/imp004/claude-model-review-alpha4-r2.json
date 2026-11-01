@@ -1,0 +1,104 @@
+{
+  "host": "claude",
+  "model": "MiniMax-M3.1-Flash",
+  "status": "initial_readonly_semantic_issue_then_pause_execution_timeout",
+  "runner_exit_code": 1,
+  "content_digest": "5fce70d15a7ee8893b2d18b562298bca81e51684a16ee763f054eb915c5273c5",
+  "raw_summary": {
+    "host": "claude",
+    "content_digest": "5fce70d15a7ee8893b2d18b562298bca81e51684a16ee763f054eb915c5273c5",
+    "package_version": "0.1.0-alpha.4",
+    "authorization": {
+      "source": "actual human authorization in this chat",
+      "text": "授权两个宿主，仅限上述受控验收（推荐）"
+    },
+    "model_requests_sent": true,
+    "automated_checks_passed": false,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [
+      {
+        "case": "inspect",
+        "model_result": {
+          "exit_code": 0
+        },
+        "parent_observation": {
+          "case": "inspect",
+          "business_files_unchanged": true,
+          "records_created": false
+        }
+      }
+    ],
+    "diagnostic_variant": false,
+    "session_learning_variant": true,
+    "prepare_only": false,
+    "expanded_scope_digest": "b9df75ca96a955da1ef96b40690c21936ed0b9662efba726c3460a3a43f7fd48",
+    "verify_missing_tests_variant": false,
+    "explicit_user_model_choice": "MiniMax-M3.1-Flash",
+    "registered_installation_root": "/private/tmp/evolve-imp004-models-claude-02/host-profile/installed-source",
+    "host_cache_root": "/private/tmp/evolve-imp004-models-claude-02/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4",
+    "error": "Command '['claude', '--print', '--verbose', '--output-format', 'stream-json', '--no-session-persistence', '--setting-sources', 'project', '--permission-mode', 'acceptEdits', '--strict-mcp-config', '--mcp-config', '/private/tmp/evolve-imp004-models-claude-02/evidence/empty-mcp.json', '--disallowedTools', 'Agent,Task', '--allowedTools', 'Read,Write,Edit,Glob,Grep,Skill,Bash(python3:*),Bash(ls:*),Bash(cat:*),Bash(rg:*)', '--model', 'MiniMax-M3.1-Flash']' timed out after 600 seconds"
+  },
+  "raw_trace": "claude-model-trace-alpha4-r2.zip",
+  "inspect_review": "claude-inspect-review-alpha4-r2.json",
+  "pause_native_trace": "not_retained_by_previous_controller_on_timeout",
+  "timeout_seconds": 600,
+  "terminal_verified": {
+    "observation_session": 25144,
+    "exit_code": 1,
+    "parent_pid": 40254,
+    "native_pid": 40893,
+    "both_pids_absent": true,
+    "no_remaining_output_log_owner": true
+  },
+  "observed_state_after_timeout": {
+    "phase_runs": [
+      {
+        "id": "9f46b1fd-587b-437a-87a0-7498521948ed",
+        "action": "init",
+        "method": "connect",
+        "status": "completed"
+      },
+      {
+        "id": "e7778146-2b3c-4b46-b8b6-56cb5e3012ff",
+        "action": "analyze",
+        "method": "investigate",
+        "status": "completed"
+      },
+      {
+        "id": "50906c0a-295b-4dfa-8871-25504dfe2f8f",
+        "action": "propose",
+        "method": "create",
+        "status": "completed"
+      },
+      {
+        "id": "2e0333f4-ad45-4d31-8614-fb39a7ee95c9",
+        "action": "apply",
+        "method": "implement",
+        "status": "completed"
+      }
+    ],
+    "tasks": 1,
+    "started_runs": 0,
+    "resource_claims": 0,
+    "business_digests": {
+      "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80"
+    },
+    "partial_pause": {
+      "run_id": "2e0333f4-ad45-4d31-8614-fb39a7ee95c9",
+      "run_status": "completed",
+      "outcome": "partial",
+      "checks": "not_run",
+      "task_state": "in_progress",
+      "effects": [
+        "project_records",
+        "business_files",
+        "checks"
+      ],
+      "original_future_authority_text_retained": true
+    }
+  },
+  "assessment": "Persistent runtime facts do prove a safely ended partial pause with original future checks authority. The native model call timed out before completion; its missing partial stream prevents identifying why, so the complete native scenario and remaining sessions are not passed. Timeout is not evidence of quota rejection.",
+  "next_fix": "Controller now retains redacted stdout/stderr from TimeoutExpired with timed_out=true and exit_code=null; separate actual timeout subprocess regression added; no timeout extension, permission or model change"
+}

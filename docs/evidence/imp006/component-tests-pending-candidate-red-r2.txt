@@ -1,0 +1,19 @@
+test_specific_scope_candidate_waits_without_acceptance_then_completes_new_mean (test_model_complex_acceptance.ComplexModelParentTests.test_specific_scope_candidate_waits_without_acceptance_then_completes_new_mean) ... FAIL
+
+======================================================================
+FAIL: test_specific_scope_candidate_waits_without_acceptance_then_completes_new_mean (test_model_complex_acceptance.ComplexModelParentTests.test_specific_scope_candidate_waits_without_acceptance_then_completes_new_mean)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_complex_acceptance.py", line 187, in test_specific_scope_candidate_waits_without_acceptance_then_completes_new_mean
+    self.checker.after('local_revision')
+  File "/Users/liufukang/Workplace/spec-driven/scripts/model_complex_checks.py", line 223, in after
+    change,revision,tasks,definitions=self.work(connection)
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/scripts/model_complex_checks.py", line 170, in work
+    raise AssertionError('New mean result lacks its actual required task check')
+AssertionError: New mean result lacks its actual required task check
+
+----------------------------------------------------------------------
+Ran 1 test in 0.642s
+
+FAILED (failures=1)

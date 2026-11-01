@@ -1,0 +1,28 @@
+test_actual_composed_file_commit_recovers_exact_original_effect (test_patch_application.PatchApplicationTests.test_actual_composed_file_commit_recovers_exact_original_effect) ... ok
+test_add_remove_delta_and_later_scope_preservation_have_actual_effects (test_patch_application.PatchApplicationTests.test_add_remove_delta_and_later_scope_preservation_have_actual_effects) ... ok
+test_declared_dependency_must_be_actually_applied_before_patch (test_patch_application.PatchApplicationTests.test_declared_dependency_must_be_actually_applied_before_patch) ... ok
+test_deferred_patch_can_be_decided_after_peer_application_without_reapproving_peer (test_patch_application.PatchApplicationTests.test_deferred_patch_can_be_decided_after_peer_application_without_reapproving_peer) ... ok
+test_external_bytes_do_not_join_an_approved_application_chain (test_patch_application.PatchApplicationTests.test_external_bytes_do_not_join_an_approved_application_chain) ... ok
+test_independent_same_base_patches_compose_without_overwrite_or_repeat_approval (test_patch_application.PatchApplicationTests.test_independent_same_base_patches_compose_without_overwrite_or_repeat_approval) ... ok
+test_individual_approval_does_not_invent_a_related_batch (test_patch_application.PatchApplicationTests.test_individual_approval_does_not_invent_a_related_batch) ... ok
+test_later_failure_on_first_same_file_effect_blocks_prior_whole_pass (test_patch_application.PatchApplicationTests.test_later_failure_on_first_same_file_effect_blocks_prior_whole_pass) ... ok
+test_overlapping_ranges_stop_even_if_both_are_approved (test_patch_application.PatchApplicationTests.test_overlapping_ranges_stop_even_if_both_are_approved) ... ok
+test_preserved_alpha8_writer_refuses_patch_dependency_protocol_without_writes (test_patch_application.PatchApplicationTests.test_preserved_alpha8_writer_refuses_patch_dependency_protocol_without_writes) ... ok
+test_required_same_file_tasks_keep_both_meanings_through_reverification_and_archive (test_patch_application.PatchApplicationTests.test_required_same_file_tasks_keep_both_meanings_through_reverification_and_archive) ... FAIL
+test_same_semantic_target_stops_even_when_byte_ranges_are_disjoint (test_patch_application.PatchApplicationTests.test_same_semantic_target_stops_even_when_byte_ranges_are_disjoint) ... ok
+
+======================================================================
+FAIL: test_required_same_file_tasks_keep_both_meanings_through_reverification_and_archive (test_patch_application.PatchApplicationTests.test_required_same_file_tasks_keep_both_meanings_through_reverification_and_archive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_patch_application.py", line 87, in test_required_same_file_tasks_keep_both_meanings_through_reverification_and_archive
+    self.assertEqual(whole['status'], 'passed')
+AssertionError: 'blocked' != 'passed'
+- blocked
++ passed
+
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.689s
+
+FAILED (failures=1)

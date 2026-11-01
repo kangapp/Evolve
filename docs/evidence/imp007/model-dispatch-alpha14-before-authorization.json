@@ -1,0 +1,36 @@
+{
+  "slice": "IMP-007",
+  "status": "awaiting_actual_user_scope_authorization_and_model_availability",
+  "observed_at": "2026-10-31T19:25:15.054967+00:00",
+  "package_version": "0.1.0-alpha.14",
+  "package_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "controller_archive": {
+    "path": "model-runner-alpha14-rate-limit-fix.zip",
+    "sha256": "9cbf0a3349d31ceb6e1d73e5b9a07efe75e889f030b69162b2adf248e4caf6c6"
+  },
+  "authorization": {
+    "state": "pending",
+    "source": "No actual reply to the outstanding four-file/nine-session/formal-decision question received.",
+    "arithmetic_seven_session_grant_applies": false
+  },
+  "model_requests_sent": false,
+  "hosts": {
+    "codex": {
+      "status": "not_dispatched",
+      "scope_digest": "f0b384bd558f90e7042fbbc13a31c32f202689604d55ff992d66bcae8e5cb20e",
+      "model_selection": "model/list isDefault at dispatch",
+      "completed_cases": [],
+      "preflight": "codex-model-preflight-alpha14-rate-limit-fix.json"
+    },
+    "claude": {
+      "status": "not_dispatched",
+      "scope_digest": "6a56f7af4da39afce4c655b33125fa0012e2e9b76058f792e85ee6511c80ecea",
+      "model_selection": "MiniMax-M3.1-Flash",
+      "completed_cases": [],
+      "preflight": "claude-model-preflight-alpha14-rate-limit-fix.json"
+    }
+  },
+  "plan": "model-acceptance-plan.md",
+  "preparation": "model-runner-preparation-alpha14.json",
+  "controller_preflight": "rate-limit-runner-preparation-alpha14.json"
+}

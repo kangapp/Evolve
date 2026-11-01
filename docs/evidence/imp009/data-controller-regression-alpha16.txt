@@ -1,0 +1,8 @@
+test_absent_or_wrong_scope_refuses_before_creating_project (test_model_data_acceptance.DataScopeTests.test_absent_or_wrong_scope_refuses_before_creating_project) ... ok
+test_preflight_and_installation_preparation_are_mutually_exclusive (test_model_data_acceptance.DataScopeTests.test_preflight_and_installation_preparation_are_mutually_exclusive) ... ok
+test_preflight_exposes_exact_five_session_three_file_scope_without_dispatch (test_model_data_acceptance.DataScopeTests.test_preflight_exposes_exact_five_session_three_file_scope_without_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.231s
+
+OK

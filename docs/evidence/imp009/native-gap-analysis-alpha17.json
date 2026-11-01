@@ -1,0 +1,31 @@
+{
+  "slice": "IMP-009",
+  "status": "native_failed_before_first_change",
+  "dispatch": {
+    "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-native-model-alpha17-trfpg6v1",
+    "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha17-pw50zq0t/package",
+    "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha17-pw50zq0t/controller",
+    "scope_digest": "cd491bc3e01b3ce864c166786a32ac9902fd1414718a785fcea28e9d24e4d087",
+    "content_digest": "677f9c659b0970ba3e5217c34bf80aa33293b8829e99242c0725c194e9d32eb7",
+    "host": "codex",
+    "status": "controller_failed",
+    "same_scope_retest_of": "model-dispatch-alpha16-r2.json",
+    "authorization": "model-authorization-alpha16.json",
+    "fix_validation": "runtime-fix-validation-alpha17.json",
+    "exit_code": 1
+  },
+  "failure": "Complex plan root analysis_basis returned UNAVAILABLE; model correctly stopped rather than dropping required repair binding.",
+  "old_partial_claim_correction": "Earlier alpha16 trials continued with only textual references. They cannot prove enforced structured diagnostic linkage. No stage gate was granted.",
+  "source_archive": {
+    "path": "codex-model-alpha17-r1-evidence.zip",
+    "sha256": "6e01f4220ec0cdb8ab96135b0dc3677a107a283d9e8cb429be3a40d85cfc8b86",
+    "bytes": 802676,
+    "excluded_host_runtime_symlinks": [
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg09I0pqk/apply_patch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg09I0pqk/applypatch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg09I0pqk/codex-execve-wrapper"
+    ]
+  },
+  "required_fix": "Use original analysis reference, criterion and check for actual structured repair Task; retain normal proposal acceptance, Task verification and revision semantics.",
+  "authorization": "Same call_fd852a4fe6a64d91afd95b9dc39aeec8 necessary same-six-file/seven-prompt repair/retest; no new knowledge decision"
+}

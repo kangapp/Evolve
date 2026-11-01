@@ -1,0 +1,52 @@
+{
+  "slice": "IMP-006",
+  "observed_at": "2026-10-31T18:05:44.144854+00:00",
+  "kind": "Known command-allowlist guidance only; no replay or permission increase",
+  "actual_human_authorization": "授权两个宿主及同范围复验（推荐）",
+  "previous_failure": "claude-model-review-r3.json",
+  "package_digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+  "scope_digest": "34db572ad971ccf58abcb06263a4b0c0a0ac34af5badaf15d7ab624de53575c0",
+  "same_original_semantic_scope": true,
+  "unchanged_fields": [
+    "slice",
+    "host",
+    "claude_model",
+    "package_version",
+    "content_digest",
+    "schema_version",
+    "protocol_version",
+    "model_selection",
+    "first_files",
+    "second_files",
+    "business_write_paths",
+    "cases",
+    "fresh_conversation_per_case",
+    "maximum_sessions",
+    "limits"
+  ],
+  "native_allowed_tools_unchanged": true,
+  "rejected_shasum_not_replayed_or_reimplemented": true,
+  "guidance": "Use actual Evolve status/resume observations; do not issue separate shasum/sha256sum/wc/git helper commands or implement rejected hashing via another tool.",
+  "controller_archive": "model-runner-alpha6-command-guide-fix.zip",
+  "controller_sha256": "17de79fcf8e300756c9a61878081248aecb2218f32083eccb6bd44797e333d1c",
+  "checks": {
+    "component-tests-command-guide-full.txt": {
+      "tests": 467,
+      "seconds": 66.453,
+      "passed": true
+    },
+    "component-tests-command-guide.txt": {
+      "tests": 21,
+      "seconds": 3.908,
+      "passed": true
+    }
+  },
+  "preparation_model_requests_sent": false,
+  "preparation_archive": {
+    "path": "claude-command-guide-preparation-r4.zip",
+    "sha256": "b727c5be2fdf5305373cf31cc1873bbfc55b9b13f03e162bafb3a1114ae4813d"
+  },
+  "imp007_frozen_controller_and_pending_authorization_unchanged": true,
+  "passed_preparation": true,
+  "native_retest_result": "not dispatched at this preparation observation"
+}

@@ -1,0 +1,51 @@
+{
+  "slice": "IMP-006",
+  "observed_at": "2026-10-31T17:50:47.445653+00:00",
+  "kind": "installation placement repair within existing explicit retest grant",
+  "package_digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+  "actual_human_authorization": "授权两个宿主及同范围复验（推荐）",
+  "same_original_semantic_scope": true,
+  "compared_fields": [
+    "business_write_paths",
+    "cases",
+    "claude_model",
+    "content_digest",
+    "first_files",
+    "fresh_conversation_per_case",
+    "host",
+    "limits",
+    "maximum_sessions",
+    "model_selection",
+    "package_version",
+    "protocol_version",
+    "schema_version",
+    "second_files",
+    "slice"
+  ],
+  "model_and_permissions_unchanged": true,
+  "layout": ".agents/evolve-acceptance/{profile,installed-source} within disposable business root; source and cache immutable",
+  "scope_digest": "1d78c4c72f3908dca70762431e378c9375ca89344c9f3adad88898f3862db6da",
+  "controller_archive": "model-runner-alpha6-layout-fix.zip",
+  "controller_sha256": "620d0be7262111e097cc4828d3c020e3387d6d7763822eb1fb5ea8a793a6153e",
+  "checks": {
+    "component-tests-layout-full.txt": {
+      "tests": 466,
+      "seconds": 66.049,
+      "passed": true
+    },
+    "component-tests-layout.txt": {
+      "tests": 16,
+      "seconds": 6.144,
+      "passed": true
+    }
+  },
+  "preparation_model_requests_sent": false,
+  "actual_installation_discovery_passed": true,
+  "both_roots_inside_temporary_business": true,
+  "code_and_behavior_assertions_not_relaxed": true,
+  "imp007_frozen_controller_and_pending_authorization_unchanged": true,
+  "limitations": [
+    "Actual Claude model behavior still requires the new native run and trace review.",
+    "Original r1/r2 permission failures remain preserved; no same rejected outside-directory command is retried."
+  ]
+}

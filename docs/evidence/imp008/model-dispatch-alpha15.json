@@ -1,0 +1,9 @@
+{
+  "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-native-model-alpha15-lj904yjc",
+  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-frozen-alpha15-7p0tb8tc/package",
+  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-frozen-alpha15-7p0tb8tc/controller",
+  "scope_digest": "27599e7f897693c7e12498ef59801ad807aa77a37dd3f64c1c9ac5c4bb76a331",
+  "host": "codex",
+  "status": "controller_failed",
+  "exit_code": 1
+}

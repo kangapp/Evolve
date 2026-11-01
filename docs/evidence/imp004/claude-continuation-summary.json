@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+  "runtime": "/private/tmp/evolve-imp004-hosts-01/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/runtime/evolve.py",
+  "project": "/private/tmp/evolve-imp004-hosts-01/claude-business",
+  "model_requests_sent": false,
+  "experience_ref": {
+    "run_id": "6b2883d2-08aa-438c-ac7e-9a84dc3cc366",
+    "result_digest": "3fc5c0c2b96b6066903107d46bfe94c9bc133db67cdead5849c2e0bb28460798"
+  },
+  "experience_produced_from_actual_work": true,
+  "second_change_id": "311c3ba8-75e3-4e62-991b-e0ec0f9e0132",
+  "second_real_red_exit_code": 1,
+  "normal_pause": {
+    "run_id": "94ab9c49-6e1e-47ff-ae91-88e2149d9c72",
+    "outcome": "partial",
+    "checks": "not_run",
+    "new_run_id": "45aea94f-0c14-46a1-be04-0bd8807b52a8"
+  },
+  "fresh_context_restored_prior_adoption": true,
+  "old_run_result_unchanged": true,
+  "feedback": {
+    "run_id": "2c5a6d40-da3a-4bad-861e-f9f250aca985",
+    "outcome": "unknown"
+  },
+  "final_state": "candidate",
+  "new_discovery_status_after_archive": "no_new_learning",
+  "verification": "passed",
+  "closure": "archived",
+  "original_and_second_literal_assertions_unchanged": true,
+  "learning_did_not_approve_formal_knowledge": true
+}

@@ -1,0 +1,396 @@
+{
+  "status": "pending_candidate_matches_pre_authorized_next_case_no_security_permission_bypass",
+  "passed_business_state_audit": true,
+  "reviewer": "Primary actual pending candidate, literal tests, preserved sealed inputs/results and actual native denial review",
+  "source_scope_digest": "89d314042a3afce530183de0d39f6396c05368c392c5b3b20c73ca7efbcaeab7",
+  "actual_denied_tool": "AskUserQuestion",
+  "other_security_permission_denials": [],
+  "candidate_digest": "7b77bc02394d207b78bf66d5f18babaeb1b6521820342f1d94b8662cb3735f60",
+  "facts": {
+    "meta": {
+      "project_id": "c1aa24b9-23f8-4120-9b67-b972b6bd42a9",
+      "workspace_epoch": "a2f8ff56-7ee5-4281-b2a8-662533196559",
+      "schema_version": "4",
+      "protocol_version": "16",
+      "package_version": "0.1.0",
+      "checkpoint": "4a145545-9687-4cb1-931b-082720ebcaa4"
+    },
+    "current_revision": {
+      "id": "0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca",
+      "change_id": "238333e5-7b50-4bd6-a5f1-f622ad2ddadc",
+      "ordinal": 2,
+      "plan_digest": "c8715dd4fffc327262be9eb3b1cc7734d949d1211202b2ad315dff6128fcce7a",
+      "definition_digest": "f5a1d5fda6df4f500db41559c31ff713113ca4a75e6df3d07090ab07a19bd760",
+      "scope_json": "[\"arithmetic.py\",\"report.py\"]",
+      "acceptance_json": "[{\"id\":\"AC-001\",\"key\":\"AC-TOTAL\",\"required\":true,\"text\":\"arithmetic.total 保持现有行为：对 [2,3] 返回 5，对 [] 返回 0，对 [-2,3] 返回 1，且对一次性迭代器仍返回 5。\"},{\"id\":\"AC-002\",\"key\":\"AC-SUMMARIZE\",\"required\":true,\"text\":\"arithmetic.summarize(values) 单次遍历输入并返回 (总和, 数量)：正数 [2,3] 得 (5,2)，空输入得 (0,0)，含负数 [-2,3] 得 (1,2)。\"},{\"id\":\"AC-003\",\"key\":\"AC-RENDER\",\"required\":true,\"text\":\"report.render(values, include_mean=False) 通过共享 summarize 生成 \\\"total=<总和>; count=<数量>\\\" 文本：正数得 \\\"total=5; count=2\\\"，空输入得 \\\"total=0; count=0\\\"，含负数得 \\\"total=1; count=2\\\"。\"},{\"id\":\"AC-004\",\"key\":\"AC-SINGLEPASS\",\"required\":true,\"text\":\"render 面对一次性迭代器只消费输入一次，且整项范围内共享接口只被调用一次（report.summarize 调用次数为 1）。\"}]",
+      "checks_json": "[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"discover\",\"-v\"],\"cwd\":\".\",\"id\":\"integration\",\"timeout\":120}]",
+      "presented_at": "2026-11-01T04:31:35.480751+00:00",
+      "accepted_event_id": "2d3b0526-041e-4ed2-a5e2-a3afabf21772"
+    },
+    "tasks": {
+      "CORE": {
+        "id": "16223a93-1ffd-4bf6-91c0-7e52912bc3c3",
+        "change_id": "238333e5-7b50-4bd6-a5f1-f622ad2ddadc",
+        "revision_id": "0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca",
+        "definition_json": "{\"acceptance\":[{\"id\":\"AC-001\",\"key\":\"AC-TOTAL\",\"required\":true,\"text\":\"arithmetic.total 保持现有行为：对 [2,3] 返回 5，对 [] 返回 0，对 [-2,3] 返回 1，且对一次性迭代器仍返回 5。\"},{\"id\":\"AC-002\",\"key\":\"AC-SUMMARIZE\",\"required\":true,\"text\":\"arithmetic.summarize(values) 单次遍历输入并返回 (总和, 数量)：正数 [2,3] 得 (5,2)，空输入得 (0,0)，含负数 [-2,3] 得 (1,2)。\"}],\"baseline\":{\"arithmetic.py\":\"fb298e22d591b14e8d2b5c5289b378a6eea74c3c158c5a687bb75a9efdbcaf68\"},\"blocking_questions\":[],\"checks_basis\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":60},{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_summary\",\"-v\"],\"cwd\":\".\",\"id\":\"summary\",\"timeout\":60}],\"completion\":\"arithmetic.py 的 total 行为与重构前完全一致，并新增 summarize(values) 单次遍历返回 (总和, 数量)；original 与 summary 两项检查均通过。\",\"context\":{\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"dependencies\":[],\"dependency_inputs\":[],\"exclusions\":[\"不修改 report.py\",\"不修改任何测试文件\",\"不实现 include_mean 的可选均值输出\",\"不改动 total 的签名与返回形态\"],\"local_key\":\"CORE\",\"pre_refactor\":true,\"preservation_checks\":[\"original\"],\"preservation_inputs\":[\"test_arithmetic.py\"],\"required_checks\":[\"original\",\"summary\"],\"required_deliverables\":[\"arithmetic.py\"],\"responsible_action\":\"apply\",\"scope\":[\"arithmetic.py\"],\"spec_delta\":\"none\",\"structured\":true,\"task_code\":\"TASK-001\",\"test_decisions\":[{\"digest\":\"581ade733404f209584ecfbb81075980b2685084d00ee573b2c2b3fafa181b46\",\"reference\":\"spec.test_decisions/0\"},{\"digest\":\"30bc064f45dcd6375252a6d5678986c0246b38dbe9b468bbec35d5337801cb5a\",\"reference\":\"spec.test_decisions/1\"}],\"title\":\"任务一：在 arithmetic.py 提取共享求和接口 summarize，并保持 total 现有行为\",\"validation\":\"先用 original 检查（python3 -B -m unittest test_arithmetic -v）在未改动的 arithmetic.py 上证明 total 的现有行为，再改写 arithmetic.py，最后复跑 original 与 summary 检查；判据文件 test_arithmetic.py 与 test_summary.py 全程只读。\"}",
+        "definition_digest": "66718e83e91036a4048693f2f3d257f22338ff2ec410f5c9e9c2d290d517d7d6",
+        "state": "done",
+        "row_version": 3,
+        "result_json": "{\"artifacts\":[],\"check_evidence\":[\"6855e783-3989-4688-8dc7-080df7bb8bb0\",\"ba967dec-ccb8-47a2-87fa-4e41e8911e60\"],\"definition_digest\":\"66718e83e91036a4048693f2f3d257f22338ff2ec410f5c9e9c2d290d517d7d6\",\"dependency_basis\":{},\"fingerprint\":{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":60},{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_summary\",\"-v\"],\"cwd\":\".\",\"id\":\"summary\",\"timeout\":60}],\"context\":{\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"digest\":\"1773e559bdc20733b5b44e24436f9a5eddac6e1c0a67ca6b3609882797998fb5\",\"files\":{\"arithmetic.py\":\"fb298e22d591b14e8d2b5c5289b378a6eea74c3c158c5a687bb75a9efdbcaf68\",\"report.py\":\"9dd86a972b86bb635bd49f8c40e784c370af9a04437a9d0fdadcca23864854ae\",\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"scope\":{\"arithmetic.py\":\"fb298e22d591b14e8d2b5c5289b378a6eea74c3c158c5a687bb75a9efdbcaf68\"},\"task_basis_digest\":\"815491eff9fcd7b9707eb39af39346f584bec2a1b7edcd3c8d1f301596260388\"},\"implementation_source\":\"observed_existing_files\",\"missing\":[],\"preservation\":{\"after_evidence_ids\":[\"6855e783-3989-4688-8dc7-080df7bb8bb0\"],\"before\":{\"event_id\":\"5685f228-e55e-45ec-a076-93d323f16d66\",\"run_id\":\"533012e4-9492-4584-a8af-f8aa5c6b3c31\"},\"limitations\":[\"Proof is limited to the declared checks and unchanged inputs; untested behavior is not proven.\"],\"status\":\"passed\"}}"
+      },
+      "REPORT": {
+        "id": "20c35f09-f77a-41ca-90d8-a53734d5a0cf",
+        "change_id": "238333e5-7b50-4bd6-a5f1-f622ad2ddadc",
+        "revision_id": "0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca",
+        "definition_json": "{\"acceptance\":[{\"id\":\"AC-003\",\"key\":\"AC-RENDER\",\"required\":true,\"text\":\"report.render(values, include_mean=False) 通过共享 summarize 生成 \\\"total=<总和>; count=<数量>\\\" 文本：正数得 \\\"total=5; count=2\\\"，空输入得 \\\"total=0; count=0\\\"，含负数得 \\\"total=1; count=2\\\"。\"},{\"id\":\"AC-004\",\"key\":\"AC-SINGLEPASS\",\"required\":true,\"text\":\"render 面对一次性迭代器只消费输入一次，且整项范围内共享接口只被调用一次（report.summarize 调用次数为 1）。\"}],\"baseline\":{\"report.py\":\"9dd86a972b86bb635bd49f8c40e784c370af9a04437a9d0fdadcca23864854ae\"},\"blocking_questions\":[],\"checks_basis\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_report\",\"-v\"],\"cwd\":\".\",\"id\":\"report\",\"timeout\":60}],\"completion\":\"report.py 以 from arithmetic import summarize 导入共享接口，render(values, include_mean=False) 输出 \\\"total=<总和>; count=<数量>\\\" 文本；report 检查通过。\",\"context\":{\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\"},\"dependencies\":[{\"basis\":\"REPORT 需要 arithmetic.summarize 这一共享接口已由 CORE 任务独立验收通过并保持可用。\",\"condition_kind\":\"verification_passed\",\"required_definition_digest\":\"66718e83e91036a4048693f2f3d257f22338ff2ec410f5c9e9c2d290d517d7d6\",\"upstream_task\":\"CORE\"}],\"dependency_inputs\":[\"arithmetic.py\",\"test_arithmetic.py\",\"test_summary.py\"],\"exclusions\":[\"不修改 arithmetic.py\",\"不修改任何测试文件\",\"不实现 include_mean 的可选均值输出\",\"不在 report 内复制求和逻辑\"],\"local_key\":\"REPORT\",\"pre_refactor\":false,\"preservation_checks\":[],\"preservation_inputs\":[],\"required_checks\":[\"report\"],\"required_deliverables\":[\"report.py\"],\"responsible_action\":\"apply\",\"scope\":[\"report.py\"],\"spec_delta\":\"none\",\"structured\":true,\"task_code\":\"TASK-002\",\"test_decisions\":[{\"digest\":\"7691ab1addea17861fe711abc7f82505fdbd658ce5baed7c65194f412f5c7c62\",\"reference\":\"spec.test_decisions/2\"},{\"digest\":\"fad78aa0a5c1d5722bf3bbd368c92cfa6c60a515cf3bbc663adc5561a79190e0\",\"reference\":\"spec.test_decisions/3\"}],\"title\":\"任务二：改写 report.py，让 render 复用共享 summarize 输出汇总文本\",\"validation\":\"在 CORE 任务的独立验收通过后实施 report.py，运行 report 检查（python3 -B -m unittest test_report -v）；跨模块单次调用边界由最终 integration 检查在整项范围判定。\"}",
+        "definition_digest": "b5c5339f4657c14b7fabb1359f7e84b18621c9a1114f0c94867d686104b9a829",
+        "state": "done",
+        "row_version": 3,
+        "result_json": "{\"artifacts\":[{\"digest\":\"e9cd151ea85681d885fde103538c02adcd17566580603416927944fe47571698\",\"entity_id\":\"e276daa9-8ba4-44a9-9afd-26962973acc2\",\"entity_type\":\"artifact_version\"}],\"check_evidence\":[\"e819f172-cee6-4d45-ab00-007d0b1ee49d\"],\"definition_digest\":\"b5c5339f4657c14b7fabb1359f7e84b18621c9a1114f0c94867d686104b9a829\",\"dependency_basis\":{\"CORE\":\"8062b8088cf2cccff548f76a5937f103a9d887b12ffabf82102c1412e84fdd75\"},\"fingerprint\":{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_report\",\"-v\"],\"cwd\":\".\",\"id\":\"report\",\"timeout\":60}],\"context\":{\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\"},\"digest\":\"e2c9e25a8116f4889ba46e4bd58d350836a98a3d357ca4b9ff62d6b745afd2a2\",\"files\":{\"arithmetic.py\":\"fb298e22d591b14e8d2b5c5289b378a6eea74c3c158c5a687bb75a9efdbcaf68\",\"report.py\":\"e9cd151ea85681d885fde103538c02adcd17566580603416927944fe47571698\",\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"scope\":{\"report.py\":\"e9cd151ea85681d885fde103538c02adcd17566580603416927944fe47571698\"},\"task_basis_digest\":\"109ce031789c5d01ccd7a73c02ead9b53932ab0ab9814e7499ea0199b67ec2fe\"},\"implementation_source\":\"evolve-apply\",\"missing\":[]}"
+      }
+    },
+    "candidate_run": {
+      "id": "d7e6a30d-87fc-42ff-8dc0-a70f667a1758",
+      "request_id": "3000864a-8c7c-4649-aed7-2a3a30088e4e",
+      "workspace_epoch": "a2f8ff56-7ee5-4281-b2a8-662533196559",
+      "input_digest": "8977259e3a4de360c079402f0149f5e3a54796f8a6c82c2a9ead03468ce6379b",
+      "input_json": "{\"action\":\"update\",\"method\":\"revise\",\"owner_skill\":\"evolve-propose\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\"],\"paths\":[],\"source\":\"user\",\"text\":\"使用 Evolve 修改当前活动方案：report.render 的 include_mean=True 分支增加均值，格式固定为 total=5; count=2; mean=2.50，保留两位小数；空输入 mean=0.00。默认 False 的原文本和 total／summarize 接口与行为保持。控制侧新增的 test_report_mean.py 是只读独立判据，原测试继续保持。本轮仅呈现并保存完整新 REV；原有 AC 保留，新增可选均值 AC，REPORT 负责该成果，CORE 的原定义和适用结果应保留。REPORT 需检查原 report 及新增 test_report_mean，最终 discover 全部测试；可按实际命令增量登记 mean 检查。说明影响并保留旧整体验收及原证明，本轮不接受新语义方案、不实施、运行检查或封存。\"},\"expected_versions\":{\"change\":6,\"tasks\":{\"16223a93-1ffd-4bf6-91c0-7e52912bc3c3\":3,\"20c35f09-f77a-41ca-90d8-a53734d5a0cf\":3}},\"expected_workspace_epoch\":\"a2f8ff56-7ee5-4281-b2a8-662533196559\",\"input\":{\"change_id\":\"238333e5-7b50-4bd6-a5f1-f622ad2ddadc\",\"definition_digest\":\"f5a1d5fda6df4f500db41559c31ff713113ca4a75e6df3d07090ab07a19bd760\",\"impact\":{\"affected_tasks\":[\"REPORT\"],\"basis\":\"本次修订只新增 include_mean=True 的可选均值语义，落在 REPORT 任务负责的 report.py：AC-MEAN、mean 检查与 test_report_mean.py 上下文都属于 REPORT。CORE 的目标、验收条件、范围、检查、上下文与依赖逐字未变，其 arithmetic.py 实施结果与 total 现有行为的原证明在当前现场仍适用，因此不列为受本次 spec 变化影响的任务。\"},\"proposal\":{\"acceptance\":[{\"key\":\"AC-TOTAL\",\"text\":\"arithmetic.total 保持现有行为：对 [2,3] 返回 5，对 [] 返回 0，对 [-2,3] 返回 1，且对一次性迭代器仍返回 5。\"},{\"key\":\"AC-SUMMARIZE\",\"text\":\"arithmetic.summarize(values) 单次遍历输入并返回 (总和, 数量)：正数 [2,3] 得 (5,2)，空输入得 (0,0)，含负数 [-2,3] 得 (1,2)。\"},{\"key\":\"AC-RENDER\",\"text\":\"report.render(values, include_mean=False) 通过共享 summarize 生成 \\\"total=<总和>; count=<数量>\\\" 文本：正数得 \\\"total=5; count=2\\\"，空输入得 \\\"total=0; count=0\\\"，含负数得 \\\"total=1; count=2\\\"。\"},{\"key\":\"AC-SINGLEPASS\",\"text\":\"render 面对一次性迭代器只消费输入一次，且整项范围内共享接口只被调用一次（report.summarize 调用次数为 1）。\"},{\"key\":\"AC-MEAN\",\"text\":\"report.render(values, include_mean=True) 在同一份 \\\"total=<总和>; count=<数量>\\\" 文本后追加固定格式的均值字段 \\\"mean=<均值>\\\"，均值按总和除以数量计算并保留两位小数：正数 [2,3] 得 \\\"total=5; count=2; mean=2.50\\\"，空输入得 \\\"total=0; count=0; mean=0.00\\\"，含负数 [-2,3] 得 \\\"total=1; count=2; mean=0.50\\\"；include_mean 缺省为 False 时输出与原文本完全一致。\"}],\"completion\":\"arithmetic.total 的现有行为保持不变；arithmetic.summarize(values) 单次遍历返回 (总和, 数量)；report.render(values, include_mean=False) 输出 \\\"total=5; count=2\\\" 形式的原文本，include_mean=True 时在同一文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段（数量为 0 时为 0.00）；original、summary、report、mean 四项任务检查通过，且最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过，整项才算完成。\",\"complexity\":\"complex\",\"plan\":\"本项是一次跨模块的接口迁移，并在已完成的迁移之上补齐可选均值输出：让 report 的汇总文本复用 arithmetic 的单次遍历求和接口，共两个任务。任务一 CORE 是为报告所必需的预重构：先在未改动的 arithmetic.py 上运行 original 检查（python3 -B -m unittest test_arithmetic -v）证明 total 的现有行为，再在 arithmetic.py 内提取 summarize(values)，单次遍历输入并返回 (总和, 数量)，由 summary 检查（python3 -B -m unittest test_summary -v）判定；CORE 的目标、验收条件、范围、检查、上下文与依赖在本次修订中逐字保持不变，其既有实施结果与 total 现有行为的原证明在当前现场仍然适用，不因本次修订重开。任务二 REPORT 在 CORE 的独立任务验收通过后实施：只改写 report.py，以 from arithmetic import summarize 导入共享接口，由 render(values, include_mean=False) 依共享结果生成 \\\"total=<总和>; count=<数量>\\\" 原文本；本次修订为 REPORT 新增 include_mean=True 分支，在同一文本后追加 \\\"mean=<均值>\\\" 字段，均值由同一份 (总和, 数量) 计算并保留两位小数，数量为 0 时给出 0.00。REPORT 的判据为原 report 检查（python3 -B -m unittest test_report -v）与控制侧新增的只读独立判据 mean 检查（python3 -B -m unittest test_report_mean -v），后者同时断言缺省调用仍得原文本。范围与判据：两个任务合计只改写 arithmetic.py 与 report.py，五个测试模块保持只读；最后以 integration 检查（python3 -B -m unittest discover -v）在整个项目目录上完成最终集成验收，单个任务实施完成或单个任务验收通过都不代表整项通过。本次修订新增可选均值验收条件 AC-MEAN 并由 REPORT 任务负责，原有四条验收条件、CORE 的定义与既有结果、REPORT 的原有验收条件与范围保持不变；本轮只呈现并保存完整新 REV，不接受新语义方案、不实施、不运行检查、不改业务与测试文件、不批准正式知识。\",\"presentation\":{\"document\":{\"acceptance\":[{\"key\":\"AC-TOTAL\",\"text\":\"arithmetic.total 保持现有行为：对 [2,3] 返回 5，对 [] 返回 0，对 [-2,3] 返回 1，且对一次性迭代器仍返回 5。\"},{\"key\":\"AC-SUMMARIZE\",\"text\":\"arithmetic.summarize(values) 单次遍历输入并返回 (总和, 数量)：正数 [2,3] 得 (5,2)，空输入得 (0,0)，含负数 [-2,3] 得 (1,2)。\"},{\"key\":\"AC-RENDER\",\"text\":\"report.render(values, include_mean=False) 通过共享 summarize 生成 \\\"total=<总和>; count=<数量>\\\" 文本：正数得 \\\"total=5; count=2\\\"，空输入得 \\\"total=0; count=0\\\"，含负数得 \\\"total=1; count=2\\\"。\"},{\"key\":\"AC-SINGLEPASS\",\"text\":\"render 面对一次性迭代器只消费输入一次，且整项范围内共享接口只被调用一次（report.summarize 调用次数为 1）。\"},{\"key\":\"AC-MEAN\",\"text\":\"report.render(values, include_mean=True) 在同一份 \\\"total=<总和>; count=<数量>\\\" 文本后追加固定格式的均值字段 \\\"mean=<均值>\\\"，均值按总和除以数量计算并保留两位小数：正数 [2,3] 得 \\\"total=5; count=2; mean=2.50\\\"，空输入得 \\\"total=0; count=0; mean=0.00\\\"，含负数 [-2,3] 得 \\\"total=1; count=2; mean=0.50\\\"；include_mean 缺省为 False 时输出与原文本完全一致。\"}],\"completion\":\"arithmetic.total 的现有行为保持不变；arithmetic.summarize(values) 单次遍历返回 (总和, 数量)；report.render(values, include_mean=False) 输出 \\\"total=5; count=2\\\" 形式的原文本，include_mean=True 时在同一文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段（数量为 0 时为 0.00）；original、summary、report、mean 四项任务检查通过，且最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过，整项才算完成。\",\"plan\":\"本项是一次跨模块的接口迁移，并在已完成的迁移之上补齐可选均值输出：让 report 的汇总文本复用 arithmetic 的单次遍历求和接口，共两个任务。任务一 CORE 是为报告所必需的预重构：先在未改动的 arithmetic.py 上运行 original 检查（python3 -B -m unittest test_arithmetic -v）证明 total 的现有行为，再在 arithmetic.py 内提取 summarize(values)，单次遍历输入并返回 (总和, 数量)，由 summary 检查（python3 -B -m unittest test_summary -v）判定；CORE 的目标、验收条件、范围、检查、上下文与依赖在本次修订中逐字保持不变，其既有实施结果与 total 现有行为的原证明在当前现场仍然适用，不因本次修订重开。任务二 REPORT 在 CORE 的独立任务验收通过后实施：只改写 report.py，以 from arithmetic import summarize 导入共享接口，由 render(values, include_mean=False) 依共享结果生成 \\\"total=<总和>; count=<数量>\\\" 原文本；本次修订为 REPORT 新增 include_mean=True 分支，在同一文本后追加 \\\"mean=<均值>\\\" 字段，均值由同一份 (总和, 数量) 计算并保留两位小数，数量为 0 时给出 0.00。REPORT 的判据为原 report 检查（python3 -B -m unittest test_report -v）与控制侧新增的只读独立判据 mean 检查（python3 -B -m unittest test_report_mean -v），后者同时断言缺省调用仍得原文本。范围与判据：两个任务合计只改写 arithmetic.py 与 report.py，五个测试模块保持只读；最后以 integration 检查（python3 -B -m unittest discover -v）在整个项目目录上完成最终集成验收，单个任务实施完成或单个任务验收通过都不代表整项通过。本次修订新增可选均值验收条件 AC-MEAN 并由 REPORT 任务负责，原有四条验收条件、CORE 的定义与既有结果、REPORT 的原有验收条件与范围保持不变；本轮只呈现并保存完整新 REV，不接受新语义方案、不实施、不运行检查、不改业务与测试文件、不批准正式知识。\",\"required_checks\":[\"integration\"],\"scope\":[\"arithmetic.py\",\"report.py\"],\"spec\":{\"behavior\":[\"arithmetic.total(values) 继续等于 sum(values)，对列表与一次性迭代器均成立。\",\"arithmetic.summarize(values) 只遍历输入一次，同时得到总和与数量：数量是实际消费的元素个数，总和是这些元素的算术和；空输入返回 (0, 0)。\",\"summarize 对正负混合输入按算术和计算数量，不做绝对值或符号处理。\",\"report.render(values, include_mean=False) 调用共享 summarize 一次，把 (总和, 数量) 渲染为 \\\"total=<总和>; count=<数量>\\\"，不输出均值或任何其他字段。\",\"render 接收一次性迭代器时不得二次遍历输入：文本中的总和与数量来自同一次遍历的结果。\",\"report 模块须以 report.summarize 的形式暴露该共享接口，使跨模块调用点可被检查观察。\",\"report.render(values, include_mean=True) 在 include_mean=False 的同一份文本后追加 \\\"mean=<均值>\\\" 字段，均值为总和除以数量并保留两位小数；数量为 0 时均值为 0.00。\",\"render 在 include_mean=True 分支中仍只调用共享 summarize 一次，均值由同一次遍历得到的 (总和, 数量) 计算，不二次遍历输入。\"],\"broad_migration\":true,\"constraints\":[\"只允许改写 arithmetic.py 与 report.py 两个业务文件；五个测试模块是只读判据。\",\"共享接口必须位于 arithmetic 模块，report 通过导入该接口调用，不得在 report 内复制求和逻辑。\",\"判据只用已登记的五个检查：original、summary、report、mean、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、test_report_mean -v、discover -v。\",\"CORE 是为报告所必需的预重构：原行为保持只以 original 检查证明，preservation 输入固定为 test_arithmetic.py。\",\"REPORT 依赖 CORE 的独立任务验收通过（verification_passed），上游未通过时不得实施。\",\"本轮只形成并保存方案：不接受方案、不实施、不改业务文件、不批准正式知识。\"],\"goals\":[\"保持 arithmetic.total 的现有可观察行为不变：求和语义、返回形态、空输入与负数结果均不改变。\",\"在 arithmetic.py 中提取单次迭代的共享接口 summarize(values)，返回 (总和, 数量)。\",\"让 report.render(values, include_mean=False) 通过该共享接口生成 \\\"total=<总和>; count=<数量>\\\" 文本。\",\"以当前项目七个文件中的五个独立测试模块作为只读判据，核对正数、空输入、负数、一次性迭代器与可选均值。\",\"先证明 arithmetic.total 的现有行为，再形成共享 summarize，使行为证明与重构结果分别留痕。\",\"让 report.render(values, include_mean=True) 在同一份 \\\"total=<总和>; count=<数量>\\\" 文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段，数量为 0 时为 0.00，同时保持 include_mean 缺省为 False 时的原文本逐字不变。\"],\"integration_boundary\":\"本次是 arithmetic 与 report 两个模块之间的接口迁移，并在同一交付中补齐可选均值输出：total 的调用形态保持不变，arithmetic.summarize 仍是唯一共享求和入口，report.render 从返回固定占位文本改为消费该共享接口，本次进一步在 include_mean=True 分支追加保留两位小数的均值字段。边界内为 arithmetic.py 与 report.py 两个业务文件，边界外为五个只读判据测试模块以及任何正式知识与外部系统。整项交付以最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过为准；单个任务实施完成或单个任务验收通过都不代表整项通过。\",\"non_goals\":[\"不修改、不新增、不删除任何测试文件；五个测试模块保持原判据只读，其中 test_report_mean.py 由控制侧在本工作之外新增，本工作只作为只读独立判据使用。\",\"不改动 total 的签名、返回形态或异常行为，也不新增其他公开函数。\",\"不引入第三方依赖、命令行入口、持久化或外部数据访问。\",\"不批准、不登记任何正式项目知识或经验条目。\",\"不改动 arithmetic.summarize 的返回形态，均值由 REPORT 在渲染时依据同一份 (总和, 数量) 计算。\",\"不新增除 report.render 与既有 arithmetic.summarize 之外的公开接口，也不改动 render 的签名与 include_mean 的默认值。\"],\"open_questions\":[{\"blocking\":false,\"id\":\"Q-COUNT\",\"question\":\"summarize 的数量是否应计入非数值元素或 None？当前判据只覆盖数值输入，未涉及非数值元素。\",\"task_keys\":[\"CORE\"]},{\"blocking\":false,\"id\":\"Q-MEAN-ROUND\",\"question\":\"均值在需要进位的输入下按四舍五入还是截断保留两位小数？本轮判据 test_report_mean.py 只覆盖 mean=2.50、0.00、0.50 三种结果，未覆盖进位场景。\",\"task_keys\":[\"REPORT\"]}],\"problem\":\"本项 Change 的原始问题是 report.render 固定返回 \\\"not implemented\\\"，无法输出任何汇总文本；arithmetic 只有 total(values)，缺少能同时给出总和与数量的共享接口，render 因此无法在不重复遍历输入的前提下复用业务逻辑。CORE 已完成共享接口的提取，REPORT 已完成 total/count 文本的渲染；当前剩余缺口是 render 接受 include_mean 参数但未使用，include_mean=True 与缺省调用输出相同，而控制侧新增的只读判据 test_report_mean.py 要求在原文本后追加保留两位小数的均值字段。\",\"test_decisions\":[\"原行为保持只使用 original 检查（python3 -B -m unittest test_arithmetic -v）：该模块保留 total 的原有字面量判据，正数、空输入、负数与一次性迭代器都在同一文件内断言；相关上下文为 test_arithmetic.py，其字节在重构中不得变化。\",\"共享接口行为使用 summary 检查（python3 -B -m unittest test_summary -v）：该模块以一次性迭代器断言 summarize 的 (5,2)、(0,0)、(1,2) 三种结果，覆盖正数、空输入与负数；相关上下文为 test_summary.py。\",\"报告文本使用 report 检查（python3 -B -m unittest test_report -v）：该模块断言 render 的 \\\"total=5; count=2\\\"、\\\"total=0; count=0\\\"、\\\"total=1; count=2\\\" 三种文本；相关上下文为 test_report.py。\",\"跨模块集成与单次调用边界使用最终 integration 检查（python3 -B -m unittest discover -v）：该次发现式执行覆盖全部五个测试模块，并由 test_integration.py 断言 report.summarize 的调用次数为 1；相关上下文为 test_integration.py。\",\"五个测试模块本轮均为只读判据：不修改、不放宽、不删除任何断言，也不由本工作新增替代测试；其中 test_report_mean.py 由控制侧在本工作之外新增。\",\"可选均值输出使用 mean 检查（python3 -B -m unittest test_report_mean -v）：该模块断言 include_mean=True 时 \\\"total=5; count=2; mean=2.50\\\"、\\\"total=0; count=0; mean=0.00\\\"、\\\"total=1; count=2; mean=0.50\\\" 三种文本，并断言缺省调用仍得 \\\"total=5; count=2\\\"；该模块由控制侧新增，作为只读独立判据，相关上下文为 test_report_mean.py。\"],\"tradeoffs\":[\"保留 total 作为独立入口而不是改成 summarize 的别名，避免改变既有调用点的返回形态，代价是两处求和语义要在实现时保持一致。\",\"summarize 返回元组 (总和, 数量) 而非结果对象或可调用迭代器，接口最小、实现最简，代价是后续扩展（如均值）需要再次改动该接口形态。\",\"render 文本格式固定为 \\\"total=<总和>; count=<数量>\\\"，与现有 test_report.py 判据一致，不引入额外分隔、空白或多行结构。\",\"集成边界放在最终 integration 检查而不是在 REPORT 任务内重复验证，避免同一事实被两处断言，代价是整项验收必须执行一次完整的发现式检查。\",\"均值在渲染时由 (总和, 数量) 现算并格式化，不扩展 arithmetic.summarize 的返回形态，保持 CORE 的接口与既有原行为证明不变；代价是渲染层多一处格式化逻辑。\",\"均值格式固定为保留两位小数的 \\\"mean=<值>\\\"，与判据 test_report_mean.py 一致；代价是精度被截断到两位小数，需要更高精度的展示不在本轮范围内。\"]},\"tasks\":[{\"acceptance\":[\"AC-TOTAL\",\"AC-SUMMARIZE\"],\"completion\":\"arithmetic.py 的 total 行为与重构前完全一致，并新增 summarize(values) 单次遍历返回 (总和, 数量)；original 与 summary 两项检查均通过。\",\"context_paths\":[\"test_arithmetic.py\",\"test_summary.py\"],\"dependencies\":[],\"exclusions\":[\"不修改 report.py\",\"不修改任何测试文件\",\"不实现 include_mean 的可选均值输出\",\"不改动 total 的签名与返回形态\"],\"local_key\":\"CORE\",\"pre_refactor\":true,\"preservation_checks\":[\"original\"],\"preservation_inputs\":[\"test_arithmetic.py\"],\"required_checks\":[\"original\",\"summary\"],\"scope\":[\"arithmetic.py\"],\"test_decision_refs\":[\"spec.test_decisions/0\",\"spec.test_decisions/1\"],\"title\":\"任务一：在 arithmetic.py 提取共享求和接口 summarize，并保持 total 现有行为\",\"validation\":\"先用 original 检查（python3 -B -m unittest test_arithmetic -v）在未改动的 arithmetic.py 上证明 total 的现有行为，再改写 arithmetic.py，最后复跑 original 与 summary 检查；判据文件 test_arithmetic.py 与 test_summary.py 全程只读。\"},{\"acceptance\":[\"AC-RENDER\",\"AC-SINGLEPASS\",\"AC-MEAN\"],\"completion\":\"report.py 以 from arithmetic import summarize 导入共享接口，render(values, include_mean=False) 输出 \\\"total=<总和>; count=<数量>\\\" 原文本，include_mean=True 时在同一文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段（数量为 0 时为 0.00）；report 与 mean 两项检查均通过。\",\"context_paths\":[\"arithmetic.py\",\"test_report.py\",\"test_integration.py\",\"test_report_mean.py\"],\"dependencies\":[{\"basis\":\"REPORT 需要 arithmetic.summarize 这一共享接口已由 CORE 任务独立验收通过并保持可用。\",\"condition_kind\":\"verification_passed\",\"upstream_task\":\"CORE\"}],\"exclusions\":[\"不修改 arithmetic.py\",\"不修改任何测试文件\",\"不在 report 内复制求和逻辑\",\"不改变 render 的签名与 include_mean 的默认值\"],\"local_key\":\"REPORT\",\"required_checks\":[\"report\",\"mean\"],\"scope\":[\"report.py\"],\"test_decision_refs\":[\"spec.test_decisions/2\",\"spec.test_decisions/3\",\"spec.test_decisions/5\"],\"title\":\"任务二：改写 report.py，让 render 复用共享 summarize 输出汇总文本\",\"validation\":\"在 CORE 任务的独立验收通过后实施 report.py，运行 report 检查（python3 -B -m unittest test_report -v）与 mean 检查（python3 -B -m unittest test_report_mean -v）；跨模块单次调用边界由最终 integration 检查在整项范围判定。\"}],\"title\":\"单次迭代汇总与报告\"},\"source\":\"user\"},\"required_checks\":[\"integration\"],\"scope\":[\"arithmetic.py\",\"report.py\"],\"spec\":{\"behavior\":[\"arithmetic.total(values) 继续等于 sum(values)，对列表与一次性迭代器均成立。\",\"arithmetic.summarize(values) 只遍历输入一次，同时得到总和与数量：数量是实际消费的元素个数，总和是这些元素的算术和；空输入返回 (0, 0)。\",\"summarize 对正负混合输入按算术和计算数量，不做绝对值或符号处理。\",\"report.render(values, include_mean=False) 调用共享 summarize 一次，把 (总和, 数量) 渲染为 \\\"total=<总和>; count=<数量>\\\"，不输出均值或任何其他字段。\",\"render 接收一次性迭代器时不得二次遍历输入：文本中的总和与数量来自同一次遍历的结果。\",\"report 模块须以 report.summarize 的形式暴露该共享接口，使跨模块调用点可被检查观察。\",\"report.render(values, include_mean=True) 在 include_mean=False 的同一份文本后追加 \\\"mean=<均值>\\\" 字段，均值为总和除以数量并保留两位小数；数量为 0 时均值为 0.00。\",\"render 在 include_mean=True 分支中仍只调用共享 summarize 一次，均值由同一次遍历得到的 (总和, 数量) 计算，不二次遍历输入。\"],\"broad_migration\":true,\"constraints\":[\"只允许改写 arithmetic.py 与 report.py 两个业务文件；五个测试模块是只读判据。\",\"共享接口必须位于 arithmetic 模块，report 通过导入该接口调用，不得在 report 内复制求和逻辑。\",\"判据只用已登记的五个检查：original、summary、report、mean、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、test_report_mean -v、discover -v。\",\"CORE 是为报告所必需的预重构：原行为保持只以 original 检查证明，preservation 输入固定为 test_arithmetic.py。\",\"REPORT 依赖 CORE 的独立任务验收通过（verification_passed），上游未通过时不得实施。\",\"本轮只形成并保存方案：不接受方案、不实施、不改业务文件、不批准正式知识。\"],\"goals\":[\"保持 arithmetic.total 的现有可观察行为不变：求和语义、返回形态、空输入与负数结果均不改变。\",\"在 arithmetic.py 中提取单次迭代的共享接口 summarize(values)，返回 (总和, 数量)。\",\"让 report.render(values, include_mean=False) 通过该共享接口生成 \\\"total=<总和>; count=<数量>\\\" 文本。\",\"以当前项目七个文件中的五个独立测试模块作为只读判据，核对正数、空输入、负数、一次性迭代器与可选均值。\",\"先证明 arithmetic.total 的现有行为，再形成共享 summarize，使行为证明与重构结果分别留痕。\",\"让 report.render(values, include_mean=True) 在同一份 \\\"total=<总和>; count=<数量>\\\" 文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段，数量为 0 时为 0.00，同时保持 include_mean 缺省为 False 时的原文本逐字不变。\"],\"integration_boundary\":\"本次是 arithmetic 与 report 两个模块之间的接口迁移，并在同一交付中补齐可选均值输出：total 的调用形态保持不变，arithmetic.summarize 仍是唯一共享求和入口，report.render 从返回固定占位文本改为消费该共享接口，本次进一步在 include_mean=True 分支追加保留两位小数的均值字段。边界内为 arithmetic.py 与 report.py 两个业务文件，边界外为五个只读判据测试模块以及任何正式知识与外部系统。整项交付以最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过为准；单个任务实施完成或单个任务验收通过都不代表整项通过。\",\"non_goals\":[\"不修改、不新增、不删除任何测试文件；五个测试模块保持原判据只读，其中 test_report_mean.py 由控制侧在本工作之外新增，本工作只作为只读独立判据使用。\",\"不改动 total 的签名、返回形态或异常行为，也不新增其他公开函数。\",\"不引入第三方依赖、命令行入口、持久化或外部数据访问。\",\"不批准、不登记任何正式项目知识或经验条目。\",\"不改动 arithmetic.summarize 的返回形态，均值由 REPORT 在渲染时依据同一份 (总和, 数量) 计算。\",\"不新增除 report.render 与既有 arithmetic.summarize 之外的公开接口，也不改动 render 的签名与 include_mean 的默认值。\"],\"open_questions\":[{\"blocking\":false,\"id\":\"Q-COUNT\",\"question\":\"summarize 的数量是否应计入非数值元素或 None？当前判据只覆盖数值输入，未涉及非数值元素。\",\"task_keys\":[\"CORE\"]},{\"blocking\":false,\"id\":\"Q-MEAN-ROUND\",\"question\":\"均值在需要进位的输入下按四舍五入还是截断保留两位小数？本轮判据 test_report_mean.py 只覆盖 mean=2.50、0.00、0.50 三种结果，未覆盖进位场景。\",\"task_keys\":[\"REPORT\"]}],\"problem\":\"本项 Change 的原始问题是 report.render 固定返回 \\\"not implemented\\\"，无法输出任何汇总文本；arithmetic 只有 total(values)，缺少能同时给出总和与数量的共享接口，render 因此无法在不重复遍历输入的前提下复用业务逻辑。CORE 已完成共享接口的提取，REPORT 已完成 total/count 文本的渲染；当前剩余缺口是 render 接受 include_mean 参数但未使用，include_mean=True 与缺省调用输出相同，而控制侧新增的只读判据 test_report_mean.py 要求在原文本后追加保留两位小数的均值字段。\",\"test_decisions\":[\"原行为保持只使用 original 检查（python3 -B -m unittest test_arithmetic -v）：该模块保留 total 的原有字面量判据，正数、空输入、负数与一次性迭代器都在同一文件内断言；相关上下文为 test_arithmetic.py，其字节在重构中不得变化。\",\"共享接口行为使用 summary 检查（python3 -B -m unittest test_summary -v）：该模块以一次性迭代器断言 summarize 的 (5,2)、(0,0)、(1,2) 三种结果，覆盖正数、空输入与负数；相关上下文为 test_summary.py。\",\"报告文本使用 report 检查（python3 -B -m unittest test_report -v）：该模块断言 render 的 \\\"total=5; count=2\\\"、\\\"total=0; count=0\\\"、\\\"total=1; count=2\\\" 三种文本；相关上下文为 test_report.py。\",\"跨模块集成与单次调用边界使用最终 integration 检查（python3 -B -m unittest discover -v）：该次发现式执行覆盖全部五个测试模块，并由 test_integration.py 断言 report.summarize 的调用次数为 1；相关上下文为 test_integration.py。\",\"五个测试模块本轮均为只读判据：不修改、不放宽、不删除任何断言，也不由本工作新增替代测试；其中 test_report_mean.py 由控制侧在本工作之外新增。\",\"可选均值输出使用 mean 检查（python3 -B -m unittest test_report_mean -v）：该模块断言 include_mean=True 时 \\\"total=5; count=2; mean=2.50\\\"、\\\"total=0; count=0; mean=0.00\\\"、\\\"total=1; count=2; mean=0.50\\\" 三种文本，并断言缺省调用仍得 \\\"total=5; count=2\\\"；该模块由控制侧新增，作为只读独立判据，相关上下文为 test_report_mean.py。\"],\"tradeoffs\":[\"保留 total 作为独立入口而不是改成 summarize 的别名，避免改变既有调用点的返回形态，代价是两处求和语义要在实现时保持一致。\",\"summarize 返回元组 (总和, 数量) 而非结果对象或可调用迭代器，接口最小、实现最简，代价是后续扩展（如均值）需要再次改动该接口形态。\",\"render 文本格式固定为 \\\"total=<总和>; count=<数量>\\\"，与现有 test_report.py 判据一致，不引入额外分隔、空白或多行结构。\",\"集成边界放在最终 integration 检查而不是在 REPORT 任务内重复验证，避免同一事实被两处断言，代价是整项验收必须执行一次完整的发现式检查。\",\"均值在渲染时由 (总和, 数量) 现算并格式化，不扩展 arithmetic.summarize 的返回形态，保持 CORE 的接口与既有原行为证明不变；代价是渲染层多一处格式化逻辑。\",\"均值格式固定为保留两位小数的 \\\"mean=<值>\\\"，与判据 test_report_mean.py 一致；代价是精度被截断到两位小数，需要更高精度的展示不在本轮范围内。\"]},\"tasks\":[{\"acceptance\":[\"AC-TOTAL\",\"AC-SUMMARIZE\"],\"completion\":\"arithmetic.py 的 total 行为与重构前完全一致，并新增 summarize(values) 单次遍历返回 (总和, 数量)；original 与 summary 两项检查均通过。\",\"context_paths\":[\"test_arithmetic.py\",\"test_summary.py\"],\"dependencies\":[],\"exclusions\":[\"不修改 report.py\",\"不修改任何测试文件\",\"不实现 include_mean 的可选均值输出\",\"不改动 total 的签名与返回形态\"],\"local_key\":\"CORE\",\"pre_refactor\":true,\"preservation_checks\":[\"original\"],\"preservation_inputs\":[\"test_arithmetic.py\"],\"required_checks\":[\"original\",\"summary\"],\"scope\":[\"arithmetic.py\"],\"test_decision_refs\":[\"spec.test_decisions/0\",\"spec.test_decisions/1\"],\"title\":\"任务一：在 arithmetic.py 提取共享求和接口 summarize，并保持 total 现有行为\",\"validation\":\"先用 original 检查（python3 -B -m unittest test_arithmetic -v）在未改动的 arithmetic.py 上证明 total 的现有行为，再改写 arithmetic.py，最后复跑 original 与 summary 检查；判据文件 test_arithmetic.py 与 test_summary.py 全程只读。\"},{\"acceptance\":[\"AC-RENDER\",\"AC-SINGLEPASS\",\"AC-MEAN\"],\"completion\":\"report.py 以 from arithmetic import summarize 导入共享接口，render(values, include_mean=False) 输出 \\\"total=<总和>; count=<数量>\\\" 原文本，include_mean=True 时在同一文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段（数量为 0 时为 0.00）；report 与 mean 两项检查均通过。\",\"context_paths\":[\"arithmetic.py\",\"test_report.py\",\"test_integration.py\",\"test_report_mean.py\"],\"dependencies\":[{\"basis\":\"REPORT 需要 arithmetic.summarize 这一共享接口已由 CORE 任务独立验收通过并保持可用。\",\"condition_kind\":\"verification_passed\",\"upstream_task\":\"CORE\"}],\"exclusions\":[\"不修改 arithmetic.py\",\"不修改任何测试文件\",\"不在 report 内复制求和逻辑\",\"不改变 render 的签名与 include_mean 的默认值\"],\"local_key\":\"REPORT\",\"required_checks\":[\"report\",\"mean\"],\"scope\":[\"report.py\"],\"test_decision_refs\":[\"spec.test_decisions/2\",\"spec.test_decisions/3\",\"spec.test_decisions/5\"],\"title\":\"任务二：改写 report.py，让 render 复用共享 summarize 输出汇总文本\",\"validation\":\"在 CORE 任务的独立验收通过后实施 report.py，运行 report 检查（python3 -B -m unittest test_report -v）与 mean 检查（python3 -B -m unittest test_report_mean -v）；跨模块单次调用边界由最终 integration 检查在整项范围判定。\"}],\"title\":\"单次迭代汇总与报告\"},\"reason\":\"新增可选均值输出：把 report.render 的 include_mean=True 分支纳入本方案，新增验收条件 AC-MEAN（格式固定为 total=5; count=2; mean=2.50，保留两位小数，空输入 mean=0.00），由 REPORT 任务负责，并把控制侧新增的只读独立判据 test_report_mean.py 登记为 mean 检查。原有四条验收条件、REPORT 的原有验收条件与范围、CORE 的定义与既有实施结果按原样保留；旧阶段“不实现 include_mean 的可选均值输出”的描述在本方案中已不成立，随本次修订移除。本轮只呈现并保存完整新 REV，不接受新语义方案、不实施、不运行检查、不封存。\",\"revision_id\":\"0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca\",\"task_id\":null},\"project_id\":\"c1aa24b9-23f8-4120-9b67-b972b6bd42a9\"}}",
+      "action": "update",
+      "method": "revise",
+      "owner_skill": "evolve-propose",
+      "status": "completed",
+      "result_json": "{\"candidate\":{\"document\":{\"acceptance\":[{\"key\":\"AC-TOTAL\",\"text\":\"arithmetic.total 保持现有行为：对 [2,3] 返回 5，对 [] 返回 0，对 [-2,3] 返回 1，且对一次性迭代器仍返回 5。\"},{\"key\":\"AC-SUMMARIZE\",\"text\":\"arithmetic.summarize(values) 单次遍历输入并返回 (总和, 数量)：正数 [2,3] 得 (5,2)，空输入得 (0,0)，含负数 [-2,3] 得 (1,2)。\"},{\"key\":\"AC-RENDER\",\"text\":\"report.render(values, include_mean=False) 通过共享 summarize 生成 \\\"total=<总和>; count=<数量>\\\" 文本：正数得 \\\"total=5; count=2\\\"，空输入得 \\\"total=0; count=0\\\"，含负数得 \\\"total=1; count=2\\\"。\"},{\"key\":\"AC-SINGLEPASS\",\"text\":\"render 面对一次性迭代器只消费输入一次，且整项范围内共享接口只被调用一次（report.summarize 调用次数为 1）。\"},{\"key\":\"AC-MEAN\",\"text\":\"report.render(values, include_mean=True) 在同一份 \\\"total=<总和>; count=<数量>\\\" 文本后追加固定格式的均值字段 \\\"mean=<均值>\\\"，均值按总和除以数量计算并保留两位小数：正数 [2,3] 得 \\\"total=5; count=2; mean=2.50\\\"，空输入得 \\\"total=0; count=0; mean=0.00\\\"，含负数 [-2,3] 得 \\\"total=1; count=2; mean=0.50\\\"；include_mean 缺省为 False 时输出与原文本完全一致。\"}],\"completion\":\"arithmetic.total 的现有行为保持不变；arithmetic.summarize(values) 单次遍历返回 (总和, 数量)；report.render(values, include_mean=False) 输出 \\\"total=5; count=2\\\" 形式的原文本，include_mean=True 时在同一文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段（数量为 0 时为 0.00）；original、summary、report、mean 四项任务检查通过，且最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过，整项才算完成。\",\"plan\":\"本项是一次跨模块的接口迁移，并在已完成的迁移之上补齐可选均值输出：让 report 的汇总文本复用 arithmetic 的单次遍历求和接口，共两个任务。任务一 CORE 是为报告所必需的预重构：先在未改动的 arithmetic.py 上运行 original 检查（python3 -B -m unittest test_arithmetic -v）证明 total 的现有行为，再在 arithmetic.py 内提取 summarize(values)，单次遍历输入并返回 (总和, 数量)，由 summary 检查（python3 -B -m unittest test_summary -v）判定；CORE 的目标、验收条件、范围、检查、上下文与依赖在本次修订中逐字保持不变，其既有实施结果与 total 现有行为的原证明在当前现场仍然适用，不因本次修订重开。任务二 REPORT 在 CORE 的独立任务验收通过后实施：只改写 report.py，以 from arithmetic import summarize 导入共享接口，由 render(values, include_mean=False) 依共享结果生成 \\\"total=<总和>; count=<数量>\\\" 原文本；本次修订为 REPORT 新增 include_mean=True 分支，在同一文本后追加 \\\"mean=<均值>\\\" 字段，均值由同一份 (总和, 数量) 计算并保留两位小数，数量为 0 时给出 0.00。REPORT 的判据为原 report 检查（python3 -B -m unittest test_report -v）与控制侧新增的只读独立判据 mean 检查（python3 -B -m unittest test_report_mean -v），后者同时断言缺省调用仍得原文本。范围与判据：两个任务合计只改写 arithmetic.py 与 report.py，五个测试模块保持只读；最后以 integration 检查（python3 -B -m unittest discover -v）在整个项目目录上完成最终集成验收，单个任务实施完成或单个任务验收通过都不代表整项通过。本次修订新增可选均值验收条件 AC-MEAN 并由 REPORT 任务负责，原有四条验收条件、CORE 的定义与既有结果、REPORT 的原有验收条件与范围保持不变；本轮只呈现并保存完整新 REV，不接受新语义方案、不实施、不运行检查、不改业务与测试文件、不批准正式知识。\",\"required_checks\":[\"integration\"],\"scope\":[\"arithmetic.py\",\"report.py\"],\"spec\":{\"behavior\":[\"arithmetic.total(values) 继续等于 sum(values)，对列表与一次性迭代器均成立。\",\"arithmetic.summarize(values) 只遍历输入一次，同时得到总和与数量：数量是实际消费的元素个数，总和是这些元素的算术和；空输入返回 (0, 0)。\",\"summarize 对正负混合输入按算术和计算数量，不做绝对值或符号处理。\",\"report.render(values, include_mean=False) 调用共享 summarize 一次，把 (总和, 数量) 渲染为 \\\"total=<总和>; count=<数量>\\\"，不输出均值或任何其他字段。\",\"render 接收一次性迭代器时不得二次遍历输入：文本中的总和与数量来自同一次遍历的结果。\",\"report 模块须以 report.summarize 的形式暴露该共享接口，使跨模块调用点可被检查观察。\",\"report.render(values, include_mean=True) 在 include_mean=False 的同一份文本后追加 \\\"mean=<均值>\\\" 字段，均值为总和除以数量并保留两位小数；数量为 0 时均值为 0.00。\",\"render 在 include_mean=True 分支中仍只调用共享 summarize 一次，均值由同一次遍历得到的 (总和, 数量) 计算，不二次遍历输入。\"],\"broad_migration\":true,\"constraints\":[\"只允许改写 arithmetic.py 与 report.py 两个业务文件；五个测试模块是只读判据。\",\"共享接口必须位于 arithmetic 模块，report 通过导入该接口调用，不得在 report 内复制求和逻辑。\",\"判据只用已登记的五个检查：original、summary、report、mean、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、test_report_mean -v、discover -v。\",\"CORE 是为报告所必需的预重构：原行为保持只以 original 检查证明，preservation 输入固定为 test_arithmetic.py。\",\"REPORT 依赖 CORE 的独立任务验收通过（verification_passed），上游未通过时不得实施。\",\"本轮只形成并保存方案：不接受方案、不实施、不改业务文件、不批准正式知识。\"],\"goals\":[\"保持 arithmetic.total 的现有可观察行为不变：求和语义、返回形态、空输入与负数结果均不改变。\",\"在 arithmetic.py 中提取单次迭代的共享接口 summarize(values)，返回 (总和, 数量)。\",\"让 report.render(values, include_mean=False) 通过该共享接口生成 \\\"total=<总和>; count=<数量>\\\" 文本。\",\"以当前项目七个文件中的五个独立测试模块作为只读判据，核对正数、空输入、负数、一次性迭代器与可选均值。\",\"先证明 arithmetic.total 的现有行为，再形成共享 summarize，使行为证明与重构结果分别留痕。\",\"让 report.render(values, include_mean=True) 在同一份 \\\"total=<总和>; count=<数量>\\\" 文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段，数量为 0 时为 0.00，同时保持 include_mean 缺省为 False 时的原文本逐字不变。\"],\"integration_boundary\":\"本次是 arithmetic 与 report 两个模块之间的接口迁移，并在同一交付中补齐可选均值输出：total 的调用形态保持不变，arithmetic.summarize 仍是唯一共享求和入口，report.render 从返回固定占位文本改为消费该共享接口，本次进一步在 include_mean=True 分支追加保留两位小数的均值字段。边界内为 arithmetic.py 与 report.py 两个业务文件，边界外为五个只读判据测试模块以及任何正式知识与外部系统。整项交付以最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过为准；单个任务实施完成或单个任务验收通过都不代表整项通过。\",\"non_goals\":[\"不修改、不新增、不删除任何测试文件；五个测试模块保持原判据只读，其中 test_report_mean.py 由控制侧在本工作之外新增，本工作只作为只读独立判据使用。\",\"不改动 total 的签名、返回形态或异常行为，也不新增其他公开函数。\",\"不引入第三方依赖、命令行入口、持久化或外部数据访问。\",\"不批准、不登记任何正式项目知识或经验条目。\",\"不改动 arithmetic.summarize 的返回形态，均值由 REPORT 在渲染时依据同一份 (总和, 数量) 计算。\",\"不新增除 report.render 与既有 arithmetic.summarize 之外的公开接口，也不改动 render 的签名与 include_mean 的默认值。\"],\"open_questions\":[{\"blocking\":false,\"id\":\"Q-COUNT\",\"question\":\"summarize 的数量是否应计入非数值元素或 None？当前判据只覆盖数值输入，未涉及非数值元素。\",\"task_keys\":[\"CORE\"]},{\"blocking\":false,\"id\":\"Q-MEAN-ROUND\",\"question\":\"均值在需要进位的输入下按四舍五入还是截断保留两位小数？本轮判据 test_report_mean.py 只覆盖 mean=2.50、0.00、0.50 三种结果，未覆盖进位场景。\",\"task_keys\":[\"REPORT\"]}],\"problem\":\"本项 Change 的原始问题是 report.render 固定返回 \\\"not implemented\\\"，无法输出任何汇总文本；arithmetic 只有 total(values)，缺少能同时给出总和与数量的共享接口，render 因此无法在不重复遍历输入的前提下复用业务逻辑。CORE 已完成共享接口的提取，REPORT 已完成 total/count 文本的渲染；当前剩余缺口是 render 接受 include_mean 参数但未使用，include_mean=True 与缺省调用输出相同，而控制侧新增的只读判据 test_report_mean.py 要求在原文本后追加保留两位小数的均值字段。\",\"test_decisions\":[\"原行为保持只使用 original 检查（python3 -B -m unittest test_arithmetic -v）：该模块保留 total 的原有字面量判据，正数、空输入、负数与一次性迭代器都在同一文件内断言；相关上下文为 test_arithmetic.py，其字节在重构中不得变化。\",\"共享接口行为使用 summary 检查（python3 -B -m unittest test_summary -v）：该模块以一次性迭代器断言 summarize 的 (5,2)、(0,0)、(1,2) 三种结果，覆盖正数、空输入与负数；相关上下文为 test_summary.py。\",\"报告文本使用 report 检查（python3 -B -m unittest test_report -v）：该模块断言 render 的 \\\"total=5; count=2\\\"、\\\"total=0; count=0\\\"、\\\"total=1; count=2\\\" 三种文本；相关上下文为 test_report.py。\",\"跨模块集成与单次调用边界使用最终 integration 检查（python3 -B -m unittest discover -v）：该次发现式执行覆盖全部五个测试模块，并由 test_integration.py 断言 report.summarize 的调用次数为 1；相关上下文为 test_integration.py。\",\"五个测试模块本轮均为只读判据：不修改、不放宽、不删除任何断言，也不由本工作新增替代测试；其中 test_report_mean.py 由控制侧在本工作之外新增。\",\"可选均值输出使用 mean 检查（python3 -B -m unittest test_report_mean -v）：该模块断言 include_mean=True 时 \\\"total=5; count=2; mean=2.50\\\"、\\\"total=0; count=0; mean=0.00\\\"、\\\"total=1; count=2; mean=0.50\\\" 三种文本，并断言缺省调用仍得 \\\"total=5; count=2\\\"；该模块由控制侧新增，作为只读独立判据，相关上下文为 test_report_mean.py。\"],\"tradeoffs\":[\"保留 total 作为独立入口而不是改成 summarize 的别名，避免改变既有调用点的返回形态，代价是两处求和语义要在实现时保持一致。\",\"summarize 返回元组 (总和, 数量) 而非结果对象或可调用迭代器，接口最小、实现最简，代价是后续扩展（如均值）需要再次改动该接口形态。\",\"render 文本格式固定为 \\\"total=<总和>; count=<数量>\\\"，与现有 test_report.py 判据一致，不引入额外分隔、空白或多行结构。\",\"集成边界放在最终 integration 检查而不是在 REPORT 任务内重复验证，避免同一事实被两处断言，代价是整项验收必须执行一次完整的发现式检查。\",\"均值在渲染时由 (总和, 数量) 现算并格式化，不扩展 arithmetic.summarize 的返回形态，保持 CORE 的接口与既有原行为证明不变；代价是渲染层多一处格式化逻辑。\",\"均值格式固定为保留两位小数的 \\\"mean=<值>\\\"，与判据 test_report_mean.py 一致；代价是精度被截断到两位小数，需要更高精度的展示不在本轮范围内。\"]},\"tasks\":[{\"acceptance\":[\"AC-TOTAL\",\"AC-SUMMARIZE\"],\"completion\":\"arithmetic.py 的 total 行为与重构前完全一致，并新增 summarize(values) 单次遍历返回 (总和, 数量)；original 与 summary 两项检查均通过。\",\"context_paths\":[\"test_arithmetic.py\",\"test_summary.py\"],\"dependencies\":[],\"exclusions\":[\"不修改 report.py\",\"不修改任何测试文件\",\"不实现 include_mean 的可选均值输出\",\"不改动 total 的签名与返回形态\"],\"local_key\":\"CORE\",\"pre_refactor\":true,\"preservation_checks\":[\"original\"],\"preservation_inputs\":[\"test_arithmetic.py\"],\"required_checks\":[\"original\",\"summary\"],\"scope\":[\"arithmetic.py\"],\"test_decision_refs\":[\"spec.test_decisions/0\",\"spec.test_decisions/1\"],\"title\":\"任务一：在 arithmetic.py 提取共享求和接口 summarize，并保持 total 现有行为\",\"validation\":\"先用 original 检查（python3 -B -m unittest test_arithmetic -v）在未改动的 arithmetic.py 上证明 total 的现有行为，再改写 arithmetic.py，最后复跑 original 与 summary 检查；判据文件 test_arithmetic.py 与 test_summary.py 全程只读。\"},{\"acceptance\":[\"AC-RENDER\",\"AC-SINGLEPASS\",\"AC-MEAN\"],\"completion\":\"report.py 以 from arithmetic import summarize 导入共享接口，render(values, include_mean=False) 输出 \\\"total=<总和>; count=<数量>\\\" 原文本，include_mean=True 时在同一文本后追加保留两位小数的 \\\"mean=<均值>\\\" 字段（数量为 0 时为 0.00）；report 与 mean 两项检查均通过。\",\"context_paths\":[\"arithmetic.py\",\"test_report.py\",\"test_integration.py\",\"test_report_mean.py\"],\"dependencies\":[{\"basis\":\"REPORT 需要 arithmetic.summarize 这一共享接口已由 CORE 任务独立验收通过并保持可用。\",\"condition_kind\":\"verification_passed\",\"upstream_task\":\"CORE\"}],\"exclusions\":[\"不修改 arithmetic.py\",\"不修改任何测试文件\",\"不在 report 内复制求和逻辑\",\"不改变 render 的签名与 include_mean 的默认值\"],\"local_key\":\"REPORT\",\"required_checks\":[\"report\",\"mean\"],\"scope\":[\"report.py\"],\"test_decision_refs\":[\"spec.test_decisions/2\",\"spec.test_decisions/3\",\"spec.test_decisions/5\"],\"title\":\"任务二：改写 report.py，让 render 复用共享 summarize 输出汇总文本\",\"validation\":\"在 CORE 任务的独立验收通过后实施 report.py，运行 report 检查（python3 -B -m unittest test_report -v）与 mean 检查（python3 -B -m unittest test_report_mean -v）；跨模块单次调用边界由最终 integration 检查在整项范围判定。\"}],\"title\":\"单次迭代汇总与报告\"},\"from_revision_id\":\"0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca\",\"impact\":{\"affected_tasks\":[\"REPORT\"],\"basis\":\"本次修订只新增 include_mean=True 的可选均值语义，落在 REPORT 任务负责的 report.py：AC-MEAN、mean 检查与 test_report_mean.py 上下文都属于 REPORT。CORE 的目标、验收条件、范围、检查、上下文与依赖逐字未变，其 arithmetic.py 实施结果与 total 现有行为的原证明在当前现场仍适用，因此不列为受本次 spec 变化影响的任务。\"},\"removed\":{\"acceptance\":[],\"scope\":[]},\"removed_analysis\":[],\"removed_spec\":{\"constraints\":[\"判据只用已登记的四个检查：original、summary、report、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、discover -v。\",\"只允许改写 arithmetic.py 与 report.py 两个业务文件；四个测试模块是只读判据。\"],\"goals\":[\"以当前项目六个文件中的四个独立测试模块作为只读判据，核对正数、空输入、负数与一次性迭代器。\"],\"non_goals\":[\"不修改、不新增、不删除任何测试文件；四个测试模块保持原判据只读。\",\"本轮不实现 include_mean 的可选均值输出，也不定义 include_mean=True 的期望输出。\"]},\"removed_tasks\":[],\"resolved_basis\":{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":60},{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_summary\",\"-v\"],\"cwd\":\".\",\"id\":\"summary\",\"timeout\":60},{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_report\",\"-v\"],\"cwd\":\".\",\"id\":\"report\",\"timeout\":60},{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"discover\",\"-v\"],\"cwd\":\".\",\"id\":\"integration\",\"timeout\":120},{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_report_mean\",\"-v\"],\"cwd\":\".\",\"id\":\"mean\",\"timeout\":60}],\"contexts\":{\"CORE\":{\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"REPORT\":{\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_report_mean.py\":\"e70e58869907f3dd52995fee61a2a455a18a0d599bbc6ab283b2eb21b40bc357\"}},\"scope\":{\"arithmetic.py\":\"fb298e22d591b14e8d2b5c5289b378a6eea74c3c158c5a687bb75a9efdbcaf68\",\"report.py\":\"e9cd151ea85681d885fde103538c02adcd17566580603416927944fe47571698\"}},\"rewritten_acceptance\":[],\"task_definition_digests\":{\"CORE\":\"66718e83e91036a4048693f2f3d257f22338ff2ec410f5c9e9c2d290d517d7d6\",\"REPORT\":\"2276f7a026cc108a3cdbe2967ddf08daeef18a2596e3583250775a8d3e8eaef9\"},\"tasks\":{\"CORE\":\"same_definition\",\"REPORT\":\"changed_or_new\"}},\"candidate_digest\":\"7b77bc02394d207b78bf66d5f18babaeb1b6521820342f1d94b8662cb3735f60\",\"change_id\":\"238333e5-7b50-4bd6-a5f1-f622ad2ddadc\",\"committed\":true,\"operation_id\":\"41350d59-6ed4-4f4a-a497-8868f02b9c87\",\"outcome\":\"scope_confirmation_required\",\"revision_id\":\"0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca\",\"run_id\":\"d7e6a30d-87fc-42ff-8dc0-a70f667a1758\"}",
+      "result_digest": "6fe434d425a42300143955948f7a7df8802c725d101278b67052c13d19ac7d00",
+      "started_at": "2026-11-01T04:45:17.378512+00:00",
+      "ended_at": "2026-11-01T04:45:17.393677+00:00",
+      "package_version": "0.1.0",
+      "protocol_version": 16,
+      "package_digest": "38a7ab9947093eaf99b87cb159f1e3bef532904893eba5611eec97748527ecdb",
+      "execution_instance": "{\"generation\":\"e93a2d7c-9fd4-445d-a7d1-318fb2ba8c6c\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":38667}"
+    },
+    "candidate": {
+      "candidate": {
+        "document": {
+          "acceptance": [
+            {
+              "key": "AC-TOTAL",
+              "text": "arithmetic.total 保持现有行为：对 [2,3] 返回 5，对 [] 返回 0，对 [-2,3] 返回 1，且对一次性迭代器仍返回 5。"
+            },
+            {
+              "key": "AC-SUMMARIZE",
+              "text": "arithmetic.summarize(values) 单次遍历输入并返回 (总和, 数量)：正数 [2,3] 得 (5,2)，空输入得 (0,0)，含负数 [-2,3] 得 (1,2)。"
+            },
+            {
+              "key": "AC-RENDER",
+              "text": "report.render(values, include_mean=False) 通过共享 summarize 生成 \"total=<总和>; count=<数量>\" 文本：正数得 \"total=5; count=2\"，空输入得 \"total=0; count=0\"，含负数得 \"total=1; count=2\"。"
+            },
+            {
+              "key": "AC-SINGLEPASS",
+              "text": "render 面对一次性迭代器只消费输入一次，且整项范围内共享接口只被调用一次（report.summarize 调用次数为 1）。"
+            },
+            {
+              "key": "AC-MEAN",
+              "text": "report.render(values, include_mean=True) 在同一份 \"total=<总和>; count=<数量>\" 文本后追加固定格式的均值字段 \"mean=<均值>\"，均值按总和除以数量计算并保留两位小数：正数 [2,3] 得 \"total=5; count=2; mean=2.50\"，空输入得 \"total=0; count=0; mean=0.00\"，含负数 [-2,3] 得 \"total=1; count=2; mean=0.50\"；include_mean 缺省为 False 时输出与原文本完全一致。"
+            }
+          ],
+          "completion": "arithmetic.total 的现有行为保持不变；arithmetic.summarize(values) 单次遍历返回 (总和, 数量)；report.render(values, include_mean=False) 输出 \"total=5; count=2\" 形式的原文本，include_mean=True 时在同一文本后追加保留两位小数的 \"mean=<均值>\" 字段（数量为 0 时为 0.00）；original、summary、report、mean 四项任务检查通过，且最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过，整项才算完成。",
+          "plan": "本项是一次跨模块的接口迁移，并在已完成的迁移之上补齐可选均值输出：让 report 的汇总文本复用 arithmetic 的单次遍历求和接口，共两个任务。任务一 CORE 是为报告所必需的预重构：先在未改动的 arithmetic.py 上运行 original 检查（python3 -B -m unittest test_arithmetic -v）证明 total 的现有行为，再在 arithmetic.py 内提取 summarize(values)，单次遍历输入并返回 (总和, 数量)，由 summary 检查（python3 -B -m unittest test_summary -v）判定；CORE 的目标、验收条件、范围、检查、上下文与依赖在本次修订中逐字保持不变，其既有实施结果与 total 现有行为的原证明在当前现场仍然适用，不因本次修订重开。任务二 REPORT 在 CORE 的独立任务验收通过后实施：只改写 report.py，以 from arithmetic import summarize 导入共享接口，由 render(values, include_mean=False) 依共享结果生成 \"total=<总和>; count=<数量>\" 原文本；本次修订为 REPORT 新增 include_mean=True 分支，在同一文本后追加 \"mean=<均值>\" 字段，均值由同一份 (总和, 数量) 计算并保留两位小数，数量为 0 时给出 0.00。REPORT 的判据为原 report 检查（python3 -B -m unittest test_report -v）与控制侧新增的只读独立判据 mean 检查（python3 -B -m unittest test_report_mean -v），后者同时断言缺省调用仍得原文本。范围与判据：两个任务合计只改写 arithmetic.py 与 report.py，五个测试模块保持只读；最后以 integration 检查（python3 -B -m unittest discover -v）在整个项目目录上完成最终集成验收，单个任务实施完成或单个任务验收通过都不代表整项通过。本次修订新增可选均值验收条件 AC-MEAN 并由 REPORT 任务负责，原有四条验收条件、CORE 的定义与既有结果、REPORT 的原有验收条件与范围保持不变；本轮只呈现并保存完整新 REV，不接受新语义方案、不实施、不运行检查、不改业务与测试文件、不批准正式知识。",
+          "required_checks": [
+            "integration"
+          ],
+          "scope": [
+            "arithmetic.py",
+            "report.py"
+          ],
+          "spec": {
+            "behavior": [
+              "arithmetic.total(values) 继续等于 sum(values)，对列表与一次性迭代器均成立。",
+              "arithmetic.summarize(values) 只遍历输入一次，同时得到总和与数量：数量是实际消费的元素个数，总和是这些元素的算术和；空输入返回 (0, 0)。",
+              "summarize 对正负混合输入按算术和计算数量，不做绝对值或符号处理。",
+              "report.render(values, include_mean=False) 调用共享 summarize 一次，把 (总和, 数量) 渲染为 \"total=<总和>; count=<数量>\"，不输出均值或任何其他字段。",
+              "render 接收一次性迭代器时不得二次遍历输入：文本中的总和与数量来自同一次遍历的结果。",
+              "report 模块须以 report.summarize 的形式暴露该共享接口，使跨模块调用点可被检查观察。",
+              "report.render(values, include_mean=True) 在 include_mean=False 的同一份文本后追加 \"mean=<均值>\" 字段，均值为总和除以数量并保留两位小数；数量为 0 时均值为 0.00。",
+              "render 在 include_mean=True 分支中仍只调用共享 summarize 一次，均值由同一次遍历得到的 (总和, 数量) 计算，不二次遍历输入。"
+            ],
+            "broad_migration": true,
+            "constraints": [
+              "只允许改写 arithmetic.py 与 report.py 两个业务文件；五个测试模块是只读判据。",
+              "共享接口必须位于 arithmetic 模块，report 通过导入该接口调用，不得在 report 内复制求和逻辑。",
+              "判据只用已登记的五个检查：original、summary、report、mean、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、test_report_mean -v、discover -v。",
+              "CORE 是为报告所必需的预重构：原行为保持只以 original 检查证明，preservation 输入固定为 test_arithmetic.py。",
+              "REPORT 依赖 CORE 的独立任务验收通过（verification_passed），上游未通过时不得实施。",
+              "本轮只形成并保存方案：不接受方案、不实施、不改业务文件、不批准正式知识。"
+            ],
+            "goals": [
+              "保持 arithmetic.total 的现有可观察行为不变：求和语义、返回形态、空输入与负数结果均不改变。",
+              "在 arithmetic.py 中提取单次迭代的共享接口 summarize(values)，返回 (总和, 数量)。",
+              "让 report.render(values, include_mean=False) 通过该共享接口生成 \"total=<总和>; count=<数量>\" 文本。",
+              "以当前项目七个文件中的五个独立测试模块作为只读判据，核对正数、空输入、负数、一次性迭代器与可选均值。",
+              "先证明 arithmetic.total 的现有行为，再形成共享 summarize，使行为证明与重构结果分别留痕。",
+              "让 report.render(values, include_mean=True) 在同一份 \"total=<总和>; count=<数量>\" 文本后追加保留两位小数的 \"mean=<均值>\" 字段，数量为 0 时为 0.00，同时保持 include_mean 缺省为 False 时的原文本逐字不变。"
+            ],
+            "integration_boundary": "本次是 arithmetic 与 report 两个模块之间的接口迁移，并在同一交付中补齐可选均值输出：total 的调用形态保持不变，arithmetic.summarize 仍是唯一共享求和入口，report.render 从返回固定占位文本改为消费该共享接口，本次进一步在 include_mean=True 分支追加保留两位小数的均值字段。边界内为 arithmetic.py 与 report.py 两个业务文件，边界外为五个只读判据测试模块以及任何正式知识与外部系统。整项交付以最终 integration 检查（python3 -B -m unittest discover -v）在当前整个项目目录上通过为准；单个任务实施完成或单个任务验收通过都不代表整项通过。",
+            "non_goals": [
+              "不修改、不新增、不删除任何测试文件；五个测试模块保持原判据只读，其中 test_report_mean.py 由控制侧在本工作之外新增，本工作只作为只读独立判据使用。",
+              "不改动 total 的签名、返回形态或异常行为，也不新增其他公开函数。",
+              "不引入第三方依赖、命令行入口、持久化或外部数据访问。",
+              "不批准、不登记任何正式项目知识或经验条目。",
+              "不改动 arithmetic.summarize 的返回形态，均值由 REPORT 在渲染时依据同一份 (总和, 数量) 计算。",
+              "不新增除 report.render 与既有 arithmetic.summarize 之外的公开接口，也不改动 render 的签名与 include_mean 的默认值。"
+            ],
+            "open_questions": [
+              {
+                "blocking": false,
+                "id": "Q-COUNT",
+                "question": "summarize 的数量是否应计入非数值元素或 None？当前判据只覆盖数值输入，未涉及非数值元素。",
+                "task_keys": [
+                  "CORE"
+                ]
+              },
+              {
+                "blocking": false,
+                "id": "Q-MEAN-ROUND",
+                "question": "均值在需要进位的输入下按四舍五入还是截断保留两位小数？本轮判据 test_report_mean.py 只覆盖 mean=2.50、0.00、0.50 三种结果，未覆盖进位场景。",
+                "task_keys": [
+                  "REPORT"
+                ]
+              }
+            ],
+            "problem": "本项 Change 的原始问题是 report.render 固定返回 \"not implemented\"，无法输出任何汇总文本；arithmetic 只有 total(values)，缺少能同时给出总和与数量的共享接口，render 因此无法在不重复遍历输入的前提下复用业务逻辑。CORE 已完成共享接口的提取，REPORT 已完成 total/count 文本的渲染；当前剩余缺口是 render 接受 include_mean 参数但未使用，include_mean=True 与缺省调用输出相同，而控制侧新增的只读判据 test_report_mean.py 要求在原文本后追加保留两位小数的均值字段。",
+            "test_decisions": [
+              "原行为保持只使用 original 检查（python3 -B -m unittest test_arithmetic -v）：该模块保留 total 的原有字面量判据，正数、空输入、负数与一次性迭代器都在同一文件内断言；相关上下文为 test_arithmetic.py，其字节在重构中不得变化。",
+              "共享接口行为使用 summary 检查（python3 -B -m unittest test_summary -v）：该模块以一次性迭代器断言 summarize 的 (5,2)、(0,0)、(1,2) 三种结果，覆盖正数、空输入与负数；相关上下文为 test_summary.py。",
+              "报告文本使用 report 检查（python3 -B -m unittest test_report -v）：该模块断言 render 的 \"total=5; count=2\"、\"total=0; count=0\"、\"total=1; count=2\" 三种文本；相关上下文为 test_report.py。",
+              "跨模块集成与单次调用边界使用最终 integration 检查（python3 -B -m unittest discover -v）：该次发现式执行覆盖全部五个测试模块，并由 test_integration.py 断言 report.summarize 的调用次数为 1；相关上下文为 test_integration.py。",
+              "五个测试模块本轮均为只读判据：不修改、不放宽、不删除任何断言，也不由本工作新增替代测试；其中 test_report_mean.py 由控制侧在本工作之外新增。",
+              "可选均值输出使用 mean 检查（python3 -B -m unittest test_report_mean -v）：该模块断言 include_mean=True 时 \"total=5; count=2; mean=2.50\"、\"total=0; count=0; mean=0.00\"、\"total=1; count=2; mean=0.50\" 三种文本，并断言缺省调用仍得 \"total=5; count=2\"；该模块由控制侧新增，作为只读独立判据，相关上下文为 test_report_mean.py。"
+            ],
+            "tradeoffs": [
+              "保留 total 作为独立入口而不是改成 summarize 的别名，避免改变既有调用点的返回形态，代价是两处求和语义要在实现时保持一致。",
+              "summarize 返回元组 (总和, 数量) 而非结果对象或可调用迭代器，接口最小、实现最简，代价是后续扩展（如均值）需要再次改动该接口形态。",
+              "render 文本格式固定为 \"total=<总和>; count=<数量>\"，与现有 test_report.py 判据一致，不引入额外分隔、空白或多行结构。",
+              "集成边界放在最终 integration 检查而不是在 REPORT 任务内重复验证，避免同一事实被两处断言，代价是整项验收必须执行一次完整的发现式检查。",
+              "均值在渲染时由 (总和, 数量) 现算并格式化，不扩展 arithmetic.summarize 的返回形态，保持 CORE 的接口与既有原行为证明不变；代价是渲染层多一处格式化逻辑。",
+              "均值格式固定为保留两位小数的 \"mean=<值>\"，与判据 test_report_mean.py 一致；代价是精度被截断到两位小数，需要更高精度的展示不在本轮范围内。"
+            ]
+          },
+          "tasks": [
+            {
+              "acceptance": [
+                "AC-TOTAL",
+                "AC-SUMMARIZE"
+              ],
+              "completion": "arithmetic.py 的 total 行为与重构前完全一致，并新增 summarize(values) 单次遍历返回 (总和, 数量)；original 与 summary 两项检查均通过。",
+              "context_paths": [
+                "test_arithmetic.py",
+                "test_summary.py"
+              ],
+              "dependencies": [],
+              "exclusions": [
+                "不修改 report.py",
+                "不修改任何测试文件",
+                "不实现 include_mean 的可选均值输出",
+                "不改动 total 的签名与返回形态"
+              ],
+              "local_key": "CORE",
+              "pre_refactor": true,
+              "preservation_checks": [
+                "original"
+              ],
+              "preservation_inputs": [
+                "test_arithmetic.py"
+              ],
+              "required_checks": [
+                "original",
+                "summary"
+              ],
+              "scope": [
+                "arithmetic.py"
+              ],
+              "test_decision_refs": [
+                "spec.test_decisions/0",
+                "spec.test_decisions/1"
+              ],
+              "title": "任务一：在 arithmetic.py 提取共享求和接口 summarize，并保持 total 现有行为",
+              "validation": "先用 original 检查（python3 -B -m unittest test_arithmetic -v）在未改动的 arithmetic.py 上证明 total 的现有行为，再改写 arithmetic.py，最后复跑 original 与 summary 检查；判据文件 test_arithmetic.py 与 test_summary.py 全程只读。"
+            },
+            {
+              "acceptance": [
+                "AC-RENDER",
+                "AC-SINGLEPASS",
+                "AC-MEAN"
+              ],
+              "completion": "report.py 以 from arithmetic import summarize 导入共享接口，render(values, include_mean=False) 输出 \"total=<总和>; count=<数量>\" 原文本，include_mean=True 时在同一文本后追加保留两位小数的 \"mean=<均值>\" 字段（数量为 0 时为 0.00）；report 与 mean 两项检查均通过。",
+              "context_paths": [
+                "arithmetic.py",
+                "test_report.py",
+                "test_integration.py",
+                "test_report_mean.py"
+              ],
+              "dependencies": [
+                {
+                  "basis": "REPORT 需要 arithmetic.summarize 这一共享接口已由 CORE 任务独立验收通过并保持可用。",
+                  "condition_kind": "verification_passed",
+                  "upstream_task": "CORE"
+                }
+              ],
+              "exclusions": [
+                "不修改 arithmetic.py",
+                "不修改任何测试文件",
+                "不在 report 内复制求和逻辑",
+                "不改变 render 的签名与 include_mean 的默认值"
+              ],
+              "local_key": "REPORT",
+              "required_checks": [
+                "report",
+                "mean"
+              ],
+              "scope": [
+                "report.py"
+              ],
+              "test_decision_refs": [
+                "spec.test_decisions/2",
+                "spec.test_decisions/3",
+                "spec.test_decisions/5"
+              ],
+              "title": "任务二：改写 report.py，让 render 复用共享 summarize 输出汇总文本",
+              "validation": "在 CORE 任务的独立验收通过后实施 report.py，运行 report 检查（python3 -B -m unittest test_report -v）与 mean 检查（python3 -B -m unittest test_report_mean -v）；跨模块单次调用边界由最终 integration 检查在整项范围判定。"
+            }
+          ],
+          "title": "单次迭代汇总与报告"
+        },
+        "from_revision_id": "0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca",
+        "impact": {
+          "affected_tasks": [
+            "REPORT"
+          ],
+          "basis": "本次修订只新增 include_mean=True 的可选均值语义，落在 REPORT 任务负责的 report.py：AC-MEAN、mean 检查与 test_report_mean.py 上下文都属于 REPORT。CORE 的目标、验收条件、范围、检查、上下文与依赖逐字未变，其 arithmetic.py 实施结果与 total 现有行为的原证明在当前现场仍适用，因此不列为受本次 spec 变化影响的任务。"
+        },
+        "removed": {
+          "acceptance": [],
+          "scope": []
+        },
+        "removed_analysis": [],
+        "removed_spec": {
+          "constraints": [
+            "判据只用已登记的四个检查：original、summary、report、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、discover -v。",
+            "只允许改写 arithmetic.py 与 report.py 两个业务文件；四个测试模块是只读判据。"
+          ],
+          "goals": [
+            "以当前项目六个文件中的四个独立测试模块作为只读判据，核对正数、空输入、负数与一次性迭代器。"
+          ],
+          "non_goals": [
+            "不修改、不新增、不删除任何测试文件；四个测试模块保持原判据只读。",
+            "本轮不实现 include_mean 的可选均值输出，也不定义 include_mean=True 的期望输出。"
+          ]
+        },
+        "removed_tasks": [],
+        "resolved_basis": {
+          "checks": [
+            {
+              "argv": [
+                "python3",
+                "-B",
+                "-m",
+                "unittest",
+                "test_arithmetic",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "original",
+              "timeout": 60
+            },
+            {
+              "argv": [
+                "python3",
+                "-B",
+                "-m",
+                "unittest",
+                "test_summary",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "summary",
+              "timeout": 60
+            },
+            {
+              "argv": [
+                "python3",
+                "-B",
+                "-m",
+                "unittest",
+                "test_report",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "report",
+              "timeout": 60
+            },
+            {
+              "argv": [
+                "python3",
+                "-B",
+                "-m",
+                "unittest",
+                "discover",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "integration",
+              "timeout": 120
+            },
+            {
+              "argv": [
+                "python3",
+                "-B",
+                "-m",
+                "unittest",
+                "test_report_mean",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "mean",
+              "timeout": 60
+            }
+          ],
+          "contexts": {
+            "CORE": {
+              "test_arithmetic.py": "453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4",
+              "test_summary.py": "caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660"
+            },
+            "REPORT": {
+              "test_integration.py": "0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1",
+              "test_report.py": "c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb",
+              "test_report_mean.py": "e70e58869907f3dd52995fee61a2a455a18a0d599bbc6ab283b2eb21b40bc357"
+            }
+          },
+          "scope": {
+            "arithmetic.py": "fb298e22d591b14e8d2b5c5289b378a6eea74c3c158c5a687bb75a9efdbcaf68",
+            "report.py": "e9cd151ea85681d885fde103538c02adcd17566580603416927944fe47571698"
+          }
+        },
+        "rewritten_acceptance": [],
+        "task_definition_digests": {
+          "CORE": "66718e83e91036a4048693f2f3d257f22338ff2ec410f5c9e9c2d290d517d7d6",
+          "REPORT": "2276f7a026cc108a3cdbe2967ddf08daeef18a2596e3583250775a8d3e8eaef9"
+        },
+        "tasks": {
+          "CORE": "same_definition",
+          "REPORT": "changed_or_new"
+        }
+      },
+      "candidate_digest": "7b77bc02394d207b78bf66d5f18babaeb1b6521820342f1d94b8662cb3735f60",
+      "change_id": "238333e5-7b50-4bd6-a5f1-f622ad2ddadc",
+      "committed": true,
+      "operation_id": "41350d59-6ed4-4f4a-a497-8868f02b9c87",
+      "outcome": "scope_confirmation_required",
+      "revision_id": "0da4355e-4fd5-4d3d-be9b-08ddb9b3d5ca",
+      "run_id": "d7e6a30d-87fc-42ff-8dc0-a70f667a1758"
+    },
+    "live_runs": 0,
+    "claims": 0
+  },
+  "continuation_authority": "Actual uniform human authorization plus the original frozen finish_revision user prompt, already specifying acceptance of the exact fixed mean candidate and related former-count wording. No reply is fabricated for AskUserQuestion; no permission setting/guard/transport is weakened and the denied question is not retried.",
+  "observed_limits": "Original raw batch stays stopped/failed at its noninteractive question boundary. Do not relabel its four original parent observations as seven. Continue only the two distinct pre-authorized next cases in a new controlled tail execution; recheck exact candidate and original proof before new model calls."
+}

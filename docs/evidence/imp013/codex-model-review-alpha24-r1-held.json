@@ -1,0 +1,40 @@
+{
+  "slice": "IMP-013",
+  "package_version": "0.1.0-alpha.24",
+  "status": "held_not_passed",
+  "actual_fresh_sessions": 5,
+  "completed_parent_cases": [
+    "seed",
+    "unknown",
+    "reconcile",
+    "compensate"
+  ],
+  "native_parent_failure": {
+    "type": "AssertionError",
+    "message": "Confirmed ended effects remain unresolved"
+  },
+  "case_not_dispatched": [
+    "current_verify"
+  ],
+  "semantic_gate": "not_passed",
+  "actual_native_reason": "Model correctly stopped before reconcile because the controller prompt forbade new backups, but new-epoch first-write automatic protection is required. Repair the controller to prohibit extra manual backup while retaining automatic protection; never disable required protection.",
+  "late_kernel_red": {
+    "log": "capsule-authority-conflict-red-alpha24.txt",
+    "probe": "capsule-authority-conflict-probe-alpha24.json",
+    "actual_failure": "Self-consistent altered protection capsule overrode the available operation source, recording actual19 as succeeded against the approved20; claims were incorrectly released."
+  },
+  "raw_archive": {
+    "path": "codex-model-alpha24-r1-evidence.zip",
+    "sha256": "d57ae6aed697d35e2c381300cce60e201e2d3bd07f016fca688d4a3701aef118",
+    "bytes": 1326955,
+    "files": 321,
+    "skipped_symlinks": [
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0v5xhWa/apply_patch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0v5xhWa/applypatch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0v5xhWa/codex-execve-wrapper"
+    ]
+  },
+  "no_original_failure_overwrite": true,
+  "model_default": "gpt-6-astra",
+  "next": "alpha.25 source/reference fix and clarified exact six-session controlled retest under existing uniform authorization"
+}

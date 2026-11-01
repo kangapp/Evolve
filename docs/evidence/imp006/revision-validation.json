@@ -1,0 +1,75 @@
+{
+  "slice": "IMP-006",
+  "status": "in_progress",
+  "observed_at": "2026-10-31T15:34:51.050092+00:00",
+  "completed_subflow": "REV comparison, exact scope acceptance and provenance-checked applicable result inheritance.",
+  "package_version": "0.1.0-alpha.6",
+  "protocol_version": 5,
+  "schema_version": 1,
+  "source_content_digest": "da27dcfe05ac97e56528ba67879a17ce1d350d3873be4050a4c67a56ace49ec0",
+  "distribution_digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+  "inventory_files": 52,
+  "available_methods": 19,
+  "environment": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "python": "3.11.9",
+    "acceptance_scope": "Current execution environment per actual user instruction; no separate Windows gate."
+  },
+  "full_regression": {
+    "tests": 325,
+    "seconds": 36.741,
+    "passed": true,
+    "raw": "component-tests-revisions-full.txt"
+  },
+  "revision_regression": {
+    "tests": 27,
+    "passed": true,
+    "raw": "component-tests-revisions.txt"
+  },
+  "runtime_cli": {
+    "commands": 20,
+    "checks": 7,
+    "assertions": 15,
+    "passed": true,
+    "summary": "revision-cli-proof.json",
+    "trace": "revision-cli-trace.zip"
+  },
+  "source_inventory_check": "passed",
+  "skill_validation": "evolve-propose quick_validate passed",
+  "package_archive": {
+    "path": "revision-package-alpha6.zip",
+    "sha256": "1e90eddbf4ee6ecf120d7058661c8e2dd4972d3d66df12d1bd54c8eea468874d"
+  },
+  "prior_test_failures": {
+    "raw": "component-tests-revisions-initial.txt",
+    "count": 2,
+    "reason": "Old package capability assertions still listed update.revise as unavailable; expectations changed with the newly implemented method, then full regression passed."
+  },
+  "review": {
+    "observer": "current Codex self-review",
+    "independent_model_review": false,
+    "spec": [
+      "Old Task, REV, source and verification rows remain historical; applicable results reference actual old sources.",
+      "Scope reduction, acceptance rewrite and loss of original diagnostic basis require acceptance of an exact concrete candidate.",
+      "Changed task and upstream semantics reopen affected results; format-only changes preserve accepted meaning.",
+      "Old blocking findings, actual failure-backed repairs, shared-file partial progress and original behavior proof survive valid inheritance.",
+      "Actual metadata crash recovery seals committed facts without repeating checks or allocating tasks again."
+    ],
+    "standards": [
+      "Existing schema v1 tables and owner methods reused; one revisions module, no extra state store or service.",
+      "Protocol v5 isolates writers ignoring revision acceptance; actual alpha.5 writer rejects without database writes.",
+      "Temporary fixtures, complete package relocation and retained original literal tests; no personal configuration, model transport, publication or deployment."
+    ],
+    "remaining": [
+      "Prepare native complex-case runner and concrete expanded authorization scope.",
+      "Obtain actual human scope authorization before new native host model requests.",
+      "Complete both hosts on the exact tested package, fix observed issues and reverify before IMP-006 closure."
+    ]
+  },
+  "milestones": {
+    "M1": "passed_current_environment",
+    "M2": "in_progress",
+    "M3": "not_started"
+  }
+}

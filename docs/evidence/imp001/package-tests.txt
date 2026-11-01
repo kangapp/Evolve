@@ -1,0 +1,25 @@
+test_build_refuses_existing_output_without_destroying_it (test_package.InstalledPackageTests.test_build_refuses_existing_output_without_destroying_it) ... ok
+test_changed_package_schema_is_rejected (test_package.InstalledPackageTests.test_changed_package_schema_is_rejected) ... ok
+test_connected_query_does_not_modify_history (test_package.InstalledPackageTests.test_connected_query_does_not_modify_history) ... ok
+test_default_status_is_read_only_and_unconnected (test_package.InstalledPackageTests.test_default_status_is_read_only_and_unconnected) ... ok
+test_different_project_identity_is_not_overwritten (test_package.InstalledPackageTests.test_different_project_identity_is_not_overwritten) ... ok
+test_direct_skill_owner_cannot_bypass_routing (test_package.InstalledPackageTests.test_direct_skill_owner_cannot_bypass_routing) ... ok
+test_distribution_has_closed_local_links_and_no_project_data (test_package.InstalledPackageTests.test_distribution_has_closed_local_links_and_no_project_data) ... ok
+test_future_write_methods_are_explicitly_unavailable (test_package.InstalledPackageTests.test_future_write_methods_are_explicitly_unavailable) ... ok
+test_inventory_cannot_reference_outside_package (test_package.InstalledPackageTests.test_inventory_cannot_reference_outside_package) ... ok
+test_missing_configuration_does_not_recreate_existing_database (test_package.InstalledPackageTests.test_missing_configuration_does_not_recreate_existing_database) ... ok
+test_missing_runtime_is_diagnosed_without_traceback (test_package.InstalledPackageTests.test_missing_runtime_is_diagnosed_without_traceback) ... ok
+test_missing_shared_resource_is_diagnosed (test_package.InstalledPackageTests.test_missing_shared_resource_is_diagnosed) ... ok
+test_mixed_host_manifest_is_rejected (test_package.InstalledPackageTests.test_mixed_host_manifest_is_rejected) ... ok
+test_moved_complete_package_works_without_download_source (test_package.InstalledPackageTests.test_moved_complete_package_works_without_download_source) ... ok
+test_newer_schema_is_not_migrated (test_package.InstalledPackageTests.test_newer_schema_is_not_migrated) ... ok
+test_project_storage_symlink_escape_is_rejected (test_package.InstalledPackageTests.test_project_storage_symlink_escape_is_rejected) ... ok
+test_standalone_and_plugin_channels_are_diagnosed_without_deletion (test_package.InstalledPackageTests.test_standalone_and_plugin_channels_are_diagnosed_without_deletion) ... ok
+test_unknown_action_and_method_never_fall_back (test_package.InstalledPackageTests.test_unknown_action_and_method_never_fall_back) ... ok
+test_unrelated_same_name_directory_is_not_adopted (test_package.InstalledPackageTests.test_unrelated_same_name_directory_is_not_adopted) ... ok
+test_wal_query_reads_committed_state_without_touching_shared_memory (test_package.InstalledPackageTests.test_wal_query_reads_committed_state_without_touching_shared_memory) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 0.819s
+
+OK

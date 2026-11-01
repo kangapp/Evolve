@@ -1,0 +1,55 @@
+{
+  "slice": "IMP-011",
+  "model_requests_sent": false,
+  "hypotheses_ranked": [
+    "Prepared candidate is first checked against upstream after journal creation",
+    "A partial physical write needs protection",
+    "Another writer owns retained claims"
+  ],
+  "evidence": [
+    {
+      "probe": "candidate-effect preflight",
+      "error": "DEPENDENCY_NOT_READY",
+      "current_operation_claims": 0
+    },
+    {
+      "probe": "install before_write entered",
+      "bytes_and_mtime_unchanged": true
+    },
+    {
+      "probe": "actual caller rejection",
+      "error": "DEPENDENCY_NOT_READY"
+    },
+    {
+      "probe": "all retained protection belongs to the rejected operation",
+      "runs": [
+        {
+          "id": "5c6208b9-7e41-484b-be27-9fd670862abc",
+          "action": "sync",
+          "method": "apply",
+          "status": "started"
+        }
+      ],
+      "operations": [
+        {
+          "id": "21ee9fe2-d73f-44d7-83f5-06d5143642ee",
+          "run_id": "5c6208b9-7e41-484b-be27-9fd670862abc",
+          "state": "needs_recovery",
+          "journal_path": ".evolve-local/control/operations/21ee9fe2-d73f-44d7-83f5-06d5143642ee.json"
+        }
+      ],
+      "claims": [
+        {
+          "operation_id": "21ee9fe2-d73f-44d7-83f5-06d5143642ee",
+          "resource": "change:4d9d0463-cad0-48e6-8be8-9c0a3c7e2863"
+        },
+        {
+          "operation_id": "21ee9fe2-d73f-44d7-83f5-06d5143642ee",
+          "resource": "file:/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-workflow-test-32r4um6b/terms.md"
+        }
+      ],
+      "bytes_and_mtime_unchanged": true
+    }
+  ],
+  "conclusion": "Same candidate/upstream conflict is detectable before claim or journal; actual install before_write rejects with untouched bytes/mtime; only this rejected operation remains pending."
+}

@@ -1,0 +1,14 @@
+test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted (test_model_complex_acceptance.ComplexModelParentTests.test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted) ... FAIL
+
+======================================================================
+FAIL: test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted (test_model_complex_acceptance.ComplexModelParentTests.test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-old-context-runtime-tg14nfix/project/tests/test_model_complex_acceptance.py", line 181, in test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted
+    self.assertTrue(self.rows("SELECT * FROM source_runs WHERE run_id=? AND source_run_id=? AND purpose='normal_continuation'",
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.336s
+
+FAILED (failures=1)

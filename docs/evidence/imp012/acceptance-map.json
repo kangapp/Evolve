@@ -1,0 +1,305 @@
+{
+  "slice": "IMP-012",
+  "scope": "Current environment/Codex; current applicable recovery branches only",
+  "assertions": [
+    "V-013",
+    "V-015",
+    "V-033",
+    "V-034",
+    "V-035",
+    "V-102",
+    "V-105",
+    "V-106",
+    "V-113",
+    "V-114"
+  ],
+  "rows": [
+    {
+      "assertion": "V-013",
+      "test": "test_archive_sets.ArchiveSetTests.test_consistent_authority_and_external_appendix_never_include_business_code",
+      "source": "tests/test_archive_sets.py",
+      "line": 48,
+      "source_sha256": "2555e0657e35c952fa90e9025d0effee6b09f1b77f159df6b740e4d604091019",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "c8eb0e97923d29dcf87cada83f58ef651f41832f90112f84178f36b1d5efe3c0"
+    },
+    {
+      "assertion": "V-013",
+      "test": "test_maintenance.MaintenanceTests.test_corrupt_restore_protects_raw_database_sidecar_extra_managed_and_unknown_files",
+      "source": "tests/test_maintenance.py",
+      "line": 74,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "ccdb5159bb33c51004af71290e634d5f90115528a3bb181733504fa0a50add79"
+    },
+    {
+      "assertion": "V-013",
+      "test": "test_archive_sets.ArchiveSetTests.test_paths_and_links_are_rejected_even_with_a_recomputed_manifest_digest",
+      "source": "tests/test_archive_sets.py",
+      "line": 147,
+      "source_sha256": "2555e0657e35c952fa90e9025d0effee6b09f1b77f159df6b740e4d604091019",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "dfb86ff13e60055d1aa5e6c20130b5529bed451aafc44e22dbf6b3170290621e"
+    },
+    {
+      "assertion": "V-015",
+      "test": "test_maintenance.MaintenanceTests.test_actual_divergent_archives_keep_both_branches_and_restore_only_the_selected_one",
+      "source": "tests/test_maintenance.py",
+      "line": 318,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "ba2cae5051cd4b5a4bb8640b43b7d0a8172f46381cfca8959688dd80942cd575"
+    },
+    {
+      "assertion": "V-015",
+      "test": "test_store.PersistenceTests.test_restoring_an_older_database_cannot_silently_reuse_newer_guard",
+      "source": "tests/test_store.py",
+      "line": 97,
+      "source_sha256": "46e8d5eb57601c3950c4d7591ec744dc1cf6e7f8a8739690580af871039cb183",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "a06de762dd9d6d71f63975ad83a6268e567df3b617c9d6b124a3e5bd3807803c"
+    },
+    {
+      "assertion": "V-033",
+      "test": "test_maintenance.MaintenanceTests.test_actual_abrupt_exit_at_every_swap_boundary_resumes_same_request",
+      "source": "tests/test_maintenance.py",
+      "line": 246,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "8c2008d685f33bcd95ae4404c0104bb475133aa3f4e12d1199204470669096af"
+    },
+    {
+      "assertion": "V-033",
+      "test": "test_maintenance.MaintenanceTests.test_changed_swap_journal_cannot_expand_the_presented_restore_collection",
+      "source": "tests/test_maintenance.py",
+      "line": 277,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "af8f6ccb317df97fa3ed252e3ec873c9db16c290aaab9ac8b60c75025ab9c66c"
+    },
+    {
+      "assertion": "V-034",
+      "test": "test_maintenance.MaintenanceTests.test_corrupt_restore_protects_raw_database_sidecar_extra_managed_and_unknown_files",
+      "source": "tests/test_maintenance.py",
+      "line": 74,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "ccdb5159bb33c51004af71290e634d5f90115528a3bb181733504fa0a50add79"
+    },
+    {
+      "assertion": "V-034",
+      "test": "test_maintenance.MaintenanceTests.test_inconsistent_protection_and_capacity_do_not_touch_original",
+      "source": "tests/test_maintenance.py",
+      "line": 195,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "0ff8bd0a01514de5264b0959bcf79946bcf604b1d67919b5aa50e10b93667d3e"
+    },
+    {
+      "assertion": "V-035",
+      "test": "test_maintenance.MaintenanceTests.test_manual_backup_does_not_trigger_another_full_daily_backup",
+      "source": "tests/test_maintenance.py",
+      "line": 377,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "fb0e3ea1f8937d459fdbcb46f4d62dd03a08e46c61d236a372ecb535b170089f"
+    },
+    {
+      "assertion": "V-035",
+      "test": "test_backup.ProtectionTests.test_backup_precedes_new_run_and_matches_its_own_checkpoint",
+      "source": "tests/test_backup.py",
+      "line": 33,
+      "source_sha256": "667e301d6a79954053c04f89f284fc6ae33463883f84470866c5c4826fd9e27a",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "bd135e6102fedc41303f908b6762a8f0995277a139b7442fbd09f1f56a08f486"
+    },
+    {
+      "assertion": "V-035",
+      "test": "test_backup.ProtectionTests.test_daily_backup_is_reused_without_recursive_growth",
+      "source": "tests/test_backup.py",
+      "line": 48,
+      "source_sha256": "667e301d6a79954053c04f89f284fc6ae33463883f84470866c5c4826fd9e27a",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "665cb74b4e436288121b8141b976270cf5f46f72a58a8a6fff2d9d986c27d9d6"
+    },
+    {
+      "assertion": "V-102",
+      "test": "test_archive_sets.ArchiveSetTests.test_pending_file_journal_and_capacity_fail_before_collection",
+      "source": "tests/test_archive_sets.py",
+      "line": 88,
+      "source_sha256": "2555e0657e35c952fa90e9025d0effee6b09f1b77f159df6b740e4d604091019",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "44741e13e11d56631351be6e44c70f17f0d98b8c999748151ae21c26d9ef902e"
+    },
+    {
+      "assertion": "V-102",
+      "test": "test_maintenance.MaintenanceTests.test_manual_backup_retry_and_next_write_after_restore_keep_old_daily_points",
+      "source": "tests/test_maintenance.py",
+      "line": 388,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "e185eb925c965c38b3bd48bdc93ca0c61d0bac53a4d36d8572e3b3ca587a91aa"
+    },
+    {
+      "assertion": "V-105",
+      "test": "test_maintenance.MaintenanceTests.test_external_running_reference_survives_older_archive_as_unknown",
+      "source": "tests/test_maintenance.py",
+      "line": 171,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "31b36f2c4aed8e5952459198b3f42989afd53b1ca68d685ee017c80c3595ffbe"
+    },
+    {
+      "assertion": "V-105",
+      "test": "test_maintenance.MaintenanceTests.test_missing_external_index_remains_unverified_not_empty_safe",
+      "source": "tests/test_maintenance.py",
+      "line": 187,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "b8964b862fc703aa51fdc68be17fc8cd4f1a434c58a2004e5f4d575fbbb01655"
+    },
+    {
+      "assertion": "V-106",
+      "test": "test_maintenance.MaintenanceTests.test_corrupt_restore_protects_raw_database_sidecar_extra_managed_and_unknown_files",
+      "source": "tests/test_maintenance.py",
+      "line": 74,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "ccdb5159bb33c51004af71290e634d5f90115528a3bb181733504fa0a50add79"
+    },
+    {
+      "assertion": "V-106",
+      "test": "test_maintenance.MaintenanceTests.test_plan_binds_bytes_selected_package_and_preserves_unregistered_collision",
+      "source": "tests/test_maintenance.py",
+      "line": 112,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "98322e8a081b38d9a0c0900dfd2b26db38cb4ebfeec4a72937931c0a2de6b5f2"
+    },
+    {
+      "assertion": "V-113",
+      "test": "test_maintenance.MaintenanceTests.test_held_old_sqlite_connection_and_real_old_writer_block_swap",
+      "source": "tests/test_maintenance.py",
+      "line": 129,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "cca315a7643f589bc113481486c4867941f1fd6d0fe57a4e2ccf4e74c1b55cb2"
+    },
+    {
+      "assertion": "V-113",
+      "test": "test_maintenance.MaintenanceTests.test_unknown_check_launch_needs_specific_observation_and_real_group_must_end",
+      "source": "tests/test_maintenance.py",
+      "line": 151,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "3015230b69517e284e9ffe68b5e623a3f4c11941d01c8a71b5fc43f5c43d1ffe"
+    },
+    {
+      "assertion": "V-113",
+      "test": "test_maintenance.MaintenanceTests.test_unknown_launch_observation_is_bound_and_missing_check_index_is_not_safe",
+      "source": "tests/test_maintenance.py",
+      "line": 293,
+      "source_sha256": "6904a7b9bb55c59fb14556df2bbc84cb154a449358c614b4411398b6894eef4c",
+      "actual_pass_logs": [
+        "maintenance-final-supplement-alpha23.txt"
+      ],
+      "method_source_sha256": "e16ff2ec24831a949cb0d6434fc01f814ab0a2f95aa3f26e039bfe4b715d44e4"
+    },
+    {
+      "assertion": "V-114",
+      "test": "test_archive_sets.ArchiveSetTests.test_actual_document_change_after_database_snapshot_refuses_complete_archive",
+      "source": "tests/test_archive_sets.py",
+      "line": 64,
+      "source_sha256": "2555e0657e35c952fa90e9025d0effee6b09f1b77f159df6b740e4d604091019",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "4d17ee9c18740f09350f761944c225df2016a978c35ce0784834634b0db05bb9"
+    },
+    {
+      "assertion": "V-114",
+      "test": "test_archive_sets.ArchiveSetTests.test_required_blob_damage_is_not_a_complete_backup",
+      "source": "tests/test_archive_sets.py",
+      "line": 80,
+      "source_sha256": "2555e0657e35c952fa90e9025d0effee6b09f1b77f159df6b740e4d604091019",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "1a20d6f17679594c636da63a12f9d7f3dbcde696bf84392b5b2846ffb0c6f7c1"
+    },
+    {
+      "assertion": "V-114",
+      "test": "test_backup.ProtectionTests.test_reusing_daily_backup_still_checks_for_a_new_pending_operation",
+      "source": "tests/test_backup.py",
+      "line": 73,
+      "source_sha256": "667e301d6a79954053c04f89f284fc6ae33463883f84470866c5c4826fd9e27a",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "a1ed12556998820c05c5bb0f4f30acff91b16af079aff5b53ab3c69af99976a6"
+    },
+    {
+      "assertion": "V-114",
+      "test": "test_archive_sets.ArchiveSetTests.test_missing_current_version_is_not_silently_omitted_from_authority",
+      "source": "tests/test_archive_sets.py",
+      "line": 106,
+      "source_sha256": "2555e0657e35c952fa90e9025d0effee6b09f1b77f159df6b740e4d604091019",
+      "actual_pass_logs": [
+        "component-tests-alpha23.txt"
+      ],
+      "method_source_sha256": "53d0b8ddf991e65a85d34affec3f42ee682ae9026493d31afcfc535aa38bcd07"
+    }
+  ],
+  "limitations": [
+    "V-105 controlled pending-reference preservation only, no actual external dispatch; actual target behavior remains IMP-013.",
+    "V-113 local writer/check/SQLite drain and crash recovery; actual dispatch admission competition remains IMP-013.",
+    "No Windows requirement; actual current environment only.",
+    "Native four-session representative composition and primary semantic review passed; not a claim of actual external dispatch or full-project completion."
+  ],
+  "native": {
+    "status": "passed-current-Codex-scope",
+    "review": "codex-model-review-alpha23-r1.json",
+    "sessions": 4,
+    "commands": 51
+  }
+}

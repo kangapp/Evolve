@@ -1,0 +1,8 @@
+test_batch_approval_does_not_bypass_cross_change_application_condition (test_cross_formal_dependencies.CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition) ... ok
+test_external_formal_edit_stops_only_related_b_and_keeps_approval (test_cross_formal_dependencies.CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval) ... ok
+test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.089s
+
+OK

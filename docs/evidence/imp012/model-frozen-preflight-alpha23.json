@@ -1,0 +1,74 @@
+{
+  "model_requests_sent": false,
+  "expanded_scope": {
+    "slice": "IMP-012",
+    "host": "codex",
+    "package_version": "0.1.0-alpha.23",
+    "content_digest": "9ef5c0d8ba30902c2225661cb7fa22e9fbcd979240d000fdb23940fcf26cb2a1",
+    "protocol_version": 15,
+    "schema_version": 4,
+    "first_files": {
+      "total.py": "def total(values):\n    return len(values)\n",
+      "test_total.py": "import unittest\nfrom total import total\nclass TotalTests(unittest.TestCase):\n    def test_literals(self):\n        self.assertEqual(total([2,3]),5)\n        self.assertEqual(total([]),0)\n        self.assertEqual(total([-2,3]),1)\n"
+    },
+    "checks": [
+      {
+        "id": "total",
+        "argv": [
+          "python3",
+          "-B",
+          "-m",
+          "unittest",
+          "test_total"
+        ],
+        "cwd": ".",
+        "timeout": 30
+      }
+    ],
+    "business_write_paths": [
+      "total.py"
+    ],
+    "readonly_paths": [
+      "test_total.py"
+    ],
+    "cases": {
+      "seed": "在本临时项目使用 Evolve 接入，只登记下面的固定 total 检查。呈现并保存短方案“Restore fixture total”，scope 仅 total.py，必需 total，AC 为原三个列表字面量 5／0／1；已统一授权完整实施验证，具体接受本方案后仅经 apply 把 len 修为整数求和，真实检查及逐 AC／规格和规范双轴验收通过后 archive。保留 test_total.py 原字节，不补测试。再仅以 init.baseline.propose／baseline.apply 初次建立 terms.md，expected_digest=null，实际完整呈现并按本次准确批准登记：\n# Recovery terms\n\nTotal means integer sum. Archive recovery never restores business code or data.\n\n该临时正文已由实际统一验收授权及本准确夹具具体批准，不另问用户。最后 maintain.backup，保存完整目录／manifest_digest／checkpoint 回执；不手写数据库或恢复控制材料，不执行外部业务。\n固定检查：[{\"id\": \"total\", \"argv\": [\"python3\", \"-B\", \"-m\", \"unittest\", \"test_total\"], \"cwd\": \".\", \"timeout\": 30}]",
+      "later": "不修改业务文件／测试／terms.md，也不新增备份。仅以 Evolve init 的初次基线提案和应用，建立 later.md，expected_digest=null，实际呈现下面完整正文，并按本次准确临时批准应用：\n# Later fact\n\nThis separately approved temporary document was registered after the selected backup.\n\n该临时全文已由统一验收授权及本准确夹具具体批准，不另问。说明它晚于给定选中备份，不伪称已在该包。保持原封存与历史。",
+      "restore": "控制侧已真实损坏当前 history.db／sidecar，将 terms.md 追加固定未批准字节，把 total.py 手改回 len 错误，并创建 unknown.md 未登记用户文件及一条仅受控引用的外部 running 保护。现在只恢复给定准确旧备份，已授权该具体档案恢复与 later.md 的保护隔离。读 evolve-maintain 和 shared/recovery.md，损坏库不重跑 init／改 DB／删屏障，也不因 status 不可读停止在建议。用 maintain.restore stage=plan 展示实际集合／当前字节和差异，再以准确 plan_id／plan_digest 执行 apply。调用前保存完整唯一 request_id、项目／原 epoch／真实授权，恢复未知结果只用原请求。原损坏 DB／sidecar、未批准 Terms 和包外 later.md 必须保护；未知用户文件留原位。不运行检查、不修复或回退 total.py／测试，不重放业务或把历史 passed 当当前通过。外部引用只是保护演练，不发生派发，恢复后仍需核实。",
+      "current_verify": "恢复已完成。本轮只验收原封存“Restore fixture total”的当前业务现场：total.py 已被控制侧改为 len，恢复不还原源码。按原三个字面量及原 total 检查真实运行 verify.run，逐 AC 和双轴观察如实保存 failed／blocked，保留原历史 passed／封存截点。不修业务／测试，不重开、不应用或批准新知识；terms.md 应为选中旧批准版本，later.md 已在保护隔离，unknown.md 原位。说明当前差异、旧请求不能重放、新 epoch 与外部未决仍需核实，不能称当前业务已通过。"
+    },
+    "maximum_sessions": 4,
+    "fresh_conversation_per_case": true,
+    "formal_decisions": {
+      "terms.md": "# Recovery terms\n\nTotal means integer sum. Archive recovery never restores business code or data.\n",
+      "later.md": "# Later fact\n\nThis separately approved temporary document was registered after the selected backup.\n",
+      "scope": "Exact temporary initial baselines only; later restore returns Terms and protects/quarantines Later."
+    },
+    "parent_mutations": {
+      "before_restore": {
+        "total.py": "def total(values):\n    return len(values)\n",
+        "terms.md": "# Recovery terms\n\nTotal means integer sum. Archive recovery never restores business code or data.\n\nUnapproved external note before archive damage.\n",
+        "unknown.md": "An unregistered user file must remain in place.\n",
+        "history.db": "actual invalid SQLite bytes; original recorded before damage",
+        "history.db-wal": "actual invalid sidecar bytes",
+        "external": "one fixed pending reference; no actual dispatch"
+      }
+    },
+    "model_selection": "actual model/list isDefault; no model replacement",
+    "authorization_limits": [
+      "Uniform actual human continuation authorization; controlled temporary project only.",
+      "Only total.py may change through seed apply; test_total.py stays read-only. Exact temporary Terms/Later initial approvals are listed above.",
+      "Restore manages archive/control/approved documents only; preserve all current business bytes and unknown files.",
+      "No Claude, personal config/credentials, nested agents, CI/hook, production/external dispatch, publication or deployment.",
+      "Permission/quota/transport or parent failure stops the host; same-scope repairs/retests keep failed evidence."
+    ],
+    "runner_files": {
+      "scripts/model_recovery_acceptance.py": "16a6a8ee373bd4c7d119dbb758b235141822e4701aa9e28c9dc9e705bf1096c9",
+      "scripts/model_recovery_checks.py": "f5b9bad4d17e9486480dc2c4b8e07a1412917680296bad2bd538f4ef6ab900e6",
+      "scripts/model_data_acceptance.py": "834e63a26bbd5322ccfce0274cc966e4a25b5d8ea4d105a4cd40095b993740e4",
+      "scripts/model_acceptance.py": "b62690921e8284de585de819068d668653a9d316777f319a655d277cda6fe2aa",
+      "scripts/verify_hosts.py": "79fe75b4083e072db91387a5fe3155c2a9301a0069c0b5ac0c9721231d243af0"
+    },
+    "scope_digest": "85f5956d1154e7f5cc1c16e11283b3d13c998dcac8d3a57786278efc098edfff"
+  }
+}

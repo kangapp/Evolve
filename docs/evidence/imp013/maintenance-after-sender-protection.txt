@@ -1,0 +1,45 @@
+test_actual_abrupt_exit_at_every_swap_boundary_resumes_same_request (test_maintenance.MaintenanceTests.test_actual_abrupt_exit_at_every_swap_boundary_resumes_same_request) ... ok
+test_actual_divergent_archives_keep_both_branches_and_restore_only_the_selected_one (test_maintenance.MaintenanceTests.test_actual_divergent_archives_keep_both_branches_and_restore_only_the_selected_one) ... ok
+test_an_actual_other_project_archive_cannot_replace_this_history (test_maintenance.MaintenanceTests.test_an_actual_other_project_archive_cannot_replace_this_history) ... ok
+test_archive_database_changed_after_validation_is_not_installed (test_maintenance.MaintenanceTests.test_archive_database_changed_after_validation_is_not_installed) ... ok
+test_changed_swap_journal_cannot_expand_the_presented_restore_collection (test_maintenance.MaintenanceTests.test_changed_swap_journal_cannot_expand_the_presented_restore_collection) ... ok
+test_corrupt_restore_protects_raw_database_sidecar_extra_managed_and_unknown_files (test_maintenance.MaintenanceTests.test_corrupt_restore_protects_raw_database_sidecar_extra_managed_and_unknown_files) ... ok
+test_explicit_protocol_upgrade_changes_epoch_and_preserves_history (test_maintenance.MaintenanceTests.test_explicit_protocol_upgrade_changes_epoch_and_preserves_history) ... ok
+test_external_running_reference_survives_older_archive_as_unknown (test_maintenance.MaintenanceTests.test_external_running_reference_survives_older_archive_as_unknown) ... ok
+test_held_old_sqlite_connection_and_real_old_writer_block_swap (test_maintenance.MaintenanceTests.test_held_old_sqlite_connection_and_real_old_writer_block_swap) ... ok
+test_inconsistent_protection_and_capacity_do_not_touch_original (test_maintenance.MaintenanceTests.test_inconsistent_protection_and_capacity_do_not_touch_original) ... ok
+test_manual_backup_does_not_trigger_another_full_daily_backup (test_maintenance.MaintenanceTests.test_manual_backup_does_not_trigger_another_full_daily_backup) ... ok
+test_manual_backup_retry_and_next_write_after_restore_keep_old_daily_points (test_maintenance.MaintenanceTests.test_manual_backup_retry_and_next_write_after_restore_keep_old_daily_points) ... ok
+test_missing_external_index_remains_unverified_not_empty_safe (test_maintenance.MaintenanceTests.test_missing_external_index_remains_unverified_not_empty_safe) ... ERROR
+test_plan_binds_bytes_selected_package_and_preserves_unregistered_collision (test_maintenance.MaintenanceTests.test_plan_binds_bytes_selected_package_and_preserves_unregistered_collision) ... ok
+test_third_party_value_after_partial_swap_is_preserved_with_barrier (test_maintenance.MaintenanceTests.test_third_party_value_after_partial_swap_is_preserved_with_barrier) ... ok
+test_unknown_check_launch_needs_specific_observation_and_real_group_must_end (test_maintenance.MaintenanceTests.test_unknown_check_launch_needs_specific_observation_and_real_group_must_end) ... ok
+test_unknown_launch_observation_is_bound_and_missing_check_index_is_not_safe (test_maintenance.MaintenanceTests.test_unknown_launch_observation_is_bound_and_missing_check_index_is_not_safe) ... ok
+
+======================================================================
+ERROR: test_missing_external_index_remains_unverified_not_empty_safe (test_maintenance.MaintenanceTests.test_missing_external_index_remains_unverified_not_empty_safe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_maintenance.py", line 191, in test_missing_external_index_remains_unverified_not_empty_safe
+    result = maintenance.restore(self.root, self.apply(self.plan(saved)))
+                                                       ^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_maintenance.py", line 59, in plan
+    return maintenance.restore(self.root, self.request({'stage': 'plan', 'bundle': saved['path'],
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 503, in restore
+    return maintenance(root, payload, method='restore')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 485, in maintenance
+    plan = prepare(root, request, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 187, in prepare
+    external = external_protection(root, guard['project_id'], protocol_version=index.get('protocol_version'))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 79, in external_protection
+    raise EvolveError('EXTERNAL_PROTECTION_UNKNOWN', 'Actual protocol-16 sender protection is missing; absence cannot establish drainage', exit_code=4)
+evolve_core.errors.EvolveError: Actual protocol-16 sender protection is missing; absence cannot establish drainage
+
+----------------------------------------------------------------------
+Ran 17 tests in 14.847s
+
+FAILED (errors=1)

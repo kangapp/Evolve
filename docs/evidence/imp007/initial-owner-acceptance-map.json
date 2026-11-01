@@ -1,0 +1,26 @@
+{
+  "scope": "Controlled tool/CLI branches; no whole V identifier marked passed.",
+  "evidence": "initial-owner-validation.json",
+  "branches": {
+    "V-011": {
+      "verified": "Actual init/sync ownership, competing first-authority candidates, legacy stale initial rejection and exact formal application sources.",
+      "remaining": "Learn and native semantics."
+    },
+    "V-038": {
+      "verified": "Each specifically approved owner result is applied once; initial approval is retained while a later independent actual sync candidate is decided.",
+      "remaining": "Learn subsets and native interpretation."
+    },
+    "V-092": {
+      "verified": "Required initial actual application and target verification precede closure; no candidate-only completion.",
+      "remaining": "Rule owner and native integration."
+    },
+    "V-111": {
+      "verified": "Required initial simple Task and required complex init/sync Tasks, actual outputs, fresh Task acceptance and whole archive.",
+      "remaining": "Learn required delivery."
+    },
+    "V-119": {
+      "verified": "Sequential actual init and sync owners deliver disjoint declared meanings in one file, retaining initial decision and later actual Task verification.",
+      "remaining": "Learn owner and original same-base cross-owner combinations; native semantic review."
+    }
+  }
+}

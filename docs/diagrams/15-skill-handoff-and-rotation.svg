@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1099" viewBox="0 0 1440 1099" role="img" aria-labelledby="title desc">
+<title id="title">统一执行与结果承接</title><desc id="desc">一个 run 保存输入核查和封存结果，无独立交接回执</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#235da8"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#176c61"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94520b"/></marker>
+<marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a33342"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52647b"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}path,line,rect{vector-effect:non-scaling-stroke}</style>
+<rect width="1440" height="1099" fill="#ffffff"/>
+<text x="44" y="45" fill="#235da8" font-size="15" font-weight="600" text-anchor="start">EVOLVE / 15</text>
+<text x="44" y="90" fill="#172b46" font-size="32" font-weight="600" text-anchor="start">统一执行与结果承接</text>
+<text x="44" y="124" fill="#52647b" font-size="18" font-weight="400" text-anchor="start">一个 run 保存输入核查和封存结果，无独立交接回执</text>
+<line x1="44" y1="146" x2="1396" y2="146" stroke="#bac8d8" stroke-width="1.7"/>
+<rect x="12.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="112.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">负责 Skill</text>
+<line x1="112.0" y1="247" x2="112.0" y2="1008" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="417.33333333333326" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="517.3333333333333" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">共享内核</text>
+<line x1="517.3333333333333" y1="247" x2="517.3333333333333" y2="1008" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="822.6666666666666" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="922.6666666666666" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">历史／证据</text>
+<line x1="922.6666666666666" y1="247" x2="922.6666666666666" y2="1008" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="1228.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="1328.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">后继 Skill</text>
+<line x1="1328.0" y1="247" x2="1328.0" y2="1008" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<g data-box="126.0,265,377.33333333333326,65">
+<rect x="126.0" y="265" width="377.33333333333326" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="287" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">01  prepare 规范动作、范围、来源</text>
+<text x="314.66666666666663" y="315" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">及授权</text>
+</g>
+<line x1="112.0" y1="337" x2="517.3333333333333" y2="337" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,360,377.33333333333337,65">
+<rect x="531.3333333333333" y="360" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="382" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">02  start 短事务核版本／epoch，建</text>
+<text x="720.0" y="410" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">立 run</text>
+</g>
+<line x1="517.3333333333333" y1="432" x2="922.6666666666666" y2="432" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="126.0,455,377.33333333333326,65">
+<rect x="126.0" y="455" width="377.33333333333326" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="477" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">03  execute 按稳定 operation 保</text>
+<text x="314.66666666666663" y="505" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">存实际进度</text>
+</g>
+<line x1="112.0" y1="527" x2="517.3333333333333" y2="527" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,550,377.33333333333337,37">
+<rect x="531.3333333333333" y="550" width="377.33333333333337" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="572" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">04  finish 提交结果与摘要</text>
+</g>
+<line x1="517.3333333333333" y1="594" x2="922.6666666666666" y2="594" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="936.6666666666665,617,377.33333333333337,37">
+<rect x="936.6666666666665" y="617" width="377.33333333333337" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="1125.3333333333333" y="639" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">05  source_runs 引用原封存结果</text>
+</g>
+<line x1="922.6666666666666" y1="661" x2="1328.0" y2="661" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="562.6666666666666,684,720,37">
+<rect x="562.6666666666666" y="684" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="706" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">06  重核当前语义、范围和后续纠正</text>
+</g>
+<line x1="1328.0" y1="728" x2="517.3333333333333" y2="728" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="48,751,1344,60">
+<rect x="48" y="751" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="783" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">同请求重试返回原事实；终态 run 不重开；旧 epoch 不重放</text>
+</g>
+<g data-box="48,831,1344,60">
+<rect x="48" y="831" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="863" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">present 需要报告才调用独立 export；视图失败不重做业务</text>
+</g>
+<g data-box="48,911,1344,60">
+<rect x="48" y="911" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="943" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">本轮 partial 可正常 finish；外部 unknown 占用独立保留；档案维护前排空本地写者</text>
+</g>
+<line x1="44" y1="1028" x2="1396" y2="1028" stroke="#bac8d8" stroke-width="1.7"/>
+<text x="44" y="1055" fill="#52647b" font-size="15" font-weight="400" text-anchor="start">设计 0.6.2 · Evolve / 八个 Skill / 尚未实现 · 2026-10-31</text>
+<text x="1396" y="1055" fill="#52647b" font-size="15" font-weight="400" text-anchor="end">实线：请求/操作   虚线：返回/条件路径   编号：图内顺序</text>
+</svg>

@@ -1,0 +1,50 @@
+[
+  {
+    "skill": "evolve-apply",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-archive",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-init",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-learn",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-maintain",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-propose",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-verify",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  },
+  {
+    "skill": "evolve-workflow",
+    "exit_code": 0,
+    "stdout": "Skill is valid!\n",
+    "stderr": ""
+  }
+]

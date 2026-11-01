@@ -1,0 +1,9 @@
+{
+  "status": "old_candidate_claude_batch_stopped_for_actual_guide_correction",
+  "reason": "Native Codex exposed missing empty-files business authorization instructions; exhaustive actual guide audit found outdated available-capability statements. Preserve old candidate and partial actual Claude work; run a new complete corrected package in a new lab under same scope. This is a controller-requested stop, not quota/permission recovery or a silent retry.",
+  "old_package_digest": "08b5e05611e0881814748844e99364c8da1e5121fd9a507b112ee4b5f6d45258",
+  "claude_owned_sender_pids": [
+    28098
+  ],
+  "model_replacement": false
+}

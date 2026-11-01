@@ -1,0 +1,358 @@
+{
+  "host": "codex",
+  "run": "alpha14-r1",
+  "observed_at": "2026-10-31T19:13:06.843249+00:00",
+  "status": "passed_current_host_scope",
+  "passed": true,
+  "native_model": "gpt-6-astra",
+  "selection_basis": "Actual account model/list isDefault; seven fresh native conversations, no arbitrary model override.",
+  "package_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "frozen_scope_digest": "6c6c33527b2a01f7bb40a690ac746bb4ef1e882769e65382d8767e9db354ef0a",
+  "controller_archive": "model-runner-alpha14.zip",
+  "controller_sha256": "d92e670ae98806077babffcf155d9e3408a17ccc5dc87323c0874b6e46bef2c3",
+  "controller_exit_code": 0,
+  "cases": [
+    {
+      "case": "propose",
+      "thread_id": "01a19355-af32-7153-81e2-e5cd9dcff889",
+      "turn_id": "01a19355-afa5-7d12-9145-bb4d2c4cefce",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已完成 Evolve 接入、六文件全局梳理，并保存完整复杂方案 `CHG-20261031-96790da8`（REV 1）。\n\n- 方案未接受，CORE、REPORT 均未实施。\n- CORE 原行为证明仅使用 `original`；REPORT 依赖 CORE 独立验收通过。\n- 四项检查已登记，已声明 `broad_migration` 和最终集成边界。\n- 当前只读检查：`original` 通过；其余因尚未实现而失败，不代表任务验收。\n- 未修改业务或测试，未批准正式知识，未实现均值。",
+      "reviewed": true
+    },
+    {
+      "case": "refactor_pause",
+      "thread_id": "01a19356-a244-7cc2-839b-758eb6ad46f7",
+      "turn_id": "01a19356-a29d-7670-b270-f3a6b5e88298",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已恢复并呈现存档方案原文，按本轮授权完成 CORE 文件段并正常暂停。\n\n- 原 `total` 前证明已真实通过并保留。\n- `arithmetic.py` 新增单次遍历的 `summarize`；`total` 保持不变。\n- `report.py` 和全部测试字节未变。\n- CORE 保持 `in_progress`，证明状态为 `pending_after`；未运行后检查、未验收或封存。\n- 后续原范围授权完整保存；经验复盘仍为 `pending`。\n\n暂停记录：`1e5cb6ec-e282-4f81-bd5c-4c24e29a67d5`。",
+      "reviewed": true
+    },
+    {
+      "case": "cosmetic_revision",
+      "thread_id": "01a19357-6e3b-7402-ac9c-dbefb34c8a36",
+      "turn_id": "01a19357-6e80-7021-95ec-ccf3d7fa8f31",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 保存 **REV 2**，沿用原已接受依据。\n\n- 方案标题：**单次迭代汇总与报告**\n- plan 摘要已明确任务顺序与验收关系。\n- CORE：**保持原求和行为，新增单次遍历汇总**\n- REPORT：**调用共享汇总，生成总和与数量报告**\n\n只读核对确认仅上述四处字段变化，其余内容保持。部分进度、原授权及原行为证明均已保留；CORE 仍进行中，REPORT 仍等待依赖验收。\n\n本轮未实施、未运行检查，业务和测试文件未变。",
+      "reviewed": true
+    },
+    {
+      "case": "continue",
+      "thread_id": "01a19357-eccf-74e2-baf4-84ce2ca08ed2",
+      "turn_id": "01a19357-ed15-7a33-b708-99938a6af41b",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已完成整体验收并停止。\n\n- CORE 沿原暂停来源续接，复用原前证明；后检查及独立任务验收通过。\n- REPORT 已实现共享 `summarize` 单次调用，任务检查及独立验收通过。\n- 最终 integration、四项 AC、规格／规范自审全部通过，无未解决发现。\n- 四个原测试与正式知识未修改。\n\n整体验收记录：`75d44fe8-c1a6-473b-b2df-0e183f357838`。\n\n工作项保持 `active`，两个任务均为 `done`；未封存、提交、发布或部署。",
+      "reviewed": true
+    },
+    {
+      "case": "local_revision",
+      "thread_id": "01a19358-d81b-7761-98cd-1d5731f860b7",
+      "turn_id": "01a19358-d865-72a1-bcb9-2caf662bf7cb",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已完整呈现并通过 Evolve 保存**待批准候选**，结果为 `scope_confirmation_required`，**未生成新 REV，旧 REV 仍生效**。\n\n- 原四项 AC 保留，新增 `MEAN`；REPORT 承担均值成果，要求 `report`、`mean` 检查，最终 discover 全部测试。\n- CORE 定义不变；旧任务结果、整体验收与原证明保留，不冒充新增语义已通过。\n- `mean` 检查已增量登记；未修改业务或测试，未运行检查、接受方案或封存。\n- 候选保存记录：`259d8b99-d82c-4ccb-bd88-b2a1594cb36a`。\n\n确认门槛来自 Evolve 的 [REV 协议](.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/shared/structured-plans.md#revision)：替换旧“暂不实现均值”等 spec 描述须确认。本轮按要求停在候选状态，未绕过确认。",
+      "reviewed": true
+    },
+    {
+      "case": "finish_revision",
+      "thread_id": "01a1935a-2cb6-7580-ab4d-a54cb1273177",
+      "turn_id": "01a1935a-2cfa-72f0-9331-7ce23d3083fd",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 完成 REV-3 接受、实施及封存。\n\n- 仅修改 `report.py`：可选均值固定两位小数，空输入为 `0.00`；默认／False 行为不变。\n- `arithmetic.py`、全部五个测试保持原字节，CORE 结果与原证明已复用。\n- original、summary、report、mean、最终 integration 全部通过；五项 AC 及规格／规范自审通过。\n- 使用新 REV 整体验收 `2758f9b5-8689-4c91-afb5-468ae4d2c866` 封存，无待处理运行。\n\n未批准正式知识，未提交、发布或部署。",
+      "reviewed": true
+    },
+    {
+      "case": "verify",
+      "thread_id": "01a1935b-147e-7ef0-9b11-02f02d57573b",
+      "turn_id": "01a1935b-14d3-72e0-a531-098347252068",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 追加当前整项验收，未修改业务或测试、未重开任务。\n\n- 实际运行 `python3 -B -m unittest discover -v`：5 个测试，4 通过、1 失败。均值分支返回 `controlled mean regression`，不符合预期。\n- 新 VER：`3a12cead-f1bf-4de4-a539-22dbe07a8bd3`。检查为 **failed**；因当前产物与封存产物不匹配，整项记录为 **blocked**。\n- Change 保持 `archived`，CORE／REPORT 保持 `done`，版本未变；历史通过 VER `2758f9b5-8689-4c91-afb5-468ae4d2c866` 及封存截点保留，无未决运行。\n\n原通过证明封存时的结果；本次失败反映外部回退后的当前现场，两者不互相覆盖。\n\n后续如需修复，应另行授权修复工作，恢复均值分支的共享汇总及格式契约，再运行原检查并追加验收。本轮止于检查和记录。",
+      "reviewed": true
+    }
+  ],
+  "native_command_items": 101,
+  "native_approval_or_user_input_requests": [],
+  "nonzero_shell_commands": [
+    {
+      "case": "propose",
+      "exit_code": 1,
+      "command": "/bin/zsh -lc 'python3 -B -m unittest test_summary -v'",
+      "output_tail": "test_summary (unittest.loader._FailedTest.test_summary) ... ERROR\n\n======================================================================\nERROR: test_summary (unittest.loader._FailedTest.test_summary)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_summary\nTraceback (most recent call last):\n  File \"/Users/liufukang/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/unittest/loader.py\", line 162, in loadTestsFromName\n    module = __import__(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/test_summary.py\", line 2, in <module>\n    from arithmetic import summarize\nImportError: cannot import name 'summarize' from 'arithmetic' (/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/arithmetic.py)\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
+    },
+    {
+      "case": "propose",
+      "exit_code": 1,
+      "command": "/bin/zsh -lc 'python3 -B -m unittest test_report -v'",
+      "output_tail": "test_original_format (test_report.Report.test_original_format) ... FAIL\n\n======================================================================\nFAIL: test_original_format (test_report.Report.test_original_format)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/test_report.py\", line 5, in test_original_format\n    self.assertEqual(render(iter([2,3])),\"total=5; count=2\")\nAssertionError: 'not implemented' != 'total=5; count=2'\n- not implemented\n+ total=5; count=2\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "case": "propose",
+      "exit_code": 1,
+      "command": "/bin/zsh -lc 'python3 -B -m unittest discover -v'",
+      "output_tail": "t_module_from_name\n    __import__(name)\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/test_summary.py\", line 2, in <module>\n    from arithmetic import summarize\nImportError: cannot import name 'summarize' from 'arithmetic' (/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/arithmetic.py)\n\n\n======================================================================\nFAIL: test_original_format (test_report.Report.test_original_format)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/test_report.py\", line 5, in test_original_format\n    self.assertEqual(render(iter([2,3])),\"total=5; count=2\")\nAssertionError: 'not implemented' != 'total=5; count=2'\n- not implemented\n+ total=5; count=2\n\n\n----------------------------------------------------------------------\nRan 4 tests in 0.000s\n\nFAILED (failures=1, errors=2)\n"
+    },
+    {
+      "case": "continue",
+      "exit_code": 1,
+      "command": "/bin/zsh -lc \"pwd; rg --files -g AGENTS.md -g '*evolve*' -g 'README*' -g 'pyproject.toml' -g 'package.json' -g '\"'!node_modules'\"' -g '\"'!package-lock.json'\"' .\"",
+      "output_tail": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business\n"
+    },
+    {
+      "case": "local_revision",
+      "exit_code": 2,
+      "command": "/bin/zsh -lc \"cat .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/skills/evolve-learn/SKILL.md .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/shared/context.md; rg --files -g '\"'!**/plugins/**'\"' -g '\"'!**/objects/**'\"' -g '\"'!*lock*'\"' -g '\"'!**/__pycache__/**'\"' --hidden .evolve .evolve-local src tests\"",
+      "output_tail": "消费关系追踪到能解释该问题的边界。列出实际覆盖的入口、关键转换、约束与未覆盖分支；决定实施或结论强度的未知得到核实后停止。局部问题也可能需要这一深度。\n- **全局**：用户要求梳理整体项目，或尚无可信的整体结构、关键约束和模块职责时，核对入口、目录职责、主要业务或数据链路、检查与运行配置、已有规范和当前工作。形成带来源的整体结构与缺口后停止；只展开会影响当前目标的细节。\n\n深度与简单／复杂任务分别判断，依据实际资料和缺口，不按代码行数或 init profile 决定。复用已有背景前核对来源、适用版本及当前相关字节；相关变化只扩大相应范围。新观察区分事实、推断和未知，未读当前外部数据时注明时效限制。\n\n实施前须能说明目标行为、业务约束、主要修改点和影响、验证方式，以及仍可能改变方案的未知；调查须能说明问题、观察范围、来源、结论强度和未覆盖部分。遇到会改变目标或带来重大选择的缺口，说明具体影响并核对；其余独立工作沿有效授权推进。\n\n梳理本身不授予修改或正式知识批准。只读解释直接报告观察；留档调查沿 analyze，工作方案沿 propose／update，续接沿原工作项；正式知识仍作为具体待审候选交对应 owner，不另建梳理状态或全局“已就绪”标记。\nrg: .evolve: No such file or directory (os error 2)\nrg: src: No such file or directory (os error 2)\nrg: tests: No such file or directory (os error 2)\n.evolve-local/control/init.json\n.evolve-local/control/operations/8db638a6-8f1d-45c8-a288-97806ad633da.json\n.evolve-local/control/operations/8275e173-16cb-425a-bb4e-305e25d625ac.json\n.evolve-local/control/operations/5032df03-b3c9-4c80-9913-1e4278cf3582.json\n.evolve-local/control/operations/544ea896-a297-42ee-9378-f771a46878ab.json\n.evolve-local/control/guard.json\n.evolve-local/backups/2026-10-31/manifest.json\n.evolve-local/backups/2026-10-31/evolve/config.toml\n.evolve-local/backups/2026-10-31/evolve/history.db\n"
+    },
+    {
+      "case": "finish_revision",
+      "exit_code": 1,
+      "command": "/bin/zsh -lc \"rg --files --hidden -g '\"'!**/plugins/**'\"' -g '\"'!**/.git/**'\"' | head -90; cat arithmetic.py report.py test*.py .evolve/config.toml\"",
+      "output_tail": "sertEqual(report.render(iter([5,-2])),\"total=3; count=2\")\n            self.assertEqual(shared.call_count,1)\nimport unittest\nfrom report import render\nclass Report(unittest.TestCase):\n    def test_original_format(self):\n        self.assertEqual(render(iter([2,3])),\"total=5; count=2\")\n        self.assertEqual(render(iter([])),\"total=0; count=0\")\n        self.assertEqual(render(iter([-2,3])),\"total=1; count=2\")\nimport unittest\nfrom report import render\nclass MeanReport(unittest.TestCase):\n    def test_optional_mean(self):\n        self.assertEqual(render(iter([2,3]),include_mean=True),\"total=5; count=2; mean=2.50\")\n        self.assertEqual(render(iter([]),include_mean=True),\"total=0; count=0; mean=0.00\")\n        self.assertEqual(render(iter([-2,3]),include_mean=True),\"total=1; count=2; mean=0.50\")\n        self.assertEqual(render(iter([2,3])),\"total=5; count=2\")\ncat: .evolve/config.toml: No such file or directory\nimport unittest\nfrom arithmetic import summarize\nclass Summary(unittest.TestCase):\n    def test_single_pass(self):\n        self.assertEqual(summarize(iter([2,3])),(5,2))\n        self.assertEqual(summarize(iter([])),(0,0))\n        self.assertEqual(summarize(iter([-2,3])),(1,2))\n"
+    },
+    {
+      "case": "verify",
+      "exit_code": 1,
+      "command": "/bin/zsh -lc 'python3 -B -m unittest discover -v'",
+      "output_tail": "test_original_literals (test_arithmetic.OriginalTotal.test_original_literals) ... ok\ntest_shared_single_pass_boundary (test_integration.Integration.test_shared_single_pass_boundary) ... ok\ntest_original_format (test_report.Report.test_original_format) ... ok\ntest_optional_mean (test_report_mean.MeanReport.test_optional_mean) ... FAIL\ntest_single_pass (test_summary.Summary.test_single_pass) ... ok\n\n======================================================================\nFAIL: test_optional_mean (test_report_mean.MeanReport.test_optional_mean)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1/business/test_report_mean.py\", line 5, in test_optional_mean\n    self.assertEqual(render(iter([2,3]),include_mean=True),\"total=5; count=2; mean=2.50\")\nAssertionError: 'controlled mean regression' != 'total=5; count=2; mean=2.50'\n- controlled mean regression\n+ total=5; count=2; mean=2.50\n\n\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nFAILED (failures=1)\n"
+    }
+  ],
+  "observed_corrected_CLI_errors_even_with_zero_shell_exit": [
+    {
+      "case": "continue",
+      "shell_exit": 0,
+      "action": "verify",
+      "error": {
+        "code": "REVIEW_REQUIRED",
+        "message": "Provide separate actual spec and standards review observations",
+        "next_steps": []
+      }
+    },
+    {
+      "case": "local_revision",
+      "shell_exit": 0,
+      "action": "init",
+      "error": {
+        "code": "CONFIG_PRESENTATION",
+        "message": "Configuration application must bind the exact presented diff and original bytes",
+        "next_steps": []
+      }
+    }
+  ],
+  "V-088_depth_observations": [
+    {
+      "case": "propose",
+      "statement": "我会按“全局梳理”覆盖这六个文件，核清模块入口、共享接口和测试约束后停止扩展。当前 `total` 直接使用 `sum`，`render` 是占位实现；集成测试明确要求 `report.summarize` 恰好调用一次。接下来使用 evolve-init 登记检查、evolve-learn 检索本项目记录，再用 evolve-propose 保存未接受的完整方案。\n"
+    },
+    {
+      "case": "propose",
+      "statement": "已完成 Evolve 接入、六文件全局梳理，并保存完整复杂方案 `CHG-20261031-96790da8`（REV 1）。\n\n- 方案未接受，CORE、REPORT 均未实施。\n- CORE 原行为证明仅使用 `original`；REPORT 依赖 CORE 独立验收通过。\n- 四项检查已登记，已声明 `broad_migration` 和最终集成边界。\n- 当前只读检查：`original` 通过；其余因尚未实现而失败，不代表任务验收。\n- 未修改业务或测试，未批准正式知识，未实现均值。"
+    },
+    {
+      "case": "cosmetic_revision",
+      "statement": "当前方案已接受，CORE 保留部分进度，REPORT 仍等待 CORE 独立验收。本轮按轻量范围核对完整方案与继承记录；项目没有正式知识引用。接下来由 evolve-propose 保存展示修订，并用 evolve-learn 做只读经验检索；不会执行实施或检查。\n"
+    },
+    {
+      "case": "continue",
+      "statement": "已恢复当前已接受的 REV：CORE 与原任务定义一致，文件暂停来源和原前证明完整，现场及四个测试摘要均未漂移；项目没有正式知识或相关经验命中。\n\n本轮按链路定向核对，范围限于六个业务／测试文件及原记录：`summarize` 已正确实现单次遍历，缺口是 CORE 后检查与验收，以及尚未实现的 `render`。接下来使用 evolve-apply、evolve-verify：先补齐 CORE 证据，再实现 REPORT，最后逐 AC 审查并运行 integration。完成整体验收即停止。\n"
+    },
+    {
+      "case": "local_revision",
+      "statement": "已定位活动方案。将使用 evolve-propose 修订，并按 evolve-learn 做只读经验检索。此次采用轻量核对：读取现有实现、五个测试和原记录，确认影响及验证方式后停止。原四项 AC 与 CORE 定义将原样保留；均值成果由 REPORT 承担。旧整体验收和原行为证明保留为历史依据，不视为新增均值已通过。\n"
+    },
+    {
+      "case": "finish_revision",
+      "statement": "已恢复原工作项：CORE 和旧 REPORT 均有通过记录，但旧整体验收不覆盖均值。本轮采用轻量核对，只检查存档候选、相关代码及原／新测试；随后使用 Evolve 的 propose、apply、verify、archive 流程推进，并先检索项目经验。若候选超出本轮授权或现场字节有冲突，会停止对应写入。\n"
+    },
+    {
+      "case": "verify",
+      "statement": "已定位唯一封存项“单次迭代汇总与报告”：Change 为 archived，CORE、REPORT 均为 done；原整体验收记录为 passed，但当前适用性尚未确认。接下来使用 evolve-verify 做整项复验，轻量核对两个业务文件、五个测试及原检查配置，并通过 evolve-learn 只读检索相关经验。"
+    }
+  ],
+  "semantic_review": {
+    "observer": "Current Codex review of separate actual native host sessions, commands, actual literal outputs, parent observations and persisted state",
+    "independent_third_reviewer": false,
+    "observations": [
+      "Seven fresh native threads actually followed original proposal/pause/cosmetic/continue/mean-candidate/finish/verify boundaries.",
+      "Global six-file overview, lightweight saved-context cosmetic review and focused producer-consumer continuation were explicitly selected with bounded coverage and stopping criteria; unrelated expansion and profile/line-count classification were not observed.",
+      "REPORT actually declared arithmetic.py as context produced by CORE; cosmetic REV preserved accepted meaning and progress rather than refusing from producer context drift.",
+      "Original before proof was prepared before CORE file dispatch, retained across cosmetic REV and actual original-pause continuation, then paired with real post checks.",
+      "CORE Task VER preceded REPORT implementation; whole integration remained separate and stopped before archive in case four.",
+      "Case five accurately reported scope_confirmation_required pending candidate, old effective REV and no new acceptance/implementation/checks.",
+      "Case six specifically accepted that exact candidate and generated REV3, changed report only, retained CORE result and five readonly tests, ran original/new checks and archived using fresh whole VER.",
+      "Final controlled external mean regression produced actual failed unittest and new blocked VER, preserved old passed and archived cutoff, and did not repair or reopen.",
+      "Two actual API precondition errors (REVIEW_REQUIRED and CONFIG_PRESENTATION) were returned inside zero-exit shell helpers, then corrected; three read-only missing/no-match probes and expected baseline/final test failures remain in raw trace.",
+      "All business mutations used owning Evolve commands; no direct business writes, direct SQL mutation, extra host, personal configuration operation, nested agent, formal application, commit or publication observed.",
+      "Review observers accurately identify current host self-review; concrete stated task constraints are the standards basis, without claiming an independently read project AGENTS file or a third reviewer."
+    ]
+  },
+  "actual_state": {
+    "integrity": [
+      {
+        "integrity_check": "ok"
+      }
+    ],
+    "changes": [
+      {
+        "id": "96790da8-6082-4415-9c77-653cd5345ed9",
+        "code": "CHG-20261031-96790da8",
+        "state": "archived",
+        "current_revision": "ddf2e1f5-9e6b-41a2-ac76-09beb893fdd6"
+      }
+    ],
+    "verifications": [
+      {
+        "id": "6740d7f9-76fd-4aeb-b5ab-56c5152ea5a5",
+        "revision_id": "207ea697-2148-446e-9162-fc2d34af383c",
+        "status": "passed"
+      },
+      {
+        "id": "a73790ea-044e-4687-88c9-eb4e46d45512",
+        "revision_id": "207ea697-2148-446e-9162-fc2d34af383c",
+        "status": "passed"
+      },
+      {
+        "id": "75d44fe8-c1a6-473b-b2df-0e183f357838",
+        "revision_id": "207ea697-2148-446e-9162-fc2d34af383c",
+        "status": "passed"
+      },
+      {
+        "id": "b03ceaa5-746c-459f-86d4-50d50c1a4811",
+        "revision_id": "ddf2e1f5-9e6b-41a2-ac76-09beb893fdd6",
+        "status": "passed"
+      },
+      {
+        "id": "bd4856f8-d384-468d-bb82-9825acbb369e",
+        "revision_id": "ddf2e1f5-9e6b-41a2-ac76-09beb893fdd6",
+        "status": "passed"
+      },
+      {
+        "id": "2758f9b5-8689-4c91-afb5-468ae4d2c866",
+        "revision_id": "ddf2e1f5-9e6b-41a2-ac76-09beb893fdd6",
+        "status": "passed"
+      },
+      {
+        "id": "3a12cead-f1bf-4de4-a539-22dbe07a8bd3",
+        "revision_id": "ddf2e1f5-9e6b-41a2-ac76-09beb893fdd6",
+        "status": "blocked"
+      }
+    ],
+    "claims": [],
+    "normal_continuation": [
+      {
+        "run_id": "804ee40a-677f-4756-a443-e092dc896f53",
+        "source_run_id": "1e5cb6ec-e282-4f81-bd5c-4c24e29a67d5",
+        "result_digest": "a92359f8ee40cfb27f49644818f767667e5214d663507228f3ecb682295e7d87",
+        "purpose": "normal_continuation"
+      }
+    ],
+    "phase_counts": [
+      {
+        "action": "apply",
+        "method": "implement",
+        "status": "completed",
+        "count": 5
+      },
+      {
+        "action": "archive",
+        "method": "close",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "init",
+        "method": "connect",
+        "status": "blocked",
+        "count": 1
+      },
+      {
+        "action": "init",
+        "method": "connect",
+        "status": "completed",
+        "count": 3
+      },
+      {
+        "action": "learn",
+        "method": "retro",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "propose",
+        "method": "create",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "update",
+        "method": "revise",
+        "status": "completed",
+        "count": 3
+      },
+      {
+        "action": "verify",
+        "method": "run",
+        "status": "blocked",
+        "count": 1
+      },
+      {
+        "action": "verify",
+        "method": "run",
+        "status": "completed",
+        "count": 7
+      }
+    ],
+    "unfinished_runs": 0,
+    "formal_knowledge_proposals": 0,
+    "formal_applications": 0,
+    "current_tasks": [
+      {
+        "id": "a1ff42aa-b2bf-4458-a312-b3160c319745",
+        "local_key": "CORE",
+        "state": "done",
+        "definition_digest": "c475b0cfdbf6db54ebb121e2a4d9ed21d6d2011c2b0cfa22a8b915b3a6209d09"
+      },
+      {
+        "id": "892fd1de-d7c5-4f1d-b829-40998c5fe879",
+        "local_key": "REPORT",
+        "state": "done",
+        "definition_digest": "b6dd8a27e358f6b5a922a0076983499d5494bf0439c69b1d13cc81fa22cad898"
+      }
+    ]
+  },
+  "installation_digests": {
+    "registered_installation_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+    "host_cache_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34"
+  },
+  "five_readonly_tests_unchanged": true,
+  "limitations": [
+    "Only this Codex host and exact frozen alpha14 scope passed; Claude batch still running, so IMP-006 remains in_progress.",
+    "Original numeric preservation is bounded by declared literal tests and inputs; no exhaustive-equivalence claim.",
+    "Automatic omitted-reference resolution is verified separately by controlled public CLI/component tests; this native Codex continuation supplied the actual reference explicitly.",
+    "Raw runner summary intentionally keeps review_status=pending and passed=false; this separate completed review owns the host conclusion.",
+    "Final fixture intentionally retains the controlled regression/current blocked VER; do not repair it or relabel its current business state as passed."
+  ],
+  "archive": {
+    "path": "codex-model-alpha14-r1.zip",
+    "sha256": "df2666b4050bd6878ec7f0ef3ef7b19d650240de283017a40cd193f6433f6aca"
+  }
+}

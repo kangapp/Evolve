@@ -1,0 +1,14 @@
+test_first_native_rate_limit_retry_stops_before_next_request (test_model_session_acceptance.ModelTransportTests.test_first_native_rate_limit_retry_stops_before_next_request) ... FAIL
+
+======================================================================
+FAIL: test_first_native_rate_limit_retry_stops_before_next_request (test_model_session_acceptance.ModelTransportTests.test_first_native_rate_limit_retry_stops_before_next_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_session_acceptance.py", line 308, in test_first_native_rate_limit_retry_stops_before_next_request
+    with self.assertRaisesRegex(RuntimeError,'native_error'):
+AssertionError: RuntimeError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.838s
+
+FAILED (failures=1)

@@ -1,0 +1,36 @@
+test_actual_dispatch_rejects_missing_authorization_or_wrong_scope_before_install (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_actual_dispatch_rejects_missing_authorization_or_wrong_scope_before_install) ... ok
+test_actual_readonly_preflight_does_not_create_profile_or_dispatch_models (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_actual_readonly_preflight_does_not_create_profile_or_dispatch_models) ... ok
+test_all_nine_actual_parent_boundaries_pass_without_model_transport (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_all_nine_actual_parent_boundaries_pass_without_model_transport) ... ERROR
+test_parent_rejects_formal_write_in_decision_only_stage (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_parent_rejects_formal_write_in_decision_only_stage) ... ok
+test_parent_rejects_installation_alias_or_resource_change (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_parent_rejects_installation_alias_or_resource_change) ... ok
+test_parent_rejects_readonly_test_mutation (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_parent_rejects_readonly_test_mutation) ... ok
+test_parent_rejects_skipped_or_repeated_case_boundaries (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_parent_rejects_skipped_or_repeated_case_boundaries) ... ok
+test_source_scope_pins_four_files_nine_sessions_and_inside_project_layout (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_source_scope_pins_four_files_nine_sessions_and_inside_project_layout) ... ok
+
+======================================================================
+ERROR: test_all_nine_actual_parent_boundaries_pass_without_model_transport (test_model_knowledge_acceptance.KnowledgeModelParentTests.test_all_nine_actual_parent_boundaries_pass_without_model_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_knowledge_acceptance.py", line 195, in test_all_nine_actual_parent_boundaries_pass_without_model_transport
+    self.driver.through('verify');self.assertEqual(len(self.driver.observations),9)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_knowledge_acceptance.py", line 185, in through
+    self.run(case)
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_knowledge_acceptance.py", line 159, in run
+    v=self.verify('A');archive(self.root,self.f.change_request({'verification_id':v['verification_id']},whole=True))
+      ^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_knowledge_acceptance.py", line 63, in verify
+    request=self.f.change_request({},whole)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_formal_application.py", line 97, in change_request
+    task = next((t for t in tasks if t['id'] == data.get('task_id', self.plan['task_id'])), tasks[0])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_formal_application.py", line 97, in <genexpr>
+    task = next((t for t in tasks if t['id'] == data.get('task_id', self.plan['task_id'])), tasks[0])
+                                                                    ~~~~~~~~~^^^^^^^^^^^
+KeyError: 'task_id'
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.649s
+
+FAILED (errors=1)

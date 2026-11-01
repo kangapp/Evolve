@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "model_requests_sent": false,
+  "review_inputs": "Controlled actual observations, not independent model review",
+  "commands": 15,
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf/package",
+  "original_criterion_before": 1,
+  "original_criterion_after": 0,
+  "sql_change": "archived",
+  "bounded_relationship_analysis": {
+    "run_id": "1371a916-5dcc-4de1-b57f-905a81e0651b",
+    "result_digest": "b51e0c647b6bc48708760ba6949b838c969df039420f31edd3951316220c299b"
+  },
+  "separate_topics": 2,
+  "source_removed_export_formats": [
+    "markdown",
+    "json"
+  ],
+  "conflict": "view_stale",
+  "later_verification": "failed",
+  "historical_pass_preserved": true,
+  "formal_data_executed": false
+}

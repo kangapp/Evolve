@@ -1,0 +1,91 @@
+{
+  "status": "passed_for_observed_runtime_platform",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "os_name": "posix",
+    "python": "3.11.9",
+    "encoding": "utf-8",
+    "child_python_utf8": true
+  },
+  "native_windows_observed": false,
+  "model_requests_sent": false,
+  "host_discovery": "not_run",
+  "checks": {
+    "download_removed": true,
+    "installed_root_used": true,
+    "project_initially_not_connected": true,
+    "actual_repair_and_closure": true,
+    "old_installation_removed": true,
+    "relocated_root_used": true,
+    "relocated_package_unchanged": true,
+    "original_project_identity": true,
+    "relocation_queries_are_pure": true,
+    "actual_pause_continuation_and_learning": true,
+    "supplied_package_unchanged": true
+  },
+  "limitations": [
+    "Runtime CLI fixtures only; no native host install or Skill discovery in this runner",
+    "Review inputs are controlled observations, not independent model judgments",
+    "Only the observed platform is tested; this result alone does not complete V-137 or M1"
+  ],
+  "content_digest": "ebd7ed18188f4a4884ffea8cda6595e480e3a75bff8cbd6b90f83b18bde79eee",
+  "package_version": "0.1.0-alpha.4",
+  "workflow": {
+    "passed": true,
+    "runtime": "/private/tmp/evolve-relocation-kit-selfcheck-01/安装 整包/runtime/evolve.py",
+    "project": "/private/tmp/evolve-relocation-kit-selfcheck-01/业务 项目",
+    "project_id": "acfba0bd-cc59-4519-b4e3-3afd76537aff",
+    "change_id": "5869472a-3609-4f43-870a-daab06876b39",
+    "original_test_exit_code": 1,
+    "task_check_status": "passed",
+    "verification_status": "passed",
+    "completion_outcome": "archived",
+    "formal_baseline": "baseline_applied",
+    "incremental_configuration": "configuration_updated",
+    "unrequested_check_executed": false,
+    "model_requests_sent": false,
+    "review_inputs": "controlled fixture observations, not independent model review",
+    "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+    "investigation": {
+      "answer_only_created_records": false,
+      "recorded_run_id": "5cbd459f-8770-4d34-ad33-105e68331ccc",
+      "criterion_digest": "31bfed614665b5e746e6d8c62e1e04c6883eac7f9daabc09132371135b496e3c",
+      "original_red_saved": true,
+      "post_repair_original_criterion": "passed",
+      "investigation_created_change": false
+    }
+  },
+  "continuation": {
+    "passed": true,
+    "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+    "runtime": "/private/tmp/evolve-relocation-kit-selfcheck-01/移动 整包/runtime/evolve.py",
+    "project": "/private/tmp/evolve-relocation-kit-selfcheck-01/业务 项目",
+    "model_requests_sent": false,
+    "experience_ref": {
+      "run_id": "eba99bf9-eed5-4f8d-99d2-516fc089b9e4",
+      "result_digest": "6e9e2c12a8d9a517b0fcc7a066ff8840624ec646cba5e1c4e46040571a1d7868"
+    },
+    "experience_produced_from_actual_work": true,
+    "second_change_id": "29bdfa8a-a241-4102-93c1-49e9ef6221fc",
+    "second_real_red_exit_code": 1,
+    "normal_pause": {
+      "run_id": "f816bd59-f717-4c16-84c5-2e7b30381f38",
+      "outcome": "partial",
+      "checks": "not_run",
+      "new_run_id": "eef81b59-f281-4bcc-b302-6902100d034b"
+    },
+    "fresh_context_restored_prior_adoption": true,
+    "old_run_result_unchanged": true,
+    "feedback": {
+      "run_id": "39e20414-25a2-47fb-95d5-ccdac75f2065",
+      "outcome": "unknown"
+    },
+    "final_state": "candidate",
+    "new_discovery_status_after_archive": "no_new_learning",
+    "verification": "passed",
+    "closure": "archived",
+    "original_and_second_literal_assertions_unchanged": true,
+    "learning_did_not_approve_formal_knowledge": true
+  }
+}

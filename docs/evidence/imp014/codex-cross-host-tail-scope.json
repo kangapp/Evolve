@@ -1,0 +1,37 @@
+{
+  "slice": "IMP-014-Codex-cross-host-tail",
+  "host": "codex",
+  "model_selection": "model/list isDefault",
+  "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+  "source_claude_scope_digest": "669c7fba6f20f6a28e0721be0f825527d408968cef2b58da5fd54469974fefc2",
+  "initial_checkpoint": "eaf63436-beab-4f2c-a375-4cf609ec24f5",
+  "cases": {
+    "local_revision": "先读取实际插件根README.md、docs/installation.md、docs/usage.md的相关步骤。安装根为/private/tmp/evolve14-cl/run/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0。这是同一临时项目的已授权跨宿主续接：Claude在第五轮只读调查时遇429，其批次已停止，没有登记该轮写动作，不重试Claude。当前原四检查及两个任务整体验收已通过但未封存；test_report_mean.py已由控制侧提供，五测试只读。读取真实Evolve档案，不依赖旧聊天，不改宿主配置、桥或安装包。本轮具体用户意图如下；按公共CLI实际门禁执行，不直接写数据库或业务文件；待下一轮批准的候选仅呈现并结束。\n使用 Evolve 修改当前活动方案：report.render 的 include_mean=True 分支增加均值，格式固定为 total=5; count=2; mean=2.50，保留两位小数；空输入 mean=0.00。默认 False 的原文本和 total／summarize 接口与行为保持。控制侧新增的 test_report_mean.py 是只读独立判据，原测试继续保持。本轮仅呈现并保存完整新 REV；原有 AC 保留，新增可选均值 AC，REPORT 负责该成果，CORE 的原定义和适用结果应保留。REPORT 需检查原 report 及新增 test_report_mean，最终 discover 全部测试；可按实际命令增量登记 mean 检查。说明影响并保留旧整体验收及原证明，本轮不接受新语义方案、不实施、运行检查或封存。若替换旧阶段“不实现均值”的描述触发 scope_confirmation_required，保存并呈现完整待批准候选，明确旧 REV 仍生效、候选不是已生成的新 REV；不伪造接受依据或绕过确认。",
+    "finish_revision": "先读取实际插件根README.md、docs/installation.md、docs/usage.md的相关步骤。安装根为/private/tmp/evolve14-cl/run/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0。这是同一临时项目的已授权跨宿主续接：Claude在第五轮只读调查时遇429，其批次已停止，没有登记该轮写动作，不重试Claude。当前原四检查及两个任务整体验收已通过但未封存；test_report_mean.py已由控制侧提供，五测试只读。读取真实Evolve档案，不依赖旧聊天，不改宿主配置、桥或安装包。本轮具体用户意图如下；按公共CLI实际门禁执行，不直接写数据库或业务文件；待下一轮批准的候选仅呈现并结束。\n本轮明确接受前一会话已存档、符合可选均值固定格式及原接口保持边界的完整修订。使用 Evolve 恢复并呈现新方案，按此具体范围只修改 report.py，保留 arithmetic.py、所有原测试和新增均值判据。若前轮停在范围确认，本轮的具体接受同时覆盖该固定均值候选中旧阶段“不实现均值”描述的替换，仅限该均值要求相关描述；保留原 AC、CORE 和原接口边界，先以实际候选摘要完成接受和新 REV 登记再实施。复用仍适用的 CORE 结果及原证明；实施 REPORT 的新定义，运行已登记原／新检查、最终集成、逐 AC 和规格／规范审查，原范围内修正必需问题，真实通过后封存。不得用原 REV 的整体验收代替新要求验收，不批准正式知识。",
+    "verify": "先读取实际插件根README.md、docs/installation.md、docs/usage.md的相关步骤。安装根为/private/tmp/evolve14-cl/run/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0。这是同一临时项目的已授权跨宿主续接：Claude在第五轮只读调查时遇429，其批次已停止，没有登记该轮写动作，不重试Claude。当前原四检查及两个任务整体验收已通过但未封存；test_report_mean.py已由控制侧提供，五测试只读。读取真实Evolve档案，不依赖旧聊天，不改宿主配置、桥或安装包。本轮具体用户意图如下；按公共CLI实际门禁执行，不直接写数据库或业务文件；待下一轮批准的候选仅呈现并结束。\n控制侧已明确在 report.py 的 include_mean=True 分支引入一次外部回退。使用 Evolve 仅验收当前已封存工作项，追加实际当前观察，保留原 Task／Change 终态、历史通过截点及 VER。不要修复业务、测试或强行重开。说明原结果与当前失败的区别，给出必要后续方案；只运行实际检查和记录验收，不预填结论。"
+  },
+  "maximum_fresh_sessions": 3,
+  "business_write_paths": [
+    "report.py"
+  ],
+  "readonly_tests": [
+    "test_arithmetic.py",
+    "test_integration.py",
+    "test_report.py",
+    "test_report_mean.py",
+    "test_summary.py"
+  ],
+  "first_mean_test_already_provided_by_original_controller": true,
+  "controller_side_final_report_regression": "Exact original ComplexChecks.before(verify)",
+  "authorization": "Actual uniform human authorization call_05f0a84076f549568b149504edf7e4b8 and human Codex-first direction",
+  "limits": [
+    "Only the disposable project, its records and actual installed plugin resources",
+    "Original tests and the parent-added mean tests remain read-only",
+    "No personal configuration or credential changes; no external apps, nested agents, commits, publication or deployment",
+    "Stop the host on quota, permission, transport or parent-check failure; no automatic retry or model/account replacement",
+    "No formal project knowledge approval; current environment only"
+  ],
+  "controller_sha256": "b495580f2cb1fd82a8d9b9085c1cc0cfdb3b30fb14d9e480e7fbf645f44ed221",
+  "parent_assertions_sha256": "e0387d687ecbd4192f105154e19c268c94e18b46e564086a04820add29b0eb46",
+  "scope_digest": "294c9d506ad2319006535be731a3243a55e02691c8158be38ab20e58e3ad9955"
+}

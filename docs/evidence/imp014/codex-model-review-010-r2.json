@@ -1,0 +1,79 @@
+{
+  "slice": "IMP-014",
+  "status": "business_scope_passed_with_actual_targeted_guide_followup",
+  "passed": true,
+  "reviewer": "Primary actual trajectory and copied-snapshot/kernel-facts review; host code reviews are self-review, no independent sub-agent claim",
+  "reviewed_at": "2026-11-01T04:30:33.282532+00:00",
+  "package_digest": "38a7ab9947093eaf99b87cb159f1e3bef532904893eba5611eec97748527ecdb",
+  "source_digest": "bba65e268802d8f1f2d3cc30f8a52ca954b902063e516ce95055cb9fdcd48b96",
+  "scope_digest": "abb755bc5bed51980c8e373a0d632760d4b1c8c414f5c22b54c73aff509ce088",
+  "actual_model": "gpt-6-astra",
+  "fresh_sessions": 5,
+  "commands": 62,
+  "commands_per_case": [
+    6,
+    13,
+    14,
+    14,
+    15
+  ],
+  "all_cases_read_three_actual_installed_guides": {
+    "01a19559-472c-70f0-bad2-afdc126c79f1": true,
+    "01a19559-9529-7b92-b12d-be87f3a95d4c": true,
+    "01a1955a-7a4f-79c2-bf04-4f943b7daf17": true,
+    "01a1955b-68a1-7863-8233-4d16d3417be5": true,
+    "01a1955c-581d-73d0-b84b-c14932f7aa82": true
+  },
+  "semantic_findings": [
+    "All62 completed commands and19 messages inspected alongside the actual four file bytes, saved inputs/results/blobs/sources, managed protection and parent observations. No direct business/history SQL writes, personal configuration-changing commands, nested agents or publication operations observed.",
+    "Immediate answer retained no record facilities. Real original red, independent expected values and criterion were saved; only first production file was fixed, then a normal completed/partial pause with checks not_run and Task in_progress.",
+    "Fresh session consumed original source/grant and actual preserved scope; empty-files continuation retained original business_files authorization without the old authorization rejection. Actual checks, original symptom and two-axis self-reviews passed; first work archived and candidate experience saved.",
+    "Second real task independently observed2!=12 and adopted only the relevant aggregation/check method. Original files and both literal test sets remained. Feedback helped is explicitly bounded observer assessment; whole-task/efficiency independent causal contribution stays unknown, experience remains candidate.",
+    "Final parent restored only second production len bug; verify actual exit1 and blocked recorded. Historical passed VERs, archived Changes and done Tasks stayed unchanged; no repair, formal knowledge, experience promotion or automatic counterexample.",
+    "A reviews object instead of array was rejected REVIEW_REQUIRED and preserved as a blocked run; later actual array observations passed. A history call with the wrong owner was rejected OWNER. These bounded input errors did not expand authority or get relabeled native quota/permission failures. The native agent explicitly identified the missing container type in the guide; this is retained as a concrete documentation finding and requires targeted follow-up, not dismissed as an actor-only error."
+  ],
+  "summary": {
+    "changes": 2,
+    "tasks": 2,
+    "verification_statuses": {
+      "passed": 2,
+      "blocked": 1
+    },
+    "run_statuses": {
+      "completed": 16,
+      "blocked": 1
+    },
+    "input_check_purposes": {
+      "repair_analysis_basis": 1,
+      "normal_continuation": 1,
+      "completion_basis": 2,
+      "learning_experience": 4,
+      "learning_decision": 1,
+      "learning_feedback": 3,
+      "learning_no_new_learning": 1
+    }
+  },
+  "raw_summary_left_immutable": {
+    "review_status": "pending",
+    "passed": false
+  },
+  "evidence": {
+    "trajectory": "codex-trajectory-010-r2.json",
+    "facts": "codex-runtime-facts-010-r2.json",
+    "archive": "codex-model-010-r2-evidence.zip",
+    "sha256": "d9dd9ef6555696e83c3d23373186c3d5f339790c5e1d15d16bdafed1d6c79910",
+    "bytes": 1267298,
+    "files": 302,
+    "skipped_symlinks": [
+      "host-profile/tmp/arg0/codex-arg0wHs8Rp/apply_patch",
+      "host-profile/tmp/arg0/codex-arg0wHs8Rp/applypatch",
+      "host-profile/tmp/arg0/codex-arg0wHs8Rp/codex-execve-wrapper"
+    ]
+  },
+  "overall_gate": "Actual native report showed reviews container shape not explicit; same runtime and unchanged broad model evidence retained, clarify exact array and run bounded current-package guide verification in both hosts.",
+  "guide_followup": {
+    "review": "codex-guide-shape-review-r4.json",
+    "passed": true,
+    "current_package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6"
+  }
+}

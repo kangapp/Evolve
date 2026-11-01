@@ -1,0 +1,11 @@
+{
+  "prior_imp003_distribution_digest": "240d19be86696a0adbd21c5a4ab461224b37a2b1c2f8fac714ddd7acbe1f77f2",
+  "imp005_distribution_digest": "c4d24e4dad99c9f75de2b6aa5ba9df8a2ed93f6a7bd76175ba249bb8a7a028e9",
+  "changed_files": [
+    "CHANGELOG.md",
+    "docs/installation.md",
+    "docs/troubleshooting.md"
+  ],
+  "runtime_skills_shared_unchanged": true,
+  "limits": "IMP-003 model evidence remains pinned to its original complete package. This delta audit does not clear its Claude quota gate."
+}

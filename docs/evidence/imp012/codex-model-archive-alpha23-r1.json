@@ -1,0 +1,10 @@
+{
+  "path": "codex-model-alpha23-r1-evidence.zip",
+  "sha256": "f93cd94e50eda6162edec461aea3f1f8168339a4d059c7d6aef93469493be758",
+  "bytes": 1114949,
+  "skipped_links": [
+    "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Cw2Fhd/apply_patch",
+    "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Cw2Fhd/applypatch",
+    "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Cw2Fhd/codex-execve-wrapper"
+  ]
+}

@@ -1,0 +1,20 @@
+test_cosmetic_revision_retains_context_produced_by_its_declared_upstream (test_model_complex_acceptance.ComplexModelParentTests.test_cosmetic_revision_retains_context_produced_by_its_declared_upstream) ... FAIL
+
+======================================================================
+FAIL: test_cosmetic_revision_retains_context_produced_by_its_declared_upstream (test_model_complex_acceptance.ComplexModelParentTests.test_cosmetic_revision_retains_context_produced_by_its_declared_upstream)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_complex_acceptance.py", line 175, in test_cosmetic_revision_retains_context_produced_by_its_declared_upstream
+    observed=self.walk()
+             ^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_complex_acceptance.py", line 144, in walk
+    self.update();self.checker.after('cosmetic_revision')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/scripts/model_complex_checks.py", line 305, in after
+    raise AssertionError('Cosmetic revision lost accepted meaning or partial progress')
+AssertionError: Cosmetic revision lost accepted meaning or partial progress
+
+----------------------------------------------------------------------
+Ran 1 test in 0.207s
+
+FAILED (failures=1)

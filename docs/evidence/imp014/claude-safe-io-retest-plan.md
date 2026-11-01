@@ -1,0 +1,21 @@
+# Claude原七场景的安全IO复验
+
+原R3复杂批和后继批均保持实际停止／失败，不读取被拒的包外tool-results文件，不重做被拒的复合rg命令，不改用户权限或模型。原AskUserQuestion无交互边界与后继真实Bash审批分别记录，不能统称通过。
+
+按用户统一授权和同范围必要复验，在全新隔离项目从头运行原七个业务阶段。仍只有arithmetic.py／report.py由对应apply修改，五个测试只读；原证明、展示REV、均值候选延期、下一轮准确批准、最终只验收的原判据不变。不复用旧失败项目的业务状态或包外宿主产物。
+
+只改变调用与回执保存方式：由本项目requests目录的只读evolve_bridge.py调用同一公开CLI，保存完整原始stdout／stderr／退出码到本项目唯一receipt，Bash只输出小摘要；原始事实不截断、不改授权或业务，模型按项目内receipt读取。桥本身不可由模型修改。只使用单条python3的Bash调用，检索走项目内Read／Grep／Glob；不使用Bash复合rg或管道。需要下一轮决定时只呈现候选并结束，禁用无交互AskUserQuestion；所有运行时具体批准门禁保留，下一轮仍是原方案已经列明的具体用户指令，不自动批准候选。
+
+claude_barrier、claude_case、CodexSession的完整函数／类字节摘要与原冻结版本相同，未放松任何权限／额度／传输终止规则。新flag仅限Claude structured测试，新的真实red／green25项验证业务文件／会话范围不变、scope摘要变化且旧摘要无法派发；后续当前全量641项通过后才调用模型。
+
+当前包与R4完全相同：`41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6`。准确scope：`b9cc48151d2d3c767fa1c3b3d7cbf1e09b8211f8017e5d18117e4df748552d80`，具体完整七提示与文件见claude-safe-io-preflight.json。Codex已通过的业务及当前R4指南事实不重跑。此新执行若仍有真实权限、额度、传输或父检查失败，立即停止并保留，不换模型或降门槛，不把此方案存在当验收成功。
+
+## 实际脚手架冲突及修复后的新冻结
+
+首个safe-io批因控制侧把Python桥预置到初次接入仅认JSON的requests目录，status／init实际PROJECT_COLLISION；模型随后触及包外目录列表，被真实权限守卫停止。该批完整停止不重用，不能放宽核心碰撞门禁或读取被拒目录。桥现放在本项目安装控制目录，初次.control仅放JSON暂存标记；新增真实回归先在旧位置重现PROJECT_COLLISION，再证明status保持not_connected、首次init实际成功、完整stdout与解析响应一致。26项专项已通过，业务七阶段／文件／权限守卫仍不变。
+
+修订scope `669c7fba6f20f6a28e0721be0f825527d408968cef2b58da5fd54469974fefc2`，见claude-safe-io-fixed-preflight.json；同一R4完整包不变。当前等待全642项通过后，在另一个全新临时项目复验，旧受拒目录与操作不在新场景内，不改权限、不换模型、不把旧失败改为通过。
+
+## 同scope短路径新实例
+
+修复暂存门禁后，原propose／refactor_pause父检查已通过；cosmetic_revision中模型把OS临时父目录w2_2h抄成w2_2j，真实Write遇EACCES，整批立即停止。没有对错误路径换接口重写或新增权限。现使用自有短路径`/private/tmp/evolve14-cl/run/business`创建全新实例；控制器、包、完整七提示、文件和审批判据逐字不变，scope仍为669c7fba…，仅安装／目标位置改变。模型不会取得旧受拒路径或旧项目的工作状态。旧两个已通过观察不冒充完整七场景通过。

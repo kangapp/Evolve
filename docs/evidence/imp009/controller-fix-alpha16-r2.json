@@ -1,0 +1,41 @@
+{
+  "slice": "IMP-009",
+  "status": "controller_fixed_same_scope_retest_ready",
+  "failed_batch": {
+    "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-native-model-alpha16-dk9as0j0",
+    "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha16-7i2mdnjz/package",
+    "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha16-7i2mdnjz/controller",
+    "scope_digest": "608595a484b0b8fa8b9fb9f0ba0f16e12dde6552f329fc4ed1c38177ebc47b19",
+    "host": "codex",
+    "status": "controller_failed",
+    "exit_code": 1
+  },
+  "failure": "Optional initial-baseline delivery is null; parent incorrectly called .get on null after fifth model session completed",
+  "old_scope_digest": "608595a484b0b8fa8b9fb9f0ba0f16e12dde6552f329fc4ed1c38177ebc47b19",
+  "scope_digest": "f6b1c67c688e8582894f15aa07daeac3c6ead510d389b9b0cb480cc0343a6253",
+  "unchanged_semantic_scope": true,
+  "changed_files": [
+    "scripts/model_multi_checks.py"
+  ],
+  "package_digest_unchanged": "92cdd7aa9d423142caaf9ef68717f46422ef8b29df8b6271f37b9cde1e182307",
+  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha16-7i2mdnjz/controller-r2",
+  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha16-7i2mdnjz/package",
+  "archives": {
+    "model-runner-alpha16-r2.zip": {
+      "sha256": "f3435ff3f7956b9fb7e6abb5e1f46c1d52c02a382678d4b10ab05d8db2d4c34d",
+      "bytes": 29559
+    },
+    "codex-model-alpha16-r1-evidence.zip": {
+      "sha256": "82ed837772f8d6eac53dd8d582ad1b48b06be90cb963b904765ef7ab57c9d0cf",
+      "bytes": 1311986,
+      "excluded_host_runtime_symlinks": [
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0L4Hd1H/apply_patch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0L4Hd1H/applypatch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0L4Hd1H/codex-execve-wrapper"
+      ]
+    }
+  },
+  "red": "controller-null-delivery-red.json",
+  "green": "controller-null-delivery-green.json",
+  "authorization": "Same human call_fd852a4fe6a64d91afd95b9dc39aeec8 explicitly permits same-scope necessary retests; no new formal decision or fixture added"
+}

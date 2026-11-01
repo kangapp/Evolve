@@ -1,0 +1,38 @@
+{
+  "scope": "Controlled tool/CLI branches; no whole V identifier marked passed.",
+  "evidence": "rule-owner-validation.json",
+  "branches": {
+    "V-027": {
+      "verified": "Actual prior failed/passed work supports a concrete separately approved rule; experience status stays candidate.",
+      "remaining": "IMP-010 complete effect and check-improvement cycle."
+    },
+    "V-079": {
+      "verified": "Learn owns actual rule application; init/sync/learn share exact checked decisions and file protocol without a wrong owner consuming a candidate.",
+      "remaining": "Native intent routing/semantic ownership."
+    },
+    "V-091": {
+      "verified": "New content/scope/state binding forms a new candidate; old decisions do not transfer; same rejected body is protected across owners.",
+      "remaining": "Native interpretation and external adoption."
+    },
+    "V-098": {
+      "verified": "Hypothesis and no-evidence citations cannot supply rule promotion; actual candidate experience is not authority or authorization.",
+      "remaining": "Native explanation and broader IMP-010 integration."
+    },
+    "V-100": {
+      "verified": "New actual counterexample marks bound rule for review and blocks actual target passing while preserving text, old VER and archive.",
+      "remaining": "Complete counterexample resolution and impact on unexecuted business plans."
+    },
+    "V-111": {
+      "verified": "Learn required rule Task has actual application, target acceptance and whole closure gates.",
+      "remaining": "Native knowledge integration."
+    },
+    "V-112": {
+      "verified": "Content check, specific decision, actual Learn file/binding, applied VER and archive form a real pure-document workflow.",
+      "remaining": "Full IMP-007 external adoption/native scope."
+    },
+    "V-119": {
+      "verified": "Two actual sync/Learn owners propose against the same original file, preserve exact approvals and compose disjoint meanings with actual Task/whole acceptance.",
+      "remaining": "Native semantics and integrated external-version conflicts."
+    }
+  }
+}

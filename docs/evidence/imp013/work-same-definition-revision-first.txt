@@ -1,0 +1,12 @@
+test_actual_task_checks_and_final_verification_archive_then_current_data_failure (test_external_work.ExternalWorkTests.test_actual_task_checks_and_final_verification_archive_then_current_data_failure) ... ok
+test_current_work_candidate_and_actual_effect_share_the_real_task (test_external_work.ExternalWorkTests.test_current_work_candidate_and_actual_effect_share_the_real_task) ... ok
+test_ordinary_file_apply_cannot_satisfy_an_explicit_data_task (test_external_work.ExternalWorkTests.test_ordinary_file_apply_cannot_satisfy_an_explicit_data_task) ... ok
+test_proven_same_definition_revision_continues_readonly_checks_but_cannot_rebind_write_candidate (test_external_work.ExternalWorkTests.test_proven_same_definition_revision_continues_readonly_checks_but_cannot_rebind_write_candidate) ... ok
+test_real_check_process_exit_after_commit_is_recovered_without_replaying_data_or_checks (test_external_work.ExternalWorkTests.test_real_check_process_exit_after_commit_is_recovered_without_replaying_data_or_checks) ... ok
+test_unknown_reconcile_and_explicit_checks_continue_without_replaying_data (test_external_work.ExternalWorkTests.test_unknown_reconcile_and_explicit_checks_continue_without_replaying_data) ... ok
+test_wrong_task_target_is_not_attached_or_executed (test_external_work.ExternalWorkTests.test_wrong_task_target_is_not_attached_or_executed) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.274s
+
+OK

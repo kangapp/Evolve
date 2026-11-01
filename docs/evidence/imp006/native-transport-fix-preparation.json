@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-10-31T16:10:36.463786+00:00",
+  "status": "prepared_no_model_dispatch",
+  "package_digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+  "controller_archive": "model-runner-alpha6-permission-fix.zip",
+  "controller_sha256": "a7b57e17cea9f536e0c42e602da85b4a1e2cc8b11fcbc852cfce443de1c73e9a",
+  "scope_digest": "65530668db9fcf6a17b13f9f5426bb960e8b9edae7eea4cc13d02779054bee81",
+  "discovery_skills": 8,
+  "model_requests_sent": false,
+  "passed": false,
+  "fixes": [
+    "Stream permission errors stop the process group and preserve output immediately; final permission_denials cannot pass with exit0.",
+    "Native assistant quota/transport errors and is_error results stop even with exit0.",
+    "Unexpected Codex permission/user-input requests stop after denial.",
+    "Claude input uses literal absolute project paths and single direct commands; reads plugin materials with existing Read/Glob/Grep, request/helper files with Write in existing control scope. No additional permission granted."
+  ],
+  "authorization_basis": "Original direct human answer authorized both hosts and necessary same-scope repairs/retests. New retry is prepared only after diagnosing and fixing concrete command-form mismatch; no repeated denied operation, added file scope, model or permission expansion.",
+  "original_failed_run": "claude-model-review-r1.json",
+  "remaining": "Finish non-model regression, then same-scope Claude reacceptance. Stop new batch on any permission/quota failure; do not bypass or repeat its denied operation."
+}

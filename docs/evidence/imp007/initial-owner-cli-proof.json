@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "content_digest": "aab23c603db5c71c1c58efb79df181d0db0b4c42e2990b2371f330e2e7da4199",
+  "commands": 24,
+  "actual_application_owners": [
+    "evolve-init",
+    "evolve-archive"
+  ],
+  "assertions": [
+    "Full two-owner required document plan",
+    "Typed initial candidate and actual content check",
+    "Central specific decisions do not write the file",
+    "Sync cannot apply init candidate",
+    "Legacy inline approval cannot downgrade typed candidate",
+    "Init actually produces required Task output",
+    "Init Task acceptance precedes dependent sync Task",
+    "New sync candidate uses actual registered baseline",
+    "Shared batch without reapproving initial meaning",
+    "Complete package relocation",
+    "Init cannot apply sync candidate",
+    "Actual init/sync application sources recorded",
+    "Narrow initial meaning survives later approved sync patch",
+    "Fresh init Task verification remains valid",
+    "Whole acceptance precedes archive",
+    "Original initial approval preserved",
+    "Pure status distinguishes byte match from meaning preservation",
+    "No pending run or claim"
+  ],
+  "limitations": [
+    "All semantic observations are controlled fixtures, not native model evidence.",
+    "Learn rule owner, external adoption and full IMP-007 acceptance remain pending."
+  ]
+}

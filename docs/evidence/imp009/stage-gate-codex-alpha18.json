@@ -1,0 +1,41 @@
+{
+  "slice": "IMP-009",
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.18",
+  "protocol_version": 14,
+  "schema_version": 4,
+  "package_digest": "a4e7dca7b6a63cef556bca903a514c2013a3adcdfc84181bd3388992b0a4163f",
+  "policy": "../acceptance-host-policy-20261101.json",
+  "authorization": "model-authorization-alpha16.json",
+  "scope_digest": "c014d0276e9e17c5beb8c155cf3ed3f356e12e1f02c6c906b682a3fba2156891",
+  "same_scope_fix_lineage": [
+    "controller-fix-alpha16-r2.json",
+    "runtime-fix-validation-alpha17.json",
+    "native-gap-analysis-alpha17.json",
+    "runtime-fix-validation-alpha18.json"
+  ],
+  "regression": {
+    "tests": 534,
+    "log": "component-tests-alpha18.txt",
+    "passed": true
+  },
+  "public_cli": {
+    "commands": 136,
+    "cases": 8,
+    "evidence": "runtime-fix-validation-alpha18.json",
+    "passed": true
+  },
+  "native": {
+    "fresh_sessions": 7,
+    "commands": 149,
+    "review": "codex-model-review-alpha18-r1.json",
+    "passed": true,
+    "total_new_threads_including_three_failed_trials": 19
+  },
+  "evidence_map": "acceptance-map-alpha18.json",
+  "Claude": "deferred_by_user_not_dispatched",
+  "formal_data_execution": "unavailable_not_claimed",
+  "concurrency_scope": "Actual-process contention regression plus sequential native cross-work coordination; no parallel-native-model benchmark",
+  "final_negative": "Original foreign bytes and two intentional blocked observations retained; four archived current Changes, one cancelled, five current done Tasks; old B REV1 partial remains historical",
+  "other_stages": "IMP-010/011 and M3 remain unfinished; no global V or full-project pass claim."
+}

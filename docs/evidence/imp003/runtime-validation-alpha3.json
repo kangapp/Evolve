@@ -1,0 +1,35 @@
+{
+  "recorded_on": "2026-10-31",
+  "package_version": "0.1.0-alpha.3",
+  "schema_version": 1,
+  "protocol_version": 2,
+  "source_content_digest": "6553bffd8439ad6c1569c35388dd21cd27eedd6ff0fef71485bfde59e40a4dc6",
+  "distribution_content_digest": "240d19be86696a0adbd21c5a4ab461224b37a2b1c2f8fac714ddd7acbe1f77f2",
+  "evidence_kind": "Observed local tool results; structured transcript, not a raw test log",
+  "commands": [
+    {
+      "command": "python3 -B -m unittest discover -s tests",
+      "exit_code": 0,
+      "tests": 183,
+      "elapsed_seconds": 11.205
+    },
+    {
+      "command": "python3 scripts/build_package.py --check",
+      "exit_code": 0,
+      "package_files": 45
+    },
+    {
+      "command": "python3 docs/check_design.py",
+      "exit_code": 0,
+      "V": 140,
+      "implementation_slices": 14,
+      "implementation_dependencies": 22,
+      "svg_diagrams": 17
+    }
+  ],
+  "limitations": [
+    "Host install/CLI and actual model evidence still pending at this observation",
+    "Native Windows not run",
+    "IMP-004/005 not started; M1 not complete"
+  ]
+}

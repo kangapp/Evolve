@@ -1,0 +1,20 @@
+{
+  "name": "evolve-local",
+  "interface": {
+    "displayName": "Evolve local"
+  },
+  "plugins": [
+    {
+      "name": "evolve",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

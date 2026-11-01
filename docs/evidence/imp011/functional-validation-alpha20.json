@@ -1,0 +1,208 @@
+{
+  "slice": "IMP-011",
+  "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf",
+  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf/package",
+  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf/controller-r2",
+  "source_digest": "346db2a9d78dbcfe99f88a5f32a59547fdd5a3a2dc9eb61ec92dfceaa1c0bcea",
+  "content_digest": "4115593f36e052c714ce735c88cefd4c4fdc05e90cc6cb44d1083282c2dbbb2f",
+  "scope_digest": "548623c927fedebfbeb6841ec6124a223e4f46b67117db27dd4016260af8828a",
+  "schema_version": 4,
+  "protocol_version": 14,
+  "package_version": "0.1.0-alpha.20",
+  "status": "functional_passed_native_not_dispatched",
+  "model_requests_sent": false,
+  "authorization_status": "pending_new_actual_human_scope",
+  "Claude": "deferred_by_user",
+  "initial_scope_digest": "a129e6aa1dd931b93840070fd5ff18964b562f1512c13a5632257203d2bcb6f0",
+  "scope_revision": "Pre-dispatch r2 includes exact four check definitions directly in the prepare prompt; initial preparation retained; no model requests.",
+  "regression": {
+    "tests": 548,
+    "seconds": 96.03,
+    "status": "passed",
+    "log": "component-tests-alpha20.txt"
+  },
+  "supplemental": {
+    "tests": 5,
+    "status": "passed",
+    "log": "supplemental-components-alpha20.txt"
+  },
+  "public_cli": {
+    "commands": 238,
+    "suites": [
+      {
+        "suite": "public-cli-r2",
+        "commands": 41,
+        "cases": [
+          {
+            "case": "DailyWorkflowTests.test_four_cases_keep_shared_integration_deferral_and_later_negative_truthful",
+            "commands": 27,
+            "passed": true,
+            "project_snapshot": "project-1"
+          },
+          {
+            "case": "DailyWorkflowTests.test_missing_environment_does_not_succeed_or_create_replacement_tests",
+            "commands": 14,
+            "passed": true,
+            "project_snapshot": "project-2"
+          }
+        ],
+        "passed": true
+      },
+      {
+        "suite": "cross-cli",
+        "commands": 136,
+        "cases": [
+          {
+            "case": "CrossDependencyTests.test_done_is_not_verified_and_produced_inputs_are_not_frozen_as_old_context",
+            "commands": 12,
+            "passed": true,
+            "project_snapshot": "project-1"
+          },
+          {
+            "case": "CrossDependencyTests.test_upstream_cancellation_invalidates_only_real_downstream_and_preserves_old_results",
+            "commands": 12,
+            "passed": true,
+            "project_snapshot": "project-2"
+          },
+          {
+            "case": "CrossDependencyTests.test_real_upstream_revision_requires_rebinding_instead_of_silently_following_latest",
+            "commands": 8,
+            "passed": true,
+            "project_snapshot": "project-3"
+          },
+          {
+            "case": "CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings",
+            "commands": 26,
+            "passed": true,
+            "project_snapshot": "project-4"
+          },
+          {
+            "case": "CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval",
+            "commands": 19,
+            "passed": true,
+            "project_snapshot": "project-5"
+          },
+          {
+            "case": "CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write",
+            "commands": 23,
+            "passed": true,
+            "project_snapshot": "project-6"
+          },
+          {
+            "case": "CrossFormalTests.test_whole_acceptance_retains_first_owner_after_other_change_composes",
+            "commands": 25,
+            "passed": true,
+            "project_snapshot": "project-7"
+          },
+          {
+            "case": "StructuredDiagnosticTests.test_single_task_root_binding_requires_original_post_repair_observation",
+            "commands": 11,
+            "passed": true,
+            "project_snapshot": "project-8"
+          }
+        ],
+        "passed": true
+      },
+      {
+        "suite": "data-cli",
+        "commands": 15,
+        "cases": [],
+        "passed": true
+      },
+      {
+        "suite": "learning-cli",
+        "commands": 46,
+        "cases": [
+          {
+            "case": "LearningCycleTests.test_actual_counterexample_to_check_fix_and_scoped_feedback",
+            "commands": 46,
+            "passed": true,
+            "project_snapshot": "project-1"
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "model_requests_sent": false
+  },
+  "skills": {
+    "count": 8,
+    "status": "passed",
+    "evidence": "skill-validation-alpha20.json"
+  },
+  "native_preparation": {
+    "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf/package",
+    "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf/preparation-r2/business/.agents/evolve-acceptance/installed-source",
+    "cache": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha20-o5ikz4jf/preparation-r2/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.20",
+    "content_digest": "4115593f36e052c714ce735c88cefd4c4fdc05e90cc6cb44d1083282c2dbbb2f",
+    "scope_digest": "548623c927fedebfbeb6841ec6124a223e4f46b67117db27dd4016260af8828a",
+    "model_requests_sent": false,
+    "automated_checks_passed": false,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [],
+    "preparation_status": "installed_and_discovered_no_model_dispatch"
+  },
+  "archives": {
+    "runtime-package-alpha20.zip": {
+      "sha256": "dfb9cc913e0c35c47e1e2c7b48cd62c424e1a98fcca0a21868818a368d457b75",
+      "bytes": 210065,
+      "excluded_host_runtime_symlinks": []
+    },
+    "model-runner-alpha20.zip": {
+      "sha256": "4e76c1ca842267cd95166633ff69f4243107a9a8c154cc4c23c4bc325e552750",
+      "bytes": 38537,
+      "excluded_host_runtime_symlinks": []
+    },
+    "model-preparation-alpha20.zip": {
+      "sha256": "d9217f3e5d1e37a8d45ea7188b949fe5498f095fbff0dda6e3271be166921031",
+      "bytes": 723823,
+      "excluded_host_runtime_symlinks": [
+        "preparation/business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0BVZkwd/apply_patch",
+        "preparation/business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0BVZkwd/applypatch",
+        "preparation/business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0BVZkwd/codex-execve-wrapper"
+      ]
+    },
+    "model-runner-alpha20-r2.zip": {
+      "sha256": "fd93a9b6edbd368fca45df8c6c362883827049ce3d85fb48abec3f5160f18104",
+      "bytes": 38584,
+      "excluded_host_runtime_symlinks": []
+    },
+    "model-preparation-alpha20-r2.zip": {
+      "sha256": "5b8f2223a3c19afbe3957afa19ae4d7639aff1fa75ff59be3503018575fc7bb0",
+      "bytes": 724185,
+      "excluded_host_runtime_symlinks": [
+        "preparation/business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0bGNEwl/apply_patch",
+        "preparation/business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0bGNEwl/applypatch",
+        "preparation/business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0bGNEwl/codex-execve-wrapper"
+      ]
+    },
+    "public-cli-alpha20.zip": {
+      "sha256": "c1a32fed6de5020c313f8b74c87d950c0bc494562cbac072ec54721240b1b88c",
+      "bytes": 1127543,
+      "excluded_host_runtime_symlinks": []
+    }
+  },
+  "package_manifest_source_files": 68,
+  "resource_delta_from_passed_alpha19": [
+    ".claude-plugin/plugin.json",
+    ".codex-plugin/plugin.json",
+    "CHANGELOG.md",
+    "README.md",
+    "docs/installation.md",
+    "docs/usage.md",
+    "runtime/evolve_core/__init__.py",
+    "shared/contract.md"
+  ],
+  "acceptance_map": "acceptance-map-alpha20.json",
+  "design_check": "design-check-alpha20.json",
+  "acceptance_plan": "model-acceptance-plan.md",
+  "authorization": "New eight-file/eight-session composition and exact optional candidate deferral not covered by IMP-010; actual human scope reply required before dispatch",
+  "later_audit": {
+    "status": "incomplete_under_stronger_conflict_closure_assertion",
+    "evidence": "known-conflict-no-write-red-alpha20.txt",
+    "original_successful_test_results_retained": true,
+    "current_fix": "alpha21 pending full validation",
+    "native_dispatched": false
+  }
+}

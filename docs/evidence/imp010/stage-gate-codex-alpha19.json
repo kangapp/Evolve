@@ -1,0 +1,39 @@
+{
+  "slice": "IMP-010",
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.19",
+  "protocol_version": 14,
+  "schema_version": 4,
+  "package_digest": "c93cc4241d8fb7da9714022bc4cfe7587a82ff57f3cdca19c6033b43cffb964c",
+  "scope_digest": "9521202f24d8d21824d8a72d4f50effb84fd8e0221435ba1fea51e31b7d988e8",
+  "policy": "../acceptance-host-policy-20261101.json",
+  "authorization": "authorization-alpha19.json",
+  "regression": {
+    "tests": 542,
+    "seconds": 93.035,
+    "log": "component-tests-alpha19.txt",
+    "passed": true
+  },
+  "additional_parent_checks": {
+    "tests": 4,
+    "log": "parent-components-r2.txt",
+    "passed": true
+  },
+  "public_cli": {
+    "commands": 46,
+    "cases": 1,
+    "evidence": "functional-validation-alpha19.json",
+    "passed": true
+  },
+  "native": {
+    "fresh_sessions": 6,
+    "commands": 152,
+    "model": "gpt-6-astra (actual default)",
+    "review": "codex-model-review-alpha19-r1.json",
+    "passed": true
+  },
+  "evidence_map": "acceptance-map.json",
+  "Claude": "deferred_by_user_not_dispatched",
+  "final_negative": "C unaccepted/unexecuted, old experience needs_review, unchanged rule blocked RULE_SOURCE_CHANGED; historical first FIX failure and all old results retained. Expected scenario observations, not outstanding stage defects.",
+  "other_stages": "IMP-011 and M3 unfinished; no global V or full-project pass."
+}

@@ -1,0 +1,22 @@
+E
+======================================================================
+ERROR: test_state_chain_uses_explicit_predecessors_instead_of_wall_clock_order (test_learning.LearningTests.test_state_chain_uses_explicit_predecessors_instead_of_wall_clock_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_learning.py", line 278, in test_state_chain_uses_explicit_predecessors_instead_of_wall_clock_order
+    self.assertEqual(search(self.root, 'arithmetic')['results'][0]['state'], 'active')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 150, in search
+    result = search_catalog(connection, query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 116, in search_catalog
+    entries = catalog(connection)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 78, in catalog
+    raise EvolveError('LEARNING_RECORD_INVALID', 'Experience state chain is missing or branched')
+evolve_core.errors.EvolveError: Experience state chain is missing or branched
+
+----------------------------------------------------------------------
+Ran 1 test in 0.164s
+
+FAILED (errors=1)

@@ -1,0 +1,265 @@
+{
+  "slice": "IMP-007",
+  "scope": "Per-requirement component links and actual native stage status, not a whole global V pass declaration.",
+  "package_version": "0.1.0-alpha.14",
+  "package_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "regression_log": "../imp006/component-tests-rate-limit-full.txt",
+  "regression_tests": 479,
+  "test_references": 27,
+  "source_snapshot": {
+    "path": "acceptance-test-sources-alpha14.zip",
+    "sha256": "0911a9b07a6433ef4d37066bcfc85a247e07c489dda87f2d791eab090ba8e771"
+  },
+  "requirements": [
+    {
+      "requirement": "V-011",
+      "statement": "具体批准与目标基线均有效才应用；另一任务先改基线后不得覆盖；重复应用不复制条目。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_application_requires_exact_finalized_approval_and_latest_content_check",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_external_formal_change_and_missing_knowledge_authority_are_not_overwritten",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_overlapping_ranges_stop_even_if_both_are_approved",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-038",
+      "statement": "批准且验证／依赖闭合的子集可应用；后续修订使用后继 delta，不重放旧 ADD。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_batch_membership_does_not_approve_or_apply_an_unselected_candidate",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_declared_dependency_must_be_actually_applied_before_patch",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_add_remove_delta_and_later_scope_preservation_have_actual_effects",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-079",
+      "statement": "init 初次基线、propose／sync 正式业务含义、learn 规则；统一具体批准，不借补齐越权。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_initial_document_owner.py",
+          "case": "InitialDocumentOwnerTests.test_required_initial_and_sync_tasks_finish_one_shared_document_through_actual_owners",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_rule_owner.py",
+          "case": "RuleOwnerTests.test_other_owner_cannot_propose_or_apply_experience_rule",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_business_apply_cannot_complete_a_sync_task_even_without_files",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-091",
+      "statement": "支持逐项接受／拒绝／延期，初次基线同样需批准；批准绑定具体版本，变化不沿用。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_knowledge_proposals.py",
+          "case": "KnowledgeProposalTests.test_batch_records_individual_approval_and_deferral_without_file_writes",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_knowledge_proposals.py",
+          "case": "KnowledgeProposalTests.test_rejection_requires_explicit_reconsideration_even_with_a_new_topic",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_knowledge_proposals.py",
+          "case": "KnowledgeProposalTests.test_replacement_preserves_old_content_decision_and_does_not_transfer_approval",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-092",
+      "statement": "必需实现验收通过而附带知识待审可封存；漂移清晰可见；必需正式文档未应用或影响验收的冲突仍阻碍。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_required_document_cannot_close_before_application_and_actual_acceptance",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_approved_followup_spec_applies_after_archive_without_reopening_frozen_work",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-111",
+      "statement": "用户要求修订正式文档／规则时，候选未批准、未应用或缺少应用后检查不能完成；附带改进才可延期，不混淆两种目标。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_initial_document_owner.py",
+          "case": "InitialDocumentOwnerTests.test_new_file_required_initial_document_uses_actual_application_and_verification",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_rule_owner.py",
+          "case": "RuleOwnerTests.test_required_rule_task_needs_actual_application_and_target_acceptance",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_required_same_file_tasks_keep_both_meanings_through_reverification_and_archive",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-112",
+      "statement": "候选内容检查 → 批准 → 对应 owner 应用 → 实际字节及适用验收 → 封存；没有“先应用才可验证、先验收才可应用”的循环，apply 不抢写正式文件。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_standalone_application_and_actual_verification_are_separate_from_candidate",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_external_knowledge.py",
+          "case": "ExternalKnowledgeTests.test_required_external_document_is_actually_adopted_then_independently_verified",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-119",
+      "statement": "不同 owner 的已批准非冲突改动顺序应用，基线随自身应用推进时以证明链复用批准；实质冲突／外部变化只暂停相关项，不重复批准不变内容。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_rule_owner.py",
+          "case": "RuleOwnerTests.test_sync_and_learn_same_original_base_complete_required_tasks_by_real_chain",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_independent_same_base_patches_compose_without_overwrite_or_repeat_approval",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_patch_application.py",
+          "case": "PatchApplicationTests.test_external_bytes_do_not_join_an_approved_application_chain",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-120",
+      "statement": "已归档 A 的待审提案被 B 的新行为／提案替代，旧批准不转移、不改回旧含义；保留版本、决定和替代关系，相关查询可发现。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_external_knowledge.py",
+          "case": "ExternalKnowledgeTests.test_archived_a_deferred_proposal_is_discoverably_replaced_by_actual_b",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_external_knowledge.py",
+          "case": "ExternalKnowledgeTests.test_archived_a_approved_unapplied_proposal_does_not_overwrite_actual_b",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    },
+    {
+      "requirement": "V-135",
+      "statement": "映射既有术语／ADR，不重复建权威；只有有内容和实际取舍才建资料，正式内容仍经具体确认，不因术语讨论自动落正式规则。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_formal_document_inside_records_directory_has_actual_scoped_fingerprint",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_initial_document_owner.py",
+          "case": "InitialDocumentOwnerTests.test_existing_unmapped_document_can_be_registered_without_rewriting_its_bytes",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        },
+        {
+          "file": "tests/test_initial_knowledge.py",
+          "case": "InitialKnowledgeTests.test_business_authorization_does_not_approve_formal_knowledge",
+          "result": "passed in ../imp006/component-tests-rate-limit-full.txt"
+        }
+      ],
+      "native_status": "codex_scope_passed_claude_not_dispatched",
+      "whole_requirement_passed": false
+    }
+  ],
+  "native_dispatch": "model-dispatch-alpha14.json",
+  "authorization": "model-authorization-alpha14.json",
+  "prior_branch_maps": [
+    "application-acceptance-map.json",
+    "patch-acceptance-map.json",
+    "initial-owner-acceptance-map.json",
+    "rule-owner-acceptance-map.json",
+    "external-acceptance-map.json"
+  ],
+  "remaining": [
+    "Complete and semantically review the exact authorized nine cases on both hosts, actual owners/approvals/files/source chains/current versus old acceptance.",
+    "Native four-file scope reuses its existing guide; it contains no separate preexisting ADR fixture. Do not claim all possible ADR mapping/tradeoff behaviors from that scope.",
+    "Multiple-writer coordination and full counterexample/check-improvement cycles remain IMP009 and IMP010; all applicable combined branches must close at IMP011/014."
+  ],
+  "stage_passed": false,
+  "native_hosts": {
+    "codex": {
+      "status": "passed_current_host_scope",
+      "review": "codex-model-review-alpha14-r1.json"
+    },
+    "claude": {
+      "status": "deferred_known_native_rate_limit",
+      "dispatch": "model-dispatch-alpha14.json"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "project": "/private/tmp/evolve-imp014-lifecycle-010-r1/codex-business",
+  "changed_paths": [
+    ".evolve-local/control/guard.json",
+    ".evolve-local/control/managed.json",
+    "evolve/history.db"
+  ],
+  "identity_unchanged": true,
+  "configuration_unchanged": true,
+  "prior_rows_preserved": true,
+  "guard_matches_current_meta": true,
+  "managed_digest_matches_guard": true,
+  "managed_is_exact_current_protection": true,
+  "active_executions": [],
+  "conclusion": "The old fixture whitelist omits mandatory managed checkpoint metadata, not a business/config/history regression."
+}

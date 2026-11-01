@@ -1,0 +1,49 @@
+{
+  "slice": "IMP-013",
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.25",
+  "protocol_version": 16,
+  "schema_version": 4,
+  "resources": 80,
+  "source_digest": "6d1218ad483e35a16be466e8b3b83b2943b99f47ab5f520b5b92e4b88a320707",
+  "package_digest": "993711f866cc2e85873fefee222c117555bc4fef0b940e435d80b12df89d9ee6",
+  "full_regression": {
+    "count": 633,
+    "seconds": 140.451,
+    "log": "component-tests-alpha25-first.txt"
+  },
+  "public_frozen": {
+    "commands": 21,
+    "cases": 6,
+    "log": "public-six-case-frozen-alpha25.txt",
+    "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp013-frozen-alpha25-h9lh3o95/public-cli",
+    "controlled_not_native": true
+  },
+  "old_compatibility": {
+    "alpha21_protocol14": {
+      "commands": 8,
+      "passed": true,
+      "log": "actual-alpha21-to-frozen-alpha25.txt"
+    },
+    "alpha23_protocol15": {
+      "commands": 8,
+      "passed": true,
+      "log": "actual-alpha23-to-frozen-alpha25.txt"
+    }
+  },
+  "two_host_isolated_install": {
+    "passed": true,
+    "model_requests_sent": false,
+    "summary": "/tmp/evolve-imp013-host-install-alpha25-first/summary.json",
+    "package_digest_matches": true
+  },
+  "native_scope_digest": "2365752e4dd9374ce316ce22b376a7ad0f1a96bfe6e6979fd4b7b92267db7f14",
+  "native_gate": "passed; six fresh sessions/82commands and actual primary semantic review",
+  "alpha24_held": "codex-model-review-alpha24-r1-held.json",
+  "capability_limits": [
+    "Only actual finite synchronous Python/SQLite controlled mechanism in current environment; no real production evidence",
+    "No remote provider, arbitrary dynamic closure or detached/delayed work",
+    "Business project relocation does not silently rebind old targets",
+    "External editors and provider writers are outside the local writer lock"
+  ]
+}

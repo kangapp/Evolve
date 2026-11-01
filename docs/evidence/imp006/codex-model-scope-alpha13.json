@@ -1,0 +1,51 @@
+{
+  "slice": "IMP-006",
+  "host": "codex",
+  "claude_model": null,
+  "package_version": "0.1.0-alpha.13",
+  "content_digest": "83cee98e7e1807e3347690b7fd633463651f519e9d0c34b91af9dfdedfc9efdd",
+  "schema_version": 4,
+  "protocol_version": 10,
+  "model_selection": "model/list isDefault at dispatch",
+  "first_files": {
+    "arithmetic.py": "def total(values):\n    return sum(values)\n",
+    "report.py": "def render(values, include_mean=False):\n    return \"not implemented\"\n",
+    "test_arithmetic.py": "import unittest\nfrom arithmetic import total\nclass OriginalTotal(unittest.TestCase):\n    def test_original_literals(self):\n        self.assertEqual(total([2,3]),5)\n        self.assertEqual(total([]),0)\n        self.assertEqual(total([-2,3]),1)\n        self.assertEqual(total(iter([2,3])),5)\n",
+    "test_summary.py": "import unittest\nfrom arithmetic import summarize\nclass Summary(unittest.TestCase):\n    def test_single_pass(self):\n        self.assertEqual(summarize(iter([2,3])),(5,2))\n        self.assertEqual(summarize(iter([])),(0,0))\n        self.assertEqual(summarize(iter([-2,3])),(1,2))\n",
+    "test_report.py": "import unittest\nfrom report import render\nclass Report(unittest.TestCase):\n    def test_original_format(self):\n        self.assertEqual(render(iter([2,3])),\"total=5; count=2\")\n        self.assertEqual(render(iter([])),\"total=0; count=0\")\n        self.assertEqual(render(iter([-2,3])),\"total=1; count=2\")\n",
+    "test_integration.py": "import unittest\nfrom unittest.mock import patch\nimport report\nfrom arithmetic import summarize\nclass Integration(unittest.TestCase):\n    def test_shared_single_pass_boundary(self):\n        with patch(\"report.summarize\", wraps=summarize) as shared:\n            self.assertEqual(report.render(iter([5,-2])),\"total=3; count=2\")\n            self.assertEqual(shared.call_count,1)\n"
+  },
+  "second_files": {
+    "test_report_mean.py": "import unittest\nfrom report import render\nclass MeanReport(unittest.TestCase):\n    def test_optional_mean(self):\n        self.assertEqual(render(iter([2,3]),include_mean=True),\"total=5; count=2; mean=2.50\")\n        self.assertEqual(render(iter([]),include_mean=True),\"total=0; count=0; mean=0.00\")\n        self.assertEqual(render(iter([-2,3]),include_mean=True),\"total=1; count=2; mean=0.50\")\n        self.assertEqual(render(iter([2,3])),\"total=5; count=2\")\n"
+  },
+  "business_write_paths": [
+    "arithmetic.py",
+    "report.py"
+  ],
+  "cases": {
+    "propose": "使用 Evolve 接入当前临时项目，仅形成并保存完整复杂方案，本轮不接受方案、不实施或改业务。先梳理这个临时项目的整体入口、模块职责、检查方式与关键约束，再形成下述方案；结论限本项目。目标：保留 arithmetic.total 的现有行为，提取单次迭代的 arithmetic.summarize(values)，返回 (总和,数量)；report.render(values, include_mean=False) 通过该共享接口生成 total=5; count=2 这样的文本。按当前六个文件的独立测试核对正数、空输入、负数和一次性迭代器；此轮不实现可选均值。完整 spec 要呈现目标、边界、行为、约束、取舍、测试决定及未决问题。任务键固定 CORE、REPORT：CORE 是为报告所必需的预重构，文件仅 arithmetic.py，先证明原 total 行为，再形成共享 summarize；REPORT 文件仅 report.py，依赖 CORE 的独立任务验收通过。所有测试为只读判据，分别声明相关上下文。登记检查 ID original、summary、report、integration，命令分别为 python3 -B -m unittest test_arithmetic -v、test_summary -v、test_report -v、discover -v。CORE 必需 original、summary，原行为保持只用 original，保留 test_arithmetic.py 原判据；REPORT 必需 report；最终必需 integration。这是两个模块的广泛接口迁移，声明 broad_migration 及最终集成边界；任务完成不能代替全项通过。不改测试，不批准正式知识。",
+    "refactor_pause": "本轮明确接受前一会话已存档、且符合上述固定目标和边界的完整方案。先从 Evolve 恢复并呈现原文，核对范围和实际授权后，仅实施 CORE；授权范围为 arithmetic.py、后续 report.py 及各已登记真实检查。先单独准备原 total 的真实前证明，再完成 arithmetic.py 文件段并正常暂停，保留原证明；文件段暂停不运行后检查，不将 CORE 记 done，不验收或封存。report.py 和全部测试保持。授权覆盖换会话后的原范围实施、相关修正和真实检查，本轮暂停边界仍须遵守。",
+    "cosmetic_revision": "使用 Evolve 仅修订当前完整方案的展示：将方案标题改为“单次迭代汇总与报告”，让 plan 摘要更清楚，并将两个任务的展示标题写得易懂。目标、完成条件、AC、测试决定、范围、依赖和检查含义全部保持；沿原已接受依据保存新的 REV。保留部分进度、授权及原行为证明。本轮不实施、不运行检查、不写业务或测试。",
+    "continue": "无旧聊天续接此项目的未完成工作。使用 Evolve 档案恢复当前完整方案、部分进度、原证明和授权，重点核对 summarize 的生产与 report.render 的消费链路及当前判据，沿相关链路解决缺口，已有可信背景直接复用。沿原部分来源与同定义任务继续，不重新制造重构前基线。完成 CORE 的原后检查及独立任务验收，再实施 REPORT，运行任务检查、最终 integration、逐 AC 与规格／规范审查；原范围内发现必需问题可修正复验。本轮完成整体验收后停止，不封存，保留活动工作项供下一轮明确需求修订；不改原测试或正式知识。",
+    "local_revision": "使用 Evolve 修改当前活动方案：report.render 的 include_mean=True 分支增加均值，格式固定为 total=5; count=2; mean=2.50，保留两位小数；空输入 mean=0.00。默认 False 的原文本和 total／summarize 接口与行为保持。控制侧新增的 test_report_mean.py 是只读独立判据，原测试继续保持。本轮仅呈现并保存完整新 REV；原有 AC 保留，新增可选均值 AC，REPORT 负责该成果，CORE 的原定义和适用结果应保留。REPORT 需检查原 report 及新增 test_report_mean，最终 discover 全部测试；可按实际命令增量登记 mean 检查。说明影响并保留旧整体验收及原证明，本轮不接受新语义方案、不实施、运行检查或封存。若替换旧阶段“不实现均值”的描述触发 scope_confirmation_required，保存并呈现完整待批准候选，明确旧 REV 仍生效、候选不是已生成的新 REV；不伪造接受依据或绕过确认。",
+    "finish_revision": "本轮明确接受前一会话已存档、符合可选均值固定格式及原接口保持边界的完整修订。使用 Evolve 恢复并呈现新方案，按此具体范围只修改 report.py，保留 arithmetic.py、所有原测试和新增均值判据。若前轮停在范围确认，本轮的具体接受同时覆盖该固定均值候选中旧阶段“不实现均值”描述的替换，仅限该均值要求相关描述；保留原 AC、CORE 和原接口边界，先以实际候选摘要完成接受和新 REV 登记再实施。复用仍适用的 CORE 结果及原证明；实施 REPORT 的新定义，运行已登记原／新检查、最终集成、逐 AC 和规格／规范审查，原范围内修正必需问题，真实通过后封存。不得用原 REV 的整体验收代替新要求验收，不批准正式知识。",
+    "verify": "控制侧已明确在 report.py 的 include_mean=True 分支引入一次外部回退。使用 Evolve 仅验收当前已封存工作项，追加实际当前观察，保留原 Task／Change 终态、历史通过截点及 VER。不要修复业务、测试或强行重开。说明原结果与当前失败的区别，给出必要后续方案；只运行实际检查和记录验收，不预填结论。"
+  },
+  "fresh_conversation_per_case": true,
+  "maximum_sessions": 7,
+  "installation_layout": ".agents/evolve-acceptance/{profile,installed-source} within disposable business root; source and cache immutable",
+  "limits": [
+    "Only the disposable project, its records and actual installed plugin resources",
+    "Original tests and the parent-added mean tests remain read-only",
+    "No personal configuration or credential changes; no external apps, nested agents, commits, publication or deployment",
+    "Stop the host on quota, permission, transport or parent-check failure; no automatic retry or model/account replacement",
+    "No formal project knowledge approval; current environment only"
+  ],
+  "runner_files": {
+    "model_complex_checks.py": "9bcaf07342c9ce00d3146632c0c3f1c6d6097428371b5b8962eeb19f7fcbebb0",
+    "model_acceptance.py": "73a5b62bf74cd9603ab9a4628a21f86b28b0b16831c713411c9968af81a9f548",
+    "model_session_checks.py": "2564c2142313d6ae98c1e0bc908830432eda97327338b8620d3ac31e872f5b98",
+    "verify_hosts.py": "79fe75b4083e072db91387a5fe3155c2a9301a0069c0b5ac0c9721231d243af0"
+  },
+  "scope_digest": "c19db884d42a043ef798e7b121443ec0789ede55a008c692124a573e206b01cc"
+}

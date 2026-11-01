@@ -1,0 +1,124 @@
+{
+  "old_package_version": "0.1.0-alpha.2",
+  "old_package_content_digest": "192aa5e7fa89d6dfaf6a93e547b3430aa3c9259f9e1f212ab16a343de91a50ff",
+  "current_protocol": 2,
+  "evidence_kind": "Actual preserved old writer against both finished protocol-2 native lifecycle projects; no mock or metadata relabel",
+  "observations": [
+    {
+      "host_project": "codex",
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/tmp/evolve-imp002-models-final-package-05/runtime/evolve.py",
+        "--project",
+        "/tmp/evolve-imp005-lifecycle-03/codex-business",
+        "status"
+      ],
+      "exit_code": 2,
+      "response": {
+        "ok": false,
+        "action": "status",
+        "operation_id": null,
+        "data": {
+          "committed": false
+        },
+        "warnings": [],
+        "error": {
+          "code": "SCHEMA_VERSION",
+          "message": "History schema or protocol is unsupported; no migration attempted",
+          "next_steps": []
+        }
+      },
+      "stderr": "",
+      "project_files_unchanged": true
+    },
+    {
+      "host_project": "codex",
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/tmp/evolve-imp002-models-final-package-05/runtime/evolve.py",
+        "--project",
+        "/tmp/evolve-imp005-lifecycle-03/codex-business",
+        "init",
+        "--request",
+        "-"
+      ],
+      "exit_code": 2,
+      "response": {
+        "ok": false,
+        "action": "init",
+        "operation_id": null,
+        "data": {
+          "committed": false
+        },
+        "warnings": [],
+        "error": {
+          "code": "SCHEMA_VERSION",
+          "message": "History schema or protocol is unsupported; no migration attempted",
+          "next_steps": []
+        }
+      },
+      "stderr": "",
+      "project_files_unchanged": true
+    },
+    {
+      "host_project": "claude",
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/tmp/evolve-imp002-models-final-package-05/runtime/evolve.py",
+        "--project",
+        "/tmp/evolve-imp005-lifecycle-03/claude-business",
+        "status"
+      ],
+      "exit_code": 2,
+      "response": {
+        "ok": false,
+        "action": "status",
+        "operation_id": null,
+        "data": {
+          "committed": false
+        },
+        "warnings": [],
+        "error": {
+          "code": "SCHEMA_VERSION",
+          "message": "History schema or protocol is unsupported; no migration attempted",
+          "next_steps": []
+        }
+      },
+      "stderr": "",
+      "project_files_unchanged": true
+    },
+    {
+      "host_project": "claude",
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/tmp/evolve-imp002-models-final-package-05/runtime/evolve.py",
+        "--project",
+        "/tmp/evolve-imp005-lifecycle-03/claude-business",
+        "init",
+        "--request",
+        "-"
+      ],
+      "exit_code": 2,
+      "response": {
+        "ok": false,
+        "action": "init",
+        "operation_id": null,
+        "data": {
+          "committed": false
+        },
+        "warnings": [],
+        "error": {
+          "code": "SCHEMA_VERSION",
+          "message": "History schema or protocol is unsupported; no migration attempted",
+          "next_steps": []
+        }
+      },
+      "stderr": "",
+      "project_files_unchanged": true
+    }
+  ]
+}

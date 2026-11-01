@@ -1,0 +1,27 @@
+test_absent_or_previous_learning_authorization_never_installs_or_dispatches (test_model_daily_acceptance.DailyScopeTests.test_absent_or_previous_learning_authorization_never_installs_or_dispatches) ... ok
+test_all_eight_actual_parent_boundaries_and_readonly_tamper_rejection_without_models (test_model_daily_acceptance.DailyScopeTests.test_all_eight_actual_parent_boundaries_and_readonly_tamper_rejection_without_models) ... ok
+test_frozen_alias_has_the_same_actual_scope (test_model_daily_acceptance.DailyScopeTests.test_frozen_alias_has_the_same_actual_scope) ... FAIL
+test_scope_pins_eight_files_eight_sessions_and_no_formal_approval (test_model_daily_acceptance.DailyScopeTests.test_scope_pins_eight_files_eight_sessions_and_no_formal_approval) ... ok
+
+======================================================================
+FAIL: test_frozen_alias_has_the_same_actual_scope (test_model_daily_acceptance.DailyScopeTests.test_frozen_alias_has_the_same_actual_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_daily_acceptance.py", line 53, in test_frozen_alias_has_the_same_actual_scope
+    self.assertEqual(result.returncode, 0, result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/tmpnz5uoc82/alias/scripts/model_daily_acceptance.py", line 4, in <module>
+    from model_daily_checks import scope_for, DailyChecks, PROMPTS
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/tmpnz5uoc82/controller/scripts/model_daily_checks.py", line 8, in <module>
+    from daily_inputs import FILES, CHECKS, GUIDE, CASES, EXTERNAL_REPORT
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/tmpnz5uoc82/controller/scripts/daily_inputs.py", line 8, in <module>
+    from test_sql_workflow import ORDERS, BROKEN as SQL_BROKEN, CHECK as SQL_CHECK
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/tmpnz5uoc82/controller/tests/test_sql_workflow.py", line 14, in <module>
+    from evolve_core.analysis import investigate
+ModuleNotFoundError: No module named 'evolve_core'
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.624s
+
+FAILED (failures=1)

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1246" viewBox="0 0 1440 1246" role="img" aria-labelledby="title desc">
+<title id="title">正式环境数据操作与未知结果</title><desc id="desc">默认只读／测试；具体授权后才执行正式数据修改</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#235da8"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#176c61"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94520b"/></marker>
+<marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a33342"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52647b"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}path,line,rect{vector-effect:non-scaling-stroke}</style>
+<rect width="1440" height="1246" fill="#ffffff"/>
+<text x="44" y="45" fill="#235da8" font-size="15" font-weight="600" text-anchor="start">EVOLVE / 09</text>
+<text x="44" y="90" fill="#172b46" font-size="32" font-weight="600" text-anchor="start">正式环境数据操作与未知结果</text>
+<text x="44" y="124" fill="#52647b" font-size="18" font-weight="400" text-anchor="start">默认只读／测试；具体授权后才执行正式数据修改</text>
+<line x1="44" y1="146" x2="1396" y2="146" stroke="#bac8d8" stroke-width="1.7"/>
+<rect x="12.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="112.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">用户</text>
+<line x1="112.0" y1="247" x2="112.0" y2="1155" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="417.33333333333326" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="517.3333333333333" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">apply</text>
+<line x1="517.3333333333333" y1="247" x2="517.3333333333333" y2="1155" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="822.6666666666666" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="922.6666666666666" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">本地操作／占用</text>
+<line x1="922.6666666666666" y1="247" x2="922.6666666666666" y2="1155" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="1228.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="1328.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">外部目标</text>
+<line x1="1328.0" y1="247" x2="1328.0" y2="1155" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<g data-box="48,265,1344,60">
+<rect x="48" y="265" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="297" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">批准绑定入口及间接 SQL／脚本／参数和真实目标；无法固定实际范围不执行</text>
+</g>
+<g data-box="126.0,345,377.33333333333326,65">
+<rect x="126.0" y="345" width="377.33333333333326" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="367" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">01  环境、范围、具体脚本、验证及补</text>
+<text x="314.66666666666663" y="395" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">偿方案</text>
+</g>
+<line x1="517.3333333333333" y1="417" x2="112.0" y2="417" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="126.0,440,377.33333333333326,37">
+<rect x="126.0" y="440" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="462" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">02  批准同一内容版本与目标</text>
+</g>
+<line x1="112.0" y1="484" x2="517.3333333333333" y2="484" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,507,377.33333333333337,65">
+<rect x="531.3333333333333" y="507" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="529" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">03  先登记操作、授权、幂等键与未决</text>
+<text x="720.0" y="557" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">保护</text>
+</g>
+<line x1="517.3333333333333" y1="579" x2="922.6666666666666" y2="579" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="562.6666666666666,602,720,37">
+<rect x="562.6666666666666" y="602" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="624" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">04  事务外执行具体候选</text>
+</g>
+<line x1="517.3333333333333" y1="646" x2="1328.0" y2="646" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,669,1344,60">
+<rect x="48" y="669" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="701" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">超时或回执丢失：effect_outcome=unknown；保留相关占用，不换 ID 重发</text>
+</g>
+<g data-box="562.6666666666666,749,720,37">
+<rect x="562.6666666666666" y="749" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="771" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">05  reconcile 仅核实原操作</text>
+</g>
+<line x1="517.3333333333333" y1="793" x2="1328.0" y2="793" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="562.6666666666666,816,720,37">
+<rect x="562.6666666666666" y="816" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="838" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">06  确证或仍未知；查询失败不抹旧事实</text>
+</g>
+<line x1="1328.0" y1="860" x2="517.3333333333333" y2="860" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="531.3333333333333,883,377.33333333333337,65">
+<rect x="531.3333333333333" y="883" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="905" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">07  追加观察与业务验证；确证后解除</text>
+<text x="720.0" y="933" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">占用</text>
+</g>
+<line x1="517.3333333333333" y1="955" x2="922.6666666666666" y2="955" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,978,1344,60">
+<rect x="48" y="978" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="1010" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">补偿另有候选与授权；恢复旧档案不能清除未决保护；无 REL／部署状态</text>
+</g>
+<g data-box="48,1058,1344,60">
+<rect x="48" y="1058" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="1090" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">取消任务或 failed 不证明外部未执行；已知部分效果与未核范围分别保留</text>
+</g>
+<line x1="44" y1="1175" x2="1396" y2="1175" stroke="#bac8d8" stroke-width="1.7"/>
+<text x="44" y="1202" fill="#52647b" font-size="15" font-weight="400" text-anchor="start">设计 0.6.2 · Evolve / 八个 Skill / 尚未实现 · 2026-10-31</text>
+<text x="1396" y="1202" fill="#52647b" font-size="15" font-weight="400" text-anchor="end">实线：请求/操作   虚线：返回/条件路径   编号：图内顺序</text>
+</svg>

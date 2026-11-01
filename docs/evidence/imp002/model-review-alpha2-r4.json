@@ -1,0 +1,337 @@
+{
+  "slice": "IMP-002",
+  "package_version": "0.1.0-alpha.2",
+  "distribution_content_digest": "fd5db9e16e51488ef03677924779c29ade85f929ea94c040fd1ffe654305b1f9",
+  "reviewer": "Current Codex agent; manual inspection of actual model events, immutable ledger and business bytes, not an independent code review",
+  "status": "needs_retest",
+  "hosts": {
+    "codex": {
+      "status": "passed_local",
+      "cases": [
+        "inspect",
+        "repair",
+        "verify"
+      ],
+      "model": "gpt-6-astra",
+      "native_or_explicit_skill_root": "/private/tmp/evolve-imp002-models-codex-05/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2",
+      "phase_runs": [
+        {
+          "id": "d96c090f-7d86-4271-82dc-efaaaf61e956",
+          "action": "init",
+          "method": "connect",
+          "status": "completed"
+        },
+        {
+          "id": "55186d79-de1c-43a9-9c81-410b0d48a74e",
+          "action": "propose",
+          "method": "create",
+          "status": "completed"
+        },
+        {
+          "id": "29213566-3646-46eb-9533-505d709ec807",
+          "action": "apply",
+          "method": "implement",
+          "status": "completed"
+        },
+        {
+          "id": "0a518e15-756f-4935-b0b9-6f422a2dc7f5",
+          "action": "verify",
+          "method": "run",
+          "status": "completed"
+        },
+        {
+          "id": "d418deb0-e602-445a-b30b-28b647d69f1f",
+          "action": "archive",
+          "method": "close",
+          "status": "completed"
+        },
+        {
+          "id": "2a616aa7-05db-42ab-890e-f19acddf001d",
+          "action": "verify",
+          "method": "run",
+          "status": "completed"
+        }
+      ],
+      "changes": [
+        {
+          "id": "2196b377-692c-4553-8686-3ca4c71502d4",
+          "code": "CHG-20261031-2196b377",
+          "state": "archived",
+          "row_version": 3
+        }
+      ],
+      "tasks": [
+        {
+          "id": "89562a1d-2880-423e-8711-96f9dc4761e7",
+          "state": "done",
+          "row_version": 3
+        }
+      ],
+      "verifications": [
+        {
+          "id": "6b51c31f-5761-4f55-9a92-289119f1cece",
+          "status": "passed",
+          "source_run_id": "0a518e15-756f-4935-b0b9-6f422a2dc7f5",
+          "checks": [
+            {
+              "check_id": "unittest",
+              "evidence_id": "e2d2e9dc-98a3-489b-8d8b-463bed131248",
+              "returncode": 0,
+              "status": "passed"
+            }
+          ],
+          "implementation_scope_matches": true,
+          "review_axes": [
+            {
+              "axis": "spec",
+              "observer": "当前会话 Codex 主代理（实际自审，非独立审查）",
+              "findings": []
+            },
+            {
+              "axis": "standards",
+              "observer": "当前会话 Codex 主代理（实际自审，非独立审查）",
+              "findings": []
+            }
+          ]
+        },
+        {
+          "id": "3a0bca25-e50d-49b5-88de-6ce66784ee46",
+          "status": "blocked",
+          "source_run_id": "2a616aa7-05db-42ab-890e-f19acddf001d",
+          "checks": [
+            {
+              "check_id": "unittest",
+              "evidence_id": "f2f17c6d-3e0c-4bf7-9b92-02bd09bf33cf",
+              "returncode": 1,
+              "status": "failed"
+            }
+          ],
+          "implementation_scope_matches": false,
+          "review_axes": [
+            {
+              "axis": "spec",
+              "observer": "Codex 当前会话自审（非独立代理）",
+              "findings": [
+                {
+                  "basis": "第 2 行 return len(values)：[8,3] 与 [-4,3] 均返回 2，而要求分别为 11 与 -1。",
+                  "blocking": true,
+                  "id": "SPEC-001",
+                  "impact": "正数和正负混合输入不满足总计需求，阻碍当前验收通过。",
+                  "path": "arithmetic.py"
+                }
+              ]
+            },
+            {
+              "axis": "standards",
+              "observer": "Codex 当前会话自审（非独立代理）",
+              "findings": []
+            }
+          ]
+        }
+      ],
+      "observations": [
+        "Actual short plan presented before persistence and implementation; only authorized arithmetic source repaired",
+        "Original literal independent assertions executed by parent harness and passed; no formal knowledge applied",
+        "Verify appends blocked current VER, preserves source/test bytes and original Change/Task/history",
+        "Inspect honestly reports analyze unavailable without claiming persisted investigation"
+      ],
+      "raw_evidence": [
+        {
+          "path": "/tmp/evolve-imp002-models-codex-05/evidence/model-events.jsonl",
+          "sha256": "ce42004a9b4196972a2e3a758e0a922ef2a2b480cad5abfc5a8fe9f9bf26f7b3"
+        },
+        {
+          "path": "/tmp/evolve-imp002-models-codex-05/evidence/summary.json",
+          "sha256": "31932216b452ef460754b3839bf4284cf5a6c6b47445f850606a8d68b6afb890"
+        },
+        {
+          "path": "/tmp/evolve-imp002-models-codex-05/evidence/independent-check.json",
+          "sha256": "92e3a194af77f8ea0f41ae2a060e978a7ff255e33325ae5e3be670971d1c3f03"
+        }
+      ]
+    },
+    "codex-missing": {
+      "status": "passed_local",
+      "cases": [
+        "repair",
+        "verify"
+      ],
+      "model": "gpt-6-astra",
+      "native_or_explicit_skill_root": "/private/tmp/evolve-imp002-models-codex-missing-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2",
+      "phase_runs": [
+        {
+          "id": "a08b95d2-ff4e-446f-87d2-3d55826db6c4",
+          "action": "init",
+          "method": "connect",
+          "status": "completed"
+        },
+        {
+          "id": "69449ae4-395c-4e56-99d4-5c96d19cf87a",
+          "action": "propose",
+          "method": "create",
+          "status": "completed"
+        },
+        {
+          "id": "591486f6-56a2-418b-8145-d633b2f93510",
+          "action": "apply",
+          "method": "implement",
+          "status": "completed"
+        },
+        {
+          "id": "310a9970-2ab5-4235-85b4-fe55d4bcee5d",
+          "action": "verify",
+          "method": "run",
+          "status": "completed"
+        },
+        {
+          "id": "fa8f4c94-b293-4ba8-8c82-b9017937a48a",
+          "action": "archive",
+          "method": "close",
+          "status": "completed"
+        },
+        {
+          "id": "07e1af12-92c5-4ca0-baed-c73f43c07c48",
+          "action": "verify",
+          "method": "run",
+          "status": "completed"
+        }
+      ],
+      "changes": [
+        {
+          "id": "1fe4db17-763b-4686-90dc-28326dd128d2",
+          "code": "CHG-20261031-1fe4db17",
+          "state": "archived",
+          "row_version": 3
+        }
+      ],
+      "tasks": [
+        {
+          "id": "8521537d-41b1-441c-976f-0ce9f2fcc6cb",
+          "state": "done",
+          "row_version": 3
+        }
+      ],
+      "verifications": [
+        {
+          "id": "5a6ba3b5-c04d-4be4-b68e-7544bfbef89d",
+          "status": "passed",
+          "source_run_id": "310a9970-2ab5-4235-85b4-fe55d4bcee5d",
+          "checks": [
+            {
+              "check_id": "unittest",
+              "evidence_id": "42c24b23-a52b-4921-8481-a5f025551b72",
+              "returncode": 0,
+              "status": "passed"
+            }
+          ],
+          "implementation_scope_matches": true,
+          "review_axes": [
+            {
+              "axis": "spec",
+              "observer": "当前会话 Codex 主助手（实际自审，未启动独立代理）",
+              "findings": []
+            },
+            {
+              "axis": "standards",
+              "observer": "当前会话 Codex 主助手（实际自审，未启动独立代理）",
+              "findings": []
+            }
+          ]
+        },
+        {
+          "id": "83564d31-a01f-40f3-912b-fc4edfd3b366",
+          "status": "blocked",
+          "source_run_id": "07e1af12-92c5-4ca0-baed-c73f43c07c48",
+          "checks": [
+            {
+              "check_id": "unittest",
+              "evidence_id": "e0dd49dd-2363-4af6-9b3a-3a4b48a238b5",
+              "returncode": 0,
+              "status": "passed"
+            }
+          ],
+          "implementation_scope_matches": false,
+          "review_axes": [
+            {
+              "axis": "spec",
+              "observer": "Codex 当前现场自审，非独立审查",
+              "findings": [
+                {
+                  "basis": "第 2 行为 return len(values)，实际非空输入结果均为 2。",
+                  "blocking": true,
+                  "id": "SPEC-001",
+                  "impact": "总计行为错误，AC-001 不通过。",
+                  "path": "arithmetic.py"
+                },
+                {
+                  "basis": "文件长度为 0 字节，无独立断言。",
+                  "blocking": true,
+                  "id": "SPEC-002",
+                  "impact": "AC-002 不通过，缺少可用回归测试。",
+                  "path": "test_arithmetic.py"
+                }
+              ]
+            },
+            {
+              "axis": "standards",
+              "observer": "Codex 当前现场自审，非独立审查",
+              "findings": [
+                {
+                  "basis": "当前文件为空；用户准则要求修复有复现测试并循环验证，原工作项也明确要求保留三个独立断言。",
+                  "blocking": true,
+                  "id": "STD-001",
+                  "impact": "即使测试发现命令退出 0，也不能据此证明行为正确或满足完成标准。",
+                  "path": "test_arithmetic.py"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "observations": [
+        "Actual short plan presented before persistence and implementation; only authorized arithmetic source repaired",
+        "Original literal independent assertions executed by parent harness and passed; no formal knowledge applied",
+        "Verify appends blocked current VER, preserves source/test bytes and original Change/Task/history",
+        "Missing-test variant reports Ran 0 tests is insufficient and proposes authorized follow-up without adding tests"
+      ],
+      "raw_evidence": [
+        {
+          "path": "/tmp/evolve-imp002-models-codex-missing-01/evidence/model-events.jsonl",
+          "sha256": "a7b178892f70eb7fa9bb13b9a61d34ca568f717b278f87a71474fb961cd27fd5"
+        },
+        {
+          "path": "/tmp/evolve-imp002-models-codex-missing-01/evidence/summary.json",
+          "sha256": "1f5cdabad0ea758fce24ceaa23e703e2d946d32d7b1cfc659bdc49c321b6a53c"
+        },
+        {
+          "path": "/tmp/evolve-imp002-models-codex-missing-01/evidence/independent-check.json",
+          "sha256": "92e3a194af77f8ea0f41ae2a060e978a7ff255e33325ae5e3be670971d1c3f03"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Codex native discovery was observed in an isolated profile; actual authenticated model receives an official explicit skill input from that installation cache",
+    "Claude local marketplace loads its persistent registered installation root in place; independent cache validation is a separate fact",
+    "Built-in host MCP startup metadata is not proof of a model tool call; unrelated transport logs are excluded from the repository report",
+    "Native Windows is not run; this report does not pass M1"
+  ],
+  "findings": [
+    {
+      "id": "MODEL-004",
+      "severity": "blocking_for_affected_variant",
+      "host_run": "/tmp/evolve-imp002-models-claude-missing-01",
+      "basis": "After native shell refused the inline stdin command, Write created five request JSON files in the lab parent of business. Native deletion was then refused outside its working directory. The model disclosed these leftovers but the runner previously checked only business bytes.",
+      "resolution": "Move the actual fallback rule to the always-read shared contract. Recognize only project-local request staging for first init, preserving every input and refusing unknown records. The harness now also fails on leftover lab-root request artifacts.",
+      "status": "implemented_pending_model_retest"
+    },
+    {
+      "id": "MODEL-005",
+      "severity": "incorrect_model_report",
+      "host_run": "/tmp/evolve-imp002-models-claude-missing-01",
+      "basis": "The verify response claimed candidate_b64 contained len while candidate_digest named sum. Parent independently decoded the actual journal: candidate is sum and its SHA-256 matches. The model read encoded text but never performed the claimed decode. Persisted review findings and current blocked outcome remain supported by actual bytes.",
+      "resolution": "Reject this extra claim as a model false positive, preserve the original transcript and direct decoded-byte check. Do not alter a correct journal or count this as a reproduced runtime corruption. A fresh reviewed host scenario is required before accepting the affected run.",
+      "status": "false_claim_rejected"
+    }
+  ]
+}

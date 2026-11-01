@@ -1,0 +1,11 @@
+test_actual_frozen_helper_alias_and_indirect_sql_are_the_executed_bytes (test_external_material.ExternalMaterialTests.test_actual_frozen_helper_alias_and_indirect_sql_are_the_executed_bytes) ... ok
+test_actual_provider_identity_schema_and_replaced_target_are_not_aliases (test_external_material.ExternalMaterialTests.test_actual_provider_identity_schema_and_replaced_target_are_not_aliases) ... ok
+test_entry_indirect_sql_helper_and_alias_changes_invalidate_the_approval (test_external_material.ExternalMaterialTests.test_entry_indirect_sql_helper_and_alias_changes_invalidate_the_approval) ... ok
+test_frozen_tampering_extra_imports_and_line_endings_are_not_silent_changes (test_external_material.ExternalMaterialTests.test_frozen_tampering_extra_imports_and_line_endings_are_not_silent_changes) ... ok
+test_incomplete_dynamic_linked_or_oversize_material_is_never_complete (test_external_material.ExternalMaterialTests.test_incomplete_dynamic_linked_or_oversize_material_is_never_complete) ... ok
+test_read_only_observer_cannot_update_or_attach_or_create_another_database (test_external_material.ExternalMaterialTests.test_read_only_observer_cannot_update_or_attach_or_create_another_database) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.044s
+
+OK

@@ -1,0 +1,20 @@
+test_cancel_does_not_steal_a_real_running_check_or_release_its_claims (test_cancellation.CancellationTests.test_cancel_does_not_steal_a_real_running_check_or_release_its_claims) ... ok
+test_cancel_rejects_stale_versions_and_archived_change (test_cancellation.CancellationTests.test_cancel_rejects_stale_versions_and_archived_change) ... ok
+test_completed_implementation_and_passed_verification_survive_cancel (test_cancellation.CancellationTests.test_completed_implementation_and_passed_verification_survive_cancel) ... ok
+test_finish_error_keeps_committed_cancel_available_for_recovery (test_cancellation.CancellationTests.test_finish_error_keeps_committed_cancel_available_for_recovery) ... ERROR
+test_real_exit_after_cancel_commit_recovers_metadata_without_undo (test_cancellation.CancellationTests.test_real_exit_after_cancel_commit_recovers_metadata_without_undo) ... ok
+test_safe_cancel_is_idempotent_and_keeps_source_bytes (test_cancellation.CancellationTests.test_safe_cancel_is_idempotent_and_keeps_source_bytes) ... ok
+
+======================================================================
+ERROR: test_finish_error_keeps_committed_cancel_available_for_recovery (test_cancellation.CancellationTests.test_finish_error_keeps_committed_cancel_available_for_recovery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 146, in test_finish_error_keeps_committed_cancel_available_for_recovery
+    self.assertEqual(json.loads(operation['result_json'])['outcome'], 'cancelled')
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'outcome'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.692s
+
+FAILED (errors=1)

@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "package_version": "0.1.0-alpha.21",
+  "content_digest": "e521b7f75d252bd207bd109dd899a2721b582062bacf94949fd3112a73edcce0",
+  "commands": 41,
+  "cases": [
+    {
+      "case": "DailyWorkflowTests.test_four_cases_keep_shared_integration_deferral_and_later_negative_truthful",
+      "commands": 27,
+      "passed": true,
+      "project_snapshot": "project-1"
+    },
+    {
+      "case": "DailyWorkflowTests.test_missing_environment_does_not_succeed_or_create_replacement_tests",
+      "commands": 14,
+      "passed": true,
+      "project_snapshot": "project-2"
+    }
+  ],
+  "model_requests_sent": false,
+  "review_inputs": "Controlled actual fixture observations; not independent model review"
+}

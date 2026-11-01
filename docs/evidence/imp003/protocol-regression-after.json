@@ -1,0 +1,23 @@
+{
+  "old_runtime": "/tmp/evolve-imp002-models-final-package-05/runtime/evolve.py",
+  "project_created_by": "alpha.3 protocol 2",
+  "project_protocol": "2",
+  "exit_code": 2,
+  "response": {
+    "ok": false,
+    "action": "verify",
+    "operation_id": null,
+    "data": {
+      "committed": false
+    },
+    "warnings": [],
+    "error": {
+      "code": "SCHEMA_VERSION",
+      "message": "History schema or protocol is unsupported; no migration attempted",
+      "next_steps": []
+    }
+  },
+  "phase_runs_before": 5,
+  "phase_runs_after": 5,
+  "finding": "Actual preserved alpha.2 package refuses protocol 2 before writing or rerunning checks."
+}

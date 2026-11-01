@@ -1,0 +1,41 @@
+{
+  "purpose": "Preserve the exact protocol-2 complete package for the still-open IMP-003 native model gate while the source checkout advances",
+  "archive": "evolve-alpha3-protocol2.zip",
+  "archive_sha256": "65129583a043a658ccfc13bf165f46744eb912101756f015139e74c29bfc615c",
+  "archive_entries": 46,
+  "package_version": "0.1.0-alpha.3",
+  "protocol_version": 2,
+  "schema_version": 1,
+  "content_digest": "240d19be86696a0adbd21c5a4ab461224b37a2b1c2f8fac714ddd7acbe1f77f2",
+  "contents": "Only complete plugin inventory resources and its manifest; no host profile, credentials, business project or target history",
+  "validation": {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "-B",
+      "scripts/model_acceptance.py",
+      "--host",
+      "claude",
+      "--package",
+      "/tmp/evolve-imp003-restored-pin-01",
+      "--claude-model",
+      "MiniMax-M3.1-Flash",
+      "--preflight-only"
+    ],
+    "exit_code": 0,
+    "stdout": {
+      "package_version": "0.1.0-alpha.3",
+      "schema_version": 1,
+      "protocol_version": 2,
+      "content_digest": "240d19be86696a0adbd21c5a4ab461224b37a2b1c2f8fac714ddd7acbe1f77f2",
+      "controller_runtime": "/private/tmp/evolve-imp003-restored-pin-01/runtime",
+      "model_requests_sent": false,
+      "host_profile_created": false,
+      "preflight_only": true
+    },
+    "stderr": ""
+  },
+  "limitations": [
+    "Preflight does not dispatch a model or verify provider quota",
+    "The prior MiniMax-M3.1-Flash request remains the last observed quota result; no new paid attempt was made"
+  ]
+}

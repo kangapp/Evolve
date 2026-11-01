@@ -1,0 +1,259 @@
+{
+  "slice": "IMP-010",
+  "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v",
+  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v/package",
+  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v/controller-r2",
+  "source_digest": "c611ff50a201a7dc65a35a9711d6b18f5a10fc9b3a997d4c79e3686c0569f44b",
+  "content_digest": "c93cc4241d8fb7da9714022bc4cfe7587a82ff57f3cdca19c6033b43cffb964c",
+  "scope_digest": "9521202f24d8d21824d8a72d4f50effb84fd8e0221435ba1fea51e31b7d988e8",
+  "schema_version": 4,
+  "protocol_version": 14,
+  "model_requests_sent": true,
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.19",
+  "regression": {
+    "tests": 542,
+    "seconds": 93.035,
+    "status": "passed",
+    "log": "component-tests-alpha19.txt"
+  },
+  "public_cli": {
+    "passed": true,
+    "package_version": "0.1.0-alpha.19",
+    "content_digest": "c93cc4241d8fb7da9714022bc4cfe7587a82ff57f3cdca19c6033b43cffb964c",
+    "commands": 46,
+    "cases": [
+      {
+        "case": "LearningCycleTests.test_actual_counterexample_to_check_fix_and_scoped_feedback",
+        "commands": 46,
+        "passed": true,
+        "project_snapshot": "project-1"
+      }
+    ],
+    "model_requests_sent": false,
+    "review_inputs": "Controlled actual fixture observations; not independent model review"
+  },
+  "skills": {
+    "count": 8,
+    "status": "passed",
+    "evidence": "skill-validation-alpha19.json"
+  },
+  "parent_checks": {
+    "test_file": "tests/test_model_learning_acceptance.py",
+    "tests": 4,
+    "actual_boundaries": 6,
+    "models_dispatched": false,
+    "evidence": "parent-components-r2.txt",
+    "additional_targeted_tests_after_full": 4,
+    "extra_business_file_and_readonly_guard_mutation_rejected": true
+  },
+  "native_preparation": {
+    "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v/package",
+    "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v/preparation-r2/business/.agents/evolve-acceptance/installed-source",
+    "cache": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v/preparation-r2/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.19",
+    "content_digest": "c93cc4241d8fb7da9714022bc4cfe7587a82ff57f3cdca19c6033b43cffb964c",
+    "scope_digest": "9521202f24d8d21824d8a72d4f50effb84fd8e0221435ba1fea51e31b7d988e8",
+    "model_requests_sent": false,
+    "automated_checks_passed": false,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [],
+    "preparation_status": "installed_and_discovered_no_model_dispatch"
+  },
+  "archives": {
+    "runtime-package-alpha19.zip": {
+      "sha256": "b4b8984d2c53854e8e6f1f171c7ed2ba0f801eb79e7353b3d44551318d9c13cf",
+      "bytes": 208183,
+      "excluded_host_runtime_symlinks": []
+    },
+    "model-runner-alpha19.zip": {
+      "sha256": "fd43c1548ffa8928a4bca70ab9e13b9ccc41d7de2f95dc22b810aa75e8e243f6",
+      "bytes": 30586,
+      "excluded_host_runtime_symlinks": []
+    },
+    "model-preparation-alpha19.zip": {
+      "sha256": "6cabbbe88c277136efe91908ce5a92f1a28b09a5a70d4fd27c196716a8c4d035",
+      "bytes": 715583,
+      "excluded_host_runtime_symlinks": [
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0P1Kjls/apply_patch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0P1Kjls/applypatch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0P1Kjls/codex-execve-wrapper"
+      ]
+    },
+    "public-cli-alpha19.zip": {
+      "sha256": "4f6d8f32f564e0ab020e68431f92350791ce13a46434c13cb05d944639da982e",
+      "bytes": 356845
+    },
+    "model-runner-alpha19-r2.zip": {
+      "sha256": "704d4f78dc465266b161c7d768f808ebc3059baf25c6306ae5ac1ea8f8aff4db",
+      "bytes": 30732,
+      "excluded_host_runtime_symlinks": []
+    },
+    "model-preparation-alpha19-r2.zip": {
+      "sha256": "fe61ce23a54cee459b847103ce3c28e64a05fa31153ba765c813cdefb94e5820",
+      "bytes": 715602,
+      "excluded_host_runtime_symlinks": [
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Us5S7A/apply_patch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Us5S7A/applypatch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Us5S7A/codex-execve-wrapper"
+      ]
+    }
+  },
+  "Claude": "deferred_by_user",
+  "authorization": "New four-file/six-session and exact guide decisions not covered by IMP-009; actual human reply required before dispatch",
+  "initial_scope_digest": "05e3559a54d2851a05141265bea25c41c459588c3375fe52a06627f85a0e723d",
+  "controller_bounds_revision": "Before any model dispatch, strengthened four-file allowlist; prompts, inputs, decisions, package and effects unchanged. Initial preparation retained.",
+  "acceptance_map": "acceptance-map.json",
+  "design_check": "design-check-alpha19.json",
+  "acceptance_plan": "model-acceptance-plan.md",
+  "authorization_status": "authorized",
+  "package_manifest_source_files": 68,
+  "native_lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-native-model-alpha19-wpn1gcwl",
+  "authorization_file": "/Users/liufukang/Workplace/spec-driven/docs/evidence/imp010/authorization-alpha19.json",
+  "controller_exit_code": 0,
+  "native_summary": {
+    "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-frozen-alpha19-gffo2y9v/package",
+    "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-native-model-alpha19-wpn1gcwl/business/.agents/evolve-acceptance/installed-source",
+    "cache": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp010-native-model-alpha19-wpn1gcwl/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.19",
+    "content_digest": "c93cc4241d8fb7da9714022bc4cfe7587a82ff57f3cdca19c6033b43cffb964c",
+    "scope_digest": "9521202f24d8d21824d8a72d4f50effb84fd8e0221435ba1fea51e31b7d988e8",
+    "model_requests_sent": true,
+    "automated_checks_passed": true,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [
+      {
+        "case": "seed",
+        "model_result": {
+          "thread_id": "01a194a9-6125-7143-a5e9-ea391e284089",
+          "turn_id": "01a194a9-6199-7173-a2f2-af9405311c33",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "seed",
+          "business_boundary_preserved": true,
+          "guard_and_original_literals_preserved": true,
+          "changes": 3,
+          "experiences": 1,
+          "verifications": 4,
+          "pending_runs": 0,
+          "claims": 0,
+          "semantic_model_review": "pending"
+        }
+      },
+      {
+        "case": "counterexample",
+        "model_result": {
+          "thread_id": "01a194ab-8c3e-7a23-ab73-9a89215a873a",
+          "turn_id": "01a194ab-8c8c-7aa0-870c-70359f1944d7",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "counterexample",
+          "business_boundary_preserved": true,
+          "guard_and_original_literals_preserved": true,
+          "changes": 4,
+          "experiences": 1,
+          "verifications": 6,
+          "pending_runs": 0,
+          "claims": 0,
+          "semantic_model_review": "pending"
+        }
+      },
+      {
+        "case": "propose_check",
+        "model_result": {
+          "thread_id": "01a194ac-c63d-7c41-9e6d-ec4f26438a7f",
+          "turn_id": "01a194ac-c67e-7701-ae5f-74d98b9746a4",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "propose_check",
+          "business_boundary_preserved": true,
+          "guard_and_original_literals_preserved": true,
+          "changes": 4,
+          "experiences": 2,
+          "verifications": 6,
+          "pending_runs": 0,
+          "claims": 0,
+          "semantic_model_review": "pending"
+        }
+      },
+      {
+        "case": "implement_check",
+        "model_result": {
+          "thread_id": "01a194ad-ada9-72b1-9dbb-28ffcf890673",
+          "turn_id": "01a194ad-ade9-77b2-8ea4-3d33be0b3c2f",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "implement_check",
+          "business_boundary_preserved": true,
+          "guard_and_original_literals_preserved": true,
+          "changes": 4,
+          "experiences": 2,
+          "verifications": 7,
+          "pending_runs": 0,
+          "claims": 0,
+          "semantic_model_review": "pending"
+        }
+      },
+      {
+        "case": "fix_and_archive",
+        "model_result": {
+          "thread_id": "01a194ae-8bfa-74a0-9e20-5b769f8ecc90",
+          "turn_id": "01a194ae-8c48-72b1-ad22-aadec2ddf795",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "fix_and_archive",
+          "business_boundary_preserved": true,
+          "guard_and_original_literals_preserved": true,
+          "changes": 4,
+          "experiences": 2,
+          "verifications": 10,
+          "pending_runs": 0,
+          "claims": 0,
+          "semantic_model_review": "pending"
+        }
+      },
+      {
+        "case": "feedback_and_resume",
+        "model_result": {
+          "thread_id": "01a194af-7ee4-7672-828d-03efeb8de3fe",
+          "turn_id": "01a194af-7f25-7842-be78-9a239009ef20",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "feedback_and_resume",
+          "business_boundary_preserved": true,
+          "guard_and_original_literals_preserved": true,
+          "changes": 4,
+          "experiences": 2,
+          "verifications": 11,
+          "pending_runs": 0,
+          "claims": 0,
+          "semantic_model_review": "pending"
+        }
+      }
+    ],
+    "authorization": {
+      "source": "actual human reply in this chat",
+      "text": "Actual human reply call_553ff52fd0df4d8f9a2d9cfde8430dc9: 授权 Codex、上述具体决定及同范围必要复验（推荐）"
+    }
+  },
+  "semantic_review": "codex-model-review-alpha19-r1.json",
+  "stage_gate": "stage-gate-codex-alpha19.json"
+}

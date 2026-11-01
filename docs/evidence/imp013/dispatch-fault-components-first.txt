@@ -1,0 +1,49 @@
+test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends (test_external_faults.ExternalFaultTests.test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends) ... FAIL
+test_registration_crash_before_index_still_survives_older_restore (test_external_faults.ExternalFaultTests.test_registration_crash_before_index_still_survives_older_restore) ... ERROR
+test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore (test_external_faults.ExternalFaultTests.test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore) ... FAIL
+
+======================================================================
+ERROR: test_registration_crash_before_index_still_survives_older_restore (test_external_faults.ExternalFaultTests.test_registration_crash_before_index_still_survives_older_restore)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_external_faults.py", line 47, in test_registration_crash_before_index_still_survives_older_restore
+    plan = restore(self.f.root, self.f.request({'stage': 'plan', 'bundle': saved['path'], 'manifest_digest': saved['manifest_digest']}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 503, in restore
+    return maintenance(root, payload, method='restore')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 485, in maintenance
+    plan = prepare(root, request, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/maintenance.py", line 189, in prepare
+    require_drained(root, index.get('executions', []), data.get('check_observations', []), legacy=method == 'upgrade',
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/protection.py", line 110, in require_drained
+    raise EvolveError('DATABASE_OPEN', 'Close all old SQLite handles before maintenance; observed PIDs: ' + result.stdout.strip().replace('\n', ','), exit_code=4)
+evolve_core.errors.EvolveError: Close all old SQLite handles before maintenance; observed PIDs: 94491
+
+======================================================================
+FAIL: test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends (test_external_faults.ExternalFaultTests.test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_external_faults.py", line 61, in test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends
+    self.assertEqual(error.exception.code, 'CHECK_EXECUTION_UNKNOWN')
+AssertionError: 'WRITER_ACTIVE' != 'CHECK_EXECUTION_UNKNOWN'
+- WRITER_ACTIVE
++ CHECK_EXECUTION_UNKNOWN
+
+
+======================================================================
+FAIL: test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore (test_external_faults.ExternalFaultTests.test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_external_faults.py", line 86, in test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore
+    self.assertEqual(error.exception.code, 'CHECK_RUNNING')
+AssertionError: 'WRITER_ACTIVE' != 'CHECK_RUNNING'
+- WRITER_ACTIVE
++ CHECK_RUNNING
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.504s
+
+FAILED (failures=2, errors=1)

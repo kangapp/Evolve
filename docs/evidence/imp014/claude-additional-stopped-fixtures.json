@@ -1,0 +1,27 @@
+[
+  {
+    "reason": "pre-init-collision",
+    "status": "stopped_not_passed",
+    "actual_completed_parent_cases": [],
+    "error": "Claude permission boundary stopped the native batch; inspect its saved result",
+    "archive": "claude-pre-init-collision-stopped-evidence.zip",
+    "sha256": "488add4b1141642bd9b28dfcb8450519659b592b4d02b2633d44c8fed7bb396c",
+    "bytes": 724295,
+    "no_access_to_denied_paths": true,
+    "raw_summary_unchanged": true
+  },
+  {
+    "reason": "literal-path-typo",
+    "status": "stopped_not_passed",
+    "actual_completed_parent_cases": [
+      "propose",
+      "refactor_pause"
+    ],
+    "error": "Claude permission boundary stopped the native batch; inspect its saved result",
+    "archive": "claude-literal-path-typo-stopped-evidence.zip",
+    "sha256": "8fbfd4200376290f2ff76ad65f27ccb0689a164bd158c36d2a2605e750e1877a",
+    "bytes": 1111137,
+    "no_access_to_denied_paths": true,
+    "raw_summary_unchanged": true
+  }
+]

@@ -1,0 +1,51 @@
+test_expanded_preflight_lists_five_cases_without_profile_or_model_dispatch (test_model_session_acceptance.ModelScopeDispatchTests.test_expanded_preflight_lists_five_cases_without_profile_or_model_dispatch) ... ok
+test_missing_expanded_authorization_is_rejected_before_creating_a_project (test_model_session_acceptance.ModelScopeDispatchTests.test_missing_expanded_authorization_is_rejected_before_creating_a_project) ... ok
+test_missing_test_variant_changes_the_authorized_scope_digest (test_model_session_acceptance.ModelScopeDispatchTests.test_missing_test_variant_changes_the_authorized_scope_digest) ... ok
+test_original_pinned_protocol2_preflight_remains_independent_of_current_checkout (test_model_session_acceptance.ModelScopeDispatchTests.test_original_pinned_protocol2_preflight_remains_independent_of_current_checkout) ... ok
+test_preserved_protocol3_session_preflight_remains_usable_without_model_dispatch (test_model_session_acceptance.ModelScopeDispatchTests.test_preserved_protocol3_session_preflight_remains_usable_without_model_dispatch) ... ok
+test_stale_scope_digest_is_rejected_before_host_setup_or_model_dispatch (test_model_session_acceptance.ModelScopeDispatchTests.test_stale_scope_digest_is_rejected_before_host_setup_or_model_dispatch) ... ok
+test_actual_two_tasks_with_learning_and_read_only_reverification_pass (test_model_session_acceptance.ModelSessionChecksTests.test_actual_two_tasks_with_learning_and_read_only_reverification_pass) ... ok
+test_completed_task_cannot_be_reported_as_a_normal_precheck_pause (test_model_session_acceptance.ModelSessionChecksTests.test_completed_task_cannot_be_reported_as_a_normal_precheck_pause) ... ok
+test_immediate_answer_keeps_bytes_and_has_no_record_facilities (test_model_session_acceptance.ModelSessionChecksTests.test_immediate_answer_keeps_bytes_and_has_no_record_facilities) ... ok
+test_parent_independent_assertions_reject_modified_literal_expectations (test_model_session_acceptance.ModelSessionChecksTests.test_parent_independent_assertions_reject_modified_literal_expectations) ... ok
+test_read_only_change_is_rejected_even_if_the_model_claims_success (test_model_session_acceptance.ModelSessionChecksTests.test_read_only_change_is_rejected_even_if_the_model_claims_success) ... ok
+test_real_partial_then_fresh_continuation_passes_parent_facts (test_model_session_acceptance.ModelSessionChecksTests.test_real_partial_then_fresh_continuation_passes_parent_facts) ... ok
+test_second_task_cannot_pass_without_saved_experience_decision_and_feedback (test_model_session_acceptance.ModelSessionChecksTests.test_second_task_cannot_pass_without_saved_experience_decision_and_feedback) ... ok
+test_actual_timeout_keeps_partial_native_output_and_redacts_credentials (test_model_session_acceptance.ModelTransportTests.test_actual_timeout_keeps_partial_native_output_and_redacts_credentials) ... ok
+test_failed_business_check_does_not_impersonate_permission_or_model_error (test_model_session_acceptance.ModelTransportTests.test_failed_business_check_does_not_impersonate_permission_or_model_error) ... ok
+test_permission_denial_stops_live_transport_before_later_file_effect (test_model_session_acceptance.ModelTransportTests.test_permission_denial_stops_live_transport_before_later_file_effect) ... FAIL
+test_zero_exit_with_native_quota_error_is_not_success (test_model_session_acceptance.ModelTransportTests.test_zero_exit_with_native_quota_error_is_not_success) ... FAIL
+test_zero_exit_with_permission_denials_is_not_success (test_model_session_acceptance.ModelTransportTests.test_zero_exit_with_permission_denials_is_not_success) ... FAIL
+
+======================================================================
+FAIL: test_permission_denial_stops_live_transport_before_later_file_effect (test_model_session_acceptance.ModelTransportTests.test_permission_denial_stops_live_transport_before_later_file_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_session_acceptance.py", line 262, in test_permission_denial_stops_live_transport_before_later_file_effect
+    with self.assertRaisesRegex(RuntimeError, 'permission'):
+AssertionError: RuntimeError not raised
+
+======================================================================
+FAIL: test_zero_exit_with_native_quota_error_is_not_success (test_model_session_acceptance.ModelTransportTests.test_zero_exit_with_native_quota_error_is_not_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_session_acceptance.py", line 273, in test_zero_exit_with_native_quota_error_is_not_success
+    self.native_result({'type':'result','subtype':'error_during_execution','is_error':True,
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_session_acceptance.py", line 281, in native_result
+    with self.assertRaisesRegex(RuntimeError, blocked):
+AssertionError: RuntimeError not raised
+
+======================================================================
+FAIL: test_zero_exit_with_permission_denials_is_not_success (test_model_session_acceptance.ModelTransportTests.test_zero_exit_with_permission_denials_is_not_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_session_acceptance.py", line 269, in test_zero_exit_with_permission_denials_is_not_success
+    self.native_result({'type':'result','subtype':'success','is_error':False,
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_session_acceptance.py", line 281, in native_result
+    with self.assertRaisesRegex(RuntimeError, blocked):
+AssertionError: RuntimeError not raised
+
+----------------------------------------------------------------------
+Ran 18 tests in 5.785s
+
+FAILED (failures=3)

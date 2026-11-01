@@ -1,0 +1,7 @@
+test_admitted_dispatch_wins_and_competing_maintenance_cannot_swap_under_it (test_external_races.ExternalAdmissionRaceTests.test_admitted_dispatch_wins_and_competing_maintenance_cannot_swap_under_it) ... ok
+test_maintenance_barrier_wins_and_old_epoch_candidate_cannot_dispatch_after_swap (test_external_races.ExternalAdmissionRaceTests.test_maintenance_barrier_wins_and_old_epoch_candidate_cannot_dispatch_after_swap) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.947s
+
+OK

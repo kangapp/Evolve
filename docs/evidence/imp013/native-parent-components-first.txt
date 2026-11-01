@@ -1,0 +1,19 @@
+test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models (test_model_external_acceptance.ExternalAcceptanceScopeTests.test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models) ... FAIL
+test_six_session_scope_and_missing_approval_cannot_dispatch (test_model_external_acceptance.ExternalAcceptanceScopeTests.test_six_session_scope_and_missing_approval_cannot_dispatch) ... ok
+
+======================================================================
+FAIL: test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models (test_model_external_acceptance.ExternalAcceptanceScopeTests.test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_model_external_acceptance.py", line 120, in test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models
+    self.assertEqual(result.returncode, 0, result.stderr + result.stdout[-4000:])
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 52, in <module>
+  File "<string>", line 45, in verification
+KeyError: 'acceptance'
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.755s
+
+FAILED (failures=1)

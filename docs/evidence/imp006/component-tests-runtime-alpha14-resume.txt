@@ -1,0 +1,17 @@
+test_analysis_resume_keeps_source_authority_and_unfinished_questions (test_resume.ResumeTests.test_analysis_resume_keeps_source_authority_and_unfinished_questions) ... ok
+test_continuation_cannot_add_effects_absent_from_the_original_grant (test_resume.ResumeTests.test_continuation_cannot_add_effects_absent_from_the_original_grant) ... ok
+test_explicit_change_still_exposes_global_unfinished_configuration (test_resume.ResumeTests.test_explicit_change_still_exposes_global_unfinished_configuration) ... ok
+test_fresh_process_continues_with_a_new_run_without_fake_recovery (test_resume.ResumeTests.test_fresh_process_continues_with_a_new_run_without_fake_recovery) ... ok
+test_multiple_unfinished_targets_are_not_resolved_by_recency (test_resume.ResumeTests.test_multiple_unfinished_targets_are_not_resolved_by_recency) ... ok
+test_pause_completes_only_the_run_and_releases_safe_claims_without_checks (test_resume.ResumeTests.test_pause_completes_only_the_run_and_releases_safe_claims_without_checks) ... ok
+test_public_resume_in_a_fresh_process_is_a_pure_query (test_resume.ResumeTests.test_public_resume_in_a_fresh_process_is_a_pure_query) ... ok
+test_resume_keeps_real_failed_checks_and_their_evidence (test_resume.ResumeTests.test_resume_keeps_real_failed_checks_and_their_evidence) ... ok
+test_resume_reports_external_drift_without_registering_or_overwriting_it (test_resume.ResumeTests.test_resume_reports_external_drift_without_registering_or_overwriting_it) ... ok
+test_resume_restores_original_plan_progress_authorization_without_writes (test_resume.ResumeTests.test_resume_restores_original_plan_progress_authorization_without_writes) ... ok
+test_revoked_source_grant_is_visible_and_cannot_be_reused (test_resume.ResumeTests.test_revoked_source_grant_is_visible_and_cannot_be_reused) ... ok
+test_tampered_sealed_result_is_reported_without_repairing_it (test_resume.ResumeTests.test_tampered_sealed_result_is_reported_without_repairing_it) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.905s
+
+OK

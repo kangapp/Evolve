@@ -1,0 +1,12 @@
+{
+  "source": "direct actual human reply in this chat",
+  "question_id": "call_42c6a7c2c11940b1b7b818a080e772d6",
+  "answer": "授权两个宿主及同范围必要复验（推荐）",
+  "observed_at": "2026-10-31T22:50:19.207247+00:00",
+  "plan": "model-acceptance-plan.md",
+  "scope_digests": {
+    "codex": "f0b384bd558f90e7042fbbc13a31c32f202689604d55ff992d66bcae8e5cb20e",
+    "claude": "6a56f7af4da39afce4c655b33125fa0012e2e9b76058f792e85ee6511c80ecea"
+  },
+  "limits": "Four temporary files, nine fresh sessions per host, named exact formal decisions; default Codex and process-only MiniMax-M3.1-Flash; stop on permission/quota; no personal configuration, nested agents or publication."
+}

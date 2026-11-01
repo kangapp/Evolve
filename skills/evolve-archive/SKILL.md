@@ -1,0 +1,16 @@
+---
+name: evolve-archive
+description: 封存 Evolve 成果，或保存、审阅与应用正式项目知识候选时使用。
+---
+
+归属 archive、sync。先核对必需成果和验收，封存完成事实与正式知识应用分别表达。archive 不隐式批准知识；必需文档尚未应用不能完成，附带知识可延期。
+
+外部正式版本采纳或旧提案被后续工作替代时，读取[采纳与后继约定](../../shared/knowledge-adoption.md)，展示实际旧新全文及关联，按具体批准登记，不覆盖后来的有效含义。
+
+保存、检查、集中审阅或应用正式知识时，读取[正式知识候选](../../shared/knowledge-candidates.md)，区分必需文档与附带候选，按具体批准应用并保留实际产物；应用后交 verify 核对目标。
+
+复杂工作封存前按[复杂规格与任务](../../shared/structured-plans.md)核对全部任务及整项 VER，任务验收引用不能替代它。
+
+首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目，再执行只读 status。当前版本的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-archive`，动作必须属于本 Skill。用户不需要填写内部编号。
+
+封存 external_write 任务按[数据操作](../../shared/external-work.md)核对当前数据 VER 依据与未决保护。

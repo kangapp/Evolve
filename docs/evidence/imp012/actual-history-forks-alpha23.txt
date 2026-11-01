@@ -1,0 +1,6 @@
+test_actual_divergent_archives_keep_both_branches_and_restore_only_the_selected_one (test_maintenance.MaintenanceTests.test_actual_divergent_archives_keep_both_branches_and_restore_only_the_selected_one) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.691s
+
+OK

@@ -1,0 +1,91 @@
+{
+  "status": "passed_for_observed_runtime_platform",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "os_name": "posix",
+    "python": "3.11.9",
+    "encoding": "UTF-8",
+    "child_python_utf8": true
+  },
+  "native_windows_observed": false,
+  "model_requests_sent": false,
+  "host_discovery": "not_run",
+  "checks": {
+    "download_removed": true,
+    "installed_root_used": true,
+    "project_initially_not_connected": true,
+    "actual_repair_and_closure": true,
+    "old_installation_removed": true,
+    "relocated_root_used": true,
+    "relocated_package_unchanged": true,
+    "original_project_identity": true,
+    "relocation_queries_are_pure": true,
+    "actual_pause_continuation_and_learning": true,
+    "supplied_package_unchanged": true
+  },
+  "limitations": [
+    "Runtime CLI fixtures only; no native host install or Skill discovery in this runner",
+    "Review inputs are controlled observations, not independent model judgments",
+    "Only the observed platform is tested; this result alone does not complete V-137 or M1"
+  ],
+  "content_digest": "0a2b185e28d9fbd5c1e62209b2690476328d09ff0d11f523065681485fae219a",
+  "package_version": "0.1.0",
+  "workflow": {
+    "passed": true,
+    "runtime": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-ocnrah69/relocation/安装 整包/runtime/evolve.py",
+    "project": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-ocnrah69/relocation/业务 项目",
+    "project_id": "92971510-719c-4085-b784-79cc57b27247",
+    "change_id": "56cb49f3-1267-49ac-b85a-e5a278d2b3e2",
+    "original_test_exit_code": 1,
+    "task_check_status": "passed",
+    "verification_status": "passed",
+    "completion_outcome": "archived",
+    "formal_baseline": "baseline_applied",
+    "incremental_configuration": "configuration_updated",
+    "unrequested_check_executed": false,
+    "model_requests_sent": false,
+    "review_inputs": "controlled fixture observations, not independent model review",
+    "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+    "investigation": {
+      "answer_only_created_records": false,
+      "recorded_run_id": "139767c9-4a35-4eed-a079-27414cf38054",
+      "criterion_digest": "31bfed614665b5e746e6d8c62e1e04c6883eac7f9daabc09132371135b496e3c",
+      "original_red_saved": true,
+      "post_repair_original_criterion": "passed",
+      "investigation_created_change": false
+    }
+  },
+  "continuation": {
+    "passed": true,
+    "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+    "runtime": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-ocnrah69/relocation/移动 整包/runtime/evolve.py",
+    "project": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-ocnrah69/relocation/业务 项目",
+    "model_requests_sent": false,
+    "experience_ref": {
+      "run_id": "766df656-5a94-4f9a-ad22-5f98deaa06df",
+      "result_digest": "a30a752fc21ed7c08106963b80dce80ca954f8a3ad4e5059047e27914ae974c4"
+    },
+    "experience_produced_from_actual_work": true,
+    "second_change_id": "474db48e-6a5d-497a-bc9c-7dce326a5557",
+    "second_real_red_exit_code": 1,
+    "normal_pause": {
+      "run_id": "4dd749bf-0330-462d-9d51-b898c031dbf1",
+      "outcome": "partial",
+      "checks": "not_run",
+      "new_run_id": "98ff9385-a8b2-424a-b2c3-21ee880aecbb"
+    },
+    "fresh_context_restored_prior_adoption": true,
+    "old_run_result_unchanged": true,
+    "feedback": {
+      "run_id": "3eed9c88-5bb3-4cd4-88a5-dba2e1683d5e",
+      "outcome": "unknown"
+    },
+    "final_state": "candidate",
+    "new_discovery_status_after_archive": "no_new_learning",
+    "verification": "passed",
+    "closure": "archived",
+    "original_and_second_literal_assertions_unchanged": true,
+    "learning_did_not_approve_formal_knowledge": true
+  }
+}

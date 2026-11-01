@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1190" viewBox="0 0 1440 1190" role="img" aria-labelledby="title desc">
+<title id="title">独立调查、续查与转修复</title><desc id="desc">先寻找能识别症状的可重复观察；无修改授权时止于调查与方案</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#235da8"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#176c61"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94520b"/></marker>
+<marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a33342"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52647b"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}path,line,rect{vector-effect:non-scaling-stroke}</style>
+<rect width="1440" height="1190" fill="#ffffff"/>
+<text x="44" y="45" fill="#235da8" font-size="15" font-weight="600" text-anchor="start">EVOLVE / 16</text>
+<text x="44" y="90" fill="#172b46" font-size="32" font-weight="600" text-anchor="start">独立调查、续查与转修复</text>
+<text x="44" y="124" fill="#52647b" font-size="18" font-weight="400" text-anchor="start">先寻找能识别症状的可重复观察；无修改授权时止于调查与方案</text>
+<line x1="44" y1="146" x2="1396" y2="146" stroke="#bac8d8" stroke-width="1.7"/>
+<rect x="12.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="112.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">用户</text>
+<line x1="112.0" y1="247" x2="112.0" y2="1099" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="417.33333333333326" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="517.3333333333333" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">propose</text>
+<text x="517.3333333333333" y="227" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">analyze</text>
+<line x1="517.3333333333333" y1="247" x2="517.3333333333333" y2="1099" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="822.6666666666666" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="922.6666666666666" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">资料／证据</text>
+<line x1="922.6666666666666" y1="247" x2="922.6666666666666" y2="1099" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="1228.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="1328.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">分析链／修复</text>
+<line x1="1328.0" y1="247" x2="1328.0" y2="1099" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<g data-box="126.0,265,377.33333333333326,37">
+<rect x="126.0" y="265" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="287" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">01  问题、范围和调查目标</text>
+</g>
+<line x1="112.0" y1="309" x2="517.3333333333333" y2="309" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,332,377.33333333333337,65">
+<rect x="531.3333333333333" y="332" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="354" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">02  按允许范围固定输入、环境、独立</text>
+<text x="720.0" y="382" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">预期和观察方法</text>
+</g>
+<line x1="517.3333333333333" y1="404" x2="922.6666666666666" y2="404" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,427,377.33333333333337,37">
+<rect x="531.3333333333333" y="427" width="377.33333333333337" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="449" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">03  观察、假设及未覆盖部分</text>
+</g>
+<line x1="922.6666666666666" y1="471" x2="517.3333333333333" y2="471" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="48,494,1344,60">
+<rect x="48" y="494" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="526" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">无法复现可保留假设与限制；偶发问题记次数／失败数，不补造 red 或根因</text>
+</g>
+<g data-box="562.6666666666666,574,720,37">
+<rect x="562.6666666666666" y="574" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="596" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">04  及时保存过程和封存本轮结果</text>
+</g>
+<line x1="517.3333333333333" y1="618" x2="1328.0" y2="618" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="126.0,641,377.33333333333326,37">
+<rect x="126.0" y="641" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="663" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">05  回答、限制与可选修复方案</text>
+</g>
+<line x1="517.3333333333333" y1="685" x2="112.0" y2="685" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="48,708,1344,60">
+<rect x="48" y="708" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="740" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">换会话恢复同主题；新日期写新输入；同链一个后继，不同主题可并存</text>
+</g>
+<g data-box="126.0,788,377.33333333333326,37">
+<rect x="126.0" y="788" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="810" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">06  明确确认执行修复</text>
+</g>
+<line x1="112.0" y1="832" x2="517.3333333333333" y2="832" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="562.6666666666666,855,720,37">
+<rect x="562.6666666666666" y="855" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="877" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">07  匹配或创建 Change；引用分析作为来源</text>
+</g>
+<line x1="517.3333333333333" y1="899" x2="1328.0" y2="899" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,922,1344,60">
+<rect x="48" y="922" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="954" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">来源不等于方案接受或验收通过；报告重导不重新调查</text>
+</g>
+<g data-box="48,1002,1344,60">
+<rect x="48" y="1002" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="1034" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">获准修复后按同一有效判据复验；不删断言换通过，不擅加生产探针</text>
+</g>
+<line x1="44" y1="1119" x2="1396" y2="1119" stroke="#bac8d8" stroke-width="1.7"/>
+<text x="44" y="1146" fill="#52647b" font-size="15" font-weight="400" text-anchor="start">设计 0.6.2 · Evolve / 八个 Skill / 尚未实现 · 2026-10-31</text>
+<text x="1396" y="1146" fill="#52647b" font-size="15" font-weight="400" text-anchor="end">实线：请求/操作   虚线：返回/条件路径   编号：图内顺序</text>
+</svg>

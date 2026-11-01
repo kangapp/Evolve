@@ -1,0 +1,95 @@
+{
+  "slice": "IMP-011",
+  "status": "passed_current_codex_scope",
+  "reviewer": "Codex primary agent: full actual command/message, database/blob/source-digest and fixed-criterion review; not independent third-party review",
+  "observed_at": "2026-11-01T01:45:24.698849+00:00",
+  "package_version": "0.1.0-alpha.21",
+  "package_digest": "e521b7f75d252bd207bd109dd899a2721b582062bacf94949fd3112a73edcce0",
+  "scope_digest": "a0e30a156876f0785fd4b683f0f9a521fe24418a2e60fd2c4b20dbd7dfe8b0d6",
+  "authorization": "authorization-alpha21.json",
+  "fresh_sessions": 8,
+  "commands": 104,
+  "actual_model": "gpt-6-astra, account default",
+  "trajectory": "codex-trajectory-alpha21-r1.json",
+  "raw_evidence": {
+    "path": "codex-model-alpha21-r1-evidence.zip",
+    "sha256": "5da60e47fd627656d1a0f06c7c94481edbbfa77432b834747f5928b07a40ead7",
+    "bytes": 1398912,
+    "excluded_host_runtime_symlinks": [
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0L2e7JP/apply_patch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0L2e7JP/applypatch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0L2e7JP/codex-execve-wrapper"
+    ]
+  },
+  "cases": [
+    {
+      "case": "prepare",
+      "passed": true,
+      "facts": "Fixed four checks, actual SQL red 149/9 on all dates, original independent three literal expectations, source/data scopes/time and sealed criterion saved. Both SQL simple and app SUM/REPORT complex plans presented and saved unaccepted, no eight-file writes."
+    },
+    {
+      "case": "application",
+      "passed": true,
+      "facts": "Exact app plan accepted; sum-only then report-only apply, true SUM verification_passed dependency, Task VER passed. Whole integration actually failed original SQL reconciliation and retained SQL-001 finding; no archive. Exact optional daily-guide candidate deferred without approval/application/file."
+    },
+    {
+      "case": "missing_check",
+      "passed": true,
+      "facts": "Parent removed only SQL test; original integration actually imported all four fixed modules and failed ModuleNotFoundError. VER fdc896d1-02df-4493-9e1a-6110cc5713d9 failed; old SQL finding preserved. No replacement test/config/business writes or archive."
+    },
+    {
+      "case": "sql_repair",
+      "passed": true,
+      "facts": "Parent restored exact test; true original analysis_basis and criterion adopted. Only model.sql apply, original reconcile now (10,2),(8,2),(0,0), actual original symptom post-repair and two-axis observations. SQL VER bbe9b4b3-c5e7-4fcf-b567-3b0fe817030c passed and archived; five inputs/tests and app sources unchanged."
+    },
+    {
+      "case": "integration",
+      "passed": true,
+      "facts": "No business writes. Actual original four-module integration green; original SQL/environment findings actually rechecked/disposed, no unresolved findings. Whole app VER 969b06eb-c84a-4043-8ecb-eabe0180a425 passed then archive. Mixed whole-directory/SQL contribution explicitly disclosed; deferred candidate remains unwritten/unapproved."
+    },
+    {
+      "case": "lineage",
+      "passed": true,
+      "facts": "Second independent saved analysis, actual fixed SQL relationship orders to daily_totals, three dates/grain/definitions/source refs and partial limitations for production/tied conflicting versions. Markdown/Mermaid and JSON from same saved bottom-up facts, no new Change/formal candidate."
+    },
+    {
+      "case": "reexport",
+      "passed": true,
+      "facts": "Parent removed actual SQL/input. Seven actual commands only read installed plugin resources, direct maintain.export and exported views; no business read/rebuild, status/resume/check or analysis. Both reports exactly same original saved partial analysis/source."
+    },
+    {
+      "case": "external_verify",
+      "passed": true,
+      "facts": "Parent restored SQL/input and injected external report prefix. Actual original integration failed external:5 and external:1, sum AC passed/report AC failed, two-axis host self-review saved. Whole VER 5ff569d5-4625-4ebe-b6a4-42e956bfbde3 blocked and scope mismatch false-to-saved output; historical passed/archive unchanged, actual foreign bytes kept, no repair/reopen/knowledge approval."
+    }
+  ],
+  "final_state": {
+    "changes": 2,
+    "archived": 2,
+    "current_tasks_done": 3,
+    "phase_runs": {
+      "completed": 24,
+      "blocked": 1
+    },
+    "verifications": {
+      "passed": 4,
+      "failed": 2,
+      "blocked": 1
+    },
+    "analyses": 2,
+    "deferred_unapproved_candidates": 1,
+    "formal_applications": 0,
+    "claims": 0,
+    "pending_runs": 0,
+    "digests_and_source_refs_verified": true
+  },
+  "failures_retained": "One REVIEW_REQUIRED request safely blocked and corrected; real original SQL/whole integration failure, missing module failure, and final foreign-file blocked VER retained. No failed native batches or product patches during this eight-session run. Prior alpha20 discovered functional gap retained separately with real red/probe/green.",
+  "limits": [
+    "Only controlled eight-file fixture/current environment; SQL executed only in-memory, no real production execution.",
+    "Two-axis model observations are host self-review, primary semantic audit is not independent third-party model review.",
+    "Raw automated summary retains passed=false and review_status=pending; this separate review owns semantic pass.",
+    "Final foreign report deliberately fails current acceptance; history archived/passed does not imply current business files still pass.",
+    "Claude remains deferred by user Codex-first policy; no nested agents, personal config, CI/hooks, publication or deployment.",
+    "M3 full consistent restore, controlled external execution and final engineering cross-host gates remain required."
+  ]
+}

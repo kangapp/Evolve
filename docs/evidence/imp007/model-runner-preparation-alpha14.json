@@ -1,0 +1,74 @@
+{
+  "slice": "IMP-007",
+  "status": "prepared_awaiting_actual_human_authorization",
+  "observed_at": "2026-10-31T19:06:40.220438+00:00",
+  "package_version": "0.1.0-alpha.14",
+  "schema_version": 4,
+  "protocol_version": 11,
+  "distribution_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "source_inventory_digest": "6c7b756199664c910ec22ef5d8dad2899ea627077c2ee550851bc78322da07c3",
+  "files": 61,
+  "available_methods": 25,
+  "model_requests_sent": false,
+  "reason": "IMP-006 runtime fixes introduced protocol11; prepare the existing knowledge scope against current complete kernel rather than dispatching known old protocol10 behavior.",
+  "scope": {
+    "temporary_files": 4,
+    "writable_business_files": [
+      "policy.py",
+      "guide.md"
+    ],
+    "read_only_tests": [
+      "test_policy_a.py",
+      "test_policy_b.py"
+    ],
+    "fresh_sessions_per_host": 9
+  },
+  "invariants_against_original_alpha12_scope": "All original case prompts, file bytes, model selection, exact formal approval/defer decisions, session count and effect limits equal; only package/version/protocol and reviewed runner hashes differ.",
+  "hosts": {
+    "codex": {
+      "scope_digest": "b24d3986b561713b810bf968dd2bcd636055a14011b4ceb35d670b384c3ea07b",
+      "actual_isolated_installation_and_eight_skill_discovery": true,
+      "model_requests_sent": false,
+      "business_state": "not_connected",
+      "four_initial_files_unchanged": true,
+      "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-native-preparation-alpha14-uk71ufwz/codex-preparation/business/.agents/evolve-acceptance/installed-source",
+      "cache_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-native-preparation-alpha14-uk71ufwz/codex-preparation/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14"
+    },
+    "claude": {
+      "scope_digest": "8d7a78a604bcdb17e42f8e6621d01f6d0535a8735efec4a5b9afced5a04f49c2",
+      "actual_isolated_installation_and_eight_skill_discovery": true,
+      "model_requests_sent": false,
+      "business_state": "not_connected",
+      "four_initial_files_unchanged": true,
+      "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-native-preparation-alpha14-uk71ufwz/claude-preparation/business/.agents/evolve-acceptance/installed-source",
+      "cache_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-native-preparation-alpha14-uk71ufwz/claude-preparation/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14"
+    }
+  },
+  "regression": {
+    "full_tests": 477,
+    "seconds": 71.977,
+    "passed": true,
+    "source": "../imp006/component-tests-runtime-alpha14-full.txt",
+    "knowledge_parent_cases": 11,
+    "extract": "parent-tests-alpha14-from-full.txt",
+    "separate_target_run": false,
+    "runtime_python_bytes_equal_to_final_distribution": true
+  },
+  "archives": {
+    "native-package-alpha14.zip": "00de9e547e2e69a1ef43a61fe89ec5937d4aca93834a329561fac620318048ac",
+    "model-runner-alpha14.zip": "478a52dd97776ee59206e2788394e1b044337d4f2d28be58605e74a68519a349",
+    "model-runner-preparation-alpha14.zip": "527abb42637dd5771d5530a9831c2d0c99164dca4c01c66f55e84afab4e46828"
+  },
+  "controlled_nine_stage_component_walk": "Included in the actual current full regression; historical retained walkthrough is controlled-parent-walkthrough-alpha12.zip, not a new native alpha14 run.",
+  "authorization": {
+    "state": "pending",
+    "source": "No actual reply to the outstanding four-file/nine-session/formal-decision question received.",
+    "arithmetic_seven_session_grant_applies": false
+  },
+  "prior_alpha12_frozen_materials": "Retained unchanged; not overwritten or presented as current alpha14 native evidence.",
+  "limitations": [
+    "No knowledge model request sent; host discovery and component tests do not prove native semantic/authorization behavior.",
+    "IMP-006 alpha14 native jobs remain separate, not a knowledge authorization.",
+    "Current environment only; no Windows gate."
+  ]
+}

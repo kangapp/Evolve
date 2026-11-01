@@ -1,0 +1,17 @@
+{
+  "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5",
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/package",
+  "controller": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/controller",
+  "version": "0.1.0",
+  "source_digest": "8eb181ffa01441e0607db9ae4768ce0f96aaf9eb7df40bb44783c3131d8acd46",
+  "package_digest": "08b5e05611e0881814748844e99364c8da1e5121fd9a507b112ee4b5f6d45258",
+  "model_requests_sent": "consult actual runner summary",
+  "previous_candidate": "docs/evidence/imp014/frozen-package-010.json",
+  "reason": "Installation guide exact not_connected value and expected advertised history method test updated; runtime unchanged from first640 test run.",
+  "host": "claude",
+  "model": "MiniMax-M3.1-Flash",
+  "scope_digest": "00c1020739d862d9a48297f24b883fc4ddcd5426e1872d423a5207ce9426243b",
+  "native_lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/claude-native-r1",
+  "authorization": "docs/evidence/continuation-authorization-20261101.json",
+  "status": "dispatched_after_clean_current_full_regression_and_codex_start"
+}

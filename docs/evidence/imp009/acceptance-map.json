@@ -1,0 +1,447 @@
+{
+  "slice": "IMP-009",
+  "scope": "Specific multi-work branches plus required diagnosed-to-complex repair binding found by actual native acceptance; no whole global V or M2 pass claim.",
+  "package_version": "0.1.0-alpha.18",
+  "package_digest": "a4e7dca7b6a63cef556bca903a514c2013a3adcdfc84181bd3388992b0a4163f",
+  "regression_log": "component-tests-alpha18.txt",
+  "regression_tests": 534,
+  "public_cli": "runtime-fix-validation-alpha18.json",
+  "source_snapshot": {
+    "path": "acceptance-test-sources-alpha18.zip",
+    "sha256": "eeedcca6f6c75104ec1fc03e27f0709b2804e26d2b043e8747e23985971991a3"
+  },
+  "requirements": [
+    {
+      "requirement": "V-014",
+      "statement": "**V-014 并发边界**：多任务独立推进；旧版本写入、资源重叠和同 Change 竞争受控；不声称能锁所有编辑器。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_real_parallel_claims_allow_unrelated_work_and_reject_mixed_cutoff",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cancellation.py",
+          "case": "CancellationTests.test_cancel_does_not_steal_a_real_running_check_or_release_its_claims",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "regression_only_no_new_native_case",
+      "whole_requirement_passed": false,
+      "native_cases": [],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-026",
+      "statement": "**V-026 查询与观察登记**：本地查询纯读；明确外部 reconcile 由 apply 留实际观察，不把查询暗中转数据执行。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_resume.py",
+          "case": "ResumeTests.test_public_resume_in_a_fresh_process_is_a_pure_query",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_knowledge_proposals.py",
+          "case": "KnowledgeProposalTests.test_status_is_pure_and_latest_candidate_check_is_not_applied_verification",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "cancel_a_adopt_c",
+        "rebind_finish"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-030",
+      "statement": "**V-030 多来源复用**：多个必需来源逐项核查；归档位置变化有证明可复用，语义变化不放行；无组合发布要求。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_done_is_not_verified_and_produced_inputs_are_not_frozen_as_old_context",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "formal_candidates",
+        "formal_apply"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-056",
+      "statement": "**V-056 分析链并发**：同主题同头只允许一个后继；不同主题可并存；恢复 interrupted 仍是分析 previous 身份。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_two_real_processes_cannot_branch_the_same_observed_head",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_equal_questions_in_different_topics_require_a_stable_target",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "regression_only_no_new_native_case",
+      "whole_requirement_passed": false,
+      "native_cases": [],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-094",
+      "statement": "**V-094 多任务隔离**：A/B Change 和多个分析主题共存，分别恢复进度和授权，共享项目知识但不串结果。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_upstream_cancellation_invalidates_only_real_downstream_and_preserves_old_results",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_paused_consumer_rebinds_after_cancel_to_a_new_observed_producer_and_finishes",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_resume.py",
+          "case": "ResumeTests.test_multiple_unfinished_targets_are_not_resolved_by_recency",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "producer_a",
+        "pause_b",
+        "cancel_a_adopt_c",
+        "rebind_finish",
+        "formal_candidates"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-095",
+      "statement": "**V-095 重叠冲突**：同文件、共享接口／口径或同 Change 竞争被识别；保留双方，无关任务不全局暂停。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_real_parallel_claims_allow_unrelated_work_and_reject_mixed_cutoff",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_changed_upstream_context_blocks_consumer_without_overwriting_external_edit",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "pause_b",
+        "cancel_a_adopt_c",
+        "formal_apply",
+        "verify"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-096",
+      "statement": "**V-096 跨任务依赖**：固定目标／版本／条件与依据；取消、替代、上游变更重核；done 不等于验证通过。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_done_is_not_verified_and_produced_inputs_are_not_frozen_as_old_context",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_real_upstream_revision_requires_rebinding_instead_of_silently_following_latest",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_cross_change_cycle_is_rejected_by_real_revision_without_rewriting_old_definition",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_new_actual_upstream_failure_invalidates_consumer_without_erasing_old_pass",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_malformed_conditions_and_unowned_paths_do_not_become_dependencies",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "pause_b",
+        "cancel_a_adopt_c",
+        "rebind_finish",
+        "formal_candidates",
+        "formal_apply",
+        "verify"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-097",
+      "statement": "**V-097 混合现场验证**：VER 说明包含的关联修改和依赖，检查前后现场变化不记 current；不伪称单任务隔离通过。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_real_parallel_claims_allow_unrelated_work_and_reject_mixed_cutoff",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_upstream_cancel_during_real_consumer_check_cannot_commit_done",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "rebind_finish",
+        "verify"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-117",
+      "statement": "**V-117 正常会话收尾**：主动暂停／等待确认后保存部分结果并释放已安全结束的本地写段；新会话直接续接，不假报异常，外部 unknown 占用仍在。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_resume.py",
+          "case": "ResumeTests.test_pause_completes_only_the_run_and_releases_safe_claims_without_checks",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_resume.py",
+          "case": "ResumeTests.test_fresh_process_continues_with_a_new_run_without_fake_recovery",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_dependencies.py",
+          "case": "CrossDependencyTests.test_paused_consumer_rebinds_after_cancel_to_a_new_observed_producer_and_finishes",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "pause_b",
+        "rebind_finish"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-119",
+      "statement": "**V-119 同批同文件**：不同 owner 的已批准非冲突改动顺序应用，基线随自身应用推进时以证明链复用批准；实质冲突／外部变化只暂停相关项，不重复批准不变内容。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_whole_acceptance_retains_first_owner_after_other_change_composes",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "formal_candidates",
+        "formal_apply",
+        "verify"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-120",
+      "statement": "**V-120 延期提案过时**：已归档 A 的待审提案被 B 的新行为／提案替代，旧批准不转移、不改回旧含义；保留版本、决定和替代关系，相关查询可发现。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_external_knowledge.py",
+          "case": "ExternalKnowledgeTests.test_archived_a_deferred_proposal_is_discoverably_replaced_by_actual_b",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_external_knowledge.py",
+          "case": "ExternalKnowledgeTests.test_archived_a_approved_unapplied_proposal_does_not_overwrite_actual_b",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "regression_only_no_new_native_case",
+      "whole_requirement_passed": false,
+      "native_cases": [],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-121",
+      "statement": "**V-121 检索降级与完整性**：索引失配、来源不可用、未覆盖和真实无命中区分；可只读回查原文；归档成果／待审差异／反例仍检索得到，缺可选经验不阻断全部工作。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_learning.py",
+          "case": "LearningTests.test_missing_source_is_an_error_not_a_genuine_empty_search",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_learning.py",
+          "case": "LearningTests.test_corrupt_optional_experience_does_not_hide_main_resume_or_formal_context",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_learning.py",
+          "case": "LearningTests.test_retired_content_and_feedback_remain_readable_without_being_recommended",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_learning.py",
+          "case": "LearningTests.test_formal_knowledge_is_not_hidden_by_experience_rank_or_query",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "producer_a",
+        "formal_candidates"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-122",
+      "statement": "**V-122 完成前再核查**：测试后、封存前改相关文件／AC／检查配置或新增必需失败，旧 passed 不放行；封存后变化不改历史，当前视图显示依据是否仍适用。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_archive_rechecks_source_after_verification",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_changed_check_configuration_cannot_reuse_old_passing_evidence",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_newest_failed_verification_prevents_using_an_older_passing_result",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_current_failure_after_archival_adds_evidence_and_preserves_historical_success",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_formal_application.py",
+          "case": "FormalApplicationTests.test_actual_verification_after_external_edit_is_blocked_and_preserves_prior_pass",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_cross_formal_dependencies.py",
+          "case": "CrossFormalTests.test_whole_acceptance_retains_first_owner_after_other_change_composes",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "formal_apply",
+        "verify"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    },
+    {
+      "requirement": "V-051",
+      "statement": "**V-051 转修复**：调查结束不隐含修改；提出方案后等待明确执行确认；新成果重新验收。",
+      "component_status": "referenced_assertions_passed",
+      "branch": "Original criterion and actual post-repair symptom proof on a complex business Task, including REV and old-writer guards",
+      "tests": [
+        {
+          "file": "tests/test_structured_diagnostics.py",
+          "case": "StructuredDiagnosticTests.test_single_task_root_binding_requires_original_post_repair_observation",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_structured_diagnostics.py",
+          "case": "StructuredDiagnosticTests.test_task_level_binding_is_presented_and_not_silently_ignored",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_structured_diagnostics.py",
+          "case": "StructuredDiagnosticTests.test_cosmetic_revision_preserves_binding_but_removal_needs_exact_confirmation",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_structured_diagnostics.py",
+          "case": "StructuredDiagnosticTests.test_complete_alpha17_writer_cannot_ignore_protocol14_repair_semantics",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_structured_diagnostics.py",
+          "case": "StructuredDiagnosticTests.test_task_binding_rejects_a_changed_criterion_or_missing_original_check",
+          "result": "passed in component-tests-alpha18.txt"
+        },
+        {
+          "file": "tests/test_structured_diagnostics.py",
+          "case": "StructuredDiagnosticTests.test_unpresented_root_binding_and_ambiguous_multi_task_binding_are_rejected",
+          "result": "passed in component-tests-alpha18.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "producer_a"
+      ],
+      "native_review": "codex-model-review-alpha18-r1.json"
+    }
+  ]
+}

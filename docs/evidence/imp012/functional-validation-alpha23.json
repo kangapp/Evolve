@@ -1,0 +1,106 @@
+{
+  "status": "passed-current-Codex-scope",
+  "package_version": "0.1.0-alpha.23",
+  "protocol_version": 15,
+  "schema_version": 4,
+  "resources": 72,
+  "source_content_digest": "113c848fa1f3b8727776787173700a88f64dc922b6aaae51eef0e5a8b6b5d88c",
+  "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3",
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3/package",
+  "controller": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3/controller",
+  "scope_digest": "85f5956d1154e7f5cc1c16e11283b3d13c998dcac8d3a57786278efc098edfff",
+  "content_digest": "9ef5c0d8ba30902c2225661cb7fa22e9fbcd979240d000fdb23940fcf26cb2a1",
+  "same_scope_as_alpha22_except_package_identity": true,
+  "state": "frozen-preparing-no-model-dispatch",
+  "full_tests": {
+    "count": 574,
+    "seconds": 125.712,
+    "log": "component-tests-alpha23.txt"
+  },
+  "supplemental_actual_fork": {
+    "count": 1,
+    "log": "actual-history-forks-alpha23.txt"
+  },
+  "public_cli": {
+    "commands": 162,
+    "cases": 14,
+    "path": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3/recovery-cli-r2"
+  },
+  "actual_old_package_compatibility": {
+    "commands": 8,
+    "old_version": "0.1.0-alpha.21",
+    "path": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3/old-compatibility"
+  },
+  "skill_validation": {
+    "count": 8,
+    "log": "skill-validation-alpha23.json"
+  },
+  "preparation": {
+    "no_model_requests": true,
+    "path": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3/preparation",
+    "actual_discovery": 8
+  },
+  "archives": [
+    {
+      "path": "runtime-package-alpha23.zip",
+      "sha256": "feee56cdd31b7491b084cb610c12c987d39af46c28da5cdb5d0d921e4cdb5ddf",
+      "bytes": 228614,
+      "skipped_links": []
+    },
+    {
+      "path": "model-runner-alpha23.zip",
+      "sha256": "a216fd8d5a5070171fa20213e42ded424c715cd24cac4edfd8b2a9ec443ef148",
+      "bytes": 27542,
+      "skipped_links": []
+    },
+    {
+      "path": "model-preparation-alpha23.zip",
+      "sha256": "0d60bc63cb21e98a79965058574e5a8191d4410049599801f04ad9408e7a568c",
+      "bytes": 751772,
+      "skipped_links": [
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg07WN2bP/apply_patch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg07WN2bP/applypatch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg07WN2bP/codex-execve-wrapper"
+      ]
+    },
+    {
+      "path": "public-cli-alpha23.zip",
+      "sha256": "629409cf480f4ba6c84409809f92b5d6b8a53fcaa7578dce97158232d3a73525",
+      "bytes": 2338566,
+      "skipped_links": []
+    },
+    {
+      "path": "actual-old-package-alpha23.zip",
+      "sha256": "7dd50d1683f88fb922b06773eee7c9970b43229d8b369233028f6a2c06b52393",
+      "bytes": 53001,
+      "skipped_links": []
+    }
+  ],
+  "native_status": "passed-current-Codex-scope",
+  "alpha22_audit": "model-dispatch-alpha22.json",
+  "native_review": "codex-model-review-alpha23-r1.json",
+  "latest_maintenance_supplement": {
+    "count": 16,
+    "seconds": 14.984,
+    "log": "maintenance-final-supplement-alpha23.txt",
+    "includes": "All current maintenance methods, actual divergent branches, natural unknown-file collision and foreign-project rejection; overlaps full regression, not added as 16 new tests."
+  },
+  "later_audit_followup": {
+    "discovered_during": "IMP-013 development",
+    "issue": "Selected archive database could change after bundle validation and before candidate copy; original gate did not cover this exact window.",
+    "preserved_artifact_changed": false,
+    "current_fix": "alpha.24 development verifies copied DB digest against exact selected manifest before transformation/install.",
+    "red": "../imp013/restore-payload-race-red-alpha24.txt",
+    "probe": "../imp013/restore-payload-race-probe-alpha24.json",
+    "green": "../imp013/restore-payload-race-green-alpha24.txt",
+    "full_followup_regression": "pending current IMP-013 gate",
+    "current_alpha24_followup": {
+      "status": "passed",
+      "test": "test_maintenance.MaintenanceTests.test_archive_database_changed_after_validation_is_not_installed",
+      "log": "../imp013/component-tests-alpha24-candidate-third.txt",
+      "source_digest": "8daa8949bc84ee6e1ccfc5fe644a1c61ed1d73f163265361ebb8d134ff4b2981",
+      "package_digest": "ebe4bb163e3c92f60149414d2bd1ee0ac77aa956c663d8aaca4ed3f217dddb7e",
+      "original_frozen_alpha23_unchanged": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "archive": "acceptance-test-and-controller-sources-010-final.zip",
+  "sha256": "43a971d5d2033bfdb5395b5f62a07dead4009122d2a91fd9e5ef8b282979b180",
+  "bytes": 344121,
+  "current_tests": 642,
+  "all422_mapped_file_hashes_match": true,
+  "selected_controller_scope": "669c7fba6f20f6a28e0721be0f825527d408968cef2b58da5fd54469974fefc2",
+  "additional_native_continuation": {
+    "source": "codex_complex_tail.py",
+    "scope": "codex-cross-host-tail-scope.json",
+    "actual_review": "codex-cross-host-tail-review.json",
+    "parent_assertions_unchanged": true
+  }
+}

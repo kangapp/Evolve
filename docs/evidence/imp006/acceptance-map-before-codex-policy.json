@@ -1,0 +1,339 @@
+{
+  "slice": "IMP-006",
+  "status": "in_progress",
+  "observed_at": "2026-10-31T19:05:25.139978+00:00",
+  "source_inventory_digest": "6c7b756199664c910ec22ef5d8dad2899ea627077c2ee550851bc78322da07c3",
+  "distribution_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "package_version": "0.1.0-alpha.14",
+  "global_V_pass_inferred": false,
+  "regression": "runtime-fix-validation-alpha14.json",
+  "test_source_snapshot": {
+    "path": "acceptance-test-sources-alpha14.zip",
+    "sha256": "3c707ffac3ab6c6fd3f672769460b5ede51aec3487542eecc0c8e232c027d2db"
+  },
+  "assertions": [
+    {
+      "id": "V-006",
+      "component_status": "passed_current_environment",
+      "scope": "Relevant source/context/check changes invalidate only affected results; display changes retain applicable progress and history.",
+      "tests": [
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_format_revision_reuses_real_task_verification_and_old_whole_cutoff",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_changed_context_reopens_task_and_descendants",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_external_output_change_cannot_be_carried_as_completed",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_execution.py",
+          "case": "StructuredExecutionTests.test_changed_task_check_contract_blocks_old_whole_pass_even_if_global_check_is_unchanged",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "revision-cli-proof.json",
+        "runtime-cli-proof-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Formal owner application and external data freshness integration remain with IMP-007/008; this is not a global V pass.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-016",
+      "component_status": "passed_current_environment",
+      "scope": "Real same-Change DAG/condition gates and stable local task numbering.",
+      "tests": [
+        {
+          "file": "tests/test_structured_plans.py",
+          "case": "StructuredPlanTests.test_dependency_cycle_and_unknown_target_are_rejected",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_plans.py",
+          "case": "StructuredPlanTests.test_order_without_condition_basis_is_not_a_dependency",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_task_codes_are_not_recycled_after_retirement",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "spec-proposal-cli-proof.json",
+        "revision-cli-proof.json"
+      ],
+      "remaining_or_later_branch": "Cross-Change coordination remains IMP-009.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-021",
+      "component_status": "passed_current_environment",
+      "scope": "Relevant original inputs are checked; unrelated record append does not expire completed business work.",
+      "tests": [
+        {
+          "file": "tests/test_structured_execution.py",
+          "case": "StructuredExecutionTests.test_unrelated_knowledge_append_does_not_invalidate_task_or_final_verification",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_execution.py",
+          "case": "StructuredExecutionTests.test_transitive_declared_context_drift_blocks_the_real_descendant",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_model_complex_acceptance.py",
+          "case": "ComplexModelParentTests.test_declared_producer_context_does_not_hide_an_external_producer_edit",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_model_complex_acceptance.py",
+          "case": "ComplexModelParentTests.test_producer_context_does_not_hide_unrelated_fixed_context_drift",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "task-execution-cli-proof.json",
+        "runtime-cli-proof-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Mapped formal-document lifecycle and external data observations remain with IMP-007/008; no blanket knowledge/data freshness assertion.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-028",
+      "component_status": "passed_current_environment",
+      "scope": "Single-stage boundaries, explicit normal pause and actual same-task continuation remain distinct from complete implementation/verification.",
+      "tests": [
+        {
+          "file": "tests/test_model_complex_acceptance.py",
+          "case": "ComplexModelParentTests.test_all_seven_actual_workflow_boundaries_pass_without_model_transport",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_model_complex_acceptance.py",
+          "case": "ComplexModelParentTests.test_verify_only_cannot_silently_repair_the_controlled_regression",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_model_complex_acceptance.py",
+          "case": "ComplexModelParentTests.test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_preservation.py",
+          "case": "PreservationTests.test_prepare_then_pause_and_continue_preserve_the_original_proof_without_new_before_checks",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "runtime-cli-proof-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Both native seven-session traces still require terminal semantic review.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-037",
+      "component_status": "passed_current_environment",
+      "scope": "Partial/task-only success, newer required failure or dropping a task without its AC cannot close the whole Change.",
+      "tests": [
+        {
+          "file": "tests/test_structured_execution.py",
+          "case": "StructuredExecutionTests.test_partial_task_success_cannot_pass_whole_acceptance_or_archive",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_execution.py",
+          "case": "StructuredExecutionTests.test_newer_task_failure_blocks_old_whole_pass",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_uncovered_acceptance_is_not_removed_by_dropping_task",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_preservation.py",
+          "case": "PreservationTests.test_zero_tests_exit_zero_is_not_an_original_behavior_proof",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "task-execution-cli-proof.json",
+        "preservation-cli-proof.json"
+      ],
+      "remaining_or_later_branch": "Knowledge-required delivery composition remains IMP-007; business native scope still pending.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-087",
+      "component_status": "passed_current_environment",
+      "scope": "Complete spec and actual test decisions are preserved; concrete changed semantic plans require acceptance before implementation.",
+      "tests": [
+        {
+          "file": "tests/test_structured_plans.py",
+          "case": "StructuredPlanTests.test_entire_presented_spec_is_restored_without_approval_or_business_write",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_plans.py",
+          "case": "StructuredPlanTests.test_same_summary_cannot_approve_a_different_task_definition",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_plans.py",
+          "case": "StructuredPlanTests.test_task_requires_independent_validation_test_decision_reference_and_exclusions",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_semantic_draft_requires_acceptance_and_reopens_changed_descendants",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "spec-proposal-cli-proof.json",
+        "revision-cli-proof.json",
+        "runtime-cli-proof-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Whole native planning/acceptance/revision claims still require review against actual commands and persisted documents.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-088",
+      "component_status": "instructional_resources_passed_behavior_pending",
+      "scope": "Select lightweight/focused/global understanding for actual gaps, with reasons, coverage, unknowns and stopping criteria independent of complexity/profile/line count.",
+      "tests": [
+        {
+          "file": "tests/test_package.py",
+          "case": "InstalledPackageTests.test_distribution_has_closed_local_links_and_no_project_data",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "context-validation-alpha13.json",
+        "codex-model-review-alpha13-r1.json",
+        "runtime-fix-validation-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Instructions and resource closure are verified; actual native choice, reasons, reuse and stopping behavior remain pending alpha14 trace review. Static/link checks do not prove adaptive behavior.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-126",
+      "component_status": "passed_current_environment",
+      "scope": "Every vertical task has a result and validation; real necessary pre-refactor proof and final broad-migration integration remain mandatory.",
+      "tests": [
+        {
+          "file": "tests/test_structured_plans.py",
+          "case": "StructuredPlanTests.test_broad_migration_requires_final_integration_boundary_and_check",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_preservation.py",
+          "case": "PreservationTests.test_before_and_after_checks_are_real_and_whole_completion_uses_the_pair",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_preservation.py",
+          "case": "PreservationTests.test_failed_post_check_reuses_original_baseline_when_repairing",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_structured_execution.py",
+          "case": "StructuredExecutionTests.test_final_integration_failure_repairs_same_revision_under_original_plan",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "preservation-cli-proof.json",
+        "runtime-cli-proof-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Original-behavior equivalence is bounded by declared readonly literals/inputs, not all numeric behavior; native full scope pending.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-127",
+      "component_status": "passed_current_environment",
+      "scope": "Spec and standards reviews preserve actual observers and required findings; document-only work uses actual content inspection.",
+      "tests": [
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_green_tests_do_not_override_a_required_review_finding",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_document_workflow.py",
+          "case": "DocumentWorkflowTests.test_typo_correction_closes_with_actual_content_inspection_and_no_code_test_claim",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "task-execution-cli-proof.json",
+        "runtime-cli-proof-alpha14.json"
+      ],
+      "remaining_or_later_branch": "Controlled review inputs are not independent model reviewers; native observers and their claims still need semantic review.",
+      "native_status": "codex_passed_claude_pending"
+    },
+    {
+      "id": "V-128",
+      "component_status": "passed_current_environment",
+      "scope": "Actual untracked/relevant workspace, stable findings, fresh resolutions and same-REV repair remain visible; empty new reviews cannot forget blockers.",
+      "tests": [
+        {
+          "file": "tests/test_revisions.py",
+          "case": "RevisionTests.test_old_blocking_finding_survives_revision_until_actual_resolution",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_new_empty_review_cannot_forget_an_unresolved_prior_finding",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_archive_rechecks_untracked_business_inputs",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        },
+        {
+          "file": "tests/test_verify_archive.py",
+          "case": "AcceptanceTests.test_actual_same_revision_repair_can_resolve_prior_review_with_fresh_evidence",
+          "result": "passed in component-tests-runtime-alpha14-full.txt"
+        }
+      ],
+      "runtime_evidence": [
+        "task-execution-cli-proof.json",
+        "revision-cli-proof.json"
+      ],
+      "remaining_or_later_branch": "Full combined four-workflow integration remains IMP-011; native scope still pending.",
+      "native_status": "codex_passed_claude_pending"
+    }
+  ],
+  "native_dispatch": "model-dispatch-alpha14.json",
+  "required_stage_gates": [
+    "Both native hosts complete and pass all seven phases on this exact package content",
+    "Review actual commands, statements, source/history/authorization and V-088 behavior",
+    "Preserve all failures and readonly tests; no unresolved required issue or pending run/claim"
+  ],
+  "milestones": {
+    "M1": "passed_current_environment on retained baseline",
+    "M2": "in_progress",
+    "M3": "not_started"
+  },
+  "acceptance_environment": "Current actual environment only; no independent Windows gate.",
+  "native_hosts": {
+    "codex": {
+      "status": "passed_current_host_scope",
+      "review": "codex-model-review-alpha14-r1.json"
+    },
+    "claude": {
+      "status": "stopped_native_rate_limit",
+      "review": "claude-model-review-alpha14-r2.json"
+    }
+  }
+}

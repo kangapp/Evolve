@@ -1,0 +1,99 @@
+{
+  "milestone": "M1",
+  "status": "local_required_branches_passed_native_windows_blocked",
+  "complete": false,
+  "package_version": "0.1.0-alpha.4",
+  "distribution_digest": "11e30bb2cc61e07331da43c8ba5696e055df378291a71ec2d911eb889ed2566d",
+  "protocol_version": 3,
+  "schema_version": 1,
+  "inventory_files": 48,
+  "available_methods": 18,
+  "current_complete_package": "imp004/preserved-package-alpha4.json",
+  "environment": {
+    "system": "macOS / Darwin25.6.0",
+    "python": "3.11.9",
+    "codex": "0.154.0",
+    "claude": "2.1.117"
+  },
+  "functional_regression": {
+    "count": 244,
+    "actual_output": "imp004/component-tests-timeout-evidence.txt",
+    "rerun_note": "No runtime/controller code changes after this actual pass; source documentation/evidence changes do not count as new functional tests"
+  },
+  "slices": {
+    "IMP-001": {
+      "status": "passed_local_platform_partial",
+      "current_evidence": [
+        "imp004/codex-model-review-alpha4-r4.json",
+        "imp004/claude-model-review-alpha4-r3.json",
+        "imp001/windows-readiness-alpha4-r3.json"
+      ]
+    },
+    "IMP-002": {
+      "status": "passed_local",
+      "evidence": "imp002/model-review-alpha2-r5.json",
+      "current_workflow_evidence": [
+        "imp004/codex-model-review-alpha4-r4.json",
+        "imp004/claude-model-review-alpha4-r3.json"
+      ]
+    },
+    "IMP-003": {
+      "status": "passed_local_for_current_M1_slice_branches",
+      "evidence": [
+        "imp003/acceptance-baseline-alpha4.json",
+        "imp003/codex-model-review-alpha4-r1.json",
+        "imp003/claude-model-review-alpha4-r1.json",
+        "imp003/self-review-alpha4.json"
+      ],
+      "historical_alpha3": "Failed actual immediate-readonly branch; retained separately, never relabeled passed"
+    },
+    "IMP-004": {
+      "status": "passed_local_for_M1_core_branches",
+      "evidence": [
+        "imp004/acceptance-map.json",
+        "imp004/self-review-alpha4.json"
+      ]
+    },
+    "IMP-005": {
+      "status": "passed_local_platform_partial",
+      "current_evidence": [
+        "imp005/manual-review-alpha4.json",
+        "imp005/lifecycle-alpha4-trace.zip"
+      ],
+      "native_checks": 36,
+      "logged_commands": 42
+    }
+  },
+  "native_windows": {
+    "status": "not_run",
+    "gate": "V-137",
+    "actual_human_environment_reply": "没有",
+    "actual_VM_decision": "暂不创建，保留 Windows 未验收门槛（推荐）",
+    "source": "imp001/windows-environment.json",
+    "portable_kit": "imp001/windows-readiness-alpha4-r3.zip",
+    "required_remaining": [
+      "Actual Windows runtime branch with --require-windows",
+      "Separate native Windows host installation, project scope, discovery/loading roots and applicable lifecycle evidence"
+    ],
+    "waiver": false,
+    "VM_provisioning_authorized": false
+  },
+  "review_limits": [
+    "Current trace/fact review is self-review, not independent model/code review",
+    "Native guard rejections and model response/reporting inaccuracies remain documented; no claim of ideal language consistency or no attempted out-of-scope resource discovery",
+    "Compatible update uses a complete controlled derivative; no arbitrary future migration or complete archive restore guarantee",
+    "Each global V keeps later complex-task/rule-promotion/external-operation branches with their assigned slices"
+  ],
+  "M2": "not_started",
+  "M3": "not_started",
+  "next_work": "Await an available native Windows execution channel or an explicit later user change to the environment decision. Do not provision VM, repeatedly ask the same decision, or start M2/M3.",
+  "only_remaining_required_gate": "V-137 native Windows",
+  "model_jobs": "all terminal; raw traces archived and reviewed",
+  "current_source_content_digest": "ef052671c57ae202dc490d006d917d3c9c9a50cb0f355256ee039d3c69965d5b",
+  "source_status_refresh": "imp004/source-only-status-refresh-alpha4.json",
+  "final_local_reviews": [
+    "imp003/self-review-alpha4.json",
+    "imp004/self-review-alpha4.json",
+    "imp005/manual-review-alpha4.json"
+  ]
+}

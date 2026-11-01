@@ -1,0 +1,46 @@
+test_changed_rule_scope_forms_new_candidate_without_old_approval (test_rule_owner.RuleOwnerTests.test_changed_rule_scope_forms_new_candidate_without_old_approval) ... ok
+test_citation_without_retained_observation_is_not_rule_support (test_rule_owner.RuleOwnerTests.test_citation_without_retained_observation_is_not_rule_support) ... ok
+test_counterexample_invalidates_required_rule_completion_but_keeps_actual_history (test_rule_owner.RuleOwnerTests.test_counterexample_invalidates_required_rule_completion_but_keeps_actual_history) ... ok
+test_counterexample_marks_actual_rule_for_review_without_rewriting_it (test_rule_owner.RuleOwnerTests.test_counterexample_marks_actual_rule_for_review_without_rewriting_it) ... ok
+test_new_counterexample_blocks_approved_but_unapplied_rule (test_rule_owner.RuleOwnerTests.test_new_counterexample_blocks_approved_but_unapplied_rule) ... ok
+test_new_state_after_approval_does_not_inherit_old_rule_basis (test_rule_owner.RuleOwnerTests.test_new_state_after_approval_does_not_inherit_old_rule_basis) ... ok
+test_other_owner_cannot_propose_or_apply_experience_rule (test_rule_owner.RuleOwnerTests.test_other_owner_cannot_propose_or_apply_experience_rule) ... ok
+test_preserved_alpha10_writer_rejects_rule_protocol_without_mutation (test_rule_owner.RuleOwnerTests.test_preserved_alpha10_writer_rejects_rule_protocol_without_mutation) ... ok
+test_real_rule_file_commit_recovery_creates_one_actual_binding (test_rule_owner.RuleOwnerTests.test_real_rule_file_commit_recovery_creates_one_actual_binding) ... ok
+test_real_rule_metadata_recovery_retains_candidate_and_experience_catalog (test_rule_owner.RuleOwnerTests.test_real_rule_metadata_recovery_retains_candidate_and_experience_catalog) ... ok
+test_rejected_rule_body_cannot_be_recreated_under_sync_owner (test_rule_owner.RuleOwnerTests.test_rejected_rule_body_cannot_be_recreated_under_sync_owner) ... ok
+test_rejected_sync_body_cannot_be_recreated_under_learn_owner (test_rule_owner.RuleOwnerTests.test_rejected_sync_body_cannot_be_recreated_under_learn_owner) ... ok
+test_required_rule_task_needs_actual_application_and_target_acceptance (test_rule_owner.RuleOwnerTests.test_required_rule_task_needs_actual_application_and_target_acceptance) ... ok
+test_rule_requires_explicit_stage_and_actual_sources (test_rule_owner.RuleOwnerTests.test_rule_requires_explicit_stage_and_actual_sources) ... ok
+test_specific_rule_proposal_application_and_binding_do_not_promote_experience_state (test_rule_owner.RuleOwnerTests.test_specific_rule_proposal_application_and_binding_do_not_promote_experience_state) ... ok
+test_sync_and_learn_same_original_base_complete_required_tasks_by_real_chain (test_rule_owner.RuleOwnerTests.test_sync_and_learn_same_original_base_complete_required_tasks_by_real_chain) ... ok
+test_unconfirmed_hypothesis_cannot_become_a_rule_by_specific_approval (test_rule_owner.RuleOwnerTests.test_unconfirmed_hypothesis_cannot_become_a_rule_by_specific_approval) ... ok
+test_unwritten_rule_recovery_stops_after_new_counterexample (test_rule_owner.RuleOwnerTests.test_unwritten_rule_recovery_stops_after_new_counterexample) ... ERROR
+
+======================================================================
+ERROR: test_unwritten_rule_recovery_stops_after_new_counterexample (test_rule_owner.RuleOwnerTests.test_unwritten_rule_recovery_stops_after_new_counterexample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 244, in test_unwritten_rule_recovery_stops_after_new_counterexample
+    before=(self.root/'terms.md').read_bytes();self.counterexample()
+                                               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 62, in counterexample
+    self.l.second_task(); decision = self.l.decide(); self.l.give_feedback(decision, 'counterexample')
+    ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_learning.py", line 64, in second_task
+    self.plan = propose(self.root, {**self.identity(), 'request_id': str(uuid.uuid4()), 'authorization': self.auth, 'input': plan})
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/plans.py", line 77, in propose
+    run_id, previous = store.start(request, action='propose', method='create', owner='evolve-propose')
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 289, in start
+    backup_ref = protect_before_write(self, request['request_id'])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/backup.py", line 23, in protect_before_write
+    raise EvolveError('NEEDS_RECOVERY', 'Unresolved file operation prevents a consistent protection backup', exit_code=4)
+evolve_core.errors.EvolveError: Unresolved file operation prevents a consistent protection backup
+
+----------------------------------------------------------------------
+Ran 18 tests in 4.759s
+
+FAILED (errors=1)

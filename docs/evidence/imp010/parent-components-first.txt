@@ -1,0 +1,9 @@
+test_absent_or_previous_multi_work_authorization_never_installs_or_dispatches (test_model_learning_acceptance.LearningScopeTests.test_absent_or_previous_multi_work_authorization_never_installs_or_dispatches) ... ok
+test_all_six_actual_parent_boundaries_and_guard_tamper_rejection_without_models (test_model_learning_acceptance.LearningScopeTests.test_all_six_actual_parent_boundaries_and_guard_tamper_rejection_without_models) ... ok
+test_frozen_alias_has_the_same_actual_scope (test_model_learning_acceptance.LearningScopeTests.test_frozen_alias_has_the_same_actual_scope) ... ok
+test_scope_pins_four_files_six_sessions_and_the_exact_first_rule_only (test_model_learning_acceptance.LearningScopeTests.test_scope_pins_four_files_six_sessions_and_the_exact_first_rule_only) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.631s
+
+OK

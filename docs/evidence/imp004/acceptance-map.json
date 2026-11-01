@@ -1,0 +1,208 @@
+{
+  "slice": "IMP-004",
+  "status": "passed_local_for_current_M1_slice_branches",
+  "global_V_pass_inferred": false,
+  "assertions": [
+    {
+      "id": "V-005",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_resume_restores_original_plan_progress_authorization_without_writes",
+        "tests/test_learning.py::LearningTests.test_fresh_resume_restores_adopted_version_and_decision_without_claiming_new_learning",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-020",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_fresh_process_continues_with_a_new_run_without_fake_recovery",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-027",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_state_review_preserves_the_original_content_version",
+        "tests/test_learning.py::LearningTests.test_new_task_records_retrieval_adoption_and_actual_unknown_effect_separately",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-041",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_multiple_unfinished_targets_are_not_resolved_by_recency",
+        "tests/test_resume.py::ResumeTests.test_public_resume_in_a_fresh_process_is_a_pure_query",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-044",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_resume_restores_original_plan_progress_authorization_without_writes",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-070",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_explicit_change_still_exposes_global_unfinished_configuration",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-071",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_continuation_cannot_add_effects_absent_from_the_original_grant",
+        "tests/test_resume.py::ResumeTests.test_revoked_source_grant_is_visible_and_cannot_be_reused",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-089",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_new_archive_time_cannot_turn_old_observation_into_fresh_counterexample_support",
+        "tests/test_learning.py::LearningTests.test_formal_knowledge_is_not_hidden_by_experience_rank_or_query",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-098",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_hypothesis_is_not_activated_by_references_or_positive_test_evidence",
+        "tests/test_learning.py::LearningTests.test_learning_does_not_supply_missing_business_authorization",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-099",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_rejected_retrieval_cannot_claim_adoption_benefit",
+        "tests/test_learning.py::LearningTests.test_repeated_decisions_and_passed_tasks_do_not_promote_candidate",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-107",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_fresh_process_continues_with_a_new_run_without_fake_recovery",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-108",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_stale_search_is_not_silently_used_after_state_change",
+        "tests/test_learning.py::LearningTests.test_counterexample_requires_review_and_old_green_cannot_resolve_it",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-117",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_resume.py::ResumeTests.test_pause_completes_only_the_run_and_releases_safe_claims_without_checks",
+        "tests/test_learning.py::LearningTests.test_real_exit_preserves_draft_and_recovery_does_not_create_experience",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-121",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_missing_source_is_an_error_not_a_genuine_empty_search",
+        "tests/test_learning.py::LearningTests.test_corrupt_optional_experience_does_not_hide_main_resume_or_formal_context",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    },
+    {
+      "id": "V-124",
+      "status": "partial",
+      "current_branch_status": "component_native_cli_and_current_complete_package_native_model_core_scenarios_verified_local",
+      "evidence": [
+        "tests/test_learning.py::LearningTests.test_actual_prior_work_produces_a_candidate_without_formal_or_business_writes",
+        "tests/test_learning.py::LearningTests.test_no_new_learning_requires_actual_review_and_does_not_create_experience",
+        "native-cli-review-alpha4-r2.json",
+        "codex-model-review-alpha4-r4.json",
+        "claude-model-review-alpha4-r3.json"
+      ],
+      "remaining": "Later complex-task, full knowledge/rule-promotion or other global V branches remain with their slices; no full global V pass inferred."
+    }
+  ],
+  "shared_evidence": [
+    "runtime-validation-alpha4-r2.json",
+    "hosts-alpha4-r2.json",
+    "issues-and-fixes.json",
+    "runtime-validation-alpha4-r4.json",
+    "preserved-package-alpha4.json",
+    "claude-completed-case-notes-alpha4-r3.json"
+  ],
+  "milestone_gate": "All M1 current local branches have evidence, including corrected-package IMP-003; native Windows not_run and VM declined. M1 incomplete; no M2/M3.",
+  "current_content_digest": "11e30bb2cc61e07331da43c8ba5696e055df378291a71ec2d911eb889ed2566d"
+}

@@ -1,0 +1,38 @@
+{
+  "reviewer": "Current Codex self-review, not independent agent/model review",
+  "status": "passed_local_platform_partial",
+  "observed_native_checks": 36,
+  "native_lab": "/tmp/evolve-imp005-lifecycle-03",
+  "model_requests_sent": false,
+  "source_content_digest": "c3d5ea14548b9f918679aa961dce44b263c23a81f59da8372f6dff83720dd905",
+  "distribution_content_digest": "c4d24e4dad99c9f75de2b6aa5ba9df8a2ed93f6a7bd76175ba249bb8a7a028e9",
+  "compatible_fixture_digest": "b4e244a3caebba4beeb8c3f9819a4b189d15bc58d5192ff5b117d7551cf98cf8",
+  "native_versions": {
+    "codex_version": "codex-cli 0.154.0",
+    "claude_version": "2.1.117 (Claude Code)"
+  },
+  "observed_facts": [
+    "Both native hosts rediscover eight project-scoped Skills after compatible update and reinstall; Codex other project remains at zero",
+    "Claude disabled local menu positively renders No skills found; empty parsed names alone were not accepted",
+    "Each actual installed runtime has a real hard-exit file operation, separate recovery with checks not_run, unchanged original tests, real subsequent verification and closure",
+    "Native manager operations preserve byte-identical business, history, evidence, backup and control data in the controlled projects",
+    "Explicit reconnect appends a new compatible-version run/receipt; prior record row hashes and original identity/epoch/configuration remain unchanged",
+    "Native Claude update reports the actual old/new versions and restart requirement; a new local session discovers the updated package",
+    "Actual preserved alpha.2 refuses status/init against both current protocol-2 projects with SCHEMA_VERSION before changes"
+  ],
+  "limitations": [
+    "Native Windows not_run, so V-137/M1 are not fully passed",
+    "Complete test derivative only; no arbitrary future-version/schema migration claim",
+    "No actual model requests in IMP-005; controlled review input is not independent model review",
+    "IMP-003 Claude model quota gate remains open; IMP-004 not started"
+  ],
+  "raw_log": {
+    "path": "/private/tmp/evolve-imp005-lifecycle-03/commands.json",
+    "sha256": "1c6693cb3d48d3fbe48289853972ef8c9cb1e87007198374184c87ef0d5f6f1d"
+  },
+  "current_sources": {
+    "scripts/verify_lifecycle.py": "e90cad77adfe6c09aebe33ff97490564eae07bf69e8d862fd173b6a11ef0afe6",
+    "scripts/verify_hosts.py": "79ee51ed7be268d7c02d75112f85884d2b0b44b65f2fd1acdbdc01a5b6c534e5",
+    "tests/test_package_lifecycle.py": "e28677f2580998d12a297a71f51defadae756ad2929dfd3ee5ea5e30b13808c6"
+  }
+}

@@ -1,0 +1,602 @@
+[
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "-B",
+      "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-public-alpha15-k197yxmb/package/runtime/evolve.py",
+      "--project",
+      "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "request": {
+      "authorization": {
+        "source": "explicit-controlled-SQL-fixture",
+        "text": "Repair only model.sql; keep the independent literal checks and input fixture; validate only isolated in-memory SQLite.",
+        "effect_kinds": [
+          "project_records",
+          "business_files",
+          "checks"
+        ],
+        "paths": [
+          "model.sql"
+        ]
+      },
+      "input": {
+        "checks": [
+          {
+            "id": "reconcile",
+            "argv": [
+              "/Users/liufukang/.local/bin/python3",
+              "-B",
+              "-m",
+              "unittest",
+              "test_reconciliation",
+              "-v"
+            ],
+            "cwd": ".",
+            "timeout": 10
+          }
+        ]
+      }
+    },
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "4d72dc4f-29c4-42c1-bcc4-c35a817639c5",
+      "data": {
+        "committed": true,
+        "outcome": "connected",
+        "project_id": "5c1921d6-67a9-44f6-9cec-c826e7e4c013",
+        "workspace_epoch": "847c0460-68e8-4fe7-9f9d-27470a40a2bd",
+        "operation_id": "4d72dc4f-29c4-42c1-bcc4-c35a817639c5",
+        "formal_baseline": "not_proposed",
+        "run_id": "9605e2ec-7ade-48f7-8080-78bda4052469",
+        "request_context": {
+          "request_id": "c0e3dda4-5fac-4313-8f36-76800e5d1706",
+          "project_id": "5c1921d6-67a9-44f6-9cec-c826e7e4c013",
+          "expected_workspace_epoch": "847c0460-68e8-4fe7-9f9d-27470a40a2bd"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "-B",
+      "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-public-alpha15-k197yxmb/package/runtime/evolve.py",
+      "--project",
+      "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t",
+      "analyze",
+      "--owner",
+      "evolve-propose",
+      "--request",
+      "-"
+    ],
+    "request": {
+      "project_id": "5c1921d6-67a9-44f6-9cec-c826e7e4c013",
+      "expected_workspace_epoch": "847c0460-68e8-4fe7-9f9d-27470a40a2bd",
+      "authorization": {
+        "source": "explicit-controlled-SQL-fixture",
+        "text": "Repair only model.sql; keep the independent literal checks and input fixture; validate only isolated in-memory SQLite.",
+        "effect_kinds": [
+          "project_records",
+          "business_files",
+          "checks"
+        ],
+        "paths": [
+          "model.sql"
+        ]
+      },
+      "input": {
+        "question": "Why do daily order totals mix dates and revisions?",
+        "scope": [
+          "orders.json",
+          "model.sql",
+          "test_reconciliation.py"
+        ],
+        "business_effect": "read_only",
+        "record_intent": "record",
+        "sources": [
+          {
+            "id": "S1",
+            "kind": "file",
+            "path": "orders.json",
+            "expected_digest": "b3a5b3e958fa4ccdd4cb210cdf81680223504560b5110d26d10a730783a48dd5",
+            "observer": "controlled-SQL-file-reader",
+            "observed_at": "2026-10-31T23:23:37.115724+00:00",
+            "limitations": [],
+            "data_scope": {
+              "objects": [
+                "orders"
+              ],
+              "business_dates": [
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01"
+              ]
+            }
+          },
+          {
+            "id": "S2",
+            "kind": "file",
+            "path": "model.sql",
+            "expected_digest": "6b12eba5f072b3d36281295dfad2859ce26cf3f38a74d6a85f3bae0b9fee915f",
+            "observer": "controlled-SQL-file-reader",
+            "observed_at": "2026-10-31T23:23:37.115915+00:00",
+            "limitations": [],
+            "data_scope": {
+              "objects": [
+                "orders"
+              ],
+              "business_dates": [
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01"
+              ]
+            }
+          },
+          {
+            "id": "S3",
+            "kind": "file",
+            "path": "test_reconciliation.py",
+            "expected_digest": "94214150c83f55cbeffc14170dbea4fb4ea6d2e32286ecff38d3d9bd44c89c5e",
+            "observer": "controlled-SQL-file-reader",
+            "observed_at": "2026-10-31T23:23:37.115941+00:00",
+            "limitations": [],
+            "data_scope": {
+              "objects": [
+                "orders"
+              ],
+              "business_dates": [
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01"
+              ]
+            }
+          },
+          {
+            "id": "S4",
+            "kind": "observation",
+            "object": "isolated reconciliation command",
+            "version": "6b12eba5f072b3d36281295dfad2859ce26cf3f38a74d6a85f3bae0b9fee915f",
+            "method": "/Users/liufukang/.local/bin/python3 -B -m unittest test_reconciliation -v",
+            "observer": "actual-subprocess-runner",
+            "observed_at": "2026-10-31T23:23:37.115964+00:00",
+            "content": "test_empty_date_does_not_include_other_dates (test_reconciliation.Reconciliation.test_empty_date_does_not_include_other_dates) ... FAIL\ntest_first_date_latest_duplicate_refund_and_null (test_reconciliation.Reconciliation.test_first_date_latest_duplicate_refund_and_null) ... FAIL\ntest_second_date_is_a_separate_grain (test_reconciliation.Reconciliation.test_second_date_is_a_separate_grain) ... FAIL\n\n======================================================================\nFAIL: test_empty_date_does_not_include_other_dates (test_reconciliation.Reconciliation.test_empty_date_does_not_include_other_dates)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t/test_reconciliation.py\", line 16, in test_empty_date_does_not_include_other_dates\n    self.assertEqual(self.actual('2026-11-01'),(0,0))\nAssertionError: Tuples differ: (149, 9) != (0, 0)\n\nFirst differing element 0:\n149\n0\n\n- (149, 9)\n+ (0, 0)\n\n======================================================================\nFAIL: test_first_date_latest_duplicate_refund_and_null (test_reconciliation.Reconciliation.test_first_date_latest_duplicate_refund_and_null)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t/test_reconciliation.py\", line 12, in test_first_date_latest_duplicate_refund_and_null\n    self.assertEqual(self.actual('2026-10-30'),(10,2))\nAssertionError: Tuples differ: (149, 9) != (10, 2)\n\nFirst differing element 0:\n149\n10\n\n- (149, 9)\n+ (10, 2)\n\n======================================================================\nFAIL: test_second_date_is_a_separate_grain (test_reconciliation.Reconciliation.test_second_date_is_a_separate_grain)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t/test_reconciliation.py\", line 14, in test_second_date_is_a_separate_grain\n    self.assertEqual(self.actual('2026-10-31'),(8,2))\nAssertionError: Tuples differ: (149, 9) != (8, 2)\n\nFirst differing element 0:\n149\n8\n\n- (149, 9)\n+ (8, 2)\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=3)\n",
+            "limitations": [
+              "Only the fixed in-memory SQLite fixture."
+            ]
+          }
+        ],
+        "analysis": {
+          "answer_status": "answered",
+          "conclusion": "The saved SQL omits both date selection and latest-order deduplication.",
+          "observations": [
+            {
+              "local_key": "F1",
+              "statement": "Actual independent literal reconciliation failed all three date cases.",
+              "sources": [
+                "S2",
+                "S3",
+                "S4"
+              ]
+            }
+          ],
+          "hypotheses": [],
+          "coverage": [
+            "Three declared dates; latest revision per order/day; null and refund behavior."
+          ],
+          "limitations": [
+            "No production query or data modification was performed. Identical revision ties in the fixture have identical amounts."
+          ],
+          "remaining_questions": [],
+          "next_steps": [
+            "Repair SQL only under the explicit grant."
+          ],
+          "data_context": {
+            "objects": [
+              "orders"
+            ],
+            "business_dates": [
+              "2026-10-30",
+              "2026-10-31",
+              "2026-11-01"
+            ],
+            "grain": "One aggregate per business date, one latest revision per order within that date.",
+            "definitions": [
+              "Select latest revision before excluding null amounts; include negative refunds; empty date is total zero and count zero."
+            ],
+            "source_ids": [
+              "S1"
+            ],
+            "limitations": [
+              "Literal fixture scope only, not production freshness."
+            ]
+          },
+          "relationships": [
+            {
+              "local_key": "R1",
+              "source": "orders",
+              "target": "daily_totals",
+              "transformation": "The current SQL sums all rows without date selection or latest-revision filtering.",
+              "certainty": "observed",
+              "sources": [
+                "S2"
+              ],
+              "limitations": [
+                "Current SQL text only."
+              ]
+            }
+          ],
+          "symptom": {
+            "criterion": {
+              "check": {
+                "id": "reconcile",
+                "argv": [
+                  "/Users/liufukang/.local/bin/python3",
+                  "-B",
+                  "-m",
+                  "unittest",
+                  "test_reconciliation",
+                  "-v"
+                ],
+                "cwd": ".",
+                "timeout": 10
+              },
+              "method": "/Users/liufukang/.local/bin/python3 -B -m unittest test_reconciliation -v",
+              "environment": "Disposable in-memory SQLite with orders.json",
+              "side_effects": "In-memory fixture tables only; no persistent business database.",
+              "input": {
+                "dates": [
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01"
+                ]
+              },
+              "expected": {
+                "2026-10-30": [
+                  10,
+                  2
+                ],
+                "2026-10-31": [
+                  8,
+                  2
+                ],
+                "2026-11-01": [
+                  0,
+                  0
+                ]
+              },
+              "expected_source": "S3"
+            },
+            "status": "reproduced",
+            "attempts": 1,
+            "failures": 1,
+            "sources": [
+              "S3",
+              "S4"
+            ],
+            "limitations": [
+              "This exact fixture only."
+            ]
+          }
+        }
+      }
+    },
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "analyze",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "analyzed",
+        "targets": {
+          "project_id": "5c1921d6-67a9-44f6-9cec-c826e7e4c013"
+        },
+        "analysis": {
+          "answer_status": "answered",
+          "conclusion": "The saved SQL omits both date selection and latest-order deduplication.",
+          "observations": [
+            {
+              "local_key": "F1",
+              "statement": "Actual independent literal reconciliation failed all three date cases.",
+              "sources": [
+                "S2",
+                "S3",
+                "S4"
+              ]
+            }
+          ],
+          "hypotheses": [],
+          "coverage": [
+            "Three declared dates; latest revision per order/day; null and refund behavior."
+          ],
+          "limitations": [
+            "No production query or data modification was performed. Identical revision ties in the fixture have identical amounts."
+          ],
+          "remaining_questions": [],
+          "next_steps": [
+            "Repair SQL only under the explicit grant."
+          ],
+          "data_context": {
+            "objects": [
+              "orders"
+            ],
+            "business_dates": [
+              "2026-10-30",
+              "2026-10-31",
+              "2026-11-01"
+            ],
+            "grain": "One aggregate per business date, one latest revision per order within that date.",
+            "definitions": [
+              "Select latest revision before excluding null amounts; include negative refunds; empty date is total zero and count zero."
+            ],
+            "source_ids": [
+              "S1"
+            ],
+            "limitations": [
+              "Literal fixture scope only, not production freshness."
+            ]
+          },
+          "relationships": [
+            {
+              "local_key": "R1",
+              "source": "orders",
+              "target": "daily_totals",
+              "transformation": "The current SQL sums all rows without date selection or latest-revision filtering.",
+              "certainty": "observed",
+              "sources": [
+                "S2"
+              ],
+              "limitations": [
+                "Current SQL text only."
+              ]
+            }
+          ],
+          "symptom": {
+            "criterion": {
+              "check": {
+                "id": "reconcile",
+                "argv": [
+                  "/Users/liufukang/.local/bin/python3",
+                  "-B",
+                  "-m",
+                  "unittest",
+                  "test_reconciliation",
+                  "-v"
+                ],
+                "cwd": ".",
+                "timeout": 10
+              },
+              "method": "/Users/liufukang/.local/bin/python3 -B -m unittest test_reconciliation -v",
+              "environment": "Disposable in-memory SQLite with orders.json",
+              "side_effects": "In-memory fixture tables only; no persistent business database.",
+              "input": {
+                "dates": [
+                  "2026-10-30",
+                  "2026-10-31",
+                  "2026-11-01"
+                ]
+              },
+              "expected": {
+                "2026-10-30": [
+                  10,
+                  2
+                ],
+                "2026-10-31": [
+                  8,
+                  2
+                ],
+                "2026-11-01": [
+                  0,
+                  0
+                ]
+              },
+              "expected_source": "S3"
+            },
+            "status": "reproduced",
+            "attempts": 1,
+            "failures": 1,
+            "sources": [
+              "S3",
+              "S4"
+            ],
+            "limitations": [
+              "This exact fixture only."
+            ]
+          }
+        },
+        "sources": [
+          {
+            "id": "S1",
+            "kind": "file",
+            "path": "orders.json",
+            "expected_digest": "b3a5b3e958fa4ccdd4cb210cdf81680223504560b5110d26d10a730783a48dd5",
+            "observer": "controlled-SQL-file-reader",
+            "observed_at": "2026-10-31T23:23:37.115724+00:00",
+            "limitations": [],
+            "data_scope": {
+              "objects": [
+                "orders"
+              ],
+              "business_dates": [
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01"
+              ]
+            }
+          },
+          {
+            "id": "S2",
+            "kind": "file",
+            "path": "model.sql",
+            "expected_digest": "6b12eba5f072b3d36281295dfad2859ce26cf3f38a74d6a85f3bae0b9fee915f",
+            "observer": "controlled-SQL-file-reader",
+            "observed_at": "2026-10-31T23:23:37.115915+00:00",
+            "limitations": [],
+            "data_scope": {
+              "objects": [
+                "orders"
+              ],
+              "business_dates": [
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01"
+              ]
+            }
+          },
+          {
+            "id": "S3",
+            "kind": "file",
+            "path": "test_reconciliation.py",
+            "expected_digest": "94214150c83f55cbeffc14170dbea4fb4ea6d2e32286ecff38d3d9bd44c89c5e",
+            "observer": "controlled-SQL-file-reader",
+            "observed_at": "2026-10-31T23:23:37.115941+00:00",
+            "limitations": [],
+            "data_scope": {
+              "objects": [
+                "orders"
+              ],
+              "business_dates": [
+                "2026-10-30",
+                "2026-10-31",
+                "2026-11-01"
+              ]
+            }
+          },
+          {
+            "id": "S4",
+            "kind": "observation",
+            "object": "isolated reconciliation command",
+            "version": "6b12eba5f072b3d36281295dfad2859ce26cf3f38a74d6a85f3bae0b9fee915f",
+            "method": "/Users/liufukang/.local/bin/python3 -B -m unittest test_reconciliation -v",
+            "observer": "actual-subprocess-runner",
+            "observed_at": "2026-10-31T23:23:37.115964+00:00",
+            "content": "test_empty_date_does_not_include_other_dates (test_reconciliation.Reconciliation.test_empty_date_does_not_include_other_dates) ... FAIL\ntest_first_date_latest_duplicate_refund_and_null (test_reconciliation.Reconciliation.test_first_date_latest_duplicate_refund_and_null) ... FAIL\ntest_second_date_is_a_separate_grain (test_reconciliation.Reconciliation.test_second_date_is_a_separate_grain) ... FAIL\n\n======================================================================\nFAIL: test_empty_date_does_not_include_other_dates (test_reconciliation.Reconciliation.test_empty_date_does_not_include_other_dates)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t/test_reconciliation.py\", line 16, in test_empty_date_does_not_include_other_dates\n    self.assertEqual(self.actual('2026-11-01'),(0,0))\nAssertionError: Tuples differ: (149, 9) != (0, 0)\n\nFirst differing element 0:\n149\n0\n\n- (149, 9)\n+ (0, 0)\n\n======================================================================\nFAIL: test_first_date_latest_duplicate_refund_and_null (test_reconciliation.Reconciliation.test_first_date_latest_duplicate_refund_and_null)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t/test_reconciliation.py\", line 12, in test_first_date_latest_duplicate_refund_and_null\n    self.assertEqual(self.actual('2026-10-30'),(10,2))\nAssertionError: Tuples differ: (149, 9) != (10, 2)\n\nFirst differing element 0:\n149\n10\n\n- (149, 9)\n+ (10, 2)\n\n======================================================================\nFAIL: test_second_date_is_a_separate_grain (test_reconciliation.Reconciliation.test_second_date_is_a_separate_grain)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t/test_reconciliation.py\", line 14, in test_second_date_is_a_separate_grain\n    self.assertEqual(self.actual('2026-10-31'),(8,2))\nAssertionError: Tuples differ: (149, 9) != (8, 2)\n\nFirst differing element 0:\n149\n8\n\n- (149, 9)\n+ (8, 2)\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nFAILED (failures=3)\n",
+            "limitations": [
+              "Only the fixed in-memory SQLite fixture."
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "source_id": "S1",
+            "evidence_id": "12a661e5-c466-4df2-85aa-5ecf445d97c8",
+            "digest": "b3a5b3e958fa4ccdd4cb210cdf81680223504560b5110d26d10a730783a48dd5",
+            "retained_content": true
+          },
+          {
+            "source_id": "S2",
+            "evidence_id": "0b4be9f7-de90-4761-b430-4f78d3161446",
+            "digest": "6b12eba5f072b3d36281295dfad2859ce26cf3f38a74d6a85f3bae0b9fee915f",
+            "retained_content": true
+          },
+          {
+            "source_id": "S3",
+            "evidence_id": "1a0bed7e-ca54-4d30-a380-79ec269392c4",
+            "digest": "94214150c83f55cbeffc14170dbea4fb4ea6d2e32286ecff38d3d9bd44c89c5e",
+            "retained_content": true
+          },
+          {
+            "source_id": "S4",
+            "evidence_id": "6d44dc09-3b34-49ca-ae35-521d10122970",
+            "digest": "0955e58056b0321ad33e630680c89f4acb213d8eda43e4a45ff9b7fa5d5c394d",
+            "retained_content": true
+          }
+        ],
+        "previous": null,
+        "parent": null,
+        "business_commands_run": false,
+        "criterion_digest": "d3e7f0888717687dd5584e74ff423bf70f1610e6a6b3df901500d157da110cf2",
+        "run_id": "2b53aca2-afd9-4f71-a420-aeda0b145db6",
+        "request_context": {
+          "request_id": "a92651c0-be58-4080-84f7-ac6644b91f78",
+          "project_id": "5c1921d6-67a9-44f6-9cec-c826e7e4c013",
+          "expected_workspace_epoch": "847c0460-68e8-4fe7-9f9d-27470a40a2bd"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "-B",
+      "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-public-alpha15-k197yxmb/package/runtime/evolve.py",
+      "--project",
+      "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-sql-workflow-4wi5kq9t",
+      "propose",
+      "--owner",
+      "evolve-propose",
+      "--request",
+      "-"
+    ],
+    "request": {
+      "project_id": "5c1921d6-67a9-44f6-9cec-c826e7e4c013",
+      "expected_workspace_epoch": "847c0460-68e8-4fe7-9f9d-27470a40a2bd",
+      "authorization": {
+        "source": "explicit-controlled-SQL-fixture",
+        "text": "Repair only model.sql; keep the independent literal checks and input fixture; validate only isolated in-memory SQLite.",
+        "effect_kinds": [
+          "project_records",
+          "business_files",
+          "checks"
+        ],
+        "paths": [
+          "model.sql"
+        ]
+      },
+      "input": {
+        "title": "Repair daily order SQL",
+        "plan": "Repair only model.sql: select the business date, choose the latest order revision, then exclude null amounts and reconcile totals/counts.",
+        "completion": "All three original date reconciliations pass.",
+        "scope": [
+          "model.sql"
+        ],
+        "acceptance": [
+          "Daily totals/counts are (10,2), (8,2), (0,0) for the declared dates."
+        ],
+        "required_checks": [
+          "reconcile"
+        ],
+        "analysis_basis": {
+          "run_id": "2b53aca2-afd9-4f71-a420-aeda0b145db6",
+          "result_digest": "0ad93536262220a5fb36968eeb043dfb7dcbc61e25f225e87fdfcc9a1eb7da7a",
+          "criterion_digest": "d3e7f0888717687dd5584e74ff423bf70f1610e6a6b3df901500d157da110cf2",
+          "adoption_basis": "The original literal checks and exact fixture are unchanged."
+        },
+        "presentation": {
+          "source": "actual-controlled-short-plan",
+          "text": "Repair only model.sql: select the business date, choose the latest order revision, then exclude null amounts and reconcile totals/counts."
+        }
+      }
+    },
+    "exit_code": 3,
+    "response": {
+      "ok": false,
+      "action": "propose",
+      "operation_id": null,
+      "data": {
+        "committed": true
+      },
+      "warnings": [],
+      "error": {
+        "code": "ANALYSIS_REFERENCE",
+        "message": "Referenced investigation is missing, incomplete or changed",
+        "next_steps": []
+      }
+    },
+    "stderr": ""
+  }
+]

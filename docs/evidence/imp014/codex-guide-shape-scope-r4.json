@@ -1,0 +1,29 @@
+{
+  "slice": "IMP-014-targeted-reviews-container-guide",
+  "host": "codex",
+  "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+  "package_version": "0.1.0",
+  "model": "model/list isDefault",
+  "maximum_sessions": 1,
+  "business_write_paths": [],
+  "readonly_business_files": [
+    "arithmetic.py",
+    "report.py",
+    "test_arithmetic.py",
+    "test_integration.py",
+    "test_report.py",
+    "test_summary.py"
+  ],
+  "parent_plan": "Preserve the existing total behavior; execute only the original four independent assertions. No source or test changes; summary/report behavior is outside this narrow guide-shape fixture.",
+  "target": "c268f173-a731-409b-bcec-62872c5f305b",
+  "prompt": "先读取本次实际插件根的README.md、docs/installation.md、docs/usage.md相关步骤及shared/protocol.md中verify/run。本次是reviews容器说明的定向复验：控制侧按指南已完成隔离安装和首次接入，并用真实CLI将“CHG-20261101-c268f173”的原total四项独立断言检查、两维夹具审查和封存准备好；这些控制侧观察不能冒充你的自测或审查。控制侧的reviews对象负例被REVIEW_REQUIRED拒绝并安全封存为blocked run，不是待恢复运行。本轮仅以你实际读取、原original检查和两维实际自审，按新指南的reviews数组追加该已封存工作项的当前verify；保留历史、Change/Task终态和全部六份业务／测试字节，不改源码、测试、配置或知识，不新增/重开任务，不登记经验。只覆盖原total，summary/report和其余测试不在本轮通过范围。说明当前检查结果和原历史的区别。完整安装由控制侧按指南准备，不重新安装或改宿主；遇权限、额度或传输问题立即停止，不换模型/重试。",
+  "guide_paths": [
+    "README.md",
+    "docs/installation.md",
+    "docs/usage.md",
+    "shared/protocol.md"
+  ],
+  "controller_sha256": "3e6009c05ecb6f560d18c14e68a1c0cea74865de2f3e0db64673431697f64da9",
+  "transport_sha256": "eaebd79139ebbc5da18aa251c25b154d31b72596b7f448e5f0d2830f1b5cfa16",
+  "scope_digest": "a52d2e86db3f0046f9e68e946445254846f7e769a44b712d1ac5f2b37a64ed73"
+}

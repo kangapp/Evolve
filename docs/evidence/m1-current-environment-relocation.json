@@ -1,0 +1,91 @@
+{
+  "status": "passed_for_observed_runtime_platform",
+  "platform": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "os_name": "posix",
+    "python": "3.11.9",
+    "encoding": "utf-8",
+    "child_python_utf8": true
+  },
+  "native_windows_observed": false,
+  "model_requests_sent": false,
+  "host_discovery": "not_run",
+  "checks": {
+    "download_removed": true,
+    "installed_root_used": true,
+    "project_initially_not_connected": true,
+    "actual_repair_and_closure": true,
+    "old_installation_removed": true,
+    "relocated_root_used": true,
+    "relocated_package_unchanged": true,
+    "original_project_identity": true,
+    "relocation_queries_are_pure": true,
+    "actual_pause_continuation_and_learning": true,
+    "supplied_package_unchanged": true
+  },
+  "limitations": [
+    "Runtime CLI fixtures only; no native host install or Skill discovery in this runner",
+    "Review inputs are controlled observations, not independent model judgments",
+    "Only the observed platform is tested; this result alone does not complete V-137 or M1"
+  ],
+  "content_digest": "11e30bb2cc61e07331da43c8ba5696e055df378291a71ec2d911eb889ed2566d",
+  "package_version": "0.1.0-alpha.4",
+  "workflow": {
+    "passed": true,
+    "runtime": "/private/tmp/evolve-m1-current-env-acceptance-01/安装 整包/runtime/evolve.py",
+    "project": "/private/tmp/evolve-m1-current-env-acceptance-01/业务 项目",
+    "project_id": "84d92f50-9d55-47aa-ab16-12688e5a537f",
+    "change_id": "d3f7f74a-452e-44b1-a095-27495259ba1b",
+    "original_test_exit_code": 1,
+    "task_check_status": "passed",
+    "verification_status": "passed",
+    "completion_outcome": "archived",
+    "formal_baseline": "baseline_applied",
+    "incremental_configuration": "configuration_updated",
+    "unrequested_check_executed": false,
+    "model_requests_sent": false,
+    "review_inputs": "controlled fixture observations, not independent model review",
+    "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+    "investigation": {
+      "answer_only_created_records": false,
+      "recorded_run_id": "47b76394-305b-46a7-994c-b5d3eec5bbb6",
+      "criterion_digest": "31bfed614665b5e746e6d8c62e1e04c6883eac7f9daabc09132371135b496e3c",
+      "original_red_saved": true,
+      "post_repair_original_criterion": "passed",
+      "investigation_created_change": false
+    }
+  },
+  "continuation": {
+    "passed": true,
+    "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+    "runtime": "/private/tmp/evolve-m1-current-env-acceptance-01/移动 整包/runtime/evolve.py",
+    "project": "/private/tmp/evolve-m1-current-env-acceptance-01/业务 项目",
+    "model_requests_sent": false,
+    "experience_ref": {
+      "run_id": "8fcc53e6-fee0-42ad-8892-d08e6bf95f81",
+      "result_digest": "2f61fec3b19d0ef5dd818196a108753691c11ee93df655dd862a992634d9269b"
+    },
+    "experience_produced_from_actual_work": true,
+    "second_change_id": "f0862525-11bc-45e8-b9a4-651286fce683",
+    "second_real_red_exit_code": 1,
+    "normal_pause": {
+      "run_id": "f6e70355-2de9-4acc-b3ea-05437149b2e0",
+      "outcome": "partial",
+      "checks": "not_run",
+      "new_run_id": "2e2bf149-896c-451f-8705-bda9178c18a0"
+    },
+    "fresh_context_restored_prior_adoption": true,
+    "old_run_result_unchanged": true,
+    "feedback": {
+      "run_id": "3a3abde6-4252-40e1-92d0-175caa264870",
+      "outcome": "unknown"
+    },
+    "final_state": "candidate",
+    "new_discovery_status_after_archive": "no_new_learning",
+    "verification": "passed",
+    "closure": "archived",
+    "original_and_second_literal_assertions_unchanged": true,
+    "learning_did_not_approve_formal_knowledge": true
+  }
+}

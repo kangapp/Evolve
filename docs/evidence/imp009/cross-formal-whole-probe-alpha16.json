@@ -1,0 +1,15 @@
+{
+  "required_tasks_complete": true,
+  "actual_applications_preserved": true,
+  "readiness": {
+    "ready": false,
+    "unmet": [],
+    "revalidation_required": false
+  },
+  "old_scope": {
+    "terms.md": "aa573e366b4499ad13713129a0e6e7c1450590d39310efd11b8e5cc5ac0ff6d0"
+  },
+  "current_scope": {
+    "terms.md": "0cece6153e41fc8288a9b303d251a70986a9f8ea2f087a21f11e1cd4f11988ef"
+  }
+}

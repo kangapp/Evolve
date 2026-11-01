@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "checked_at": "2026-11-01T05:51:56.782520+00:00",
+  "archives_sha256_match_final_receipt": true,
+  "independent_zip_extraction": true,
+  "extracted_source_build_inventory_and_docs_passed": true,
+  "extracted_runtime_three_pure_queries_passed": true,
+  "untouched_unconnected_project": true,
+  "model_requests_sent": false,
+  "commands": [
+    {
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0-source/scripts/build_package.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"ok\": true, \"version\": \"0.1.0\", \"files\": 83, \"digest\": \"7092b24b1b47b28b44ce48f751955d390758c391a008801f077b727365fee329\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0-source/scripts/project_inventory.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"source_files\": 216, \"runtime_resources\": 83, \"mode\": \"check\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0-source/docs/check_design.py"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"checks\": {\n    \"markdown_files\": 55,\n    \"local_links\": 864,\n    \"parsed_config_examples\": 2,\n    \"G_definitions\": 13,\n    \"NG_definitions\": 10,\n    \"V_definitions\": 140,\n    \"D_definitions\": 26,\n    \"P_definitions\": 19,\n    \"OQ_definitions\": 10,\n    \"skill_owners\": 8,\n    \"top_level_actions\": 14,\n    \"implementation_slices\": 14,\n    \"implementation_dependencies\": 22,\n    \"svg_text_nodes\": 345,\n    \"svg_diagrams\": 17,\n    \"snapshot_files\": 83,\n    \"snapshot_archives\": 3,\n    \"python_sources_parsed\": 3\n  },\n  \"errors\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0/runtime/evolve.py",
+        "--project",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/空白 项目",
+        "status"
+      ],
+      "exit_code": 0,
+      "response": {
+        "ok": true,
+        "action": "status",
+        "operation_id": null,
+        "data": {
+          "committed": false,
+          "run_id": null,
+          "outcome": "observed",
+          "owner_skill": "evolve-workflow",
+          "project": {
+            "state": "not_connected",
+            "root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/空白 项目",
+            "project_id": null,
+            "changes": []
+          },
+          "package_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0",
+          "package_version": "0.1.0",
+          "content_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+          "available_methods": [
+            "analyze.investigate",
+            "apply.external.compensate",
+            "apply.external.execute",
+            "apply.external.reconcile",
+            "apply.external.record",
+            "apply.implement",
+            "archive.close",
+            "history.show",
+            "init.baseline.apply",
+            "init.baseline.propose",
+            "init.connect",
+            "learn.disable",
+            "learn.promote",
+            "learn.record",
+            "learn.retro",
+            "learn.review",
+            "learn.search",
+            "maintain.backup",
+            "maintain.cancel",
+            "maintain.doctor",
+            "maintain.export",
+            "maintain.recover",
+            "maintain.restore",
+            "maintain.upgrade",
+            "next.show",
+            "propose.create",
+            "resume.show",
+            "status.show",
+            "sync.apply",
+            "sync.check",
+            "sync.propose",
+            "sync.review",
+            "update.revise",
+            "verify.knowledge",
+            "verify.run"
+          ],
+          "unavailable_methods": [
+            "verify.record"
+          ],
+          "host_enablement": "not_observed",
+          "warnings": []
+        },
+        "warnings": []
+      },
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0/runtime/evolve.py",
+        "--project",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/空白 项目",
+        "history"
+      ],
+      "exit_code": 0,
+      "response": {
+        "ok": true,
+        "action": "history",
+        "operation_id": null,
+        "data": {
+          "committed": false,
+          "run_id": null,
+          "outcome": "observed",
+          "owner_skill": "evolve-maintain",
+          "history": {
+            "project": {
+              "state": "not_connected",
+              "root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/空白 项目",
+              "project_id": null,
+              "changes": []
+            },
+            "runs": [],
+            "authorization_granted": false
+          },
+          "package_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0",
+          "package_version": "0.1.0",
+          "content_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6"
+        },
+        "warnings": []
+      },
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/Users/liufukang/.local/bin/python3",
+        "-B",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0/runtime/evolve.py",
+        "--project",
+        "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/空白 项目",
+        "maintain",
+        "--method",
+        "doctor"
+      ],
+      "exit_code": 0,
+      "response": {
+        "ok": true,
+        "action": "maintain",
+        "operation_id": null,
+        "data": {
+          "committed": false,
+          "run_id": null,
+          "outcome": "observed",
+          "owner_skill": "evolve-maintain",
+          "project": {
+            "state": "not_connected",
+            "root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/空白 项目",
+            "project_id": null,
+            "changes": []
+          },
+          "package_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-final-artifacts-2i90otkt/evolve-0.1.0",
+          "package_version": "0.1.0",
+          "content_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+          "available_methods": [
+            "analyze.investigate",
+            "apply.external.compensate",
+            "apply.external.execute",
+            "apply.external.reconcile",
+            "apply.external.record",
+            "apply.implement",
+            "archive.close",
+            "history.show",
+            "init.baseline.apply",
+            "init.baseline.propose",
+            "init.connect",
+            "learn.disable",
+            "learn.promote",
+            "learn.record",
+            "learn.retro",
+            "learn.review",
+            "learn.search",
+            "maintain.backup",
+            "maintain.cancel",
+            "maintain.doctor",
+            "maintain.export",
+            "maintain.recover",
+            "maintain.restore",
+            "maintain.upgrade",
+            "next.show",
+            "propose.create",
+            "resume.show",
+            "status.show",
+            "sync.apply",
+            "sync.check",
+            "sync.propose",
+            "sync.review",
+            "update.revise",
+            "verify.knowledge",
+            "verify.run"
+          ],
+          "unavailable_methods": [
+            "verify.record"
+          ],
+          "host_enablement": "not_observed",
+          "warnings": []
+        },
+        "warnings": []
+      },
+      "stderr": ""
+    }
+  ],
+  "limits": "Artifact smoke only; does not replace existing642 functional tests or separately reviewed native evidence."
+}

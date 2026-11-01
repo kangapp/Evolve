@@ -1,0 +1,189 @@
+[
+  {
+    "file": "01-system-architecture.svg",
+    "width": 1440,
+    "height": 1043,
+    "title": "Evolve：项目理解与工作闭环",
+    "source": "design.md#architecture",
+    "baseline": "0.6.2",
+    "source_digest": "0dd5eba800dd16fb933f13a328432b35c8f978e33b44e1650d6a8602daa5a859",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "9d4dfa0b915815899de2ad12b7d88e5fe348a09503842abe625e56f7bc131d5d"
+  },
+  {
+    "file": "02-end-to-end-workflow.svg",
+    "width": 1440,
+    "height": 1043,
+    "title": "按意图与复杂度推进",
+    "source": "workflows.md#common",
+    "baseline": "0.6.2",
+    "source_digest": "e95a0c266d67ec539cc2eeb422f393b0252eba08cc56621e3fddd4bc1f08a395",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "62668d40dbaab636ad37b458325050cc3b007c2cc80aa92373c919d098b501e9"
+  },
+  {
+    "file": "03-command-and-next-step.svg",
+    "width": 1440,
+    "height": 935,
+    "title": "统一入口、授权与分派",
+    "source": "workflows.md#commands",
+    "baseline": "0.6.2",
+    "source_digest": "b95c2bc7221c27be8f6a6fdc6da6db880dc36e37ec0458c5bdab8db93bbcdd71",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "efb0bbd3004b1f8bb783a69af089edec6422024ae98fe0e31e6c0677e32a7b8e"
+  },
+  {
+    "file": "04-init-new-and-existing.svg",
+    "width": 1440,
+    "height": 1192,
+    "title": "接入与自适应项目梳理",
+    "source": "workflows.md#init",
+    "baseline": "0.6.2",
+    "source_digest": "4f6e12cbe818991ce186e7dbbb7ca5eca129bf86d30c363bdd00d874efba902b",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "7a56447cbc495af6c0ea93ddb3f956327ccf6016370d7b9f077766ff0c531fd2"
+  },
+  {
+    "file": "05-propose-and-update.svg",
+    "width": 1440,
+    "height": 1110,
+    "title": "方案、spec 与任务拆分",
+    "source": "workflows.md#propose",
+    "baseline": "0.6.2",
+    "source_digest": "657cb70601880bea3cd8511e88bf13e749dc23965199793d9392796a6e11328c",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "ac9bf3bfbaf89e20fb3d0c0971a6f3606ff5e1a03125d6074b6de00c3053aa2d"
+  },
+  {
+    "file": "06-apply-task-execution.svg",
+    "width": 1440,
+    "height": 1138,
+    "title": "按依赖实施与任务留档",
+    "source": "workflows.md#apply",
+    "baseline": "0.6.2",
+    "source_digest": "8632713bf4c4742533217e88a0afdd6f7f3dd63a6b9b98592ca0f2b63cc76270",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "6ad3d31ba0d749ee0d65866f5832560831e44268d194e7de1972b90f1c73dc32"
+  },
+  {
+    "file": "07-verify-and-evidence.svg",
+    "width": 1440,
+    "height": 1166,
+    "title": "按影响验证与完成判定",
+    "source": "workflows.md#verify",
+    "baseline": "0.6.2",
+    "source_digest": "aca7ac7e733b9a19f9f2832045cc109cfcbce2c8cf17b63017ffe935ead467bb",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "5cfd4b6547c670e58c514133cc572a860ab37e4a5edf15a8ca0eec1f89b5d455"
+  },
+  {
+    "file": "08-sync-and-archive.svg",
+    "width": 1440,
+    "height": 1177,
+    "title": "成果封存与正式知识确认",
+    "source": "workflows.md#archive",
+    "baseline": "0.6.2",
+    "source_digest": "cdd6e2fa0128e80fc13cc6e6f44bddbe09b711e49f26b12b30ee911185866351",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "2c13835682677ff185de4db6bd7a75dce85a3d4b8896d7829fa484b83b7b172f"
+  },
+  {
+    "file": "09-authorized-data-operations.svg",
+    "width": 1440,
+    "height": 1246,
+    "title": "正式环境数据操作与未知结果",
+    "source": "runtime.md#external-effects",
+    "baseline": "0.6.2",
+    "source_digest": "2279732fb147dbb7f02fa7c49d6c46e0575dabc59019b1feb0240060105dbf91",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "297e7a5eda05d0ac581608a5d50a19cdc1ebee47b08203d665624a8cce8c8c98"
+  },
+  {
+    "file": "10-resume-and-recover.svg",
+    "width": 1440,
+    "height": 1071,
+    "title": "多任务续接与现场变化",
+    "source": "workflows.md#multitask",
+    "baseline": "0.6.2",
+    "source_digest": "881c28192ef36f87d8931fc4b0440baf93ff0c9560b78cf7bceb633fe4d2d0c5",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "e3618a238e4eae19968ccd6cc05d7d863625d5fc8bce909ba4f99c29231fb021"
+  },
+  {
+    "file": "11-history-export-and-restore.svg",
+    "width": 1440,
+    "height": 1259,
+    "title": "档案备份、恢复集合与防重放",
+    "source": "runtime.md#recovery",
+    "baseline": "0.6.2",
+    "source_digest": "5f1613dca29ff5926344b7724763333dc9414933dd8bb526d0f5a711d20fe38a",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "92b4ebfb5463e30e3713cf77e9c1760c8f24fb787b9578ab7b8bab841075cf05"
+  },
+  {
+    "file": "12-learning-and-promotion.svg",
+    "width": 1440,
+    "height": 1177,
+    "title": "项目内经验、反馈与集中审阅",
+    "source": "workflows.md#learning",
+    "baseline": "0.6.2",
+    "source_digest": "2708901adc23a2da200b58cf475502fd0bda590d97c1ee30778c4995be6d4989",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "5f5ddd2c10b3ce87de1e68d018fc39b211584c46a8ba04dc036508c4dabb9de8"
+  },
+  {
+    "file": "13-object-and-trace-model.svg",
+    "width": 1440,
+    "height": 1015,
+    "title": "领域、执行与表示的职责",
+    "source": "design.md#domain",
+    "baseline": "0.6.2",
+    "source_digest": "bb4787c200bfe29b9e948ed7ec2fb1ae18dd1c52e0f88538878949131c917202",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "5af514be862ba27e2687dccace941b0ded240a55e28f6ef3b5271663fa7be52f"
+  },
+  {
+    "file": "14-lightweight-and-cancel.svg",
+    "width": 1440,
+    "height": 935,
+    "title": "轻量任务、升级与停止",
+    "source": "workflows.md#states",
+    "baseline": "0.6.2",
+    "source_digest": "029eb2dee288edfe762d9e471126e2a80af2ecef9e4bc796592ffacb4efb8e20",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "bf9f8d155c101dc9406068f8673e75b7f11d0c8a8f3d10f08e17a6ae90f8dda3"
+  },
+  {
+    "file": "15-skill-handoff-and-rotation.svg",
+    "width": 1440,
+    "height": 1099,
+    "title": "统一执行与结果承接",
+    "source": "runtime.md#execution",
+    "baseline": "0.6.2",
+    "source_digest": "bb4d829a31dc0af6d33a6a0a77143d94383953aefd8f095407b16b9308b7732f",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "e5868f789f38bdb11e26fb104d1403278195525e9a4d1cfe4bc726c22a5c7761"
+  },
+  {
+    "file": "16-analysis-and-explanation.svg",
+    "width": 1440,
+    "height": 1190,
+    "title": "独立调查、续查与转修复",
+    "source": "workflows.md#analysis",
+    "baseline": "0.6.2",
+    "source_digest": "d69d447b3109fda6c9db81ace01efe1d95fb17bcb14e1b11e9da28bd63f7bfd5",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "41bbe615585f8310098b3832aa7f2169ee307c1ce75cb3be3610d4b589665245"
+  },
+  {
+    "file": "17-data-scenarios.svg",
+    "width": 1440,
+    "height": 976,
+    "title": "数据开发、排查与血缘共用流程",
+    "source": "scenarios.md#data-development",
+    "baseline": "0.6.2",
+    "source_digest": "4717968341433ee9e0ed082cdda4075df10c446cc5a8d07e87c4b17e60b59976",
+    "renderer_digest": "16a5e591774c90bcff613d2256dfaed2b1820bf61f4a3f0ddcbc925ec2f8da5a",
+    "svg_digest": "43c10034e76bc6395d95593872e2ec03d47322c9f834087fab0870e90f0f6724"
+  }
+]

@@ -1,0 +1,150 @@
+{
+  "slice": "IMP-004",
+  "status": "required_M1_slice_issues_fixed_and_current_complete_package_two_host_core_retests_passed_local",
+  "runtime_change_since_native_r2": false,
+  "issues": [
+    {
+      "id": "LEARN-001",
+      "problem": "State reconstruction depended on timestamps; an actual fixture moved state.started_at before its root and exposed a false invalid chain",
+      "fix": "Follow exact predecessor refs, reject branching/disconnection independently of wall-clock order",
+      "before": "learning-state-order-before.txt"
+    },
+    {
+      "id": "LEARN-002",
+      "problem": "An identical finding with the same work sources could obtain a new candidate ID after retirement",
+      "fix": "Reject exact content/source duplicates while preserving idempotent exact request replay",
+      "before": "learning-duplicate-before.txt"
+    },
+    {
+      "id": "LEARN-003",
+      "problem": "New archive receipt of old check evidence could wrongly clear a newer counterexample",
+      "fix": "Require actual evidence observed_at after the counterexample; preserve old time and limits",
+      "before": "learning-observation-time-before.txt"
+    },
+    {
+      "id": "BUILD-004",
+      "problem": "A missing parenthesis introduced during evidence-ID normalization caused actual full-suite import failures",
+      "fix": "Correct the syntax and add compile-before-output validation plus an independent builder rejection test",
+      "before": "component-tests-initial-learning-failed.txt"
+    },
+    {
+      "id": "HARNESS-004",
+      "problem": "The first smoke wrapper placed an optional target after owner flags, rejected by the documented CLI argument order",
+      "fix": "Build argv with the target before options; pure query was verified unchanged; corrected full native workflows pass"
+    },
+    {
+      "id": "HARNESS-005",
+      "problem": "Advancing source runtime made a pinned older model-gate package fail controller compatibility checks",
+      "fix": "Load controller helpers from the selected complete runtime; preflight-only verifies integrity without profile creation or model requests",
+      "evidence": "../imp003/preserved-package.json"
+    },
+    {
+      "id": "HARNESS-006",
+      "problem": "The optional missing-test verification variant was initially absent from the expanded scope digest",
+      "fix": "Bind this variant alongside package, host/model, file bytes, prompts and runner code; a regression confirms distinct digests before dispatch",
+      "evidence": "model-runner-preparation-alpha4.json"
+    },
+    {
+      "id": "MODEL-004-001",
+      "case": "codex inspect",
+      "problem": "Router guessed an action-named Skill and incorrectly reported a complete package as missing evolve-analyze",
+      "actual_command": "/bin/zsh -lc 'cat /private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/skills/evolve-analyze/SKILL.md\ncat /private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/skills/evolve-learn/SKILL.md'",
+      "actual_output": "cat: /private/tmp/evolve-imp004-models-codex-01/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4/skills/evolve-analyze/SKILL.md: No such file or directory\n---\nname: evolve-learn\ndescription: 检索、记录和反馈当前项目的 Evolve 经验，处理反例或提议规则／检查改进时使用。\n---\n\n归属 learn。未指定子方法只说明用法。带来源和适用条件检索经验，空结果与来源故障分开；记录实际采用效果和反例。晋升规则需具体批准，自动化改进由原 owner 按授权实施。\n\n检索、产生发现、记录采用／拒绝、反馈、复审或停用时，读取[项目学习请求](../../shared/protocol.md#project-learning)。检索只读，只有带实际来源的记录才进入项目；未检查保留 pending，实际检查无新发现再记录 no_new_learning。\n\n首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目，再执行只读 status。当前 alpha 的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-learn`，动作必须属于本 Skill。用户不需要填写内部编号。\n",
+      "correct_owner": "Runtime OWNERS maps analyze to propose; the eight-Skill inventory is complete",
+      "fix": "Read actual OWNERS before selecting the owner Skill path; no extra Skill added",
+      "latest_retest": "Same complete 11e3 package, Codex04/Claude03 actual five-case core acceptance and manual trace/fact review passed_local; explicit reporting and denied-probe limits retained"
+    },
+    {
+      "id": "MODEL-004-002",
+      "case": "claude inspect",
+      "problem": "A read-only immediate answer used the generic write-input temporary file fallback after stdin was denied, then removed the directories",
+      "fix": "Separate immediate conversational fallback from the input-file fallback used only for authorized writes",
+      "evidence": "claude-inspect-trace-alpha4-r1.zip and claude-inspect-trace-alpha4-r2.zip preserve failures; claude-inspect-review-alpha4-r3.json observes no transient request write on the corrected package",
+      "latest_retest": "Same complete 11e3 package, Codex04/Claude03 actual five-case core acceptance and manual trace/fact review passed_local; explicit reporting and denied-probe limits retained"
+    },
+    {
+      "id": "MODEL-004-003",
+      "case": "claude pause/continue",
+      "problem": "The pause request omitted future checks already explicitly granted in the actual pause prompt; original-grant reuse then correctly refused an effect expansion",
+      "actual_apply_facts": [
+        {
+          "run_id": "bf0232d4-6ba3-4475-8069-a0dc681847cd",
+          "status": "completed",
+          "authorization": {
+            "effect_kinds": [
+              "project_records",
+              "business_files"
+            ],
+            "paths": [
+              "arithmetic.py",
+              "test_arithmetic.py"
+            ],
+            "source": "user",
+            "text": "在 arithmetic.py 与 test_arithmetic.py 范围内完成已经确定的修正，保留原三条独立断言。本轮在文件段结束后正常暂停并保存实际进度，修复后的检查、审查、验收与封存下次继续；不要将 Task 记成 done。"
+          },
+          "continuation": null,
+          "outcome": "partial",
+          "message": null
+        },
+        {
+          "run_id": "e851bd9d-50a6-40e4-ac20-ed6e7667168a",
+          "status": "blocked",
+          "authorization": {
+            "effect_kinds": [
+              "project_records",
+              "business_files",
+              "checks"
+            ],
+            "paths": [
+              "arithmetic.py",
+              "test_arithmetic.py"
+            ],
+            "source": "user",
+            "text": "继续此项目中已经明确的未完成工作，以 Evolve 档案和当前现场为依据，核对原方案、进度及仍有效的授权。完成必要检查、规格／规范审查、原症状复验及封存，保留历史部分结果。"
+          },
+          "continuation": {
+            "result_digest": "5c9fa984050c2811179ad48203c0942ce1f19423a11e18164e7b1128a5d620f7",
+            "run_id": "bf0232d4-6ba3-4475-8069-a0dc681847cd"
+          },
+          "outcome": "blocked",
+          "message": "Reusing an earlier grant cannot expand effects or paths"
+        },
+        {
+          "run_id": "9c713a32-290e-4386-98c6-49953e0d8504",
+          "status": "completed",
+          "authorization": {
+            "effect_kinds": [
+              "project_records",
+              "business_files",
+              "checks"
+            ],
+            "paths": [
+              "arithmetic.py",
+              "test_arithmetic.py"
+            ],
+            "source": "user",
+            "text": "继续此项目中已经明确的未完成工作，以 Evolve 档案和当前现场为依据，核对原方案、进度及仍有效的授权。完成必要检查、规格／规范审查、原症状复验及封存，保留历史部分结果。"
+          },
+          "continuation": null,
+          "outcome": "implemented",
+          "message": null
+        }
+      ],
+      "parent_error": "Continuation did not bind a new run to the saved source",
+      "assessment": "A separately supplied checks authorization succeeded, but this did not exercise the required original-source binding branch. Do not relax the subset guard or count this as continuation passed.",
+      "fix": "Clarify retaining explicitly granted future effects at pause time, while pause still skips checks; distinguish independently new authorization from old-grant reuse",
+      "latest_retest": "Same complete 11e3 package, Codex04/Claude03 actual five-case core acceptance and manual trace/fact review passed_local; explicit reporting and denied-probe limits retained"
+    },
+    {
+      "id": "HARNESS-007",
+      "problem": "An actual native Claude pause exceeded 600 seconds; the original capture lost partial output so quota/tool/provider cause could not be reconstructed",
+      "fix": "Save TimeoutExpired stdout/stderr under normal credential redaction before propagating the failure; keep timeout explicit and exit_code unknown; real subprocess timeout regression",
+      "evidence": "claude-model-review-alpha4-r2.json"
+    }
+  ],
+  "current_reviews": [
+    "codex-model-review-alpha4-r4.json",
+    "claude-model-review-alpha4-r3.json"
+  ],
+  "nonblocking_trace_observations": "claude-completed-case-notes-alpha4-r3.json"
+}

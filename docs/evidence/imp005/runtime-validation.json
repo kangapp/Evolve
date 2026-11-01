@@ -1,0 +1,36 @@
+{
+  "observed_at": "2026-10-31T10:53:37.266868+00:00",
+  "package_version": "0.1.0-alpha.3",
+  "schema_version": 1,
+  "protocol_version": 2,
+  "source_content_digest": "c3d5ea14548b9f918679aa961dce44b263c23a81f59da8372f6dff83720dd905",
+  "distribution_content_digest": "c4d24e4dad99c9f75de2b6aa5ba9df8a2ed93f6a7bd76175ba249bb8a7a028e9",
+  "compatible_fixture_content_digest": "b4e244a3caebba4beeb8c3f9819a4b189d15bc58d5192ff5b117d7551cf98cf8",
+  "commands": [
+    {
+      "command": "python3 -B -m unittest discover -s tests",
+      "exit_code": 0,
+      "tests": 189,
+      "elapsed_seconds": 12.398,
+      "raw_output": "component-tests.txt"
+    },
+    {
+      "command": "python3 -B scripts/verify_lifecycle.py --out /tmp/evolve-imp005-lifecycle-03",
+      "exit_code": 0,
+      "native_checks": 36,
+      "review": "manual-review.json"
+    },
+    {
+      "command": "Actual preserved alpha.2 status/init on both finished protocol-2 projects",
+      "expected_exit_code": 2,
+      "observations": 4,
+      "all_error_codes": "SCHEMA_VERSION",
+      "evidence": "downgrade-alpha2.json"
+    }
+  ],
+  "limitations": [
+    "No actual model request in lifecycle acceptance",
+    "Native Windows not_run; M1 not complete",
+    "IMP-003 Claude quota gate remains open; IMP-004 not started"
+  ]
+}

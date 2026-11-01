@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "package_version": "0.1.0-alpha.14",
+  "protocol_version": 11,
+  "schema_version": 4,
+  "distribution_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "commands": 12,
+  "native_document_source": "Preserved alpha.13 Codex first proposal, including REPORT context arithmetic.py supplied by CORE.",
+  "assertions": [
+    "Actual alpha13 writer refused proto11 without DB byte change",
+    "Exact native full document saved through public CLI",
+    "Real original before proof and normal no-post-check pause",
+    "Only display changes preserve accepted meaning and partial progress with producer context",
+    "Unspecified continuation resolved to actual latest file pause across cosmetic REV",
+    "Old before proof unchanged and post checks actually passed",
+    "CORE independent VER precedes REPORT",
+    "REPORT and whole actual literal checks/reviews passed",
+    "Actual current whole VER archived; tests unchanged; no pending runs/claims"
+  ],
+  "model_requests_sent": false,
+  "review_type": "Controlled source and literal observations; no native or independent-model acceptance",
+  "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj",
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/package",
+  "project": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/business"
+}

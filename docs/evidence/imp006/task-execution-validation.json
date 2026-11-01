@@ -1,0 +1,100 @@
+{
+  "slice": "IMP-006",
+  "status": "in_progress",
+  "completed_subflow": "Normal complex-task execution, pause/continuation, task and whole-change verification, failure-backed repair and closure.",
+  "package_version": "0.1.0-alpha.5",
+  "schema_version": 1,
+  "protocol_version": 4,
+  "source_content_digest": "bb001f1f06a324bebdc3dc0df8ef52b22645bb2f5afd26128522e839bc2cd0ea",
+  "distribution_digest": "636d87f844db052abc10832da6e6c50b35399c5505485e6f5d2d562dbd4b1a66",
+  "inventory_files": 50,
+  "full_regression": {
+    "tests": 283,
+    "seconds": 27.507,
+    "passed": true,
+    "raw": "component-tests-task-execution-full.txt",
+    "prior_failure": "component-tests-task-execution-full-r1.txt"
+  },
+  "structured_regression": {
+    "tests": 38,
+    "execution_cases": 20,
+    "proposal_cases": 18,
+    "seconds": 5.384,
+    "passed": true,
+    "raw": "component-tests-task-execution.txt"
+  },
+  "installed_runtime_cli": {
+    "commands": 21,
+    "checks": 13,
+    "passed": true,
+    "summary": "task-execution-cli-proof.json",
+    "trace": "task-execution-cli-trace.zip"
+  },
+  "package_archive": {
+    "path": "task-execution-package-alpha5.zip",
+    "sha256": "7451fd6927e3ff16d98d8be749dd1a40d8b7cb661ead8fe7b1e8b52192da46d8"
+  },
+  "skill_validation": {
+    "owners": [
+      "workflow",
+      "propose",
+      "apply",
+      "verify",
+      "archive"
+    ],
+    "result": "quick_validate passed"
+  },
+  "fixed_issues": [
+    "Request normalization now explicitly validates a positive Task identity/version map without weakening scalar version checks.",
+    "Task verification and final integration are separate; Task VER cannot close a whole Change, and a newer required failure blocks an old whole pass.",
+    "Dependency witnesses follow actual upstream results; only affected dependents reopen while their original result and source history remain.",
+    "Transitive declared context and frozen Task check-contract drift are rechecked, including before final closure.",
+    "A committed but unfinished Task verification is not consumed before safe finalization or actual metadata recovery.",
+    "Existing simple-workflow STALE_VERIFICATION behavior remains unchanged after the affected full-regression failure was corrected."
+  ],
+  "spec_review": {
+    "observer": "current Codex self-review",
+    "independent_model_review": false,
+    "proven": [
+      "Readiness guards actual files, versions, dependency condition and source finalization.",
+      "Only the selected Task is implemented; whole verification checks every required Task and the merged final outputs.",
+      "Actual final integration can fail after task checks pass; failure-backed repair preserves the same REV and historical failure.",
+      "Normal partial results restore after moving the complete package; continuation stays bound to the original Task and grant.",
+      "Task findings remain local; whole review retains every unresolved required finding."
+    ],
+    "limits": [
+      "Pre-refactor execution is still explicitly unavailable; no before/after proof claim.",
+      "REV comparison, acceptance and unchanged-result reuse remain unimplemented.",
+      "Native host complex-model acceptance is not run for this package.",
+      "Unrelated-knowledge evidence covers the current default record location; mapped knowledge lifecycle integration is still assigned to later slices."
+    ]
+  },
+  "standards_review": {
+    "observer": "current Codex self-review",
+    "independent_model_review": false,
+    "proven": [
+      "Existing schema1, Store, resource claims, file journals and eight owners reused; no additional scheduler or state store.",
+      "Long checks remain outside SQLite transactions and short writer locks.",
+      "Only disposable projects were changed; no personal host configuration, nested agents, model requests, publication or deployment."
+    ]
+  },
+  "acceptance_branches": {
+    "V-006": "dependency-output/context/check-contract invalidation verified; REV-specific reuse pending",
+    "V-016": "DAG and actual same-Change condition gates verified; cross-Change coordination remains IMP-009",
+    "V-021": "current default unrelated-record append and declared/transitive context cases verified; mapped formal knowledge integration pending",
+    "V-028": "single Task binding and separate apply/verify phases verified; complete native orchestration pending",
+    "V-037": "partial success, Task-only VER and newer required failure cannot close whole Change",
+    "V-087": "ordinary complex Task flow verified; major scope revision remains pending",
+    "V-088": "actual native adaptive-understanding scenario pending",
+    "V-126": "ordinary vertical tasks and actual final integration verified; pre-refactor proof remains pending",
+    "V-127": "scoped Task and whole-change two-axis controlled reviews verified; not independent model review",
+    "V-128": "actual integration-failure repair and unresolved finding isolation verified"
+  },
+  "native_host_installation_run": false,
+  "model_requests_sent": false,
+  "next_work": [
+    "Implement pre-refactor behavior preservation evidence and safe continuation.",
+    "Implement REV scope/definition comparison and applicable result reuse.",
+    "Complete current-environment native host acceptance before closing IMP-006."
+  ]
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/Users/liufukang/Workplace/spec-driven/scripts/build_package.py",
+      "--out",
+      "/private/tmp/evolve-imp002-host-workflows-08/download"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "{\"ok\": true, \"version\": \"0.1.0-alpha.2\", \"files\": 44, \"digest\": \"192aa5e7fa89d6dfaf6a93e547b3430aa3c9259f9e1f212ab16a343de91a50ff\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "--version"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "codex-cli 0.154.0\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "--version"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "2.1.117 (Claude Code)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "marketplace",
+      "add",
+      "/private/tmp/evolve-imp002-host-workflows-08/installed-source",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "{\n  \"marketplaceName\": \"evolve-local\",\n  \"installedRoot\": \"/private/tmp/evolve-imp002-host-workflows-08/installed-source\",\n  \"alreadyAdded\": false\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "add",
+      "evolve@evolve-local",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"evolve@evolve-local\",\n  \"name\": \"evolve\",\n  \"marketplaceName\": \"evolve-local\",\n  \"version\": \"0.1.0-alpha.2\",\n  \"installedPath\": \"/private/tmp/evolve-imp002-host-workflows-08/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2\",\n  \"authPolicy\": \"ON_USE\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "validate",
+      "/private/tmp/evolve-imp002-host-workflows-08/installed-source"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "Validating marketplace manifest: /private/tmp/evolve-imp002-host-workflows-08/installed-source/.claude-plugin/marketplace.json\n\n✔ Validation passed\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "validate",
+      "/private/tmp/evolve-imp002-host-workflows-08/installed-source/.claude-plugin/plugin.json"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "Validating plugin manifest: /private/tmp/evolve-imp002-host-workflows-08/installed-source/.claude-plugin/plugin.json\n\n✔ Validation passed\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "marketplace",
+      "add",
+      "/private/tmp/evolve-imp002-host-workflows-08/installed-source",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "Adding marketplace…✔ Successfully added marketplace: evolve-local (declared in project settings)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "install",
+      "evolve@evolve-local",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "Installing plugin \"evolve@evolve-local\"...✔ Successfully installed plugin: evolve@evolve-local (scope: project)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "list",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"id\": \"evolve@evolve-local\",\n    \"version\": \"0.1.0-alpha.2\",\n    \"scope\": \"project\",\n    \"enabled\": true,\n    \"installPath\": \"/private/tmp/evolve-imp002-host-workflows-08/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2\",\n    \"installedAt\": \"2026-10-31T09:54:17.951Z\",\n    \"lastUpdated\": \"2026-10-31T09:54:17.951Z\",\n    \"projectPath\": \"/private/tmp/evolve-imp002-host-workflows-08/project\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "list",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/other-project",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"id\": \"evolve@evolve-local\",\n    \"version\": \"0.1.0-alpha.2\",\n    \"scope\": \"project\",\n    \"enabled\": false,\n    \"installPath\": \"/private/tmp/evolve-imp002-host-workflows-08/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2\",\n    \"installedAt\": \"2026-10-31T09:54:17.951Z\",\n    \"lastUpdated\": \"2026-10-31T09:54:17.951Z\",\n    \"projectPath\": \"/private/tmp/evolve-imp002-host-workflows-08/project\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "marketplace",
+      "add",
+      "/private/tmp/evolve-imp002-host-workflows-08/installed-source",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/claude-business",
+    "exit_code": 0,
+    "stdout": "Adding marketplace…✔ Marketplace 'evolve-local' already on disk — declared in project settings\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "install",
+      "evolve@evolve-local",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/claude-business",
+    "exit_code": 0,
+    "stdout": "Installing plugin \"evolve@evolve-local\"...✔ Successfully installed plugin: evolve@evolve-local (scope: project)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-08/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-08/project",
+      "maintain",
+      "--method",
+      "doctor"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"action\": \"maintain\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": false,\n    \"run_id\": null,\n    \"outcome\": \"observed\",\n    \"owner_skill\": \"evolve-maintain\",\n    \"project\": {\n      \"state\": \"not_connected\",\n      \"root\": \"/private/tmp/evolve-imp002-host-workflows-08/project\",\n      \"project_id\": null,\n      \"changes\": []\n    },\n    \"package_root\": \"/private/tmp/evolve-imp002-host-workflows-08/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2\",\n    \"package_version\": \"0.1.0-alpha.2\",\n    \"content_digest\": \"192aa5e7fa89d6dfaf6a93e547b3430aa3c9259f9e1f212ab16a343de91a50ff\",\n    \"available_methods\": [\n      \"apply.implement\",\n      \"archive.close\",\n      \"init.baseline.apply\",\n      \"init.baseline.propose\",\n      \"init.connect\",\n      \"maintain.doctor\",\n      \"maintain.recover\",\n      \"propose.create\",\n      \"status.show\",\n      \"verify.run\"\n    ],\n    \"unavailable_methods\": [\n      \"analyze.investigate\",\n      \"apply.external.compensate\",\n      \"apply.external.execute\",\n      \"apply.external.reconcile\",\n      \"apply.external.record\",\n      \"history.show\",\n      \"learn.disable\",\n      \"learn.promote\",\n      \"learn.record\",\n      \"learn.retro\",\n      \"learn.review\",\n      \"learn.search\",\n      \"maintain.backup\",\n      \"maintain.cancel\",\n      \"maintain.export\",\n      \"maintain.restore\",\n      \"next.show\",\n      \"resume.show\",\n      \"sync.apply\",\n      \"update.revise\",\n      \"verify.record\"\n    ],\n    \"host_enablement\": \"not_observed\",\n    \"warnings\": []\n  },\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-08/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-08/project",
+      "maintain",
+      "--method",
+      "doctor"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"action\": \"maintain\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": false,\n    \"run_id\": null,\n    \"outcome\": \"observed\",\n    \"owner_skill\": \"evolve-maintain\",\n    \"project\": {\n      \"state\": \"not_connected\",\n      \"root\": \"/private/tmp/evolve-imp002-host-workflows-08/project\",\n      \"project_id\": null,\n      \"changes\": []\n    },\n    \"package_root\": \"/private/tmp/evolve-imp002-host-workflows-08/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2\",\n    \"package_version\": \"0.1.0-alpha.2\",\n    \"content_digest\": \"192aa5e7fa89d6dfaf6a93e547b3430aa3c9259f9e1f212ab16a343de91a50ff\",\n    \"available_methods\": [\n      \"apply.implement\",\n      \"archive.close\",\n      \"init.baseline.apply\",\n      \"init.baseline.propose\",\n      \"init.connect\",\n      \"maintain.doctor\",\n      \"maintain.recover\",\n      \"propose.create\",\n      \"status.show\",\n      \"verify.run\"\n    ],\n    \"unavailable_methods\": [\n      \"analyze.investigate\",\n      \"apply.external.compensate\",\n      \"apply.external.execute\",\n      \"apply.external.reconcile\",\n      \"apply.external.record\",\n      \"history.show\",\n      \"learn.disable\",\n      \"learn.promote\",\n      \"learn.record\",\n      \"learn.retro\",\n      \"learn.review\",\n      \"learn.search\",\n      \"maintain.backup\",\n      \"maintain.cancel\",\n      \"maintain.export\",\n      \"maintain.restore\",\n      \"next.show\",\n      \"resume.show\",\n      \"sync.apply\",\n      \"update.revise\",\n      \"verify.record\"\n    ],\n    \"host_enablement\": \"not_observed\",\n    \"warnings\": []\n  },\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-08/installed-source/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-08/project",
+      "maintain",
+      "--method",
+      "doctor"
+    ],
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-08/project",
+    "exit_code": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"action\": \"maintain\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": false,\n    \"run_id\": null,\n    \"outcome\": \"observed\",\n    \"owner_skill\": \"evolve-maintain\",\n    \"project\": {\n      \"state\": \"not_connected\",\n      \"root\": \"/private/tmp/evolve-imp002-host-workflows-08/project\",\n      \"project_id\": null,\n      \"changes\": []\n    },\n    \"package_root\": \"/private/tmp/evolve-imp002-host-workflows-08/installed-source\",\n    \"package_version\": \"0.1.0-alpha.2\",\n    \"content_digest\": \"192aa5e7fa89d6dfaf6a93e547b3430aa3c9259f9e1f212ab16a343de91a50ff\",\n    \"available_methods\": [\n      \"apply.implement\",\n      \"archive.close\",\n      \"init.baseline.apply\",\n      \"init.baseline.propose\",\n      \"init.connect\",\n      \"maintain.doctor\",\n      \"maintain.recover\",\n      \"propose.create\",\n      \"status.show\",\n      \"verify.run\"\n    ],\n    \"unavailable_methods\": [\n      \"analyze.investigate\",\n      \"apply.external.compensate\",\n      \"apply.external.execute\",\n      \"apply.external.reconcile\",\n      \"apply.external.record\",\n      \"history.show\",\n      \"learn.disable\",\n      \"learn.promote\",\n      \"learn.record\",\n      \"learn.retro\",\n      \"learn.review\",\n      \"learn.search\",\n      \"maintain.backup\",\n      \"maintain.cancel\",\n      \"maintain.export\",\n      \"maintain.restore\",\n      \"next.show\",\n      \"resume.show\",\n      \"sync.apply\",\n      \"update.revise\",\n      \"verify.record\"\n    ],\n    \"host_enablement\": \"not_observed\",\n    \"warnings\": []\n  },\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  }
+]

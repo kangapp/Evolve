@@ -1,0 +1,457 @@
+[
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "86d1908d-c40f-405a-adb6-49e8ca18daac",
+      "data": {
+        "committed": true,
+        "outcome": "connected",
+        "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+        "workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c",
+        "operation_id": "86d1908d-c40f-405a-adb6-49e8ca18daac",
+        "formal_baseline": "not_proposed",
+        "run_id": "20ba71c0-24b5-4ad1-b03c-6439fe4695ea",
+        "request_context": {
+          "request_id": "19ca6168-dc23-435a-a9fa-6b8d062a4258",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "config_candidate",
+        "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+        "workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c",
+        "candidate": "config_version = 1\n[project]\nid = \"774a4d25-445b-4705-af5a-51c70a7bd645\"\nname = \"codex-business\"\nlanguage = \"zh-CN\"\n[history]\nbackend = \"sqlite\"\ndatabase = \"evolve/history.db\"\n[paths]\nlocal = \".evolve-local\"\n[context]\ndefault = \"adaptive\"\n[verification]\npolicy = \"impact\"\n\n[[verification.checks]]\nid = \"arithmetic-unit\"\nargv = [\"/Users/liufukang/.local/bin/python3\", \"-B\", \"-m\", \"unittest\", \"discover\", \"-v\"]\ncwd = \".\"\ntimeout = 15\n\n# Controlled fixture extension\n[fixture_extension]\nvalue = \"preserve these bytes\"\n\n[[verification.checks]]\nid = \"configured-only\"\nargv = [\"/Users/liufukang/.local/bin/python3\", \"-c\", \"from pathlib import Path; Path(\\\".evolve-local/unexpected-check\\\").write_text(\\\"unexpected\\\")\"]\ncwd = \".\"\ntimeout = 60\n",
+        "candidate_digest": "7cef14d6cfe39ff0529d9ad62c581c9362e0dce0e8fa99f18a4ac3c08253a3bd",
+        "expected_config_digest": "dcd7b55f620db9ea35e2c454a8f02a0eb3bf8bdeff870c268295e6a6a88fd0ad",
+        "configuration_changed": false,
+        "run_id": "a1c09ade-558f-4448-8d4b-4218c79fd257",
+        "request_context": {
+          "request_id": "1ee51c58-0625-49a4-8d0a-cde10fda4095",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "1ceb72b9-b384-4621-a3af-cacb09cd2848",
+      "data": {
+        "committed": true,
+        "outcome": "configuration_updated",
+        "artifact": {
+          "entity_type": "artifact_version",
+          "entity_id": "9897aaf4-04c7-4336-a237-40b355b093db",
+          "digest": "7cef14d6cfe39ff0529d9ad62c581c9362e0dce0e8fa99f18a4ac3c08253a3bd"
+        },
+        "operation_id": "1ceb72b9-b384-4621-a3af-cacb09cd2848",
+        "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+        "workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c",
+        "configuration_changed": true,
+        "checks_run": false,
+        "run_id": "22c7b567-e4e1-4535-8470-fd8944031413",
+        "request_context": {
+          "request_id": "c2be67e2-20d8-4693-96d3-130cbc09db1f",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "propose",
+      "--owner",
+      "evolve-propose",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "propose",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "planned",
+        "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+        "change_code": "CHG-20261031-73184aec",
+        "revision_id": "1ff01093-82f2-44dd-8ceb-e700d67a060f",
+        "revision": 1,
+        "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447",
+        "plan_digest": "b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60",
+        "task_id": "82f890c5-bc4c-43c5-bd16-7055c32cf037",
+        "task_version": 1,
+        "change_version": 1,
+        "acceptance": [
+          {
+            "id": "AC-001",
+            "text": "8 and 3 total 11",
+            "required": true
+          },
+          {
+            "id": "AC-002",
+            "text": "Empty input totals 0",
+            "required": true
+          },
+          {
+            "id": "AC-003",
+            "text": "-4 and 3 total -1",
+            "required": true
+          }
+        ],
+        "plan_ref": {
+          "entity_type": "artifact_version",
+          "entity_id": "45cefbe8-56ac-4d0f-803d-0e56d63f7bbc",
+          "digest": "b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60"
+        },
+        "accepted": false,
+        "run_id": "17382047-40cf-4b3c-8c0e-142a1b7bdc08",
+        "request_context": {
+          "request_id": "b94d19d5-90bb-4937-8cf9-fb5412d888f7",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "apply",
+      "--owner",
+      "evolve-apply",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "apply",
+      "operation_id": "4c676997-3513-4318-8ef0-42d2c34fd09a",
+      "data": {
+        "committed": true,
+        "outcome": "implemented",
+        "operation_id": "4c676997-3513-4318-8ef0-42d2c34fd09a",
+        "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+        "revision_id": "1ff01093-82f2-44dd-8ceb-e700d67a060f",
+        "task_id": "82f890c5-bc4c-43c5-bd16-7055c32cf037",
+        "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447",
+        "fingerprint": {
+          "files": {
+            "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80"
+          },
+          "scope": {
+            "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80"
+          },
+          "checks": [
+            {
+              "argv": [
+                "/Users/liufukang/.local/bin/python3",
+                "-B",
+                "-m",
+                "unittest",
+                "discover",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "arithmetic-unit",
+              "timeout": 15
+            }
+          ],
+          "digest": "6157a17b1d41110c0b8f9a853f5b3d8a4505b7c5495784c9f7f633747cef75e5"
+        },
+        "versions": {
+          "change": 2,
+          "task": 3
+        },
+        "task_checks": [
+          {
+            "check_id": "arithmetic-unit",
+            "status": "passed",
+            "returncode": 0,
+            "evidence_id": "a68c2622-744a-44a6-9c2d-92b3470c6478"
+          }
+        ],
+        "overall_verification": "not_run",
+        "run_id": "b500b39a-2f1e-4f89-a312-304f9b121343",
+        "request_context": {
+          "request_id": "16cba4e2-4b82-42b2-b9e4-a60f3e209ae8",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c",
+          "expected_versions": {
+            "change": 1,
+            "task": 1
+          }
+        },
+        "input_bindings": {
+          "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+          "revision_id": "1ff01093-82f2-44dd-8ceb-e700d67a060f",
+          "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447",
+          "accepted_plan_digest": "b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60"
+        }
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "verify",
+      "--owner",
+      "evolve-verify",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "verify",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "verified",
+        "status": "passed",
+        "verification_id": "fb70c193-e4b3-456e-b804-873d989f3632",
+        "fingerprint_digest": "6157a17b1d41110c0b8f9a853f5b3d8a4505b7c5495784c9f7f633747cef75e5",
+        "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+        "revision_id": "1ff01093-82f2-44dd-8ceb-e700d67a060f",
+        "versions": {
+          "change": 2,
+          "task": 3
+        },
+        "checks": [
+          {
+            "check_id": "arithmetic-unit",
+            "status": "passed",
+            "returncode": 0,
+            "evidence_id": "23b96b3e-c0e5-4671-ba23-50888a3b8ffb"
+          }
+        ],
+        "unresolved_prior_findings": [],
+        "run_id": "9783c18c-2030-434d-9e61-46e20a330e77",
+        "request_context": {
+          "request_id": "051828be-3202-401c-8a97-5172d096f450",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c",
+          "expected_versions": {
+            "change": 2,
+            "task": 3
+          }
+        },
+        "input_bindings": {
+          "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+          "revision_id": "1ff01093-82f2-44dd-8ceb-e700d67a060f",
+          "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447"
+        }
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "archive",
+      "--owner",
+      "evolve-archive",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "archive",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "archived",
+        "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+        "verification_id": "fb70c193-e4b3-456e-b804-873d989f3632",
+        "completion_fingerprint": "6157a17b1d41110c0b8f9a853f5b3d8a4505b7c5495784c9f7f633747cef75e5",
+        "knowledge": "not_proposed",
+        "knowledge_scope": "project",
+        "pending_knowledge": [],
+        "versions": {
+          "change": 3,
+          "task": 3
+        },
+        "run_id": "6a4c88f8-42ae-48de-b935-ec8290cbd520",
+        "request_context": {
+          "request_id": "bd3993a7-e27a-4b8d-8981-184a6a529e89",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c",
+          "expected_versions": {
+            "change": 2,
+            "task": 3
+          }
+        },
+        "input_bindings": {
+          "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+          "revision_id": "1ff01093-82f2-44dd-8ceb-e700d67a060f",
+          "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447"
+        }
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-",
+      "--method",
+      "baseline.propose"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "baseline_proposed",
+        "proposal_id": "05025b79-9493-4cba-baf1-552dc8a4ccc4",
+        "proposal_version": 1,
+        "candidate_digest": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782",
+        "expected_digest": null,
+        "path": "evolve/project.md",
+        "applied": false,
+        "run_id": "1331deec-0438-4586-b493-5ebce5e824a7",
+        "request_context": {
+          "request_id": "68d0fab2-a560-48d4-878a-7b297c267005",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-",
+      "--method",
+      "baseline.apply"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "bbd13373-3bc4-41ac-849c-4adf9a8d92f5",
+      "data": {
+        "committed": true,
+        "outcome": "baseline_applied",
+        "proposal_id": "05025b79-9493-4cba-baf1-552dc8a4ccc4",
+        "operation_id": "bbd13373-3bc4-41ac-849c-4adf9a8d92f5",
+        "artifact": {
+          "entity_type": "artifact_version",
+          "entity_id": "827afdbd-e7ad-42c6-b476-ede93c98341a",
+          "digest": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782"
+        },
+        "actual_digest": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782",
+        "run_id": "0377880a-e75c-435f-a12e-adc7caa17680",
+        "request_context": {
+          "request_id": "84ac1340-f7d4-4143-8a01-b49f0f136f26",
+          "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+          "expected_workspace_epoch": "6fdaabd2-7948-463c-bd73-114432dc6e9c"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  }
+]

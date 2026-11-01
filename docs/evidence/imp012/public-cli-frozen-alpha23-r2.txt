@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "package_version": "0.1.0-alpha.23",
+  "content_digest": "9ef5c0d8ba30902c2225661cb7fa22e9fbcd979240d000fdb23940fcf26cb2a1",
+  "commands": 162,
+  "cases": [
+    {
+      "case": "MaintenanceTests.test_corrupt_restore_protects_raw_database_sidecar_extra_managed_and_unknown_files",
+      "commands": 10,
+      "passed": true,
+      "project_snapshot": "project-1"
+    },
+    {
+      "case": "MaintenanceTests.test_plan_binds_bytes_selected_package_and_preserves_unregistered_collision",
+      "commands": 7,
+      "passed": true,
+      "project_snapshot": "project-2"
+    },
+    {
+      "case": "MaintenanceTests.test_held_old_sqlite_connection_and_real_old_writer_block_swap",
+      "commands": 8,
+      "passed": true,
+      "project_snapshot": "project-3"
+    },
+    {
+      "case": "MaintenanceTests.test_unknown_check_launch_needs_specific_observation_and_real_group_must_end",
+      "commands": 8,
+      "passed": true,
+      "project_snapshot": "project-4"
+    },
+    {
+      "case": "MaintenanceTests.test_external_running_reference_survives_older_archive_as_unknown",
+      "commands": 6,
+      "passed": true,
+      "project_snapshot": "project-5"
+    },
+    {
+      "case": "MaintenanceTests.test_missing_external_index_remains_unverified_not_empty_safe",
+      "commands": 6,
+      "passed": true,
+      "project_snapshot": "project-6"
+    },
+    {
+      "case": "MaintenanceTests.test_explicit_protocol_upgrade_changes_epoch_and_preserves_history",
+      "commands": 6,
+      "passed": true,
+      "project_snapshot": "project-7"
+    },
+    {
+      "case": "MaintenanceTests.test_actual_abrupt_exit_at_every_swap_boundary_resumes_same_request",
+      "commands": 63,
+      "passed": true,
+      "project_snapshot": "project-8"
+    },
+    {
+      "case": "MaintenanceTests.test_third_party_value_after_partial_swap_is_preserved_with_barrier",
+      "commands": 7,
+      "passed": true,
+      "project_snapshot": "project-9"
+    },
+    {
+      "case": "MaintenanceTests.test_changed_swap_journal_cannot_expand_the_presented_restore_collection",
+      "commands": 7,
+      "passed": true,
+      "project_snapshot": "project-10"
+    },
+    {
+      "case": "MaintenanceTests.test_unknown_launch_observation_is_bound_and_missing_check_index_is_not_safe",
+      "commands": 7,
+      "passed": true,
+      "project_snapshot": "project-11"
+    },
+    {
+      "case": "MaintenanceTests.test_actual_divergent_archives_keep_both_branches_and_restore_only_the_selected_one",
+      "commands": 11,
+      "passed": true,
+      "project_snapshot": "project-12"
+    },
+    {
+      "case": "MaintenanceTests.test_manual_backup_does_not_trigger_another_full_daily_backup",
+      "commands": 5,
+      "passed": true,
+      "project_snapshot": "project-13"
+    },
+    {
+      "case": "MaintenanceTests.test_manual_backup_retry_and_next_write_after_restore_keep_old_daily_points",
+      "commands": 11,
+      "passed": true,
+      "project_snapshot": "project-14"
+    }
+  ],
+  "model_requests_sent": false,
+  "review_inputs": "Controlled actual fixture observations; not independent model review"
+}

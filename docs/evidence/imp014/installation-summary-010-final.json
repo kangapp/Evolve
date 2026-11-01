@@ -1,0 +1,181 @@
+{
+  "package_version": "0.1.0",
+  "content_digest": "0a2b185e28d9fbd5c1e62209b2690476328d09ff0d11f523065681485fae219a",
+  "registered_installation_root": "/private/tmp/evolve-imp014-hosts-010-final/installed-source",
+  "model_requests_sent": false,
+  "checks": {
+    "codex_discovery": true,
+    "codex_project_scope": true,
+    "claude_project_scope": true,
+    "claude_discovery": true,
+    "codex_business_project_discovery": true,
+    "claude_business_project_discovery": true,
+    "original_download_removed": true,
+    "codex_cached_resources": true,
+    "claude_cached_resources": true,
+    "project_not_initialized": true,
+    "claude_registered_root_resources": true,
+    "codex_cached_workflow": true,
+    "codex_continuation_and_learning": true,
+    "claude_cached_workflow": true,
+    "claude_continuation_and_learning": true
+  },
+  "limitations": [
+    "Native Windows execution not tested",
+    "Claude local-directory marketplace loads the registered installation root in place; its independent cache is checked separately",
+    "Workflows use the actual installed runtime caches with controlled review inputs; no natural-language model orchestration was exercised"
+  ],
+  "codex_version": "codex-cli 0.154.0",
+  "claude_version": "2.1.117 (Claude Code)",
+  "claude_ui": {
+    "observed_skill_names": [
+      "evolve:evolve-apply",
+      "evolve:evolve-archive",
+      "evolve:evolve-init",
+      "evolve:evolve-learn",
+      "evolve:evolve-maintain",
+      "evolve:evolve-propose",
+      "evolve:evolve-verify",
+      "evolve:evolve-workflow"
+    ],
+    "model_request_sent": false,
+    "local_command": "/skills",
+    "complete": true,
+    "local_ui_excerpt": "\u001b7\u001b8\r\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\r\nAccessingworkspace:\r\r\n\r\r\n/private/tmp/evolve-imp014-hosts-010-final/project\r\r\n\r\r\nQuicksafetycheck:Isthisaprojectyoucreatedoroneyoutrust?(Likeyourowncode,awell-knownopensourceproject,orworkfromyourteam).Ifnot,\r\r\ntakeamomenttoreviewwhat'sinthisfolderfirst.\r\r\n\r\r\nClaudeCode'llbeabletoread,edit,andexecutefileshere.\r\r\n\r\r\nSecurityguide\r\r\n\r\r\n❯1.Yes,Itrustthisfolder\r\r\n2.No,exit\r\r\n\r\r\nEntertoconfirm·Esctocancel\r\r\n\u001b]0;✳ Claude Code\u0007\r╭───ClaudeCodev2.1.117───────────────────────────────────────────────────────────────────────────────────────────────╮\r│                                                    │ Tips for getting started                                          │                                      \r│                   Welcomeback!│Run/inittocreateaCLAUDE.mdfilewithinstructionsforClaude│\r││─────────────────────────────────────────────────────────────────│\r│                       ▐▛███▜▌                    │Recentactivity│\r│▝▜█████▛▘│Norecentactivity│\r│                    ▘▘ ▝▝                   │                                                        │                           \r│                                           ││\r│MiniMax-M2.7·APIUsageBilling││\r│ /private/tmp/evolve-imp014-hosts-010-final/projct │       │\r╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\r             \r────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r❯                        \r────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r⏸planmodeon(shift+tabtocycle)●high·/effort\r                                                                                                                                                                \r\r❯ /skills                                                                                                                                                       \r   \rSkils                                     \r\r\n8skills·ttosort,Esctoclose\r\r\n\r\r\n❯🔒onevolve:evolve-apply·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-archive·plugin·~14tok·lockedbyplugin\r\r\n🔒onevolve:evolve-init·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-learn·plugin·~16tok·lockedbyplugin\r\r\n🔒onevolve:evolve-maintain·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-propose·plugin·~17tok·lockedbyplugin\r\r\n🔒onevolve:evolve-verify·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-workflow·plugin·~18tok·lockedbyplugin\r\r\n\r\r\n\r\r\nPluginskillsaremanagedvia/plugin\r\r\n"
+  },
+  "claude_business_ui": {
+    "observed_skill_names": [
+      "evolve:evolve-apply",
+      "evolve:evolve-archive",
+      "evolve:evolve-init",
+      "evolve:evolve-learn",
+      "evolve:evolve-maintain",
+      "evolve:evolve-propose",
+      "evolve:evolve-verify",
+      "evolve:evolve-workflow"
+    ],
+    "model_request_sent": false,
+    "local_command": "/skills",
+    "complete": true,
+    "local_ui_excerpt": "\u001b7\u001b8\r\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\r\nAccessingworkspace:\r\r\n\r\r\n/private/tmp/evolve-imp014-hosts-010-final/claude-business\r\r\n\r\r\nQuicksafetycheck:Isthisaprojectyoucreatedoroneyoutrust?(Likeyourowncode,awell-knownopensourceproject,orworkfromyourteam).Ifnot,\r\r\ntakeamomenttoreviewwhat'sinthisfolderfirst.\r\r\n\r\r\nClaudeCode'llbeabletoread,edit,andexecutefileshere.\r\r\n\r\r\nSecurityguide\r\r\n\r\r\n❯1.Yes,Itrustthisfolder\r\r\n2.No,exit\r\r\n\r\r\nEntertoconfirm·Esctocancel\r\r\n\u001b]0;✳ Claude Code\u0007\r╭───ClaudeCodev2.1.117───────────────────────────────────────────────────────────────────────────────────────────────╮\r│                                                    │ Tips for getting started                                          │                                      \r│                   Welcomeback!│Run/inittocreateaCLAUDE.mdfilewithinstructionsforClaude│\r││─────────────────────────────────────────────────────────────────│\r│                       ▐▛███▜▌                      │ Rcentactivity│\r│▝▜█████▛▘│Norecentactivity│\r│                    ▘▘ ▝▝                   │                                                        │                           \r│                                           ││\r│MiniMax-M2.7·APIUsageBilling││\r│  /…/volv-imp014-hosts-010-final/claude-business  │       │\r╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\r             \r────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r❯                        \r────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r⏸planmodeon(shift+tabtocycle)●high·/effort\r                                                                                                                                                                \r\r❯ /skills                                                                                                                                                       \r   \rSkils                                     \r\r\n8skills·ttosort,Esctoclose\r\r\n\r\r\n❯🔒onevolve:evolve-apply·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-archive·plugin·~14tok·lockedbyplugin\r\r\n🔒onevolve:evolve-init·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-learn·plugin·~16tok·lockedbyplugin\r\r\n🔒onevolve:evolve-maintain·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-propose·plugin·~17tok·lockedbyplugin\r\r\n🔒onevolve:evolve-verify·plugin·~15tok·lockedbyplugin\r\r\n🔒onevolve:evolve-workflow·plugin·~18tok·lockedbyplugin\r\r\n\r\r\n\r\r\nPluginskillsaremanagedvia/plugin\r\r\n"
+  },
+  "workflow": {
+    "codex": {
+      "passed": true,
+      "runtime": "/private/tmp/evolve-imp014-hosts-010-final/codex-profile/plugins/cache/evolve-local/evolve/0.1.0/runtime/evolve.py",
+      "project": "/private/tmp/evolve-imp014-hosts-010-final/codex-business",
+      "project_id": "9b612d15-aafa-4b2d-ab27-2885c3b91752",
+      "change_id": "a83dbc85-82f1-42b5-aa64-5fadf698e6d7",
+      "original_test_exit_code": 1,
+      "task_check_status": "passed",
+      "verification_status": "passed",
+      "completion_outcome": "archived",
+      "formal_baseline": "baseline_applied",
+      "incremental_configuration": "configuration_updated",
+      "unrequested_check_executed": false,
+      "model_requests_sent": false,
+      "review_inputs": "controlled fixture observations, not independent model review",
+      "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "investigation": {
+        "answer_only_created_records": false,
+        "recorded_run_id": "f487362a-6ca4-49c2-90dc-57db24709d36",
+        "criterion_digest": "31bfed614665b5e746e6d8c62e1e04c6883eac7f9daabc09132371135b496e3c",
+        "original_red_saved": true,
+        "post_repair_original_criterion": "passed",
+        "investigation_created_change": false
+      }
+    },
+    "claude": {
+      "passed": true,
+      "runtime": "/private/tmp/evolve-imp014-hosts-010-final/claude-profile/plugins/cache/evolve-local/evolve/0.1.0/runtime/evolve.py",
+      "project": "/private/tmp/evolve-imp014-hosts-010-final/claude-business",
+      "project_id": "9e8b3681-2676-44fc-9846-6aece6557996",
+      "change_id": "e818d1da-3fdd-45ab-ba2d-0d2190d9c8d1",
+      "original_test_exit_code": 1,
+      "task_check_status": "passed",
+      "verification_status": "passed",
+      "completion_outcome": "archived",
+      "formal_baseline": "baseline_applied",
+      "incremental_configuration": "configuration_updated",
+      "unrequested_check_executed": false,
+      "model_requests_sent": false,
+      "review_inputs": "controlled fixture observations, not independent model review",
+      "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "investigation": {
+        "answer_only_created_records": false,
+        "recorded_run_id": "c397cc35-5092-4550-bbd2-a45727be6804",
+        "criterion_digest": "31bfed614665b5e746e6d8c62e1e04c6883eac7f9daabc09132371135b496e3c",
+        "original_red_saved": true,
+        "post_repair_original_criterion": "passed",
+        "investigation_created_change": false
+      }
+    }
+  },
+  "continuation": {
+    "codex": {
+      "passed": true,
+      "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+      "runtime": "/private/tmp/evolve-imp014-hosts-010-final/codex-profile/plugins/cache/evolve-local/evolve/0.1.0/runtime/evolve.py",
+      "project": "/private/tmp/evolve-imp014-hosts-010-final/codex-business",
+      "model_requests_sent": false,
+      "experience_ref": {
+        "run_id": "28a6aea3-e4a8-4d72-b631-91d939cd08ba",
+        "result_digest": "c2b51a3d6ba43a380b8bef00b81aba9737b80bc55964b2f839d5807cfa91edc4"
+      },
+      "experience_produced_from_actual_work": true,
+      "second_change_id": "d0fd35bd-3f0e-4e3a-8a9e-56277c7a4c09",
+      "second_real_red_exit_code": 1,
+      "normal_pause": {
+        "run_id": "ff4a5a20-4c52-448b-a0f7-6709ed189a13",
+        "outcome": "partial",
+        "checks": "not_run",
+        "new_run_id": "b3b4a22b-9fa4-45a5-b8a0-61e2957536f7"
+      },
+      "fresh_context_restored_prior_adoption": true,
+      "old_run_result_unchanged": true,
+      "feedback": {
+        "run_id": "09788c47-4f4d-4387-ae52-e2359a3d85a4",
+        "outcome": "unknown"
+      },
+      "final_state": "candidate",
+      "new_discovery_status_after_archive": "no_new_learning",
+      "verification": "passed",
+      "closure": "archived",
+      "original_and_second_literal_assertions_unchanged": true,
+      "learning_did_not_approve_formal_knowledge": true
+    },
+    "claude": {
+      "passed": true,
+      "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+      "runtime": "/private/tmp/evolve-imp014-hosts-010-final/claude-profile/plugins/cache/evolve-local/evolve/0.1.0/runtime/evolve.py",
+      "project": "/private/tmp/evolve-imp014-hosts-010-final/claude-business",
+      "model_requests_sent": false,
+      "experience_ref": {
+        "run_id": "0a4cfcc6-5b54-4f86-ae6e-91e60012ac1c",
+        "result_digest": "f854b9e288ec78f2fd55ae7929e9227f819be28444d059f96fd436fd9ef37922"
+      },
+      "experience_produced_from_actual_work": true,
+      "second_change_id": "59cc8a48-af8c-4e11-b662-0ad739eb8b19",
+      "second_real_red_exit_code": 1,
+      "normal_pause": {
+        "run_id": "f9c84d88-06ce-499c-94cc-26292c0fe4ec",
+        "outcome": "partial",
+        "checks": "not_run",
+        "new_run_id": "3c2def06-1724-49a1-8a5e-9d0b1d5399f8"
+      },
+      "fresh_context_restored_prior_adoption": true,
+      "old_run_result_unchanged": true,
+      "feedback": {
+        "run_id": "61ace8a2-0f42-4289-a314-83d6d50e11cb",
+        "outcome": "unknown"
+      },
+      "final_state": "candidate",
+      "new_discovery_status_after_archive": "no_new_learning",
+      "verification": "passed",
+      "closure": "archived",
+      "original_and_second_literal_assertions_unchanged": true,
+      "learning_did_not_approve_formal_knowledge": true
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,173 @@
+{
+  "host": "codex",
+  "model": "gpt-6-astra",
+  "status": "passed_local_for_pinned_package",
+  "content_digest": "5fce70d15a7ee8893b2d18b562298bca81e51684a16ee763f054eb915c5273c5",
+  "reviewer": "Current Codex trace/fact self-review; not independent model/code review",
+  "raw_summary": {
+    "host": "codex",
+    "content_digest": "5fce70d15a7ee8893b2d18b562298bca81e51684a16ee763f054eb915c5273c5",
+    "package_version": "0.1.0-alpha.4",
+    "authorization": {
+      "source": "actual human authorization in this chat",
+      "text": "授权两个宿主，仅限上述受控验收（推荐）"
+    },
+    "model_requests_sent": true,
+    "automated_checks_passed": true,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [
+      {
+        "case": "inspect",
+        "model_result": {
+          "thread_id": "01a191f0-a69e-7b62-bdc2-be12468fac26",
+          "turn_id": "01a191f0-a6f5-7081-ba4d-affa190b3892",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "inspect",
+          "business_files_unchanged": true,
+          "records_created": false
+        }
+      },
+      {
+        "case": "pause",
+        "model_result": {
+          "thread_id": "01a191f0-edfd-7f23-a46c-5ca96198ce92",
+          "turn_id": "01a191f0-ee40-74d1-8b86-3ffb1b0aadba",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "pause",
+          "run_id": "12e7ef07-7b25-4a14-a15c-4e37780f2efa",
+          "run_status": "completed",
+          "task_state": "in_progress",
+          "outcome": "partial",
+          "checks": "not_run",
+          "analysis_run": "50c1b686-052b-4062-bc20-abd7e357c6ad"
+        }
+      },
+      {
+        "case": "continue",
+        "model_result": {
+          "thread_id": "01a191f1-bd18-7190-b117-4c8bc8014c80",
+          "turn_id": "01a191f1-bd60-7b91-80e2-7fe34df25981",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "continue",
+          "change_id": "78ce4204-78dd-4946-bc6e-9935fa9202a5",
+          "status": "passed",
+          "closed": true,
+          "produced_experiences": [
+            "4903276d-79f7-4bae-97a5-a6f7844d97ea"
+          ],
+          "pause_run_unchanged": true
+        }
+      },
+      {
+        "case": "similar",
+        "model_result": {
+          "thread_id": "01a191f2-9465-7662-96fb-26222ae3f5ec",
+          "turn_id": "01a191f2-94b7-7bb3-a9fb-41673ec9e527",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "similar",
+          "change_id": "64f6ba71-9002-482c-8474-92f9f3c368e8",
+          "closed": true,
+          "experience_applications": [
+            {
+              "experience_id": "4903276d-79f7-4bae-97a5-a6f7844d97ea",
+              "decision": "adopted",
+              "feedback": {
+                "attribution": "observer_assessment_not_inferred_from_task_status",
+                "basis": "局部采用效果：前次经验提示保留独立预期并拆分断言，本次实际落实为三个独立测试。修复前原登记检查首条 2 != 12 后中止；当前验收原始输出明确列出 second 的 positive、empty、negative 三项分别 ok，共6项通过。sum 修复的正确性另由现有字面量预期支持。helped 仅指核对求和语义及消除测试遮蔽的具体帮助，不将整单通过归因于全部引用。",
+                "committed": true,
+                "decision_ref": {
+                  "result_digest": "b67b30fe6dc8d95c5f6c7dd2c2eddfdd7df09ff70b6fec2135d93f8cc9e89235",
+                  "run_id": "f8ca167f-ddca-4c08-89dc-b9748dcd46c3"
+                },
+                "experience_ref": {
+                  "result_digest": "bb7f8f899ebf8e58d16f29f654698bcc38fa616903205e97a477bbe3dec940e4",
+                  "run_id": "4903276d-79f7-4bae-97a5-a6f7844d97ea"
+                },
+                "kind": "feedback",
+                "limitations": [
+                  "未采用的暂停续接建议对本次效果为 unknown；无该流程的实际效果证据。",
+                  "经验对定位速度、没有该经验时能否同样修复的增量因果贡献为 unknown。",
+                  "只观察本地三项整数列表及旧模块回归，不推广所有输入；经验仍是 candidate，不批准正式知识。"
+                ],
+                "outcome": "helped",
+                "result_source": {
+                  "evidence_ids": [
+                    "fdcd0916-929b-4c2d-be74-832cca089502"
+                  ],
+                  "result_digest": "75ad55b493d46a46e78f2415347cecced1a3b3fe2c4f0cd4cbded2de32fd4bd4",
+                  "run_id": "15edae3c-0f9a-4e42-8499-e0c0049e2b38"
+                },
+                "run_id": "b6c01054-4e49-41ad-a50d-f65d55a493b4",
+                "feedback_ref": {
+                  "run_id": "b6c01054-4e49-41ad-a50d-f65d55a493b4",
+                  "result_digest": "15a8940b7016b443b181c356270ea1535fc1bf0a5931ca859c6c7d71ff83b25c"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "verify",
+        "model_result": {
+          "thread_id": "01a191f3-b3b2-76b1-a68c-be94ebf5973a",
+          "turn_id": "01a191f3-b3fa-79a2-baa5-18036cc0bb7f",
+          "status": "completed",
+          "model": "gpt-6-astra",
+          "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+        },
+        "parent_observation": {
+          "case": "verify",
+          "business_files_unchanged": true,
+          "historical_work_unchanged": true,
+          "new_verifications": [
+            {
+              "id": "eccb12f2-b807-444a-949b-79a186bf1df2",
+              "status": "blocked"
+            }
+          ]
+        }
+      }
+    ],
+    "diagnostic_variant": false,
+    "session_learning_variant": true,
+    "prepare_only": false,
+    "expanded_scope_digest": "8461d496710a43531ebea35841ccf6df2c1b20fa7ed1d4150764f3b5fbe1d9b5",
+    "verify_missing_tests_variant": false,
+    "registered_installation_root": "/private/tmp/evolve-imp004-models-codex-03/host-profile/installed-source",
+    "host_cache_root": "/private/tmp/evolve-imp004-models-codex-03/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4"
+  },
+  "actual_final_answers": [
+    "原因已确认：[arithmetic.py](/private/tmp/evolve-imp004-models-codex-03/business/arithmetic.py:2) 的 `total(values)` 返回 `len(values)`，计算的是元素个数，而测试要求数值之和。\n\n实际运行结果：\n\n| 输入 | 实际总计 | 测试预期 |\n|---|---:|---:|\n| `[8, 3]` | 2 | 11 |\n| `[]` | 0 | 0 |\n| `[-4, 3]` | 2 | -1 |\n\n现有单元测试在第一条断言失败：`2 != 11`。空列表恰好通过，不能说明求和逻辑正确。\n\n建议将返回表达式改为 `sum(values)`，再运行现有测试。本次仅提出建议，未修改代码。\n\n已按 Evolve 即时解释流程只读调查；项目状态为未接入，经验检索也返回未接入，不能视为无匹配经验。本次未接入、未留档、未创建运行记录。",
+    "已完成接入，并按要求正常暂停。\n\n- 独立调查已保存真实失败 `2 != 11`、独立预期、原症状判据、来源及限制，调查未创建 Change。\n- 短方案已呈现并保存；通过 Evolve 将 `total` 改为求和，原三条断言原样保留并拆为三个独立测试。\n- 工作项：`CHG-20261031-78ce4204`。Task 保持 `in_progress`，本轮 run 正常结束，结果为 `partial`。\n- 修复后检查、审查、验收和封存均未执行，留待下次；后续原范围授权已保存。未批准正式项目知识。",
+    "已完成续接并封存 `CHG-20261031-78ce4204`。\n\n- 原检查三项测试全部通过，原症状复验通过。\n- 逐条验收及规格／规范自审通过，无阻塞发现。\n- 历史失败和 `partial` 暂停结果完整保留；本轮未改业务源码。\n- 已保存带来源、适用范围和限制的候选经验，未提升为正式规则或新增权限。\n- 最终状态：任务 `done`、工作项 `archived`，无待恢复运行。\n\n验证结论限于本地原三项输入；未提交、发布或部署。",
+    "已通过 Evolve 完成并封存：`CHG-20261031-64f6ba71`。\n\n- 将 `arithmetic_second.py` 的 `len` 改为 `sum`。\n- 三条原字面量断言原样保留，拆为独立测试。\n- 已登记检查全部 6 项通过；规格、规范双维主代理自审及验收通过。\n- 已保存经验采用理由、实际效果及对应验收来源；局部帮助记为 `helped`，无法归因的贡献明确为 `unknown`。\n- 原两个文件及原完成历史保持，未批准正式知识，未提交、发布或部署。",
+    "已通过 Evolve 追加第二个工作项 `CHG-20261031-64f6ba71` 的当前验收：**检查失败，整体验收为 `blocked`**。未修改业务或测试；工作项仍为 `archived`、任务仍为 `done`，历史验证和封存截点保留。\n\n- **历史结果**：原验证 `c3cf9278-6391-464b-906b-6c09f95d879b` 的留存输出显示 6 项全部通过，随后封存。\n- **当前观察**：登记命令 `python3 -B -m unittest discover -v` 实际执行一次，6 项中 2 项失败：第二模块返回 `2`，分别不等于预期 `12`、`7`。当前实现为 `len(values)`，与历史完成文件摘要不符，因此整体被阻塞。测试文件及旧模块两文件摘要均保持一致。\n- **经验判断**：既有 `helped` 反馈和 `candidate` 状态未改写。当前实现偏离历史成果，不能据此断言求和修复经验被证伪；三个独立测试仍分别执行并揭示失败。\n- **必要后续方案**：另行授权后查明文件变化来源，建立后续修复工作项，恢复求和实现并保留独立断言，再运行原检查。本次未实施。\n- **来源限制**：依据本项目 Evolve 记录、当前文件及本次本地执行；历史和当前检查原始输出均已核对摘要。文件变化来源仅能标为 `external_or_unknown`，不能判断修改者或意图。双维审查是主代理自审；未验证其他环境或输入。未遇到权限或认证阻碍。\n\n本次验证编号：`eccb12f2-b807-444a-949b-79a186bf1df2`。"
+  ],
+  "reviewed_invariants": [
+    "Correct owner selection from actual map",
+    "Immediate answer no init/no transient writes observed",
+    "Pause preserves full granted checks effect and original source text while checks remain not_run",
+    "Fresh source-bound continuation closes actual original criterion and retains immutable partial result",
+    "Second task retrieves actual first-work candidate, preserves original work and records actual adoption/limited feedback",
+    "Verify-only records blocked current drift without rewriting completed work or treating drift as a counterexample"
+  ],
+  "stage_limit": "Claude has a repeated transient immediate-answer write on this same package, so overall slice remains incomplete; a propose loading-condition fix is queued"
+}

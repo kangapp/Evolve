@@ -1,0 +1,38 @@
+test_actual_metadata_exit_recovers_candidate_without_replay_or_formal_write (test_knowledge_proposals.KnowledgeProposalTests.test_actual_metadata_exit_recovers_candidate_without_replay_or_formal_write) ... ok
+test_actual_old_writer_refuses_new_owner_before_formal_application (test_knowledge_proposals.KnowledgeProposalTests.test_actual_old_writer_refuses_new_owner_before_formal_application) ... ok
+test_approval_requires_latest_actual_matching_content_check (test_knowledge_proposals.KnowledgeProposalTests.test_approval_requires_latest_actual_matching_content_check) ... ok
+test_batch_records_individual_approval_and_deferral_without_file_writes (test_knowledge_proposals.KnowledgeProposalTests.test_batch_records_individual_approval_and_deferral_without_file_writes) ... ok
+test_deferred_candidate_keeps_reason_and_requires_content_check_before_approval (test_knowledge_proposals.KnowledgeProposalTests.test_deferred_candidate_keeps_reason_and_requires_content_check_before_approval) ... ok
+test_initial_baseline_presentation_fields_cannot_impersonate_sync_metadata (test_knowledge_proposals.KnowledgeProposalTests.test_initial_baseline_presentation_fields_cannot_impersonate_sync_metadata) ... ok
+test_initial_baselines_and_remaining_delivery_fields_are_not_silently_ignored (test_knowledge_proposals.KnowledgeProposalTests.test_initial_baselines_and_remaining_delivery_fields_are_not_silently_ignored) ... ok
+test_invalid_criterion_identity_is_rejected_without_leaving_started_work (test_knowledge_proposals.KnowledgeProposalTests.test_invalid_criterion_identity_is_rejected_without_leaving_started_work) ... ok
+test_presented_candidate_check_and_approval_do_not_write_formal_target (test_knowledge_proposals.KnowledgeProposalTests.test_presented_candidate_check_and_approval_do_not_write_formal_target) ... ok
+test_rejection_requires_explicit_reconsideration_even_with_a_new_topic (test_knowledge_proposals.KnowledgeProposalTests.test_rejection_requires_explicit_reconsideration_even_with_a_new_topic) ... ok
+test_replacement_preserves_old_content_decision_and_does_not_transfer_approval (test_knowledge_proposals.KnowledgeProposalTests.test_replacement_preserves_old_content_decision_and_does_not_transfer_approval) ... ok
+test_retry_returns_original_receipt_after_candidate_was_replaced (test_knowledge_proposals.KnowledgeProposalTests.test_retry_returns_original_receipt_after_candidate_was_replaced) ... ok
+test_revisiting_old_body_extends_current_family_head_instead_of_forking_versions (test_knowledge_proposals.KnowledgeProposalTests.test_revisiting_old_body_extends_current_family_head_instead_of_forking_versions) ... FAIL
+test_same_candidate_adds_context_without_duplicate_versions (test_knowledge_proposals.KnowledgeProposalTests.test_same_candidate_adds_context_without_duplicate_versions) ... ok
+test_stale_version_and_external_formal_edit_cannot_be_approved (test_knowledge_proposals.KnowledgeProposalTests.test_stale_version_and_external_formal_edit_cannot_be_approved) ... ok
+test_status_is_pure_and_latest_candidate_check_is_not_applied_verification (test_knowledge_proposals.KnowledgeProposalTests.test_status_is_pure_and_latest_candidate_check_is_not_applied_verification) ... ok
+test_superseding_a_rejection_does_not_erase_the_rejected_body_boundary (test_knowledge_proposals.KnowledgeProposalTests.test_superseding_a_rejection_does_not_erase_the_rejected_body_boundary) ... FAIL
+
+======================================================================
+FAIL: test_revisiting_old_body_extends_current_family_head_instead_of_forking_versions (test_knowledge_proposals.KnowledgeProposalTests.test_revisiting_old_body_extends_current_family_head_instead_of_forking_versions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_knowledge_proposals.py", line 226, in test_revisiting_old_body_extends_current_family_head_instead_of_forking_versions
+    self.assertEqual(third['proposal_version'],3)
+AssertionError: 2 != 3
+
+======================================================================
+FAIL: test_superseding_a_rejection_does_not_erase_the_rejected_body_boundary (test_knowledge_proposals.KnowledgeProposalTests.test_superseding_a_rejection_does_not_erase_the_rejected_body_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_knowledge_proposals.py", line 238, in test_superseding_a_rejection_does_not_erase_the_rejected_body_boundary
+    with self.assertRaises(EvolveError) as caught: self.propose(topic='旧正文换个主题')
+AssertionError: EvolveError not raised
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.445s
+
+FAILED (failures=2)

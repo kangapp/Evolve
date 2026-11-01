@@ -1,0 +1,26 @@
+{
+  "actual_assertion": "EvolveError not raised",
+  "original_recorded_expected_rows": [
+    [
+      1,
+      20
+    ]
+  ],
+  "recorded_capsule_digest_unchanged": "472d6c7572144ea612b53504ac30d38b805cbe4ce6a7fd8ff9d618a08bc22f7f",
+  "actual_capsule_digest": "aeff433eaf30b152963ff87e6e61abab1bcbbfd3fab6da8b61fb2202da85d236",
+  "actual_data": [
+    [
+      1,
+      19
+    ]
+  ],
+  "incorrect_latest_effect_outcome": "succeeded",
+  "actual_latest_observed_rows": [
+    [
+      1,
+      19
+    ]
+  ],
+  "remaining_claims": 0,
+  "new_reconcile_runs": 1
+}

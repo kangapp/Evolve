@@ -1,0 +1,143 @@
+{
+  "host": "codex",
+  "run": "r1",
+  "observed_at": "2026-10-31T16:07:25.584676+00:00",
+  "status": "passed_current_host_scope",
+  "passed": true,
+  "native_model": "gpt-6-astra",
+  "package_digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+  "frozen_scope_digest": "9e43c19fc7a91b450b42766c5ed81fe5be8125431ace3a3092843fb09361ec61",
+  "cases": [
+    {
+      "case": "propose",
+      "thread_id": "01a192af-d37c-7580-a3bd-f17ed7e51fa6",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "已接入 Evolve，并保存完整复杂方案 **CHG-20261031-11e990fe · REV 1**，状态为**未接受**。\n\n- CORE：仅 `arithmetic.py`，必需 original、summary；原行为证明仅使用 original。\n- REPORT：仅 `report.py`，等待 CORE 独立验收通过，必需 report。\n- 已登记四项检查、只读测试上下文、`broad_migration` 和最终 integration 边界。\n- 完整 spec 已保存目标、边界、行为、约束、取舍、测试决定及未决问题。\n\n本轮未实施、未运行验收、未修改业务或测试、未批准正式知识。",
+      "reviewed": true
+    },
+    {
+      "case": "refactor_pause",
+      "thread_id": "01a192b0-de6b-71e3-94a0-5121ed712ca8",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "已从 Evolve 恢复并呈现完整方案，按本轮授权完成文件段并正常暂停。\n\n- 原 `total` 的真实前检查通过，原证明已保存并复用。\n- `arithmetic.py` 新增单遍 `summarize`，保留 `total` 原实现。\n- `report.py` 和全部测试字节未变。\n- 暂停结果为 `partial`；CORE 保持 `in_progress`，后检查未运行，未验收或封存。\n- 后续授权完整保留，无待恢复运行；经验复盘保持 `pending`。\n\n暂停 run：`0200a064-89b9-491c-9f02-5fdb7426f609`。",
+      "reviewed": true
+    },
+    {
+      "case": "cosmetic_revision",
+      "thread_id": "01a192b1-bd1e-7452-815c-01bba38ea0d4",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 保存 REV 2，标题为“单次迭代汇总与报告”，并改清楚 plan 摘要及两个任务标题。\n\n运行时确认语义不变、原接受依据已继承；CORE 部分进度、原授权及原行为证明保留，REPORT 仍待办。\n\n本轮未实施、未运行检查、未修改业务或测试文件。",
+      "reviewed": true
+    },
+    {
+      "case": "continue",
+      "thread_id": "01a192b2-3f35-7910-a5a7-afd2fb7db0fc",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "本轮整体验收已完成并通过：\n\n- CORE 沿原暂停来源续接，复用原前证明，后检查及单独任务验收通过。\n- REPORT 已实现共享汇总接口单次调用，任务检查及验收通过。\n- 最终 integration、四项 AC、规格与规范自审均通过，无阻塞发现。\n- 原测试与正式知识未改，未重建重构前基线。\n\n整体验收记录：`5020a47a-a515-4bdf-b424-3bcf152336a4`。\n\n工作项保持 **active、未封存**，无待处理运行；已停止，供下一轮明确需求修订。",
+      "reviewed": true
+    },
+    {
+      "case": "local_revision",
+      "thread_id": "01a192b3-44a1-7651-8818-359c8ae33c6a",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 保存完整 **REV 3**，状态为**未接受**。\n\n- 原 AC 全部保留，新增 MEAN，规定两位小数及空输入 `0.00`。\n- CORE 定义不变，已复用原完成结果；原证明及旧整体验收记录保留。\n- REPORT 重开为待办，负责均值，必需检查为 `report`、`mean`；最终仍须 discover 全部测试。\n- 已增量登记 mean 检查，未执行。\n- 保存后只读核对：完整文档一致，无待处理运行。\n\n本轮未修改业务代码或测试，未接受新语义、运行检查或封存。",
+      "reviewed": true
+    },
+    {
+      "case": "finish_revision",
+      "thread_id": "01a192b4-66f4-73c3-9946-2e2c62aeff25",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 完成并封存新修订。\n\n- 仅修改 `report.py`：可选均值固定两位小数，空输入为 `0.00`；默认文本和原接口保持。\n- `arithmetic.py`、全部五份测试未改，CORE 结果及原证明保留。\n- 五项登记检查、任务验收、新整体验收及五项 AC 全部通过；规格／规范自审无阻塞问题。\n- 封存引用新验收 `b0376d83-4854-45c0-be39-837a2af1e956`，未用旧 REV 验收替代。\n\n未批准正式知识，未提交、发布或部署。",
+      "reviewed": true
+    },
+    {
+      "case": "verify",
+      "thread_id": "01a192b5-7062-7733-b8c3-018bbce055e9",
+      "native_status": "completed",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 追加整项复验记录，当前验收未通过。\n\n- 实测 5 项测试，4 通过、1 失败：True 分支返回 `controlled mean regression`，而非预期均值报告。\n- 新 VER：`03efc5b2-72fb-46af-bd91-23afd15e0e09`。检查为 `failed`；因现场与原实施结果不符，整体验收记录为 `blocked`。\n- 原 VER `b0376d83-4854-45c0-be39-837a2af1e956` 仍为历史 `passed`，原封存截点保留；Change 仍为 archived，两项 Task 仍为 done，REV 未变。\n- 未修改业务或测试，未重开工作项，无遗留运行。\n\n原通过描述封存时的成果；当前失败描述外部回退后的现场。后续需另行授权关联修复工作项，恢复均值分支，再执行 mean、report、integration 及双维验收。",
+      "reviewed": true
+    }
+  ],
+  "native_command_items": 101,
+  "semantic_review": {
+    "observer": "current Codex review of separate native host sessions, actual commands, parent assertions and persisted state",
+    "independent_third_reviewer": false,
+    "observations": [
+      "Seven fresh native conversations; actual saved spec shown before bounded acceptance.",
+      "Original total proof prepared before the real CORE file segment; pause retained original proof and authorization.",
+      "Display REV retained task meaning and partial state; next conversation continued from persisted sources.",
+      "CORE actual task verification preceded REPORT; whole-change integration remained separate, then stopped before archive.",
+      "Mean revision preserved old acceptance and CORE result, registered actual mean check, reopened only REPORT and stayed unaccepted.",
+      "Explicit bounded revision acceptance preceded report-only implementation; new task/change verification and archive used new actual mean criteria.",
+      "Verify-only controlled regression produced real failing mean test and blocked current VER; old passed/archive and Task done facts remained unchanged.",
+      "Native reviews identified themselves as current host self-review, not independent agents.",
+      "Only nonzero shell items were a no-match rg and the intentionally failing final business test; no server approval requests observed."
+    ]
+  },
+  "limitations": [
+    "Pass covers this Codex host and frozen alpha.6 scope only.",
+    "Claude batch stopped on permission failure; this cannot close two-host IMP-006 acceptance.",
+    "Actual total preservation is bounded by declared original literals; no claim of exhaustive numeric equivalence.",
+    "Raw runner summary intentionally retains pending review/passed=false; this separate record holds the completed review conclusion."
+  ],
+  "actual_state": {
+    "changes": [
+      {
+        "code": "CHG-20261031-11e990fe",
+        "state": "archived",
+        "current_revision": "5d53757d-0f02-469f-af4e-a1c99852a0d8"
+      }
+    ],
+    "unfinished_runs": 0,
+    "claims": 0,
+    "verifications": [
+      {
+        "id": "b2b43a3d-55df-4e64-b9ce-a37e9668dba7",
+        "revision_id": "2caaaa87-d643-425b-b659-97f9da417fdc",
+        "status": "passed"
+      },
+      {
+        "id": "0e17b6d7-b684-40f7-bb3b-d7f478be8e47",
+        "revision_id": "2caaaa87-d643-425b-b659-97f9da417fdc",
+        "status": "passed"
+      },
+      {
+        "id": "5020a47a-a515-4bdf-b424-3bcf152336a4",
+        "revision_id": "2caaaa87-d643-425b-b659-97f9da417fdc",
+        "status": "passed"
+      },
+      {
+        "id": "979c8967-9b1a-471c-8702-d6cbe001202d",
+        "revision_id": "5d53757d-0f02-469f-af4e-a1c99852a0d8",
+        "status": "passed"
+      },
+      {
+        "id": "faaf9c3e-ed70-4924-884b-f0f734ca2ce5",
+        "revision_id": "5d53757d-0f02-469f-af4e-a1c99852a0d8",
+        "status": "passed"
+      },
+      {
+        "id": "b0376d83-4854-45c0-be39-837a2af1e956",
+        "revision_id": "5d53757d-0f02-469f-af4e-a1c99852a0d8",
+        "status": "passed"
+      },
+      {
+        "id": "03efc5b2-72fb-46af-bd91-23afd15e0e09",
+        "revision_id": "5d53757d-0f02-469f-af4e-a1c99852a0d8",
+        "status": "blocked"
+      }
+    ],
+    "formal_proposals": 0
+  },
+  "archive": {
+    "path": "codex-model-r1-alpha6.zip",
+    "sha256": "75b50146bf6090e14f2a6443ee60e18853dd059581c45a3d0c80cb1d0b1ceeee"
+  }
+}

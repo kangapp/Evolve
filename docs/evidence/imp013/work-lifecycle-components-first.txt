@@ -1,0 +1,10 @@
+test_actual_task_checks_and_final_verification_archive_then_current_data_failure (test_external_work.ExternalWorkTests.test_actual_task_checks_and_final_verification_archive_then_current_data_failure) ... ok
+test_current_work_candidate_and_actual_effect_share_the_real_task (test_external_work.ExternalWorkTests.test_current_work_candidate_and_actual_effect_share_the_real_task) ... ok
+test_ordinary_file_apply_cannot_satisfy_an_explicit_data_task (test_external_work.ExternalWorkTests.test_ordinary_file_apply_cannot_satisfy_an_explicit_data_task) ... ok
+test_unknown_reconcile_and_explicit_checks_continue_without_replaying_data (test_external_work.ExternalWorkTests.test_unknown_reconcile_and_explicit_checks_continue_without_replaying_data) ... ok
+test_wrong_task_target_is_not_attached_or_executed (test_external_work.ExternalWorkTests.test_wrong_task_target_is_not_attached_or_executed) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.782s
+
+OK

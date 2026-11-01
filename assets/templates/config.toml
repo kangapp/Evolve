@@ -1,0 +1,14 @@
+config_version = 1
+[project]
+id = "{{project_id}}"
+name = "{{project_name}}"
+language = "zh-CN"
+[history]
+backend = "sqlite"
+database = "evolve/history.db"
+[paths]
+local = ".evolve-local"
+[context]
+default = "adaptive"
+[verification]
+policy = "impact"

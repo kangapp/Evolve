@@ -1,0 +1,339 @@
+{
+  "status": "passed_for_native_cli_branches_model_gate_pending",
+  "reviewer": "Current Codex self-review, not independent model judgment",
+  "source_content_digest": "de083e292ab05ba39eb5469ed697efbeefd03081d34fb584b74f83c977529529",
+  "distribution_content_digest": "ebd7ed18188f4a4884ffea8cda6595e480e3a75bff8cbd6b90f83b18bde79eee",
+  "native_checks": 15,
+  "model_requests_sent": false,
+  "projects": {
+    "codex": {
+      "project_id": "0f6a165e-797d-496d-ba52-7ab87fccd07c",
+      "changes": [
+        {
+          "id": "d4676180-c8d5-4a92-ab58-f0f50c9235f0",
+          "state": "archived"
+        },
+        {
+          "id": "dce16e80-9eea-4f9b-80d1-c25d3769ce6d",
+          "state": "archived"
+        }
+      ],
+      "unfinished_runs": 0,
+      "resource_claims": 0,
+      "experience_ref": {
+        "run_id": "22a9216b-8eb6-485e-9d6b-67240bb47bcc",
+        "result_digest": "bc00d2cf1877cbfe96d38f13a1f457b595822d4a2b9dbbcec38b3454174cf370"
+      },
+      "work_sources": [
+        "apply",
+        "analyze"
+      ],
+      "source_evidence": 4,
+      "current_state": "candidate",
+      "application": {
+        "applicability_basis": "Actual second source counts the values; its unchanged independent literals require sums under the same narrow integer contract",
+        "change_id": "dce16e80-9eea-4f9b-80d1-c25d3769ce6d",
+        "committed": true,
+        "decision": "adopted",
+        "definition_digest": "a1773757a72dff7184965a7ed10166962f01f7c867d1d041a08898b8ca8cce9e",
+        "effect": "unknown",
+        "experience_ref": {
+          "result_digest": "bc00d2cf1877cbfe96d38f13a1f457b595822d4a2b9dbbcec38b3454174cf370",
+          "run_id": "22a9216b-8eb6-485e-9d6b-67240bb47bcc"
+        },
+        "formal_rule": false,
+        "kind": "decision",
+        "limitations": [
+          "Controlled fixture inspection; no independent model judgment or formal rule"
+        ],
+        "modification_authorization": false,
+        "observed_files": {
+          "arithmetic_second.py": "d3410e41e520be190c95bd5d8b61a74983b4b559301e52d96d1ac0164fae96da",
+          "test_arithmetic_second.py": "5ab2b031707b32d508f592d06686ecbfa5dceffed2dd88abecfab1e9f67ec7e6"
+        },
+        "observed_state": "candidate",
+        "observed_state_ref": {
+          "result_digest": "bc00d2cf1877cbfe96d38f13a1f457b595822d4a2b9dbbcec38b3454174cf370",
+          "run_id": "22a9216b-8eb6-485e-9d6b-67240bb47bcc"
+        },
+        "outcome": "decision_recorded",
+        "revision_id": "5052a01d-f8c5-4671-93c5-2064f1bfc8b8",
+        "run_id": "8d3f7b4f-e7d6-4740-b2c2-8bee3b9a9aae",
+        "search_ref": {
+          "catalog_digest": "02b475b03c9b85be4aa04ac635d08fca05ddbdce8398db61e292f527c7d7279f",
+          "digest": "9de6804868da771c177df9ead41014b748c75aa51aae9e7b5cb88c0965d7f5e5",
+          "matches": [
+            {
+              "result_digest": "bc00d2cf1877cbfe96d38f13a1f457b595822d4a2b9dbbcec38b3454174cf370",
+              "run_id": "22a9216b-8eb6-485e-9d6b-67240bb47bcc"
+            }
+          ],
+          "query": "arithmetic"
+        },
+        "decision_ref": {
+          "run_id": "8d3f7b4f-e7d6-4740-b2c2-8bee3b9a9aae",
+          "result_digest": "851318b3e647cf9ce17147ffa54ef816f6ebba567b577792989a3ee962f2e8fd"
+        },
+        "feedback": {
+          "attribution": "observer_assessment_not_inferred_from_task_status",
+          "basis": "The second real verification passed, but this scripted fixture does not prove causal improvement attributable to the suggestion",
+          "committed": true,
+          "decision_ref": {
+            "result_digest": "851318b3e647cf9ce17147ffa54ef816f6ebba567b577792989a3ee962f2e8fd",
+            "run_id": "8d3f7b4f-e7d6-4740-b2c2-8bee3b9a9aae"
+          },
+          "experience_ref": {
+            "result_digest": "bc00d2cf1877cbfe96d38f13a1f457b595822d4a2b9dbbcec38b3454174cf370",
+            "run_id": "22a9216b-8eb6-485e-9d6b-67240bb47bcc"
+          },
+          "kind": "feedback",
+          "limitations": [
+            "No model-semantic or causal-benefit inference from task success"
+          ],
+          "outcome": "unknown",
+          "result_source": {
+            "evidence_ids": [
+              "61062049-4b9e-40b5-b09b-ad6c285422e3",
+              "95a2eb59-ce38-413b-8e0c-558d3111c365",
+              "adb7479f-1405-4527-bb52-e2823089122a"
+            ],
+            "result_digest": "e71e9495188195599f4036146706b5f7c2099db68aec0aaee5904c281b0a132c",
+            "run_id": "9bf6da45-7a76-41e9-b7f2-57b363637a04"
+          },
+          "run_id": "b140dc65-a6a4-4d88-b386-3c36261f5c9d",
+          "feedback_ref": {
+            "run_id": "b140dc65-a6a4-4d88-b386-3c36261f5c9d",
+            "result_digest": "481ef4ab480fd7efaaeb9929c033c0743f1ca9ece4c8d26f8d0ea39a2a2e5fb9"
+          }
+        }
+      },
+      "actual_retrieved_content_in_new_plan": true,
+      "actual_normal_pause": {
+        "change_id": "dce16e80-9eea-4f9b-80d1-c25d3769ce6d",
+        "checks": "not_run",
+        "committed": true,
+        "continuation": null,
+        "definition_digest": "a1773757a72dff7184965a7ed10166962f01f7c867d1d041a08898b8ca8cce9e",
+        "fingerprint": {
+          "checks": [
+            {
+              "argv": [
+                "/Users/liufukang/.local/bin/python3",
+                "-B",
+                "-m",
+                "unittest",
+                "discover",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "arithmetic-unit",
+              "timeout": 15
+            }
+          ],
+          "digest": "c3e56414bfa4576dba4f2ce9de623a086f9de9787a60939803ea6cb1b6df503c",
+          "files": {
+            "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "arithmetic_second.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80",
+            "test_arithmetic_second.py": "5ab2b031707b32d508f592d06686ecbfa5dceffed2dd88abecfab1e9f67ec7e6"
+          },
+          "scope": {
+            "arithmetic_second.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic_second.py": "5ab2b031707b32d508f592d06686ecbfa5dceffed2dd88abecfab1e9f67ec7e6"
+          }
+        },
+        "learning": "pending",
+        "operation_id": "11505d03-9fd4-4dd2-9a20-400d8f04c6c7",
+        "outcome": "partial",
+        "overall_verification": "not_run",
+        "progress": {
+          "completed": [
+            "Saved the actual second sum candidate"
+          ],
+          "next_steps": [
+            "Restore facts in a new process and continue"
+          ],
+          "reason": "Controlled normal conversation pause before checks",
+          "remaining": [
+            "Run original checks, review and verify"
+          ]
+        },
+        "revision_id": "5052a01d-f8c5-4671-93c5-2064f1bfc8b8",
+        "run_id": "b2f16d54-b8a2-4245-a935-3b088460470f",
+        "task_id": "307ea5b8-bc34-4d91-b59e-c0ad26415909",
+        "versions": {
+          "change": 2,
+          "task": 3
+        }
+      },
+      "read_only_queries_observed": 6
+    },
+    "claude": {
+      "project_id": "5c97ae99-f77b-44f3-875e-7a64a528d784",
+      "changes": [
+        {
+          "id": "f9a17c19-2f1b-4189-97df-8ebf4123a147",
+          "state": "archived"
+        },
+        {
+          "id": "dcd2e40d-c139-4697-a04f-8d1905fa26b4",
+          "state": "archived"
+        }
+      ],
+      "unfinished_runs": 0,
+      "resource_claims": 0,
+      "experience_ref": {
+        "run_id": "6e14bd45-891f-4d0e-80aa-e91766cc7f4b",
+        "result_digest": "7ecbd1545592a24d849f9f9687f8f511f3d1c73ca9da8453bf936851e3285f91"
+      },
+      "work_sources": [
+        "apply",
+        "analyze"
+      ],
+      "source_evidence": 4,
+      "current_state": "candidate",
+      "application": {
+        "applicability_basis": "Actual second source counts the values; its unchanged independent literals require sums under the same narrow integer contract",
+        "change_id": "dcd2e40d-c139-4697-a04f-8d1905fa26b4",
+        "committed": true,
+        "decision": "adopted",
+        "definition_digest": "a1773757a72dff7184965a7ed10166962f01f7c867d1d041a08898b8ca8cce9e",
+        "effect": "unknown",
+        "experience_ref": {
+          "result_digest": "7ecbd1545592a24d849f9f9687f8f511f3d1c73ca9da8453bf936851e3285f91",
+          "run_id": "6e14bd45-891f-4d0e-80aa-e91766cc7f4b"
+        },
+        "formal_rule": false,
+        "kind": "decision",
+        "limitations": [
+          "Controlled fixture inspection; no independent model judgment or formal rule"
+        ],
+        "modification_authorization": false,
+        "observed_files": {
+          "arithmetic_second.py": "d3410e41e520be190c95bd5d8b61a74983b4b559301e52d96d1ac0164fae96da",
+          "test_arithmetic_second.py": "5ab2b031707b32d508f592d06686ecbfa5dceffed2dd88abecfab1e9f67ec7e6"
+        },
+        "observed_state": "candidate",
+        "observed_state_ref": {
+          "result_digest": "7ecbd1545592a24d849f9f9687f8f511f3d1c73ca9da8453bf936851e3285f91",
+          "run_id": "6e14bd45-891f-4d0e-80aa-e91766cc7f4b"
+        },
+        "outcome": "decision_recorded",
+        "revision_id": "c6eb4c87-7b9e-4372-a82e-9d83ba3acb9e",
+        "run_id": "1f54783d-8403-4e1a-8c5b-7ffdef88b729",
+        "search_ref": {
+          "catalog_digest": "565411b7908d0908c128f20ea2fd01cb2d19396b3f86dedf6fa56e708fcbb63b",
+          "digest": "d018db5724f5e050bd80d387b5307119dbfeaebd066b9688dd9aea3d22a80640",
+          "matches": [
+            {
+              "result_digest": "7ecbd1545592a24d849f9f9687f8f511f3d1c73ca9da8453bf936851e3285f91",
+              "run_id": "6e14bd45-891f-4d0e-80aa-e91766cc7f4b"
+            }
+          ],
+          "query": "arithmetic"
+        },
+        "decision_ref": {
+          "run_id": "1f54783d-8403-4e1a-8c5b-7ffdef88b729",
+          "result_digest": "5f930abd29c56cdbc350bb6f3dcc40ae4df1fb3a537832700f6d353c5df244cd"
+        },
+        "feedback": {
+          "attribution": "observer_assessment_not_inferred_from_task_status",
+          "basis": "The second real verification passed, but this scripted fixture does not prove causal improvement attributable to the suggestion",
+          "committed": true,
+          "decision_ref": {
+            "result_digest": "5f930abd29c56cdbc350bb6f3dcc40ae4df1fb3a537832700f6d353c5df244cd",
+            "run_id": "1f54783d-8403-4e1a-8c5b-7ffdef88b729"
+          },
+          "experience_ref": {
+            "result_digest": "7ecbd1545592a24d849f9f9687f8f511f3d1c73ca9da8453bf936851e3285f91",
+            "run_id": "6e14bd45-891f-4d0e-80aa-e91766cc7f4b"
+          },
+          "kind": "feedback",
+          "limitations": [
+            "No model-semantic or causal-benefit inference from task success"
+          ],
+          "outcome": "unknown",
+          "result_source": {
+            "evidence_ids": [
+              "35a43b4a-fde7-461f-a787-66687848776d",
+              "87fc9198-cfe1-4757-982e-7fcdfa867c98",
+              "dfedcc22-bf88-4ac1-b6fb-730c8d414a24"
+            ],
+            "result_digest": "6ef478082317241e8d0419d8b86447052a2d6e1c0d60fb6a6a47e0290e5176eb",
+            "run_id": "32392491-816f-4e11-89c3-f4e3ad9ce88c"
+          },
+          "run_id": "29a60bfe-b561-4d26-884e-2976bdee89bb",
+          "feedback_ref": {
+            "run_id": "29a60bfe-b561-4d26-884e-2976bdee89bb",
+            "result_digest": "c3b0762a324989d993ecb698c42ffc1f197c9febdb21cb73923fb4f65ff16380"
+          }
+        }
+      },
+      "actual_retrieved_content_in_new_plan": true,
+      "actual_normal_pause": {
+        "change_id": "dcd2e40d-c139-4697-a04f-8d1905fa26b4",
+        "checks": "not_run",
+        "committed": true,
+        "continuation": null,
+        "definition_digest": "a1773757a72dff7184965a7ed10166962f01f7c867d1d041a08898b8ca8cce9e",
+        "fingerprint": {
+          "checks": [
+            {
+              "argv": [
+                "/Users/liufukang/.local/bin/python3",
+                "-B",
+                "-m",
+                "unittest",
+                "discover",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "arithmetic-unit",
+              "timeout": 15
+            }
+          ],
+          "digest": "c3e56414bfa4576dba4f2ce9de623a086f9de9787a60939803ea6cb1b6df503c",
+          "files": {
+            "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "arithmetic_second.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80",
+            "test_arithmetic_second.py": "5ab2b031707b32d508f592d06686ecbfa5dceffed2dd88abecfab1e9f67ec7e6"
+          },
+          "scope": {
+            "arithmetic_second.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic_second.py": "5ab2b031707b32d508f592d06686ecbfa5dceffed2dd88abecfab1e9f67ec7e6"
+          }
+        },
+        "learning": "pending",
+        "operation_id": "26704516-914c-413d-987d-365486e07220",
+        "outcome": "partial",
+        "overall_verification": "not_run",
+        "progress": {
+          "completed": [
+            "Saved the actual second sum candidate"
+          ],
+          "next_steps": [
+            "Restore facts in a new process and continue"
+          ],
+          "reason": "Controlled normal conversation pause before checks",
+          "remaining": [
+            "Run original checks, review and verify"
+          ]
+        },
+        "revision_id": "c6eb4c87-7b9e-4372-a82e-9d83ba3acb9e",
+        "run_id": "83933e58-91cb-4a47-aee2-18a19b86f761",
+        "task_id": "ddabe862-530a-4119-b6d6-a51fe140d973",
+        "versions": {
+          "change": 2,
+          "task": 3
+        }
+      },
+      "read_only_queries_observed": 6
+    }
+  },
+  "limitations": [
+    "No natural-language model orchestration in this slice yet",
+    "Native Windows not_run; M1 incomplete",
+    "Claude native directory-market source and independent cache remain distinct; fixture invokes installed caches"
+  ]
+}

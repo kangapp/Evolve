@@ -1,0 +1,42 @@
+[
+  {
+    "skill": "skills/evolve-apply/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-archive/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-init/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-learn/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-maintain/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-propose/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-verify/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  },
+  {
+    "skill": "skills/evolve-workflow/SKILL.md",
+    "exit_code": 0,
+    "output": "Skill is valid!\n"
+  }
+]

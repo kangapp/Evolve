@@ -1,0 +1,101 @@
+{
+  "slice": "IMP-007",
+  "status": "in_progress",
+  "observed_at": "2026-10-31T16:30:38.963768+00:00",
+  "completed_subflow": "Single sync owner: concrete approved formal content -> actual journal application -> required document Task outputs -> actual target/whole-change verification -> archive; standalone and implementation-backed followup paths included.",
+  "package_version": "0.1.0-alpha.8",
+  "protocol_version": 6,
+  "schema_version": 2,
+  "source_digest": "e502627997778b95ab6a87272c49a2f208dc62cdd5a21830a54824d45d605af4",
+  "distribution_digest": "5687de463bece00acbb95bd73fe0e5aeabc99a336641c98d26f8ccdf37d2ef8e",
+  "inventory_files": 55,
+  "available_methods": 24,
+  "environment": {
+    "system": "Darwin",
+    "python": "3.11.9",
+    "scope": "Current actual environment only; no separate Windows gate."
+  },
+  "full_regression": {
+    "tests": 386,
+    "seconds": 48.992,
+    "passed": true,
+    "raw": "component-tests-application-full.txt"
+  },
+  "formal_application_regression": {
+    "tests": 25,
+    "seconds": 3.196,
+    "passed": true,
+    "raw": "component-tests-application.txt"
+  },
+  "public_cli": {
+    "commands": 20,
+    "installed_package_observations": 1,
+    "assertions": 17,
+    "passed": true,
+    "summary": "application-cli-proof.json",
+    "trace": "application-cli-trace.zip"
+  },
+  "package_archive": {
+    "path": "application-package-alpha8.zip",
+    "sha256": "67c805519dad0e380267393ce4821729c13acfa251d98582e246c35ee5ce80cc"
+  },
+  "initial_failures": [
+    {
+      "raw": "component-tests-application-initial.txt",
+      "count": 2,
+      "kind": "fixture preconditions",
+      "reason": "Unaccepted plan and actual dead writer lock correctly rejected earlier than the fixture expected; corrected expected PLAN_ACCEPTANCE and WRITER_ACTIVE without weakening gates."
+    },
+    {
+      "raw": "component-tests-application-full-initial.txt",
+      "failures": 12,
+      "errors": 17,
+      "kind": "version/capability fixture assumptions",
+      "reason": "Old schema-1/protocol-only transport guards and minimal fixtures plus sync.apply-unavailable expectations needed the actual new schema-2/protocol-6 pair and implemented methods. Original frozen model controllers and packages were not modified."
+    },
+    {
+      "raw": "component-tests-application-pending-before.txt",
+      "failures": 1,
+      "kind": "reproduced runtime defect",
+      "reason": "A committed but unfinalized document application incorrectly satisfied task_completed. Added actual application source/fingerprint gate in structured readiness; identical negative fixture now blocks dependent write."
+    }
+  ],
+  "review": {
+    "observer": "current Codex self-review",
+    "independent_model_review": false,
+    "spec": [
+      "Candidate/check/approval do not imply actual application; actual application does not imply applied verification.",
+      "Exact finalized approval and latest content check, actual baseline and declared authorization precede file writes.",
+      "Required sync Tasks get actual application/artifact references; all required documents and AC coverage must exist before implementation completion.",
+      "Document source finalization and dependency gates prevent unsafe downstream consumption; Task and whole Change acceptance remain distinct.",
+      "Business-linked followups require actual applicable passing implementation evidence; changed outputs block proposal/application/recovery or current applied verification.",
+      "Stable delta/application identities survive idempotent calls and format REV without replay.",
+      "Actual process exits 51/52/53 exercise registered journal, files-written and facts-committed recovery; exit54 covers standalone verification metadata. No repeated checks, duplicated applications or overwritten third-party bytes.",
+      "Archived Change/Task facts remain historical after followup application or external edits; fresh actual verification can be blocked without editing prior passed rows."
+    ],
+    "standards": [
+      "One formal module behind sync.apply and verify.knowledge; shared Store, lock, claims, file journal and recovery entry reused.",
+      "Schema2/protocol6 explicitly isolates old writers; actual preserved complete alpha7 writer rejected without database or formal file change.",
+      "No new service, personal configuration, credentials, model requests, publication or deployment.",
+      "Modified existing owner Skills use conditional pointers to a shared formal guide; actual declared scope permits document review findings under evolve/."
+    ]
+  },
+  "source_inventory_check": "passed",
+  "design_document_check": "passed",
+  "skill_validation": [
+    "evolve-archive passed",
+    "evolve-verify passed",
+    "evolve-propose passed"
+  ],
+  "remaining": [
+    "Same-file independently approved patches and verifiable predecessor chains; add/remove delta semantics.",
+    "External formal edit adoption, stale deferred proposal integration and different owner application coordination.",
+    "Required init/learn document delivery and rule promotion paths; learn integration follows its dependency plan.",
+    "Concrete expanded native knowledge-case preparation and actual authorization before new host model scenarios; current arithmetic seven-file authorization is not reused.",
+    "IMP-006 Claude permission gate remains unresolved; no model retry in this development turn."
+  ],
+  "limitations": [
+    "Controlled fixture observations and tool/CLI proofs are not independent native model semantics acceptance.",
+    "This subflow does not close IMP-007 or M2; the original final scope remains required."
+  ]
+}

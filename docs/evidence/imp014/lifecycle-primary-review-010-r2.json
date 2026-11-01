@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "reviewer": "Primary actual command, independent protection observer and fixture-result review; not a model or delegated independent review",
+  "package_digest": "08b5e05611e0881814748844e99364c8da1e5121fd9a507b112ee4b5f6d45258",
+  "model_requests_sent": false,
+  "installation_checks": 15,
+  "lifecycle_checks": 38,
+  "installation_commands": 16,
+  "lifecycle_commands": 42,
+  "observed_nonzero_commands": {
+    "original_independent_red": {
+      "count": 2,
+      "exit": 1,
+      "basis": "original literal total([8,3])=11, actual len=2"
+    },
+    "deliberate_process_interruption": {
+      "count": 2,
+      "exit": 35,
+      "basis": "owned process exits during initial apply; later installation and recovery retain actual uncompleted work"
+    }
+  },
+  "findings": [
+    "Both native managers installed/discovered all eight Skills; Codex project enablement excludes another project, Claude project scope is separate from installation root.",
+    "Compatible derivative changes only declared version/changelog/digests; actual update/discovery and moved complete roots preserve identity and real in-progress/history files.",
+    "Disable/uninstall/reinstall preserve project data; reconnect changes only DB, guard and managed metadata, with separate exact SQLite checkpoint/registered-file/hash validation.",
+    "No business/check execution occurs on reconnect; all original rows, configuration and business bytes remain.",
+    "Controlled fixture reviews are not native model evidence; published update channels and Windows were not inferred."
+  ],
+  "evidence": [
+    "installation-summary-010-final-r2.json",
+    "installation-commands-010-final-r2.json",
+    "lifecycle-summary-010-final-r2.json",
+    "lifecycle-commands-010-final-r2.json"
+  ]
+}

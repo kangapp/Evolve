@@ -1,0 +1,16 @@
+test_changed_swap_journal_cannot_expand_the_presented_restore_collection (test_maintenance.MaintenanceTests.test_changed_swap_journal_cannot_expand_the_presented_restore_collection) ... FAIL
+
+======================================================================
+FAIL: test_changed_swap_journal_cannot_expand_the_presented_restore_collection (test_maintenance.MaintenanceTests.test_changed_swap_journal_cannot_expand_the_presented_restore_collection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_maintenance.py", line 289, in test_changed_swap_journal_cannot_expand_the_presented_restore_collection
+    self.assert_error('JOURNAL_INVALID', maintenance.restore, self.root, request)
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_maintenance.py", line 67, in assert_error
+    with self.assertRaises(EvolveError) as error:
+AssertionError: EvolveError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.595s
+
+FAILED (failures=1)

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1259" viewBox="0 0 1440 1259" role="img" aria-labelledby="title desc">
+<title id="title">档案备份、恢复集合与防重放</title><desc id="desc">受管档案恢复不回退业务源码或真实数据</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#235da8"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#176c61"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94520b"/></marker>
+<marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a33342"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52647b"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}path,line,rect{vector-effect:non-scaling-stroke}</style>
+<rect width="1440" height="1259" fill="#ffffff"/>
+<text x="44" y="45" fill="#235da8" font-size="15" font-weight="600" text-anchor="start">EVOLVE / 11</text>
+<text x="44" y="90" fill="#172b46" font-size="32" font-weight="600" text-anchor="start">档案备份、恢复集合与防重放</text>
+<text x="44" y="124" fill="#52647b" font-size="18" font-weight="400" text-anchor="start">受管档案恢复不回退业务源码或真实数据</text>
+<line x1="44" y1="146" x2="1396" y2="146" stroke="#bac8d8" stroke-width="1.7"/>
+<rect x="12.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="112.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">用户</text>
+<line x1="112.0" y1="247" x2="112.0" y2="1168" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="417.33333333333326" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="517.3333333333333" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">maintain</text>
+<line x1="517.3333333333333" y1="247" x2="517.3333333333333" y2="1168" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="822.6666666666666" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="922.6666666666666" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">保护清单／控制区</text>
+<line x1="922.6666666666666" y1="247" x2="922.6666666666666" y2="1168" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="1228.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="1328.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">档案／证据</text>
+<line x1="1328.0" y1="247" x2="1328.0" y2="1168" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<g data-box="126.0,265,377.33333333333326,37">
+<rect x="126.0" y="265" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="287" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">01  明确备份或恢复源</text>
+</g>
+<line x1="112.0" y1="309" x2="517.3333333333333" y2="309" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="48,332,1344,60">
+<rect x="48" y="332" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="364" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">备份固定数据库检查点和不可变引用版本；未登记手改单列保护附录，不拼接假一致包</text>
+</g>
+<g data-box="562.6666666666666,412,720,37">
+<rect x="562.6666666666666" y="412" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="434" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">02  检查同项目、摘要与必要附件</text>
+</g>
+<line x1="517.3333333333333" y1="456" x2="1328.0" y2="456" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,479,377.33333333333337,65">
+<rect x="531.3333333333333" y="479" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="501" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">03  保护当前现场、旧历史和外部未决</text>
+<text x="720.0" y="529" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">引用</text>
+</g>
+<line x1="517.3333333333333" y1="551" x2="922.6666666666666" y2="551" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,574,1344,60">
+<rect x="48" y="574" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="606" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">restore 先设维护屏障，排空仍可写／派发的旧本地执行者，再换库；未知外部效果仍保留</text>
+</g>
+<g data-box="48,654,1344,60">
+<rect x="48" y="654" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="686" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">包外受管文件保护隔离；未登记用户文件保留，路径冲突先处理</text>
+</g>
+<g data-box="562.6666666666666,734,720,37">
+<rect x="562.6666666666666" y="734" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="756" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">04  按清单替换受管集合，核实字节</text>
+</g>
+<line x1="517.3333333333333" y1="778" x2="1328.0" y2="778" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="531.3333333333333,801,377.33333333333337,65">
+<rect x="531.3333333333333" y="801" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="823" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">05  切换 epoch、登记恢复，拒绝旧写</text>
+<text x="720.0" y="851" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">请求</text>
+</g>
+<line x1="517.3333333333333" y1="873" x2="922.6666666666666" y2="873" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="126.0,896,377.33333333333326,65">
+<rect x="126.0" y="896" width="377.33333333333326" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="918" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">06  汇报恢复范围、现场差异和外部待</text>
+<text x="314.66666666666663" y="946" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">核实</text>
+</g>
+<line x1="517.3333333333333" y1="968" x2="112.0" y2="968" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="48,991,1344,60">
+<rect x="48" y="991" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="1023" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">不执行恢复包脚本；unknown 由 apply 核实；容量预检，不递归备份</text>
+</g>
+<g data-box="48,1071,1344,60">
+<rect x="48" y="1071" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="1103" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">包更新与档案恢复分开：固定运行版本或安全结束；卸载不删除项目和未决保护</text>
+</g>
+<line x1="44" y1="1188" x2="1396" y2="1188" stroke="#bac8d8" stroke-width="1.7"/>
+<text x="44" y="1215" fill="#52647b" font-size="15" font-weight="400" text-anchor="start">设计 0.6.2 · Evolve / 八个 Skill / 尚未实现 · 2026-10-31</text>
+<text x="1396" y="1215" fill="#52647b" font-size="15" font-weight="400" text-anchor="end">实线：请求/操作   虚线：返回/条件路径   编号：图内顺序</text>
+</svg>

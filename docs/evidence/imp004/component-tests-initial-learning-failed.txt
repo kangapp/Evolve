@@ -1,0 +1,444 @@
+............F....F.........................FFF.FF.............................................E.....................F.FF.F.................E.E...FEEEEE...................................................
+======================================================================
+ERROR: test_learning (unittest.loader._FailedTest.test_learning)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_learning
+Traceback (most recent call last):
+  File "/Users/liufukang/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/unittest/loader.py", line 419, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/unittest/loader.py", line 362, in _get_module_from_name
+    __import__(name)
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_learning.py", line 12, in <module>
+    from evolve_core.learning import catalog, learn, learning_status, search
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+ERROR: test_analysis_resume_keeps_source_authority_and_unfinished_questions (test_resume.ResumeTests.test_analysis_resume_keeps_source_authority_and_unfinished_questions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 181, in test_analysis_resume_keeps_source_authority_and_unfinished_questions
+    view = resume_view(fixture.root, result['run_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 54, in resume_view
+    runs = [restored_run(connection, connection.execute('SELECT * FROM phase_runs WHERE id=?', (key,)).fetchone()) for key in ids]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 54, in <listcomp>
+    runs = [restored_run(connection, connection.execute('SELECT * FROM phase_runs WHERE id=?', (key,)).fetchone()) for key in ids]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+ERROR: test_explicit_change_still_exposes_global_unfinished_configuration (test_resume.ResumeTests.test_explicit_change_still_exposes_global_unfinished_configuration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 129, in test_explicit_change_still_exposes_global_unfinished_configuration
+    view = resume_view(self.root, self.plan['change_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+ERROR: test_resume_keeps_real_failed_checks_and_their_evidence (test_resume.ResumeTests.test_resume_keeps_real_failed_checks_and_their_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 138, in test_resume_keeps_real_failed_checks_and_their_evidence
+    view = resume_view(self.root, self.plan['change_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+ERROR: test_resume_reports_external_drift_without_registering_or_overwriting_it (test_resume.ResumeTests.test_resume_reports_external_drift_without_registering_or_overwriting_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 107, in test_resume_reports_external_drift_without_registering_or_overwriting_it
+    view = resume_view(self.root, self.plan['change_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+ERROR: test_resume_restores_original_plan_progress_authorization_without_writes (test_resume.ResumeTests.test_resume_restores_original_plan_progress_authorization_without_writes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 46, in test_resume_restores_original_plan_progress_authorization_without_writes
+    view = resume_view(self.root)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+ERROR: test_revoked_source_grant_is_visible_and_cannot_be_reused (test_resume.ResumeTests.test_revoked_source_grant_is_visible_and_cannot_be_reused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 95, in test_revoked_source_grant_is_visible_and_cannot_be_reused
+    view = resume_view(self.root, self.plan['change_id'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+ERROR: test_tampered_sealed_result_is_reported_without_repairing_it (test_resume.ResumeTests.test_tampered_sealed_result_is_reported_without_repairing_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 154, in test_tampered_sealed_result_is_reported_without_repairing_it
+    resume_view(self.root, self.plan['change_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+======================================================================
+FAIL: test_public_answer_only_request_does_not_require_a_database_or_create_record_facilities (test_analysis.InvestigationTests.test_public_answer_only_request_does_not_require_a_database_or_create_record_facilities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_analysis.py", line 219, in test_public_answer_only_request_does_not_require_a_database_or_create_record_facilities
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_two_real_processes_cannot_branch_the_same_observed_head (test_analysis.InvestigationTests.test_two_real_processes_cannot_branch_the_same_observed_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_analysis.py", line 212, in test_two_real_processes_cannot_branch_the_same_observed_head
+    self.assertEqual(sum(process.returncode == 0 for process in processes), 1, output)
+AssertionError: 0 != 1 : [('', 'Traceback (most recent call last):\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve.py", line 13, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 172, in main\n    data = dispatch(args)\n           ^^^^^^^^^^^^^^\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 141, in dispatch\n    return execute_request(args, method)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 93, in execute_request\n    from .learning import learn\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37\n    ids = sorted(set(strings(ref.get(\'evidence_ids\', []), \'evidence_ids\'))\n                ^\nSyntaxError: \'(\' was never closed\n'), ('', 'Traceback (most recent call last):\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve.py", line 13, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 172, in main\n    data = dispatch(args)\n           ^^^^^^^^^^^^^^\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 141, in dispatch\n    return execute_request(args, method)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 93, in execute_request\n    from .learning import learn\n  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37\n    ids = sorted(set(strings(ref.get(\'evidence_ids\', []), \'evidence_ids\'))\n                ^\nSyntaxError: \'(\' was never closed\n')]
+
+======================================================================
+FAIL: test_first_init_accepts_a_request_file_in_its_own_project_control_directory (test_cli_workflow.PublicWorkflowTests.test_first_init_accepts_a_request_file_in_its_own_project_control_directory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 100, in test_first_init_accepts_a_request_file_in_its_own_project_control_directory
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-r5o6r0xz/installed 中文 space/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-r5o6r0xz/installed 中文 space/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-r5o6r0xz/installed 中文 space/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-r5o6r0xz/installed 中文 space/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-r5o6r0xz/installed 中文 space/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_full_small_change_through_public_interface_with_system_generated_identifiers (test_cli_workflow.PublicWorkflowTests.test_full_small_change_through_public_interface_with_system_generated_identifiers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 47, in test_full_small_change_through_public_interface_with_system_generated_identifiers
+    connected = self.cli('init', payload={'authorization': self.auth, 'input': {'checks': [
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 41, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-z3o03_f4/installed 中文 space/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-z3o03_f4/installed 中文 space/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-z3o03_f4/installed 中文 space/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-z3o03_f4/installed 中文 space/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-z3o03_f4/installed 中文 space/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_initial_connection_receipt_can_be_replayed_with_complete_generated_context (test_cli_workflow.PublicWorkflowTests.test_initial_connection_receipt_can_be_replayed_with_complete_generated_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 87, in test_initial_connection_receipt_can_be_replayed_with_complete_generated_context
+    first = self.cli('init', payload=payload)['data']
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 41, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-h_ygbxhz/installed 中文 space/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-h_ygbxhz/installed 中文 space/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-h_ygbxhz/installed 中文 space/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-h_ygbxhz/installed 中文 space/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-h_ygbxhz/installed 中文 space/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_original_symptom_pipeline_runs_from_the_independently_built_package (test_cli_workflow.PublicWorkflowTests.test_original_symptom_pipeline_runs_from_the_independently_built_package)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 119, in test_original_symptom_pipeline_runs_from_the_independently_built_package
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/scripts/workflow_smoke.py", line 177, in <module>
+    main()
+  File "/Users/liufukang/Workplace/spec-driven/scripts/workflow_smoke.py", line 173, in main
+    print(json.dumps(run_workflow(args.runtime, args.project, args.out, diagnostic=args.diagnostic), ensure_ascii=False, indent=2))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/scripts/workflow_smoke.py", line 75, in run_workflow
+    answer = call('analyze', analysis_data, authorization={**auth, 'effect_kinds': ['read_only']})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/scripts/workflow_smoke.py", line 46, in call
+    response = json.loads(result.stdout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/.local/share/uv/python/cpython-3.11-macos-aarch64-none/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+======================================================================
+FAIL: test_prepared_retries_cannot_silently_adopt_a_new_epoch (test_cli_workflow.PublicWorkflowTests.test_prepared_retries_cannot_silently_adopt_a_new_epoch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 80, in test_prepared_retries_cannot_silently_adopt_a_new_epoch
+    self.cli('init', payload={'authorization': self.auth, 'input': {}})
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cli_workflow.py", line 41, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-10ebhn3u/installed 中文 space/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-10ebhn3u/installed 中文 space/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-10ebhn3u/installed 中文 space/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-10ebhn3u/installed 中文 space/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-cli-workflow-10ebhn3u/installed 中文 space/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_compatible_package_does_not_adopt_external_bytes_as_task_completion (test_package_lifecycle.PackageLifecycleTests.test_compatible_package_does_not_adopt_external_bytes_as_task_completion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 161, in test_compatible_package_does_not_adopt_external_bytes_as_task_completion
+    result = self.cli(self.update, 'apply', self.apply_request(), expected=3)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 79, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 3 : Traceback (most recent call last):
+  File "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-2l9b02tn/compatible/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-2l9b02tn/compatible/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-2l9b02tn/compatible/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-2l9b02tn/compatible/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-2l9b02tn/compatible/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_live_writer_cannot_install_business_bytes_after_whole_package_replacement (test_package_lifecycle.PackageLifecycleTests.test_live_writer_cannot_install_business_bytes_after_whole_package_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 121, in test_live_writer_cannot_install_business_bytes_after_whole_package_replacement
+    result = self.cli(original, 'maintain', self.request({'operation_id': operation['id']}), method='recover')['data']
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 79, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-mjtg5amn/previous-complete-package/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-mjtg5amn/previous-complete-package/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-mjtg5amn/previous-complete-package/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-mjtg5amn/previous-complete-package/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-mjtg5amn/previous-complete-package/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_new_compatible_recovery_preserves_no_operation_external_work_without_claiming_done (test_package_lifecycle.PackageLifecycleTests.test_new_compatible_recovery_preserves_no_operation_external_work_without_claiming_done)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 194, in test_new_compatible_recovery_preserves_no_operation_external_work_without_claiming_done
+    result = self.cli(self.update, 'maintain', self.request({'run_id': original['id']}), method='recover')['data']
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 79, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-5y93wc03/compatible/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-5y93wc03/compatible/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-5y93wc03/compatible/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-5y93wc03/compatible/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-5y93wc03/compatible/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_third_value_after_real_exit_blocks_backup_and_keeps_conflict_across_update (test_package_lifecycle.PackageLifecycleTests.test_third_value_after_real_exit_blocks_backup_and_keeps_conflict_across_update)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 221, in test_third_value_after_real_exit_blocks_backup_and_keeps_conflict_across_update
+    blocked = self.cli(self.update, 'propose', request, expected=3)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_package_lifecycle.py", line 79, in cli
+    self.assertEqual(result.returncode, expected, result.stdout + result.stderr)
+AssertionError: 1 != 3 : Traceback (most recent call last):
+  File "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-z8vkecpc/compatible/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-z8vkecpc/compatible/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-z8vkecpc/compatible/runtime/evolve_core/cli.py", line 141, in dispatch
+    return execute_request(args, method)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-z8vkecpc/compatible/runtime/evolve_core/cli.py", line 93, in execute_request
+    from .learning import learn
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-lifecycle-install-z8vkecpc/compatible/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+======================================================================
+FAIL: test_public_resume_in_a_fresh_process_is_a_pure_query (test_resume.ResumeTests.test_public_resume_in_a_fresh_process_is_a_pure_query)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_resume.py", line 166, in test_public_resume_in_a_fresh_process_is_a_pure_query
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve.py", line 13, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 172, in main
+    data = dispatch(args)
+           ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cli.py", line 147, in dispatch
+    'context': resume_view(Path(args.project), args.target), 'package_root': str(ROOT),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 71, in resume_view
+    runs.append(restored_run(connection, row, change['id']))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/resume.py", line 21, in restored_run
+    from .learning import learning_status
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 37
+    ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids'))
+                ^
+SyntaxError: '(' was never closed
+
+
+----------------------------------------------------------------------
+Ran 202 tests in 11.380s
+
+FAILED (failures=12, errors=8)

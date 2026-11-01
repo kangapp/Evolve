@@ -1,0 +1,59 @@
+test_batch_approval_does_not_bypass_cross_change_application_condition (test_cross_formal_dependencies.CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition) ... ERROR
+test_external_formal_edit_stops_only_related_b_and_keeps_approval (test_cross_formal_dependencies.CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval) ... ok
+test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings) ... ERROR
+
+======================================================================
+ERROR: test_batch_approval_does_not_bypass_cross_change_application_condition (test_cross_formal_dependencies.CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 86, in test_batch_approval_does_not_bypass_cross_change_application_condition
+    actual = self.apply_b()
+             ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 73, in apply_b
+    return self.r.apply(self.second, self.approvals[1], required=True, composition_review=composition)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 59, in apply
+    return learn(self.root, request, method='promote')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 336, in learn
+    return apply_knowledge(root, payload, owner='evolve-learn')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/formal.py", line 335, in apply_knowledge
+    application_gate()
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/formal.py", line 313, in application_gate
+    gate(store, request, run_id, operation_id, request['expected_versions'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/work.py", line 192, in gate
+    guard(store.connection, store.root, run_id, change['id'], request['input'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cross_dependencies.py", line 219, in guard
+    raise EvolveError('DEPENDENCY_NOT_READY', 'Current upstream prerequisites require rechecking: ' + json.dumps(unmet), exit_code=3)
+evolve_core.errors.EvolveError: Current upstream prerequisites require rechecking: [{"kind": "external_knowledge_applied", "reference": "5ea7a4c5-4275-452c-9b00-070dcff81200", "upstream_change_id": "48b75f45-fd16-4e75-85f9-3e83c246e5c9", "reason": "The independent review rule follows the concrete numeric definition.", "recheck_required": true}]
+
+======================================================================
+ERROR: test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 100, in test_verified_formal_dependency_retains_both_owner_meanings
+    self.apply_b()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 73, in apply_b
+    return self.r.apply(self.second, self.approvals[1], required=True, composition_review=composition)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 59, in apply
+    return learn(self.root, request, method='promote')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/learning.py", line 336, in learn
+    return apply_knowledge(root, payload, owner='evolve-learn')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/formal.py", line 335, in apply_knowledge
+    application_gate()
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/formal.py", line 313, in application_gate
+    gate(store, request, run_id, operation_id, request['expected_versions'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/work.py", line 192, in gate
+    guard(store.connection, store.root, run_id, change['id'], request['input'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/cross_dependencies.py", line 219, in guard
+    raise EvolveError('DEPENDENCY_NOT_READY', 'Current upstream prerequisites require rechecking: ' + json.dumps(unmet), exit_code=3)
+evolve_core.errors.EvolveError: Current upstream prerequisites require rechecking: [{"kind": "external_verification_passed", "reference": "4e01ce39-5708-4985-a519-9db13a10b3f6", "upstream_change_id": "c3d8f2b0-b464-4663-a280-222fa6e2fce3", "reason": "The independent review rule follows the concrete numeric definition.", "recheck_required": true}]
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.076s
+
+FAILED (errors=2)

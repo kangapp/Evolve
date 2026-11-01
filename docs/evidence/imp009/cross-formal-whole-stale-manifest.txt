@@ -1,0 +1,155 @@
+test_batch_approval_does_not_bypass_cross_change_application_condition (test_cross_formal_dependencies.CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition) ... ERROR
+test_external_formal_edit_stops_only_related_b_and_keeps_approval (test_cross_formal_dependencies.CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval) ... ERROR
+test_known_conflicting_approved_successor_is_rejected_before_file_write (test_cross_formal_dependencies.CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write) ... ERROR
+test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain (test_cross_formal_dependencies.CrossFormalTests.test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain) ... ERROR
+test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings) ... ERROR
+test_whole_acceptance_retains_first_owner_after_other_change_composes (test_cross_formal_dependencies.CrossFormalTests.test_whole_acceptance_retains_first_owner_after_other_change_composes) ... ERROR
+
+======================================================================
+ERROR: test_batch_approval_does_not_bypass_cross_change_application_condition (test_cross_formal_dependencies.CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 21, in setUp
+    self.r.setUp()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 28, in setUp
+    self.l = learning_fixture.LearningTests(); self.l.setUp(); self.addCleanup(self.l.doCleanups)
+                                               ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/workflow_fixture.py", line 36, in setUp
+    self.project = connect(self.root, {'request_id': 'connect', 'authorization': self.auth,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 165, in connect
+    return _finish_connection(root, journal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 96, in _finish_connection
+    store.start(request, action='init', method='connect', owner='evolve-init', run_id=journal['run_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 292, in start
+    package_digest = check_package()['content_digest']
+                     ^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/package.py", line 74, in check_package
+    raise EvolveError("PACKAGE_INCOMPLETE", "Missing or modified package resource: " + name,
+evolve_core.errors.EvolveError: Missing or modified package resource: runtime/evolve_core/structured.py
+
+======================================================================
+ERROR: test_external_formal_edit_stops_only_related_b_and_keeps_approval (test_cross_formal_dependencies.CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 21, in setUp
+    self.r.setUp()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 28, in setUp
+    self.l = learning_fixture.LearningTests(); self.l.setUp(); self.addCleanup(self.l.doCleanups)
+                                               ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/workflow_fixture.py", line 36, in setUp
+    self.project = connect(self.root, {'request_id': 'connect', 'authorization': self.auth,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 165, in connect
+    return _finish_connection(root, journal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 96, in _finish_connection
+    store.start(request, action='init', method='connect', owner='evolve-init', run_id=journal['run_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 292, in start
+    package_digest = check_package()['content_digest']
+                     ^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/package.py", line 74, in check_package
+    raise EvolveError("PACKAGE_INCOMPLETE", "Missing or modified package resource: " + name,
+evolve_core.errors.EvolveError: Missing or modified package resource: runtime/evolve_core/structured.py
+
+======================================================================
+ERROR: test_known_conflicting_approved_successor_is_rejected_before_file_write (test_cross_formal_dependencies.CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 21, in setUp
+    self.r.setUp()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 28, in setUp
+    self.l = learning_fixture.LearningTests(); self.l.setUp(); self.addCleanup(self.l.doCleanups)
+                                               ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/workflow_fixture.py", line 36, in setUp
+    self.project = connect(self.root, {'request_id': 'connect', 'authorization': self.auth,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 165, in connect
+    return _finish_connection(root, journal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 96, in _finish_connection
+    store.start(request, action='init', method='connect', owner='evolve-init', run_id=journal['run_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 292, in start
+    package_digest = check_package()['content_digest']
+                     ^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/package.py", line 74, in check_package
+    raise EvolveError("PACKAGE_INCOMPLETE", "Missing or modified package resource: " + name,
+evolve_core.errors.EvolveError: Missing or modified package resource: runtime/evolve_core/structured.py
+
+======================================================================
+ERROR: test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain (test_cross_formal_dependencies.CrossFormalTests.test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 21, in setUp
+    self.r.setUp()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 28, in setUp
+    self.l = learning_fixture.LearningTests(); self.l.setUp(); self.addCleanup(self.l.doCleanups)
+                                               ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/workflow_fixture.py", line 36, in setUp
+    self.project = connect(self.root, {'request_id': 'connect', 'authorization': self.auth,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 165, in connect
+    return _finish_connection(root, journal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 96, in _finish_connection
+    store.start(request, action='init', method='connect', owner='evolve-init', run_id=journal['run_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 292, in start
+    package_digest = check_package()['content_digest']
+                     ^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/package.py", line 74, in check_package
+    raise EvolveError("PACKAGE_INCOMPLETE", "Missing or modified package resource: " + name,
+evolve_core.errors.EvolveError: Missing or modified package resource: runtime/evolve_core/structured.py
+
+======================================================================
+ERROR: test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 21, in setUp
+    self.r.setUp()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 28, in setUp
+    self.l = learning_fixture.LearningTests(); self.l.setUp(); self.addCleanup(self.l.doCleanups)
+                                               ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/workflow_fixture.py", line 36, in setUp
+    self.project = connect(self.root, {'request_id': 'connect', 'authorization': self.auth,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 165, in connect
+    return _finish_connection(root, journal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 96, in _finish_connection
+    store.start(request, action='init', method='connect', owner='evolve-init', run_id=journal['run_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 292, in start
+    package_digest = check_package()['content_digest']
+                     ^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/package.py", line 74, in check_package
+    raise EvolveError("PACKAGE_INCOMPLETE", "Missing or modified package resource: " + name,
+evolve_core.errors.EvolveError: Missing or modified package resource: runtime/evolve_core/structured.py
+
+======================================================================
+ERROR: test_whole_acceptance_retains_first_owner_after_other_change_composes (test_cross_formal_dependencies.CrossFormalTests.test_whole_acceptance_retains_first_owner_after_other_change_composes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 21, in setUp
+    self.r.setUp()
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_rule_owner.py", line 28, in setUp
+    self.l = learning_fixture.LearningTests(); self.l.setUp(); self.addCleanup(self.l.doCleanups)
+                                               ^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/workflow_fixture.py", line 36, in setUp
+    self.project = connect(self.root, {'request_id': 'connect', 'authorization': self.auth,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 165, in connect
+    return _finish_connection(root, journal)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/connect.py", line 96, in _finish_connection
+    store.start(request, action='init', method='connect', owner='evolve-init', run_id=journal['run_id'])
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/store.py", line 292, in start
+    package_digest = check_package()['content_digest']
+                     ^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/package.py", line 74, in check_package
+    raise EvolveError("PACKAGE_INCOMPLETE", "Missing or modified package resource: " + name,
+evolve_core.errors.EvolveError: Missing or modified package resource: runtime/evolve_core/structured.py
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.046s
+
+FAILED (errors=6)

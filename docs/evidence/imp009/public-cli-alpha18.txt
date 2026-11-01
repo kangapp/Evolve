@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "package_version": "0.1.0-alpha.18",
+  "content_digest": "a4e7dca7b6a63cef556bca903a514c2013a3adcdfc84181bd3388992b0a4163f",
+  "commands": 136,
+  "cases": [
+    {
+      "case": "CrossDependencyTests.test_done_is_not_verified_and_produced_inputs_are_not_frozen_as_old_context",
+      "commands": 12,
+      "passed": true,
+      "project_snapshot": "project-1"
+    },
+    {
+      "case": "CrossDependencyTests.test_upstream_cancellation_invalidates_only_real_downstream_and_preserves_old_results",
+      "commands": 12,
+      "passed": true,
+      "project_snapshot": "project-2"
+    },
+    {
+      "case": "CrossDependencyTests.test_real_upstream_revision_requires_rebinding_instead_of_silently_following_latest",
+      "commands": 8,
+      "passed": true,
+      "project_snapshot": "project-3"
+    },
+    {
+      "case": "CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings",
+      "commands": 26,
+      "passed": true,
+      "project_snapshot": "project-4"
+    },
+    {
+      "case": "CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval",
+      "commands": 19,
+      "passed": true,
+      "project_snapshot": "project-5"
+    },
+    {
+      "case": "CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write",
+      "commands": 23,
+      "passed": true,
+      "project_snapshot": "project-6"
+    },
+    {
+      "case": "CrossFormalTests.test_whole_acceptance_retains_first_owner_after_other_change_composes",
+      "commands": 25,
+      "passed": true,
+      "project_snapshot": "project-7"
+    },
+    {
+      "case": "StructuredDiagnosticTests.test_single_task_root_binding_requires_original_post_repair_observation",
+      "commands": 11,
+      "passed": true,
+      "project_snapshot": "project-8"
+    }
+  ],
+  "model_requests_sent": false,
+  "review_inputs": "Controlled actual fixture observations; not independent model review"
+}

@@ -1,0 +1,13 @@
+{
+  "recorded_on": "2026-10-31",
+  "findings": [
+    {
+      "run": "/tmp/evolve-imp002-models-codex-07",
+      "result": "harness_false_positive_after_completed_inspect",
+      "cause": "Lab-root artifact check forgot the empty other-project directory created by the harness for native project-scope discovery. No model created that directory.",
+      "fix": "Freeze actual lab entries after native installation/discovery, before any model request, and reject only new entries.",
+      "retest": "/tmp/evolve-imp002-models-codex-08",
+      "preserved_scope": "The already completed same-package inspect transcript remains direct read-only evidence; repair and verify ran in a fresh fixture."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+test_cancel_does_not_steal_a_real_running_check_or_release_its_claims (test_cancellation.CancellationTests.test_cancel_does_not_steal_a_real_running_check_or_release_its_claims) ... ERROR
+test_cancel_rejects_stale_versions_and_archived_change (test_cancellation.CancellationTests.test_cancel_rejects_stale_versions_and_archived_change) ... ERROR
+test_completed_implementation_and_passed_verification_survive_cancel (test_cancellation.CancellationTests.test_completed_implementation_and_passed_verification_survive_cancel) ... ERROR
+test_real_exit_after_cancel_commit_recovers_metadata_without_undo (test_cancellation.CancellationTests.test_real_exit_after_cancel_commit_recovers_metadata_without_undo) ... FAIL
+test_safe_cancel_is_idempotent_and_keeps_source_bytes (test_cancellation.CancellationTests.test_safe_cancel_is_idempotent_and_keeps_source_bytes) ... ERROR
+
+======================================================================
+ERROR: test_cancel_does_not_steal_a_real_running_check_or_release_its_claims (test_cancellation.CancellationTests.test_cancel_does_not_steal_a_real_running_check_or_release_its_claims)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 92, in test_cancel_does_not_steal_a_real_running_check_or_release_its_claims
+    self.cancel(self.request())
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 25, in cancel
+    from evolve_core.cancellation import cancel_change
+ModuleNotFoundError: No module named 'evolve_core.cancellation'
+
+======================================================================
+ERROR: test_cancel_rejects_stale_versions_and_archived_change (test_cancellation.CancellationTests.test_cancel_rejects_stale_versions_and_archived_change)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 61, in test_cancel_rejects_stale_versions_and_archived_change
+    self.cancel(stale)
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 25, in cancel
+    from evolve_core.cancellation import cancel_change
+ModuleNotFoundError: No module named 'evolve_core.cancellation'
+
+======================================================================
+ERROR: test_completed_implementation_and_passed_verification_survive_cancel (test_cancellation.CancellationTests.test_completed_implementation_and_passed_verification_survive_cancel)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 51, in test_completed_implementation_and_passed_verification_survive_cancel
+    self.cancel(self.request())
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 25, in cancel
+    from evolve_core.cancellation import cancel_change
+ModuleNotFoundError: No module named 'evolve_core.cancellation'
+
+======================================================================
+ERROR: test_safe_cancel_is_idempotent_and_keeps_source_bytes (test_cancellation.CancellationTests.test_safe_cancel_is_idempotent_and_keeps_source_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 38, in test_safe_cancel_is_idempotent_and_keeps_source_bytes
+    result = self.cancel(request)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 25, in cancel
+    from evolve_core.cancellation import cancel_change
+ModuleNotFoundError: No module named 'evolve_core.cancellation'
+
+======================================================================
+FAIL: test_real_exit_after_cancel_commit_recovers_metadata_without_undo (test_cancellation.CancellationTests.test_real_exit_after_cancel_commit_recovers_metadata_without_undo)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cancellation.py", line 116, in test_real_exit_after_cancel_commit_recovers_metadata_without_undo
+    self.assertEqual(process.returncode, 27, process.stderr)
+AssertionError: 1 != 27 : Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+ModuleNotFoundError: No module named 'evolve_core.cancellation'
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.514s
+
+FAILED (failures=1, errors=4)

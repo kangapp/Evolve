@@ -1,0 +1,26 @@
+{
+  "slice": "IMP-003",
+  "status": "terminal_confirmed_old_package_readonly_failure_stopped",
+  "host": "Claude Code",
+  "model": "MiniMax-M3.1-Flash",
+  "model_choice": "Actual human choice in this chat, process argument only",
+  "authorization": "Original actual human grant for controlled two-file/three-case tests, including necessary in-scope retest; user later chose MiniMax-M3.1-Flash",
+  "original_grant_question": "request_user_input_async / call_a172b607d8bb472d889d353077ef3798 / 0",
+  "actual_answer": "授权，仅限该受控验收（推荐）",
+  "condition_for_retest": "Current IMP-004 Claude03 actually completed inspect/pause/continue with model responses, unlike the old 429/2056 refusal. This is a bounded observation, not a claim of general quota restoration.",
+  "content_digest": "240d19be86696a0adbd21c5a4ab461224b37a2b1c2f8fac714ddd7acbe1f77f2",
+  "package": "/tmp/evolve-imp003-restored-pin-01",
+  "lab": "/tmp/evolve-imp003-models-claude-03",
+  "observation_session": 11862,
+  "diagnostic_variant": true,
+  "verify_missing_tests_variant": true,
+  "preflight": "Exact complete archive integrity and protocol2 controller preflight passed; separate isolated preparation installed/discovered with model_requests_sent=false",
+  "limits": [
+    "Only original two files and three fresh native sessions",
+    "No nested agents, personal configuration/credential changes, model choice changes or publication",
+    "Stop on native quota rejection; retain old quota evidence and never replace it with current-package results"
+  ],
+  "stage": "IMP-003 pending actual results and trace/fact review; M1 incomplete; no M2",
+  "runner_exit_code": 1,
+  "review": "claude-model-review-alpha3-r3.json"
+}

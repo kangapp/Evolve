@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1043" viewBox="0 0 1440 1043" role="img" aria-labelledby="title desc">
+<title id="title">Evolve：项目理解与工作闭环</title><desc id="desc">0.6.2 · 八个 Skill 共用内核；单项目积累，多任务续接</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#235da8"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#176c61"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94520b"/></marker>
+<marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a33342"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52647b"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}path,line,rect{vector-effect:non-scaling-stroke}</style>
+<rect width="1440" height="1043" fill="#ffffff"/>
+<text x="44" y="45" fill="#235da8" font-size="15" font-weight="600" text-anchor="start">EVOLVE / 01</text>
+<text x="44" y="90" fill="#172b46" font-size="32" font-weight="600" text-anchor="start">Evolve：项目理解与工作闭环</text>
+<text x="44" y="124" fill="#52647b" font-size="18" font-weight="400" text-anchor="start">0.6.2 · 八个 Skill 共用内核；单项目积累，多任务续接</text>
+<line x1="44" y1="146" x2="1396" y2="146" stroke="#bac8d8" stroke-width="1.7"/>
+<rect x="12.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="112.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">用户／宿主</text>
+<line x1="112.0" y1="247" x2="112.0" y2="952" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="417.33333333333326" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="517.3333333333333" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">workflow 路由</text>
+<line x1="517.3333333333333" y1="247" x2="517.3333333333333" y2="952" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="822.6666666666666" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="922.6666666666666" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">职责 Skill</text>
+<line x1="922.6666666666666" y1="247" x2="922.6666666666666" y2="952" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="1228.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="1328.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">内核／项目资料</text>
+<line x1="1328.0" y1="247" x2="1328.0" y2="952" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<g data-box="126.0,265,377.33333333333326,37">
+<rect x="126.0" y="265" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="287" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">01  目标、限制与当前意图</text>
+</g>
+<line x1="112.0" y1="309" x2="517.3333333333333" y2="309" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="562.6666666666666,332,720,37">
+<rect x="562.6666666666666" y="332" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="354" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">02  读取目标任务、共享知识与现场变化</text>
+</g>
+<line x1="517.3333333333333" y1="376" x2="1328.0" y2="376" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="562.6666666666666,399,720,37">
+<rect x="562.6666666666666" y="399" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="421" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">03  返回来源、适用性与冲突</text>
+</g>
+<line x1="1328.0" y1="443" x2="517.3333333333333" y2="443" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="48,466,1344,60">
+<rect x="48" y="466" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="498" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">八个职责：workflow / init / propose / apply / verify / archive / learn / maintain</text>
+</g>
+<g data-box="531.3333333333333,546,377.33333333333337,37">
+<rect x="531.3333333333333" y="546" width="377.33333333333337" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="568" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">04  按授权与复杂度调用唯一负责者</text>
+</g>
+<line x1="517.3333333333333" y1="590" x2="922.6666666666666" y2="590" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="936.6666666666665,613,377.33333333333337,65">
+<rect x="936.6666666666665" y="613" width="377.33333333333337" height="65" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="1125.3333333333333" y="635" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">05  短方案或 spec、任务、成果、验</text>
+<text x="1125.3333333333333" y="663" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">证及必要恢复</text>
+</g>
+<line x1="922.6666666666666" y1="685" x2="1328.0" y2="685" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,708,1344,60">
+<rect x="48" y="708" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="740" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">Markdown：正式含义；SQLite：任务与事实；证据：来源；视图：按需展示</text>
+</g>
+<g data-box="157.33333333333326,788,720,37">
+<rect x="157.33333333333326" y="788" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="517.3333333333333" y="810" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">06  返回实际结果、验证覆盖和待审知识差异</text>
+</g>
+<line x1="922.6666666666666" y1="832" x2="112.0" y2="832" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="48,855,1344,60">
+<rect x="48" y="855" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="887" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">部署与个人库退出；正式数据写入按具体授权；不自动调度多代理</text>
+</g>
+<line x1="44" y1="972" x2="1396" y2="972" stroke="#bac8d8" stroke-width="1.7"/>
+<text x="44" y="999" fill="#52647b" font-size="15" font-weight="400" text-anchor="start">设计 0.6.2 · Evolve / 八个 Skill / 尚未实现 · 2026-10-31</text>
+<text x="1396" y="999" fill="#52647b" font-size="15" font-weight="400" text-anchor="end">实线：请求/操作   虚线：返回/条件路径   编号：图内顺序</text>
+</svg>

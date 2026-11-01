@@ -1,0 +1,61 @@
+[
+  {
+    "case": "native_windows_guard_on_Darwin",
+    "exit_code": 2,
+    "stderr": "usage: verify_relocation.py [-h] --package PACKAGE --out OUT\n                            [--require-windows]\nverify_relocation.py: error: Native Windows is required; this execution cannot close the Windows gate\n",
+    "lab_created": false
+  },
+  {
+    "case": "existing_output_refused",
+    "exit_code": 2,
+    "stderr": "usage: verify_relocation.py [-h] --package PACKAGE --out OUT\n                            [--require-windows]\nverify_relocation.py: error: Output already exists; refusing to modify it\n",
+    "existing_files_unchanged": true
+  },
+  {
+    "case": "damaged_complete_package_refused",
+    "exit_code": 1,
+    "runtime_error": "PACKAGE_INCOMPLETE",
+    "records_created": false,
+    "summary": {
+      "status": "failed",
+      "platform": {
+        "system": "Darwin",
+        "release": "25.6.0",
+        "os_name": "posix",
+        "python": "3.11.9",
+        "encoding": "utf-8",
+        "child_python_utf8": true
+      },
+      "native_windows_observed": false,
+      "model_requests_sent": false,
+      "host_discovery": "not_run",
+      "checks": {
+        "download_removed": true
+      },
+      "limitations": [
+        "Runtime CLI fixtures only; no native host install or Skill discovery in this runner",
+        "Review inputs are controlled observations, not independent model judgments",
+        "Only the observed platform is tested; this result alone does not complete V-137 or M1"
+      ],
+      "error": "Runtime query failed; inspect commands.json"
+    },
+    "commands": [
+      {
+        "argv": [
+          "/Users/liufukang/.local/bin/python3",
+          "-B",
+          "/private/tmp/evolve-relocation-damaged-result-01/安装 整包/runtime/evolve.py",
+          "--project",
+          "/private/tmp/evolve-relocation-damaged-result-01/业务 项目",
+          "maintain",
+          "--method",
+          "doctor"
+        ],
+        "cwd": "/private/tmp/evolve-relocation-damaged-result-01/独立 cwd",
+        "exit_code": 2,
+        "stdout": "{\n  \"ok\": false,\n  \"action\": \"maintain\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": false\n  },\n  \"warnings\": [],\n  \"error\": {\n    \"code\": \"PACKAGE_INCOMPLETE\",\n    \"message\": \"Missing or modified package resource: README.md\",\n    \"next_steps\": [\n      \"Rebuild or reinstall the complete same-version package\"\n    ]\n  }\n}\n",
+        "stderr": ""
+      }
+    ]
+  }
+]

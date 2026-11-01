@@ -1,0 +1,7 @@
+{
+  "observed_skill_names": [],
+  "model_request_sent": false,
+  "local_command": "/skills",
+  "complete": false,
+  "local_ui_excerpt": "\u001b7\u001b8\u001b]0;✳ Claude Code\u0007╭───ClaudeCodev2.1.117───────────────────────────────────────────────────────────────────────────────────────────────╮\r\r\n││Tipsforgettingstarted│\r\r\n│Welcomeback!│Run/inittocreateaCLAUDE.mdfilewithinstructionsforClaude│\r\r\n││─────────────────────────────────────────────────────────────────│\r\r\n│▐▛███▜▌│Recentactivity│\r\r\n│▝▜█████▛▘│Norecentactivity│\r\r\n│▘▘▝▝││\r\r\n│││\r\r\n│MiniMax-M2.7·APIUsageBilling││\r\r\n│/…/tmp/evolve-imp005-lifecycle-03/claude-business││\r\r\n╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯\r\r\n\r\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\r\n❯  \r\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\r\n⏸planmodeon(shift+tabtocycle)●high·/effort\r\r\n\r❯ /skills                                                                                                                                                       \r   \rSkils                                     \r\r\n\r\r\nNoskillsfound\r\r\nCreateskillsin.claude/skills/or~/.claude/skills/\r\r\n"
+}

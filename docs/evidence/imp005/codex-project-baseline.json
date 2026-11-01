@@ -1,0 +1,23 @@
+{
+  ".evolve-local/backups/2026-10-31/evolve/config.toml": "2b9c7265689cc367a8bfbfac557f9d15cf1d81324e8b33c6164a30f4ba01135f",
+  ".evolve-local/backups/2026-10-31/evolve/history.db": "a2efe3ad2c64004b3de2f3a08459749ab99cffeac74acb75abdf698d154d62ef",
+  ".evolve-local/backups/2026-10-31/manifest.json": "6f95d749ab4b0fd2dcad6032884b21ba66fef675e5ef84bd046824eb3a934d51",
+  ".evolve-local/backups/2026-10-31/observed/d138799c8d9e7ac92087d7ca9f2fe883b020d165296c51f610d737e8710ad6e2": "d138799c8d9e7ac92087d7ca9f2fe883b020d165296c51f610d737e8710ad6e2",
+  ".evolve-local/control/guard.json": "f4fb9901363444b79be376ea3a9300c4dc96756bfb2eab2f98c02cc8aa72d964",
+  ".evolve-local/control/init.json": "4bffa5fd9f47d1e0bb1205f3a21f8edfcc5721e82e39d3bc7f90db8fce65d9f9",
+  ".evolve-local/control/operations/37e919f6-c1f3-471c-9fe2-c0d1bef76301.json": "fad3fb55dbbe2ae11c56515b0c44e79377790443567d701632ebd33e11e43578",
+  ".evolve-local/control/operations/5507ca2d-bd6a-427d-b290-6058354a494b.json": "c2c7a06c5bfea439e56bf89cbd15c7d28c24bc91b2977cddf1b1147fd7f608fc",
+  ".evolve-local/control/operations/5ac88540-9a47-4146-b6b5-48f68c02dd11.json": "96864f9eb262f1206c96abffaa498264148ca886b0a5eac5c35a1441d70e0224",
+  ".evolve-local/control/operations/5d12ff6e-f22f-4cfb-8219-4233473d1b2e.json": "9627190e2913be9c59a4aa32f88f28a1868c21995bd04e8a23a9bd9ffa359dd2",
+  ".evolve-local/control/operations/dcdd85ad-a25b-48dc-b21a-30acdb29343d.json": "c1ce505c3fb4b6cdc1fa377d331670f1d1c90f61a7251a75b1b698400d6e4e11",
+  ".evolve-local/control/recoveries/3019379f-2c0f-4f36-9699-a50e5ab69236/history.db": "79ed7032531845806354be1d20c822772c2ce385362b4f6f93477b8c99acef98",
+  ".evolve-local/control/recoveries/3019379f-2c0f-4f36-9699-a50e5ab69236/journal.json": "e11f2807866c7a648daf0155aa99dcd0b222e8666acdcf35c70c6b4721eca4f0",
+  ".evolve-local/control/recoveries/3019379f-2c0f-4f36-9699-a50e5ab69236/manifest.json": "6b3ce9ea7fd37c44b4335373d4339a54335b655d073d66b7c2470e1242496ccf",
+  ".evolve-local/control/recoveries/3019379f-2c0f-4f36-9699-a50e5ab69236/observed-3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+  ".evolve-local/control/recoveries/3019379f-2c0f-4f36-9699-a50e5ab69236/operation.json": "d29465c1dafee6e21afaf8a260a9dfabf2144023939d5c48ea2ae85a9809af15",
+  "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+  "evolve/config.toml": "9a6d4bba784ed2d03b909ac435f0ee6558299ba4d5ef7aeeb07261cb0e7148e9",
+  "evolve/history.db": "01a9ec4615cee1a109806853111ad2f9a4dab8a8e1717a28cbdfc5b9f1c097c8",
+  "evolve/project.md": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782",
+  "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80"
+}

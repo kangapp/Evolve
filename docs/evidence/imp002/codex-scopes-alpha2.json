@@ -1,0 +1,77 @@
+[
+  {
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-03/project",
+    "skills": [
+      {
+        "name": "evolve:evolve-apply",
+        "description": "按已接受的 Evolve 方案及有效修改授权实施和修复，或处理具体授权的数据操作。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-apply/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-archive",
+        "description": "封存已完成的 Evolve 工作，或应用已批准且仍适用的项目知识差异时使用。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-archive/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-init",
+        "description": "用户请求将已有或新项目接入 Evolve，或调整 Evolve 工具配置时使用。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-init/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-learn",
+        "description": "检索、记录和反馈当前项目的 Evolve 经验，处理反例或提议规则／检查改进时使用。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-learn/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-maintain",
+        "description": "查询 Evolve 历史、诊断档案，或按请求导出、取消、备份及恢复时使用。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-maintain/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-propose",
+        "description": "为 Evolve 工作形成短方案或复杂 spec、修订方案，或开展不修改业务的独立调查。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-propose/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-verify",
+        "description": "验收 Evolve 工作成果，执行相关检查、回归和规格／规范两方面审查时使用。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-verify/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      },
+      {
+        "name": "evolve:evolve-workflow",
+        "description": "定位 Evolve 项目工作项、只读状态、下一步与跨会话续接；或分派明确的 Evolve 动作。",
+        "path": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/skills/evolve-workflow/SKILL.md",
+        "scope": "user",
+        "enabled": true,
+        "pluginId": "evolve@evolve-local"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "cwd": "/private/tmp/evolve-imp002-host-workflows-03/other-project",
+    "skills": [],
+    "errors": []
+  }
+]

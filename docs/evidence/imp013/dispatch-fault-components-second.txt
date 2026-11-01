@@ -1,0 +1,8 @@
+test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends (test_external_faults.ExternalFaultTests.test_admitted_but_no_pid_crash_needs_exact_stopping_evidence_and_never_resends) ... ok
+test_registration_crash_before_index_still_survives_older_restore (test_external_faults.ExternalFaultTests.test_registration_crash_before_index_still_survives_older_restore) ... ok
+test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore (test_external_faults.ExternalFaultTests.test_started_sender_survives_owner_exit_and_blocks_reconcile_and_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.801s
+
+OK

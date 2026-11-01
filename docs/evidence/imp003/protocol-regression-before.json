@@ -1,0 +1,52 @@
+{
+  "old_runtime": "/tmp/evolve-imp002-models-final-package-05/runtime/evolve.py",
+  "project_created_by": "alpha.3 development source",
+  "project_protocol": "1",
+  "request_has_symptom_result": false,
+  "exit_code": 0,
+  "response": {
+    "ok": true,
+    "action": "verify",
+    "operation_id": null,
+    "data": {
+      "committed": true,
+      "outcome": "verified",
+      "status": "passed",
+      "verification_id": "93ba90c3-eefa-45f2-9f41-6f0a08a97640",
+      "fingerprint_digest": "44db9df91de535fef6372b95212ca4d1d3ff1547d7aafb1759d340942b86d55b",
+      "change_id": "a6a857bc-86bc-4310-9fdc-7ec59dba33aa",
+      "revision_id": "3a480caa-80a2-486c-90c8-1181358dfe06",
+      "change_state": "active",
+      "versions": {
+        "change": 2,
+        "task": 3
+      },
+      "checks": [
+        {
+          "check_id": "unit",
+          "status": "passed",
+          "returncode": 0,
+          "evidence_id": "6a0f5387-1cba-4644-b280-2f2641423b4f"
+        }
+      ],
+      "unresolved_prior_findings": [],
+      "run_id": "4227087b-4d61-4370-99bb-7a5100a41901",
+      "request_context": {
+        "request_id": "d1eb08d0-7ca3-46d4-a4b2-08bbe3809c55",
+        "project_id": "3cb78b2b-c05c-4ccc-b377-5f340e53132f",
+        "expected_workspace_epoch": "a9d9c64f-c61d-41d9-a10d-1f42d6f1cc45",
+        "expected_versions": {
+          "change": 2,
+          "task": 3
+        }
+      },
+      "input_bindings": {
+        "change_id": "a6a857bc-86bc-4310-9fdc-7ec59dba33aa",
+        "revision_id": "3a480caa-80a2-486c-90c8-1181358dfe06",
+        "definition_digest": "8a3866e50ac2a402fd9a0dbb3daf493c729ecde6c883ff75a0597a684cacd6b5"
+      }
+    },
+    "warnings": []
+  },
+  "finding": "Old protocol-1 alpha.2 accepts a new diagnostic Task without its mandatory symptom reverification."
+}

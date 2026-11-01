@@ -1,0 +1,8 @@
+test_operation_observation_and_cancellation_do_not_require_a_current_work_item (test_external_cli.ExternalCliTests.test_operation_observation_and_cancellation_do_not_require_a_current_work_item) ... ok
+test_public_prepare_exact_receipt_apply_retry_and_independent_checks (test_external_cli.ExternalCliTests.test_public_prepare_exact_receipt_apply_retry_and_independent_checks) ... ok
+test_public_write_without_current_task_is_rejected_before_dispatch (test_external_cli.ExternalCliTests.test_public_write_without_current_task_is_rejected_before_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.749s
+
+OK

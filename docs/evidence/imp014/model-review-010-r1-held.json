@@ -1,0 +1,234 @@
+{
+  "slice": "IMP-014",
+  "status": "held_for_actual_guide_correction_not_final_delivery_gate",
+  "package_digest": "08b5e05611e0881814748844e99364c8da1e5121fd9a507b112ee4b5f6d45258",
+  "codex_completed_sessions": 5,
+  "codex_completed_commands": 75,
+  "codex_parent_checks_passed": true,
+  "actual_guide_finding": "Empty-files normal continuation still requires original business_files scope; actual first request AUTHORIZATION rejection then correct grant from original paused run succeeds without expanding authorization. Versioned package also retained outdated unavailability prose.",
+  "claude_controller_stop": "One propose session completed; owned subsequent sender stopped only for replacing known-stale guide candidate, not quota/permission retry. Actual unfinished state and raw output retained.",
+  "raw_evidence": {
+    "codex": {
+      "archive": "codex-model-010-r1-held-evidence.zip",
+      "sha256": "5907898278473026a7b0e5e98e03fd8488769e2ce27d86b5f173f6ad164d32db",
+      "bytes": 1255588,
+      "files": 289,
+      "skipped_symlinks": [
+        "host-profile/tmp/arg0/codex-arg0ORysrM/apply_patch",
+        "host-profile/tmp/arg0/codex-arg0ORysrM/applypatch",
+        "host-profile/tmp/arg0/codex-arg0ORysrM/codex-execve-wrapper"
+      ],
+      "summary": {
+        "host": "codex",
+        "content_digest": "08b5e05611e0881814748844e99364c8da1e5121fd9a507b112ee4b5f6d45258",
+        "package_version": "0.1.0",
+        "authorization": {
+          "source": "actual human authorization in this chat",
+          "text": "后续都统一授权，不需要再询问我"
+        },
+        "model_requests_sent": true,
+        "automated_checks_passed": true,
+        "review_status": "pending",
+        "passed": false,
+        "cases": [
+          {
+            "case": "inspect",
+            "model_result": {
+              "thread_id": "01a19552-4e59-7cf2-89a1-a0cb17c99fe9",
+              "turn_id": "01a19552-4ee2-7c53-8ce0-b87d8945e4f0",
+              "status": "completed",
+              "model": "gpt-6-astra",
+              "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+            },
+            "parent_observation": {
+              "case": "inspect",
+              "business_files_unchanged": true,
+              "records_created": false
+            }
+          },
+          {
+            "case": "pause",
+            "model_result": {
+              "thread_id": "01a19552-9aa2-7ad2-9f4c-cfe2b3e42479",
+              "turn_id": "01a19552-9ae4-71e3-9974-b67d8167c7fb",
+              "status": "completed",
+              "model": "gpt-6-astra",
+              "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+            },
+            "parent_observation": {
+              "case": "pause",
+              "run_id": "acd4fff3-a3c5-4783-bce6-6ebeb9925ab6",
+              "run_status": "completed",
+              "task_state": "in_progress",
+              "outcome": "partial",
+              "checks": "not_run",
+              "analysis_run": "1963df8a-21dc-4f3b-8190-86256644f89a"
+            }
+          },
+          {
+            "case": "continue",
+            "model_result": {
+              "thread_id": "01a19553-8b8c-7aa2-b114-323718fdd951",
+              "turn_id": "01a19553-8bd5-76c3-b248-f9f0bfda03b3",
+              "status": "completed",
+              "model": "gpt-6-astra",
+              "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+            },
+            "parent_observation": {
+              "case": "continue",
+              "change_id": "c6e8123d-e2c8-4cdb-b04e-a3d3da8cc6ba",
+              "status": "passed",
+              "closed": true,
+              "produced_experiences": [
+                "6b625873-ba09-4875-a675-023599baec2c"
+              ],
+              "pause_run_unchanged": true
+            }
+          },
+          {
+            "case": "similar",
+            "model_result": {
+              "thread_id": "01a19554-7859-7af1-a2c6-f7f8b1cc9e02",
+              "turn_id": "01a19554-78a2-7a53-a45d-832759d51394",
+              "status": "completed",
+              "model": "gpt-6-astra",
+              "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+            },
+            "parent_observation": {
+              "case": "similar",
+              "change_id": "843437e1-c895-456f-bb1b-992fa041351c",
+              "closed": true,
+              "experience_applications": [
+                {
+                  "experience_id": "6b625873-ba09-4875-a675-023599baec2c",
+                  "decision": "adopted",
+                  "feedback": {
+                    "attribution": "observer_assessment_not_inferred_from_task_status",
+                    "basis": "实际采用了计数/求和核对、保留独立字面量预期及同入口复验。新文件 len 改为 sum 后，apply 和 verify 的已登记 unittest 检查均返回0，三条新样例断言保持，原模块字节保持。此结果与建议一致，但源码和原测试本身已足以定位问题，未有对照证据分离经验的增量贡献，故采用效果归因 unknown；不把整单通过归功于引用。",
+                    "committed": true,
+                    "decision_ref": {
+                      "result_digest": "c204d2b2476f7811e7b26026b925c3c886adde02c671a7aa0c3ef0cd86a102d8",
+                      "run_id": "ef1b3e51-86af-46c4-9b71-8d69071dbd20"
+                    },
+                    "experience_ref": {
+                      "result_digest": "9f36f5afad9ec0f51b559ca281a8d2eac56e379fe92722e71574136dcad577a4",
+                      "run_id": "6b625873-ba09-4875-a675-023599baec2c"
+                    },
+                    "kind": "feedback",
+                    "limitations": [
+                      "只观察本项目现有整数列表样例和当前环境。",
+                      "主代理自审，无独立审查或因果对照。",
+                      "原经验保持候选，不晋升正式规则。"
+                    ],
+                    "outcome": "unknown",
+                    "result_source": {
+                      "evidence_ids": [],
+                      "result_digest": "ed5166d63ae430f7262586b86ccbb8929f14218f91431d73d853da0631237df2",
+                      "run_id": "e238cc72-219e-4f27-880d-39b00d48370d"
+                    },
+                    "run_id": "a40a3a2b-a11f-4fe1-a55a-17a6fb26ad83",
+                    "feedback_ref": {
+                      "run_id": "a40a3a2b-a11f-4fe1-a55a-17a6fb26ad83",
+                      "result_digest": "0fc8860540d7fd5bd224ff01310d2b9ab25f97cb8f2c985756cac5f44b6a39ef"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "case": "verify",
+            "model_result": {
+              "thread_id": "01a19555-9038-7c11-9414-74ee94aa3e5c",
+              "turn_id": "01a19555-907e-7913-a3ac-746dc8f909db",
+              "status": "completed",
+              "model": "gpt-6-astra",
+              "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+            },
+            "parent_observation": {
+              "case": "verify",
+              "business_files_unchanged": true,
+              "historical_work_unchanged": true,
+              "new_verifications": [
+                {
+                  "id": "9ec532c7-f2a4-4107-acee-e63b5e598824",
+                  "status": "blocked"
+                }
+              ]
+            }
+          }
+        ],
+        "diagnostic_variant": false,
+        "session_learning_variant": true,
+        "structured_variant": false,
+        "knowledge_variant": false,
+        "prepare_only": false,
+        "expanded_scope_digest": "f301263bb1715476149de6bc81f236abae8b401c06ce77cc5a7a9d3c583d0eea",
+        "verify_missing_tests_variant": false,
+        "registered_installation_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/codex-native-r1/host-profile/installed-source",
+        "host_cache_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/codex-native-r1/host-profile/plugins/cache/evolve-local/evolve/0.1.0"
+      }
+    },
+    "claude": {
+      "archive": "claude-model-010-r1-held-evidence.zip",
+      "sha256": "cc8f7ab1c6c376ea808848ac13b258e9e7fb19ef036897d401110fcb6ad223d3",
+      "bytes": 894601,
+      "files": 210,
+      "skipped_symlinks": [],
+      "summary": {
+        "host": "claude",
+        "content_digest": "08b5e05611e0881814748844e99364c8da1e5121fd9a507b112ee4b5f6d45258",
+        "package_version": "0.1.0",
+        "authorization": {
+          "source": "actual human authorization in this chat",
+          "text": "后续都统一授权，不需要再询问我"
+        },
+        "model_requests_sent": true,
+        "automated_checks_passed": false,
+        "review_status": "pending",
+        "passed": false,
+        "cases": [
+          {
+            "case": "propose",
+            "model_result": {
+              "exit_code": 0
+            },
+            "parent_observation": {
+              "case": "propose",
+              "business_files": [
+                "arithmetic.py",
+                "report.py",
+                "test_arithmetic.py",
+                "test_integration.py",
+                "test_report.py",
+                "test_summary.py"
+              ],
+              "change_id": "044ef3bb-7327-4fe2-9233-620ef89a9e8b",
+              "revision_id": "30d96a1b-3830-40c1-90d0-a578e7931900",
+              "task_states": {
+                "CORE": "todo",
+                "REPORT": "todo"
+              },
+              "original_proof": null,
+              "parent_checks": "passed",
+              "pending_revision_candidate": null,
+              "model_semantic_review": "pending; actual native trace and claims need separate review"
+            }
+          }
+        ],
+        "diagnostic_variant": false,
+        "session_learning_variant": false,
+        "structured_variant": true,
+        "knowledge_variant": false,
+        "prepare_only": false,
+        "expanded_scope_digest": "00c1020739d862d9a48297f24b883fc4ddcd5426e1872d423a5207ce9426243b",
+        "verify_missing_tests_variant": false,
+        "explicit_user_model_choice": "MiniMax-M3.1-Flash",
+        "registered_installation_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/claude-native-r1/business/.agents/evolve-acceptance/installed-source",
+        "host_cache_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r2-ihhxa_k5/claude-native-r1/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0",
+        "error": "Claude run failed; inspect its saved result"
+      }
+    }
+  },
+  "final_retest": "Same fixed files/prompts/effects under corrected frozen r3 package; no runtime Python changes."
+}

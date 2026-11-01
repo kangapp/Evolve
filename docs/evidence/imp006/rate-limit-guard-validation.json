@@ -1,0 +1,81 @@
+{
+  "observed_at": "2026-10-31T19:23:31.210359+00:00",
+  "scope": "IMP-006 controlled model transport; source-only correction, no native redispatch",
+  "model_requests_sent": false,
+  "package_version": "0.1.0-alpha.14",
+  "package_digest_unchanged": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "source_package_inventory_digest_unchanged": "6c7b756199664c910ec22ef5d8dad2899ea627077c2ee550851bc78322da07c3",
+  "actual_failure_review": "claude-model-review-alpha14-r1.json",
+  "red_loop": "rate-limit-guard-red.txt",
+  "original_trace_replay": {
+    "frozen_actual_old_runner": {
+      "event_index": 115,
+      "type": "assistant",
+      "subtype": null,
+      "attempt": null,
+      "error_status": null,
+      "barrier": {
+        "kind": "native_error",
+        "basis": "rate_limit"
+      }
+    },
+    "corrected_source_runner": {
+      "event_index": 105,
+      "type": "system",
+      "subtype": "api_retry",
+      "attempt": 1,
+      "error_status": 429,
+      "barrier": {
+        "kind": "native_error",
+        "basis": {
+          "type": "system",
+          "subtype": "api_retry",
+          "attempt": 1,
+          "max_retries": 10,
+          "retry_delay_ms": 510.61238448483977,
+          "error_status": 429,
+          "error": "rate_limit",
+          "session_id": "3539683a-daaf-4be7-bd5c-8bc23ae1e010",
+          "uuid": "372a95a9-59e6-4eab-8beb-70c2f2b92cbf"
+        }
+      }
+    }
+  },
+  "old_runner_sha256": "73a5b62bf74cd9603ab9a4628a21f86b28b0b16831c713411c9968af81a9f548",
+  "new_runner_sha256": "b62690921e8284de585de819068d668653a9d316777f319a655d277cda6fe2aa",
+  "fix": "Stop the whole controlled native process group at the first system/api_retry carrying HTTP 429, before its own next retry; leave ordinary server-error retries unchanged.",
+  "targeted_tests": {
+    "count": 23,
+    "status": "passed",
+    "command": "python3 -B -m unittest discover -s tests -p test_model_session_acceptance.py -v"
+  },
+  "regression_log": "component-tests-rate-limit-full.txt",
+  "regression_status": "passed",
+  "frozen_controller": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-rate-limit-runner-vor7ntin/frozen-controller",
+  "future_scope_digests": {
+    "codex": "c87cf8526ae8993c569194cdad7de9f4c225954bedec91f745a90eadee9c7278",
+    "claude": "c22bb6db0ab16358270a81ea283b683c30c9e0037e64ad83f2312b81da0f218a"
+  },
+  "controller_archive": {
+    "path": "model-runner-alpha14-rate-limit-fix.zip",
+    "sha256": "f68607800db9467ab268d544ba5e4d8a2b07925b9b404845bbf56eb047de4a0e"
+  },
+  "limitations": [
+    "This is a local replay of captured actual events and fake-process transport tests, not a new native model run or quota restoration.",
+    "Old dispatched controller, raw native retries and model results remain byte-for-byte historical evidence.",
+    "No alternative model/account, permission expansion or automatic retry is authorized by this fix.",
+    "IMP-007 needs a refreshed controller/scope using this guard before any future human-authorized native dispatch; its pending authorization was not answered by the IMP-006 grant."
+  ],
+  "regression_tests": 479,
+  "regression_seconds": 70.029,
+  "documentation_check": {
+    "passed": true,
+    "markdown_files": 30,
+    "local_links": 642
+  },
+  "native_requests_after_quota_stop": 0,
+  "changed_source_sha256": {
+    "scripts/model_acceptance.py": "b62690921e8284de585de819068d668653a9d316777f319a655d277cda6fe2aa",
+    "tests/test_model_session_acceptance.py": "ac9bc7a07d370ce53e992034797ca3c08d0e38e4850f3aa02e0270bce571d553"
+  }
+}

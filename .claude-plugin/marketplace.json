@@ -1,0 +1,16 @@
+{
+  "name": "evolve-local",
+  "owner": {
+    "name": "Evolve maintainers"
+  },
+  "plugins": [
+    {
+      "name": "evolve",
+      "source": "./",
+      "description": "Evolve 单项目工作流"
+    }
+  ],
+  "metadata": {
+    "description": "Evolve 本地／私有工作流插件"
+  }
+}

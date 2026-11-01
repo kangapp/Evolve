@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "package_version": "0.1.0-alpha.6",
+  "content_digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+  "protocol_version": 5,
+  "commands": 20,
+  "checks": 7,
+  "assertions": [
+    "cosmetic revision retains partial source",
+    "whole package moved before fresh continuation",
+    "same task grant continues across proven revision",
+    "independent upstream task verification",
+    "semantic draft blocks implementation",
+    "local definition change preserves upstream result",
+    "semantic revision rejects old whole verification",
+    "concrete scope reduction holds old head",
+    "stale approval rejected",
+    "accepted revision keeps stable task code",
+    "actual final checks and archival",
+    "original independent tests unchanged",
+    "old task rows unchanged",
+    "removed report file retained",
+    "no pending runs or claims"
+  ],
+  "limitations": [
+    "Controlled review inputs are explicit fixture observations; no native host or model session was invoked."
+  ],
+  "parent": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-revision-proof-r0tmmhrv",
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-revision-proof-r0tmmhrv/移动后的 修订整包",
+  "project": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-revision-proof-r0tmmhrv/修订 真实项目"
+}

@@ -1,0 +1,44 @@
+{
+  "slice": "IMP-006",
+  "observed_at": "2026-10-31T18:37:04.218640+00:00",
+  "status": "native_failure_under_runtime_repair",
+  "authorization": {
+    "source": "direct actual human same-scope necessary repair/retest grant",
+    "answer": "授权两个宿主及同范围复验（推荐）",
+    "reason": "Repair missing original V-088 guidance within same seven files/seven sessions and final business assertions; no new effect/model/personal configuration or formal approval."
+  },
+  "package": {
+    "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4",
+    "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/validated-package",
+    "package_version": "0.1.0-alpha.13",
+    "distribution_digest": "83cee98e7e1807e3347690b7fd633463651f519e9d0c34b91af9dfdedfc9efdd",
+    "controller_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/frozen-controller",
+    "scope_digests": {
+      "codex": "c19db884d42a043ef798e7b121443ec0789ede55a008c692124a573e206b01cc",
+      "claude": "adee80d60ee537d22c0f3f1a8e8a050207ee8ff59c681431c0ddce2ba606bd7d"
+    },
+    "controller_archive": "model-runner-alpha13.zip",
+    "controller_sha256": "39ef314677609d187b541cd53f310f0d28774978040482b0076815edf38112ea",
+    "package_archive": "context-package-alpha13.zip",
+    "package_sha256": "2d8024d575110ccddb1c6a801c9442462bbf7ba01eff80cea645829f4c589f82"
+  },
+  "validation": "context-validation-alpha13.json",
+  "hosts": {
+    "codex": {
+      "state": "stopped_parent_check_failure",
+      "scope_digest": "c19db884d42a043ef798e7b121443ec0789ede55a008c692124a573e206b01cc",
+      "session_id": 2793,
+      "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/codex-execution-r1",
+      "dispatched_at_recorded": "2026-10-31T18:37:48.146994+00:00",
+      "model_requests_sent": true,
+      "terminal_exit_code": 1,
+      "review": "codex-model-review-alpha13-r1.json"
+    },
+    "claude": {
+      "state": "prepared_deferred_runtime_fixes",
+      "scope_digest": "adee80d60ee537d22c0f3f1a8e8a050207ee8ff59c681431c0ddce2ba606bd7d"
+    }
+  },
+  "model_requests_sent": true,
+  "passed": false
+}

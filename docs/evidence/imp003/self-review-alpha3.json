@@ -1,0 +1,40 @@
+{
+  "slice": "IMP-003",
+  "observer": "Current Codex agent self-review; not independent agent review",
+  "spec": {
+    "status": "implemented_local_host_gate_incomplete",
+    "reviewed_requirements": [
+      "Immediate answer does not initialize; recorded analysis does not create a business Change",
+      "Local source bytes, actual observations and external references have separate provenance and limits",
+      "Completed run does not imply answered/root confirmed; partial and unknown timestamps are preserved",
+      "Sequential previous chain is protected against concurrent branching; original results and later corrections remain visible",
+      "Only current active parent scope/identity and unrevoked authority are accepted",
+      "Interrupted analysis retains draft input and raw evidence without invented completion",
+      "Authorized repair binds immutable investigation and original criterion; real current verification remains mandatory",
+      "Same-REV repair references actual required findings and preserves the original criterion",
+      "Old writers cannot ignore the new mandatory semantics: real alpha.2 before/after protocol rejection verified"
+    ],
+    "evidence": [
+      "runtime-validation-alpha3.json",
+      "protocol-regression-before.json",
+      "protocol-regression-after.json",
+      "hosts-alpha3.json",
+      "model-review-alpha3.json",
+      "claude-model-quota-alpha3-r2.json"
+    ],
+    "missing": "Claude native model scenarios: both attempts rejected for provider quota before any tool call, including the explicitly selected MiniMax-M3.1-Flash"
+  },
+  "standards": {
+    "status": "passed_for_current_local_code",
+    "reviewed_constraints": [
+      "Single shared/runtime implementation and eight existing Skills; analyze owner remains evolve-propose",
+      "Python standard library only; no new external service or analysis-domain table",
+      "Protocol v2 honestly records a breaking semantic boundary; schema v1 retained; no implicit migration or archive replacement",
+      "No business writes or command execution in analyze; real checks and business changes remain in existing owners",
+      "Pure queries use temporary SQLite snapshots; no metadata writes, indexing or guard repair",
+      "Only controlled fixtures/profiles used; no publishing, deployment, personal configuration write or nested agents"
+    ],
+    "scope_limit": "This is a current-code review, not proof that M1 or all 14 slices are complete"
+  },
+  "stage_decision": "IMP-003 stays in_progress. No IMP-004 implementation or M2 work before the remaining gate is satisfied."
+}

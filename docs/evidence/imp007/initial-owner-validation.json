@@ -1,0 +1,81 @@
+{
+  "slice": "IMP-007",
+  "status": "in_progress",
+  "observed_at": "2026-10-31T17:00:50.521816+00:00",
+  "completed_subflow": "Actual init-owned initial required formal documents, shared checked decisions and application protocol, sequential init/sync same-file Task delivery and actual target acceptance.",
+  "package_version": "0.1.0-alpha.10",
+  "protocol_version": 8,
+  "schema_version": 3,
+  "source_digest": "25e562b42fc022b832aa9e0109fd0d38f33ecf5fd570fc6d6ab11173d57f4586",
+  "distribution_digest": "aab23c603db5c71c1c58efb79df181d0db0b4c42e2990b2371f330e2e7da4199",
+  "files": 57,
+  "available_methods": 24,
+  "full_regression": {
+    "tests": 415,
+    "seconds": 53.409,
+    "passed": true,
+    "raw": "component-tests-initial-owner-full.txt"
+  },
+  "initial_owner_regression": {
+    "tests": 13,
+    "seconds": 1.329,
+    "passed": true,
+    "raw": "component-tests-initial-owner.txt"
+  },
+  "public_cli": {
+    "commands": 24,
+    "assertions": 18,
+    "passed": true,
+    "summary": "initial-owner-cli-proof.json",
+    "trace": "initial-owner-cli-trace.zip"
+  },
+  "package_archive": {
+    "path": "initial-owner-package-alpha10.zip",
+    "sha256": "80f32af99ecfd76b96f6debaae0254884ff5d9c49a448db5e4208a0b44ba0d2a"
+  },
+  "reproduced_and_fixed": [
+    {
+      "kind": "runtime defect",
+      "raw": "component-tests-initial-owner-stale-before.txt",
+      "failures": 1,
+      "reason": "A legacy initial candidate could overwrite formal authority established after its presentation if registration retained exactly the original bytes. Both typed and legacy applications now check that initial authority is still absent before writing; old receipt idempotency remains."
+    }
+  ],
+  "review": {
+    "observer": "current Codex self-review",
+    "independent_native_review": false,
+    "spec": [
+      "Actual owner action/method and proposal owner match for each application; sync records init candidate checks/decisions without becoming its file writer.",
+      "Absent target digest is null and empty-file digest is distinct; existing unmapped files may become formal without changing their bytes.",
+      "Required initial Task gets only real application outputs; fresh Task and whole verification are independently required before archive.",
+      "Sequential initial narrow edits and later actual sync baseline preserve original approval/application and Task acceptance across a complete-package move.",
+      "Typed initial candidates cannot downgrade to legacy inline approvals; competing initial candidates cannot replace established authority even when bytes match.",
+      "Actual metadata exit57 and file exit56 recover original facts without re-running checks or duplicating application.",
+      "Preserved complete alpha9 writer rejects the new schema without changing project database."
+    ],
+    "standards": [
+      "Only two actual owner adapters share existing proposal/application/journal/version mechanisms; no new public method, batch platform or Skill.",
+      "Schema3/protocol8 fence required initial Task semantics and nullable initial baseline facts; no implicit migration or manual protocol edits.",
+      "Init and propose Skills conditionally point to the shared formal guide; user installation/use/version instructions match the complete package.",
+      "No native model, personal host configuration, external message or publication in this subflow."
+    ]
+  },
+  "checks": {
+    "source_inventory": "passed",
+    "design_documents": "passed",
+    "init_skill": "passed",
+    "propose_skill": "passed"
+  },
+  "remaining": [
+    "Learn rule owner and corresponding required delivery/same-file integration.",
+    "External formal-version adoption and explicit archived A/deferred versus B replacement integration.",
+    "Preparation and authorization of native formal-knowledge acceptance; arithmetic-only approval is not reused.",
+    "IMP-006 Claude native permission gate remains unresolved."
+  ],
+  "limitations": [
+    "All new semantic observations are controlled fixtures, not native model review.",
+    "Cross-owner evidence is sequential init of an existing unmapped document with narrow edits, followed by sync on its actual formal version. Projected pre-init sync proposals and Learn are not covered.",
+    "Whole-body initial effects remain conservative across later changes; narrow-scope preservation does not prove all domain semantics.",
+    "IMP-007 and M2 remain incomplete."
+  ]
+}

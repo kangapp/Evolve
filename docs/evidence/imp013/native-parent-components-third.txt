@@ -1,0 +1,7 @@
+test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models (test_model_external_acceptance.ExternalAcceptanceScopeTests.test_real_six_parent_boundaries_and_readonly_tamper_rejection_without_models) ... ok
+test_six_session_scope_and_missing_approval_cannot_dispatch (test_model_external_acceptance.ExternalAcceptanceScopeTests.test_six_session_scope_and_missing_approval_cannot_dispatch) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 3.084s
+
+OK

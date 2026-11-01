@@ -1,0 +1,14 @@
+{
+  "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-native-model-alpha15-r2-yetjz_4f",
+  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-frozen-alpha15-7p0tb8tc/package",
+  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp008-frozen-alpha15-7p0tb8tc/controller-r2",
+  "scope_digest": "49ab709879c248c9d1125727fe2be0b1a6ad16f8cb046cead8d5c81931f820aa",
+  "host": "codex",
+  "status": "controller_completed",
+  "exit_code": 0,
+  "stage_acceptance": {
+    "status": "passed_current_codex_scope",
+    "record": "stage-gate-codex-alpha15.json",
+    "raw_native_summary_unchanged": true
+  }
+}

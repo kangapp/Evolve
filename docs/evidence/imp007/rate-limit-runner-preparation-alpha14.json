@@ -1,0 +1,65 @@
+{
+  "slice": "IMP-007",
+  "observed_at": "2026-10-31T19:25:15.054967+00:00",
+  "status": "preflight_passed_awaiting_human_authorization_and_model_availability",
+  "package_version": "0.1.0-alpha.14",
+  "package_digest_unchanged": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "model_requests_sent": false,
+  "new_host_profile_created": false,
+  "previous_preparation": "model-runner-preparation-alpha14.json",
+  "only_changed_controller_file": "model_acceptance.py",
+  "controller_sha256": "b62690921e8284de585de819068d668653a9d316777f319a655d277cda6fe2aa",
+  "invariants": "Exact four initial files, nine case prompts, formal approval/defer texts, model selection, effects and limits compare equal; only model_acceptance.py hash and resulting scope digests differ.",
+  "hosts": {
+    "codex": {
+      "scope_digest": "f0b384bd558f90e7042fbbc13a31c32f202689604d55ff992d66bcae8e5cb20e",
+      "preflight": "codex-model-preflight-alpha14-rate-limit-fix.json",
+      "model_requests_sent": false,
+      "new_host_installation": false,
+      "existing_installation_integrity_rechecked": {
+        "registered_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+        "cache_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34"
+      },
+      "four_original_files_unchanged": true,
+      "business_state": "not_connected"
+    },
+    "claude": {
+      "scope_digest": "6a56f7af4da39afce4c655b33125fa0012e2e9b76058f792e85ee6511c80ecea",
+      "preflight": "claude-model-preflight-alpha14-rate-limit-fix.json",
+      "model_requests_sent": false,
+      "new_host_installation": false,
+      "existing_installation_integrity_rechecked": {
+        "registered_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+        "cache_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34"
+      },
+      "four_original_files_unchanged": true,
+      "business_state": "not_connected"
+    }
+  },
+  "scope_digests": {
+    "codex": "f0b384bd558f90e7042fbbc13a31c32f202689604d55ff992d66bcae8e5cb20e",
+    "claude": "6a56f7af4da39afce4c655b33125fa0012e2e9b76058f792e85ee6511c80ecea"
+  },
+  "controller_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-rate-limit-preflight-tovgnron/frozen-controller",
+  "controller_archive": {
+    "path": "model-runner-alpha14-rate-limit-fix.zip",
+    "sha256": "9cbf0a3349d31ceb6e1d73e5b9a07efe75e889f030b69162b2adf248e4caf6c6"
+  },
+  "shared_regression": {
+    "record": "../imp006/rate-limit-guard-validation.json",
+    "tests": 479,
+    "passed": true,
+    "new_test_run_in_this_preflight": false
+  },
+  "authorization": {
+    "state": "pending",
+    "actual_new_reply_received": false,
+    "arithmetic_seven_session_grant_applies": false
+  },
+  "model_availability": "Last actual Claude native run stopped on MiniMax Token Plan 429/2056; no new quota probe or model request.",
+  "limitations": [
+    "Preflight and existing-installation integrity do not constitute native semantic acceptance.",
+    "No claim that quota recovered or this knowledge scope was authorized.",
+    "Old frozen controller, scopes, plan and dispatch state are retained as history."
+  ]
+}

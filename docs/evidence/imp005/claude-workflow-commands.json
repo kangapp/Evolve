@@ -1,0 +1,458 @@
+[
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "09dc1c0e-d7c8-461d-b3a0-f4108acecc08",
+      "data": {
+        "committed": true,
+        "outcome": "connected",
+        "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+        "workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe",
+        "operation_id": "09dc1c0e-d7c8-461d-b3a0-f4108acecc08",
+        "formal_baseline": "not_proposed",
+        "run_id": "42487383-ab73-43da-8b93-639ff16c4092",
+        "request_context": {
+          "request_id": "aa41582c-ef61-44b5-a58d-9a020b98cab3",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "config_candidate",
+        "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+        "workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe",
+        "candidate": "config_version = 1\n[project]\nid = \"0cc6c20a-9d28-4a91-8ca2-a4869150fd71\"\nname = \"claude-business\"\nlanguage = \"zh-CN\"\n[history]\nbackend = \"sqlite\"\ndatabase = \"evolve/history.db\"\n[paths]\nlocal = \".evolve-local\"\n[context]\ndefault = \"adaptive\"\n[verification]\npolicy = \"impact\"\n\n[[verification.checks]]\nid = \"arithmetic-unit\"\nargv = [\"/Users/liufukang/.local/bin/python3\", \"-B\", \"-m\", \"unittest\", \"discover\", \"-v\"]\ncwd = \".\"\ntimeout = 15\n\n# Controlled fixture extension\n[fixture_extension]\nvalue = \"preserve these bytes\"\n\n[[verification.checks]]\nid = \"configured-only\"\nargv = [\"/Users/liufukang/.local/bin/python3\", \"-c\", \"from pathlib import Path; Path(\\\".evolve-local/unexpected-check\\\").write_text(\\\"unexpected\\\")\"]\ncwd = \".\"\ntimeout = 60\n",
+        "candidate_digest": "be5db54b220f3f8ba44bf65e91711a8bac1ef14e2dfaf1c2fa6edf5bb414dccc",
+        "expected_config_digest": "fe19b23f2ba988438b904d493f3844d599eccce012f5bb41be93edb34f825031",
+        "configuration_changed": false,
+        "run_id": "d32b7948-489e-4796-a467-b24771e0c845",
+        "request_context": {
+          "request_id": "c1ebdc91-ce65-475c-8652-d3de55569122",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "9134126b-e71f-4e42-888a-dc0d4d6dac7f",
+      "data": {
+        "committed": true,
+        "outcome": "configuration_updated",
+        "artifact": {
+          "entity_type": "artifact_version",
+          "entity_id": "2fa2edee-ebea-40fb-83ec-6a29a1f0f07e",
+          "digest": "be5db54b220f3f8ba44bf65e91711a8bac1ef14e2dfaf1c2fa6edf5bb414dccc"
+        },
+        "operation_id": "9134126b-e71f-4e42-888a-dc0d4d6dac7f",
+        "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+        "workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe",
+        "configuration_changed": true,
+        "checks_run": false,
+        "run_id": "1e6622da-fd86-4c45-b9ca-cd4edd4e10d7",
+        "request_context": {
+          "request_id": "8e63d90c-2b24-4bd5-bb17-8ba94c7e5692",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "propose",
+      "--owner",
+      "evolve-propose",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "propose",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "planned",
+        "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+        "change_code": "CHG-20261031-119bd20c",
+        "revision_id": "051e7433-01c5-4bba-9282-f0fd6b674b5f",
+        "revision": 1,
+        "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447",
+        "plan_digest": "b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60",
+        "task_id": "e939b189-715b-4993-b21c-e78db3e1834b",
+        "task_version": 1,
+        "change_version": 1,
+        "acceptance": [
+          {
+            "id": "AC-001",
+            "text": "8 and 3 total 11",
+            "required": true
+          },
+          {
+            "id": "AC-002",
+            "text": "Empty input totals 0",
+            "required": true
+          },
+          {
+            "id": "AC-003",
+            "text": "-4 and 3 total -1",
+            "required": true
+          }
+        ],
+        "plan_ref": {
+          "entity_type": "artifact_version",
+          "entity_id": "6ee7765d-73f8-49cd-bb91-905d3896f869",
+          "digest": "b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60"
+        },
+        "accepted": false,
+        "run_id": "ebd83ba0-0c69-4dda-8fcc-f8ce1d8eb761",
+        "request_context": {
+          "request_id": "37c0e95b-bc18-4586-a8cf-2678f19f0538",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "apply",
+      "--owner",
+      "evolve-apply",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "apply",
+      "operation_id": "8a0150e8-5b32-491e-b2ed-6ef2a53654a9",
+      "data": {
+        "committed": true,
+        "outcome": "implemented",
+        "operation_id": "8a0150e8-5b32-491e-b2ed-6ef2a53654a9",
+        "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+        "revision_id": "051e7433-01c5-4bba-9282-f0fd6b674b5f",
+        "task_id": "e939b189-715b-4993-b21c-e78db3e1834b",
+        "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447",
+        "fingerprint": {
+          "files": {
+            "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80"
+          },
+          "scope": {
+            "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+            "test_arithmetic.py": "647b900b9b425ff10ca2d2bb58b7fb1e3da47bee7bb834c8d91f0f7d92f76d80"
+          },
+          "checks": [
+            {
+              "argv": [
+                "/Users/liufukang/.local/bin/python3",
+                "-B",
+                "-m",
+                "unittest",
+                "discover",
+                "-v"
+              ],
+              "cwd": ".",
+              "id": "arithmetic-unit",
+              "timeout": 15
+            }
+          ],
+          "digest": "6157a17b1d41110c0b8f9a853f5b3d8a4505b7c5495784c9f7f633747cef75e5"
+        },
+        "versions": {
+          "change": 2,
+          "task": 3
+        },
+        "task_checks": [
+          {
+            "check_id": "arithmetic-unit",
+            "status": "passed",
+            "returncode": 0,
+            "evidence_id": "4b0b8779-dec3-4091-a349-f3873dee3a29"
+          }
+        ],
+        "overall_verification": "not_run",
+        "run_id": "3e4cb3d1-29e8-4003-9253-dc9a43bd1455",
+        "request_context": {
+          "request_id": "3b362320-4388-4a74-889a-6a22125cb94a",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe",
+          "expected_versions": {
+            "change": 1,
+            "task": 1
+          }
+        },
+        "input_bindings": {
+          "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+          "revision_id": "051e7433-01c5-4bba-9282-f0fd6b674b5f",
+          "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447",
+          "accepted_plan_digest": "b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60"
+        }
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "verify",
+      "--owner",
+      "evolve-verify",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "verify",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "verified",
+        "status": "passed",
+        "verification_id": "3eadcff1-5f86-4b3c-8dd9-f6484bb07de8",
+        "fingerprint_digest": "6157a17b1d41110c0b8f9a853f5b3d8a4505b7c5495784c9f7f633747cef75e5",
+        "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+        "revision_id": "051e7433-01c5-4bba-9282-f0fd6b674b5f",
+        "change_state": "active",
+        "versions": {
+          "change": 2,
+          "task": 3
+        },
+        "checks": [
+          {
+            "check_id": "arithmetic-unit",
+            "status": "passed",
+            "returncode": 0,
+            "evidence_id": "e2761c66-f310-476a-91ee-d836a74ea365"
+          }
+        ],
+        "unresolved_prior_findings": [],
+        "run_id": "b78945e0-ee34-4440-a614-0f1fed4efdf7",
+        "request_context": {
+          "request_id": "8c5936c5-90b8-45f3-98e7-fa264b51b057",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe",
+          "expected_versions": {
+            "change": 2,
+            "task": 3
+          }
+        },
+        "input_bindings": {
+          "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+          "revision_id": "051e7433-01c5-4bba-9282-f0fd6b674b5f",
+          "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447"
+        }
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "archive",
+      "--owner",
+      "evolve-archive",
+      "--request",
+      "-"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "archive",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "archived",
+        "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+        "verification_id": "3eadcff1-5f86-4b3c-8dd9-f6484bb07de8",
+        "completion_fingerprint": "6157a17b1d41110c0b8f9a853f5b3d8a4505b7c5495784c9f7f633747cef75e5",
+        "knowledge": "not_proposed",
+        "knowledge_scope": "project",
+        "pending_knowledge": [],
+        "versions": {
+          "change": 3,
+          "task": 3
+        },
+        "run_id": "0560cc92-371c-4131-8eaa-b0433f156fdf",
+        "request_context": {
+          "request_id": "21a79188-a781-426b-94c1-5529608f03c8",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe",
+          "expected_versions": {
+            "change": 2,
+            "task": 3
+          }
+        },
+        "input_bindings": {
+          "change_id": "119bd20c-7054-4a32-aa85-0edb4b70f120",
+          "revision_id": "051e7433-01c5-4bba-9282-f0fd6b674b5f",
+          "definition_digest": "43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447"
+        }
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-",
+      "--method",
+      "baseline.propose"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": null,
+      "data": {
+        "committed": true,
+        "outcome": "baseline_proposed",
+        "proposal_id": "5333887b-3b8f-4fd1-a11a-b18a4c301c97",
+        "proposal_version": 1,
+        "candidate_digest": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782",
+        "expected_digest": null,
+        "path": "evolve/project.md",
+        "applied": false,
+        "run_id": "6706184a-cbed-4d43-91c5-71ba63771ff7",
+        "request_context": {
+          "request_id": "ae08bc2c-4a8d-4054-a6b2-feb94816fd94",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-03/安装 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-03/claude-business",
+      "init",
+      "--owner",
+      "evolve-init",
+      "--request",
+      "-",
+      "--method",
+      "baseline.apply"
+    ],
+    "exit_code": 0,
+    "response": {
+      "ok": true,
+      "action": "init",
+      "operation_id": "04bfae4f-9ff1-4099-8e26-bf0517da21cd",
+      "data": {
+        "committed": true,
+        "outcome": "baseline_applied",
+        "proposal_id": "5333887b-3b8f-4fd1-a11a-b18a4c301c97",
+        "operation_id": "04bfae4f-9ff1-4099-8e26-bf0517da21cd",
+        "artifact": {
+          "entity_type": "artifact_version",
+          "entity_id": "c47a0a6e-05ef-4260-8d69-fce6a941c559",
+          "digest": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782"
+        },
+        "actual_digest": "578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782",
+        "run_id": "3786cc88-1127-4b77-9afe-a105532c1017",
+        "request_context": {
+          "request_id": "f72bf66f-9c45-4f5d-8b02-e5c1c3844962",
+          "project_id": "0cc6c20a-9d28-4a91-8ca2-a4869150fd71",
+          "expected_workspace_epoch": "9a6f8e70-1d30-4660-9d12-dbb23bfb4bfe"
+        },
+        "input_bindings": {}
+      },
+      "warnings": []
+    },
+    "stderr": ""
+  }
+]

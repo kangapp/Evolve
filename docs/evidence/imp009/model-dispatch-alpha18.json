@@ -1,0 +1,14 @@
+{
+  "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-native-model-alpha18-qau97wpa",
+  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha18-g67fxgul/package",
+  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha18-g67fxgul/controller",
+  "scope_digest": "c014d0276e9e17c5beb8c155cf3ed3f356e12e1f02c6c906b682a3fba2156891",
+  "content_digest": "a4e7dca7b6a63cef556bca903a514c2013a3adcdfc84181bd3388992b0a4163f",
+  "host": "codex",
+  "status": "passed_current_codex_scope",
+  "same_scope_retest_of": "model-dispatch-alpha17.json",
+  "authorization": "model-authorization-alpha16.json",
+  "fix_validation": "runtime-fix-validation-alpha18.json",
+  "exit_code": 0,
+  "review": "codex-model-review-alpha18-r1.json"
+}

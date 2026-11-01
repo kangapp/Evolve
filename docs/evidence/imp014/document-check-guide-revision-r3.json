@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "markdown_files": 50,
+    "local_links": 831,
+    "parsed_config_examples": 2,
+    "G_definitions": 13,
+    "NG_definitions": 10,
+    "V_definitions": 140,
+    "D_definitions": 26,
+    "P_definitions": 19,
+    "OQ_definitions": 10,
+    "skill_owners": 8,
+    "top_level_actions": 14,
+    "implementation_slices": 14,
+    "implementation_dependencies": 22,
+    "svg_text_nodes": 345,
+    "svg_diagrams": 17,
+    "snapshot_files": 83,
+    "snapshot_archives": 3,
+    "python_sources_parsed": 3
+  },
+  "errors": []
+}

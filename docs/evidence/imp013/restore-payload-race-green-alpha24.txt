@@ -1,0 +1,6 @@
+test_archive_database_changed_after_validation_is_not_installed (test_maintenance.MaintenanceTests.test_archive_database_changed_after_validation_is_not_installed) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.378s
+
+OK

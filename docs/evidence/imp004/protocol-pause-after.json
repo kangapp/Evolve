@@ -1,0 +1,38 @@
+{
+  "old_package_version": "0.1.0-alpha.3",
+  "old_protocol": 2,
+  "current_package_version": "0.1.0-alpha.4",
+  "current_protocol": 3,
+  "schema_version": 1,
+  "evidence_kind": "Actual old preserved complete runtime against protocol-3 project, no mock or relabel",
+  "argv": [
+    "/Users/liufukang/.local/bin/python3",
+    "-B",
+    "/tmp/evolve-imp003-package-01-removed-download/runtime/evolve.py",
+    "--project",
+    "/tmp/evolve-imp004-protocol-after-01/business",
+    "apply",
+    "--request",
+    "-"
+  ],
+  "exit_code": 2,
+  "response": {
+    "ok": false,
+    "action": "apply",
+    "operation_id": null,
+    "data": {
+      "committed": false
+    },
+    "warnings": [],
+    "error": {
+      "code": "SCHEMA_VERSION",
+      "message": "History schema or protocol is unsupported; no migration attempted",
+      "next_steps": []
+    }
+  },
+  "project_files_unchanged": true,
+  "task_state": "todo",
+  "phase_run_count": 2,
+  "before_regression": "protocol-pause-before.json",
+  "new_pause_behavior_tests": "tests/test_resume.py"
+}

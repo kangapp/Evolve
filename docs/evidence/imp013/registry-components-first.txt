@@ -1,0 +1,8 @@
+test_actual_candidate_capsule_is_immutable_and_protection_remains_minimal (test_external_registry.ExternalRegistryTests.test_actual_candidate_capsule_is_immutable_and_protection_remains_minimal) ... ok
+test_actual_sender_group_blocks_and_unknown_launch_needs_exact_stopping_evidence (test_external_registry.ExternalRegistryTests.test_actual_sender_group_blocks_and_unknown_launch_needs_exact_stopping_evidence) ... ok
+test_capsule_paths_digest_and_index_epoch_or_third_values_do_not_get_repaired (test_external_registry.ExternalRegistryTests.test_capsule_paths_digest_and_index_epoch_or_third_values_do_not_get_repaired) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.072s
+
+OK

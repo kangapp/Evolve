@@ -1,0 +1,628 @@
+{
+  "slice": "IMP-008",
+  "scope": "Specific SQL/data/relationship/export branches; no whole global V pass or formal production data execution claim.",
+  "package_version": "0.1.0-alpha.15",
+  "package_digest": "6b5725c8202f5ac1f02d5b8b322efb83572f64d37d0645ddf9806468bda1534a",
+  "regression_log": "component-tests-alpha15-r3.txt",
+  "regression_tests": 499,
+  "public_cli": "functional-validation-alpha15.json",
+  "source_snapshot": {
+    "path": "acceptance-test-sources-alpha15.zip",
+    "sha256": "2e233e5ceef295911a20e2ba374959829f12e52219e3264ce52d35c427473d8f"
+  },
+  "requirements": [
+    {
+      "requirement": "V-048",
+      "statement": "结论强度 事实／假设／未知分开；completed＋partial 不表示根因定位；解释与因果证明有不同标准。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_unknown_data_fields_require_partial_answer_and_explicit_limits",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_recorded_investigation_has_no_business_change_and_completed_does_not_mean_answered",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "lineage"
+      ]
+    },
+    {
+      "requirement": "V-049",
+      "statement": "分析续接 标题按主题链折叠；显式历史 RUN 显示快照与头；明确续查另 run，不串修复链。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_continuation_preserves_old_result_and_rejects_an_old_head",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_current_report_folds_the_chain_and_history_keeps_later_correction_visible",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "repair",
+        "lineage"
+      ]
+    },
+    {
+      "requirement": "V-050",
+      "statement": "分析证据 可无 VER／AC／TASK；保留来源时点；图文可再生成，必需底稿纳入备份。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_data_and_relationships_are_saved_without_work_items_or_business_changes",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_export_uses_saved_facts_after_source_deletion_without_moving_analysis_head",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "lineage",
+        "reexport"
+      ]
+    },
+    {
+      "requirement": "V-051",
+      "statement": "转修复 调查结束不隐含修改；提出方案后等待明确执行确认；新成果重新验收。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_diagnostic_workflow.py",
+          "case": "DiagnosticWorkflowTests.test_investigation_does_not_grant_modification_and_original_red_is_retained_after_closure",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "repair"
+      ]
+    },
+    {
+      "requirement": "V-052",
+      "statement": "分析中断 事件及时提交，恢复只登记已发生范围，不补造复现或结论；后继继续业务只读。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_real_controller_exit_keeps_analysis_input_and_recovery_does_not_invent_a_conclusion",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "component_regression_only_not_exercised_by_this_native_scope",
+      "whole_requirement_passed": false,
+      "native_cases": []
+    },
+    {
+      "requirement": "V-053",
+      "statement": "最小接入 需要留档且无库可说明后最小接入；不搭应用或造正式规格；缺能力不能声称保存。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_connect.py",
+          "case": "ConnectionTests.test_connection_only_creates_records_not_formal_knowledge_or_business_files",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate"
+      ]
+    },
+    {
+      "requirement": "V-054",
+      "statement": "接入覆盖 统一增量 init 记录覆盖和缺口；撤去 records_only／development profile，不把配置存在当开发就绪，也不把梳理深度做成初始化模式。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_configuration.py",
+          "case": "ConfigurationTests.test_new_check_is_presented_before_application_and_retains_unknown_bytes",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "component_regression_only_not_exercised_by_this_native_scope",
+      "whole_requirement_passed": false,
+      "native_cases": []
+    },
+    {
+      "requirement": "V-055",
+      "statement": "父阶段边界 当前授权阶段内排查可沿父 run；已结束后独立调查另建；用户收窄后不继续越界。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_only_the_still_active_parent_execution_can_supply_phase_context",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "component_regression_only_not_exercised_by_this_native_scope",
+      "whole_requirement_passed": false,
+      "native_cases": []
+    },
+    {
+      "requirement": "V-056",
+      "statement": "分析链并发 同主题同头只允许一个后继；不同主题可并存；恢复 interrupted 仍是分析 previous 身份。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_two_real_processes_cannot_branch_the_same_observed_head",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_equal_questions_in_different_topics_require_a_stable_target",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "lineage"
+      ]
+    },
+    {
+      "requirement": "V-057",
+      "statement": "来源用途 历史上下文与当前依据分开；必需依据失效阻碍相关判断，局部发现后续纠正可见。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_changed_local_data_cannot_be_used_as_the_old_repair_basis",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_historical_export_includes_recorded_correction_without_replacing_old_facts",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "verify"
+      ]
+    },
+    {
+      "requirement": "V-058",
+      "statement": "修复归属 匹配已有活动 CHG 按意图复用；同一分析可支持不同修复；不自动接受新重大方案。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_diagnostic_workflow.py",
+          "case": "DiagnosticWorkflowTests.test_investigation_does_not_grant_modification_and_original_red_is_retained_after_closure",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "repair"
+      ]
+    },
+    {
+      "requirement": "V-059",
+      "statement": "留档意图 后补记录用实际时间；不留档不删除历史；禁止继续写入时不偷偷 finish；导出不重分析。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_answer_only_is_a_real_read_only_query_without_initialization",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_cli_export_does_not_load_business_status_for_identity_binding",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "reexport"
+      ]
+    },
+    {
+      "requirement": "V-061",
+      "statement": "视图与建议 导出失败只影响视图；导出不移动分析头；next 和 resume 不直接启动修改。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_output_conflict_and_failure_do_not_change_analysis_or_overwrite_views",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_export_uses_saved_facts_after_source_deletion_without_moving_analysis_head",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "reexport"
+      ]
+    },
+    {
+      "requirement": "V-072",
+      "statement": "通用成果 应用／数据共用模型，分析共用 run；不加平台专属表、Skill 或工作流。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_sql_workflow.py",
+          "case": "SQLWorkflowTests.test_real_sql_fix_reconciles_original_literals_and_archives_without_formal_data_execution",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_data_and_relationships_are_saved_without_work_items_or_business_changes",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "repair",
+        "lineage"
+      ]
+    },
+    {
+      "requirement": "V-073",
+      "statement": "按需模板 最小上下文完整，数据字段只在需要时补；普通应用无需填无关字段或生成空文件。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_unknown_data_fields_require_partial_answer_and_explicit_limits",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_recorded_investigation_has_no_business_change_and_completed_does_not_mean_answered",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate"
+      ]
+    },
+    {
+      "requirement": "V-074",
+      "statement": "数据开发 SQL／模型有方案、任务、对账和证据；只完成脚本不声称正式补数已执行。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_sql_workflow.py",
+          "case": "SQLWorkflowTests.test_real_sql_fix_reconciles_original_literals_and_archives_without_formal_data_execution",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "repair"
+      ]
+    },
+    {
+      "requirement": "V-075",
+      "statement": "数据调查 日期与资料时点保留；新范围新观察；没有修改授权不改数据或正式知识。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_expanding_business_dates_cannot_relabel_old_source_coverage",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_local_drift_and_external_unknown_are_reported_without_new_observations",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "verify"
+      ]
+    },
+    {
+      "requirement": "V-076",
+      "statement": "血缘展示 观察关系保留直接依据、推断和覆盖；图与报告同源，不冒充全局完整生产血缘。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_relationship_claims_need_real_refs_and_bounded_inference",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_export_uses_saved_facts_after_source_deletion_without_moving_analysis_head",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "lineage",
+        "reexport"
+      ]
+    },
+    {
+      "requirement": "V-077",
+      "statement": "成果泛化 代码／SQL／文件按实际范围检查；有限观察不关闭全量 AC；档案恢复不恢复真实数据。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_sql_workflow.py",
+          "case": "SQLWorkflowTests.test_later_data_change_adds_failed_verification_without_reopening_archived_sql_work",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "verify"
+      ]
+    },
+    {
+      "requirement": "V-078",
+      "statement": "意图分流 数据／文档／血缘关键词不决定动作；来源内容不扩大授权，仅排版重导归维护。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_data_and_relationships_are_saved_without_work_items_or_business_changes",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_cli_export_does_not_load_business_status_for_identity_binding",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "lineage",
+        "reexport"
+      ]
+    },
+    {
+      "requirement": "V-079",
+      "statement": "知识职责 init 初次基线、propose／sync 正式业务含义、learn 规则；统一具体批准，不借补齐越权。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_sql_workflow.py",
+          "case": "SQLWorkflowTests.test_real_sql_fix_reconciles_original_literals_and_archives_without_formal_data_execution",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "repair"
+      ]
+    },
+    {
+      "requirement": "V-080",
+      "statement": "最小来源 对象、范围、来源、完成标准与限制可识别；记录时间不冒充观察时间，不猜缺失日期。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_unknown_data_fields_require_partial_answer_and_explicit_limits",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_historical_external_observation_does_not_invent_time_or_self_execution",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "lineage"
+      ]
+    },
+    {
+      "requirement": "V-081",
+      "statement": "成果与依据 外部证据核对象／版本／方法／范围／观察者，未亲自执行可采纳但不冒充自测。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_historical_external_observation_does_not_invent_time_or_self_execution",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_relationship_claims_need_real_refs_and_bounded_inference",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "lineage"
+      ]
+    },
+    {
+      "requirement": "V-082",
+      "statement": "封存与导出 底稿先保存，导出独立 run 只引用；视图失败不否认已提交，不用重导修改事实。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_output_conflict_and_failure_do_not_change_analysis_or_overwrite_views",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_real_export_exit_is_recovered_without_rewriting_the_completed_view",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "lineage",
+        "reexport"
+      ]
+    },
+    {
+      "requirement": "V-083",
+      "statement": "续接时效 同主题扩日期保留旧范围；未核外部时效标未知，旧结果作为当前依据需重查。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_expanding_business_dates_cannot_relabel_old_source_coverage",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_changed_local_data_cannot_be_used_as_the_old_repair_basis",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_local_drift_and_external_unknown_are_reported_without_new_observations",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "verify"
+      ]
+    },
+    {
+      "requirement": "V-084",
+      "statement": "分析转修复 纠正结论用后继分析、排版用 export、改实现／正式含义用方案；终态 Change 不重开。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_data_reports.py",
+          "case": "DataReportTests.test_historical_export_includes_recorded_correction_without_replacing_old_facts",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_sql_workflow.py",
+          "case": "SQLWorkflowTests.test_later_data_change_adds_failed_verification_without_reopening_archived_sql_work",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "lineage",
+        "reexport",
+        "verify"
+      ]
+    },
+    {
+      "requirement": "V-129",
+      "statement": "症状判据前后复验 方法能捕捉用户异常且预期有独立来源；保存真实修复前后证据，配置／输入变化解释可比性，不能删断言或降预期换通过。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_sql_workflow.py",
+          "case": "SQLWorkflowTests.test_real_sql_fix_reconciles_original_literals_and_archives_without_formal_data_execution",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_diagnostic_workflow.py",
+          "case": "DiagnosticWorkflowTests.test_changing_or_omitting_the_original_check_cannot_silently_change_the_criterion",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "codex_current_branch_reviewed",
+      "whole_requirement_passed": false,
+      "native_cases": [
+        "investigate",
+        "repair",
+        "verify"
+      ]
+    },
+    {
+      "requirement": "V-130",
+      "statement": "无法复现与偶发问题 保留实际尝试、来源、触发条件、次数及失败数；缺 red 不补造，一次未复现不证明根除；调查缺权限不擅加生产探针或持久测试。",
+      "component_status": "referenced_assertions_passed",
+      "tests": [
+        {
+          "file": "tests/test_diagnostic_workflow.py",
+          "case": "DiagnosticWorkflowTests.test_missing_red_or_one_intermittent_absence_must_keep_its_limitations",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        },
+        {
+          "file": "tests/test_analysis.py",
+          "case": "InvestigationTests.test_zero_observed_failures_cannot_be_promoted_to_reproduced",
+          "result": "passed in component-tests-alpha15-r3.txt"
+        }
+      ],
+      "native_status": "component_regression_only_not_exercised_by_this_native_scope",
+      "whole_requirement_passed": false,
+      "native_cases": []
+    }
+  ],
+  "stage_acceptance": {
+    "slice": "IMP-008",
+    "status": "passed_current_codex_scope",
+    "package_version": "0.1.0-alpha.15",
+    "package_digest": "6b5725c8202f5ac1f02d5b8b322efb83572f64d37d0645ddf9806468bda1534a",
+    "policy": "../acceptance-host-policy-20261101.json",
+    "authorization": "model-authorization-alpha15.json",
+    "regression": {
+      "tests": 499,
+      "log": "component-tests-alpha15-r3.txt",
+      "passed": true
+    },
+    "public_cli": {
+      "commands": 15,
+      "evidence": "functional-validation-alpha15.json",
+      "passed": true
+    },
+    "native": {
+      "fresh_sessions": 5,
+      "commands": 61,
+      "review": "codex-model-review-alpha15-r2.json",
+      "passed": true
+    },
+    "Claude": "deferred_by_user_not_dispatched",
+    "formal_data_execution": "unavailable_not_claimed",
+    "other_stages": "IMP-009/010/011 and M3 remain unfinished; no global V or full-project pass claim."
+  }
+}

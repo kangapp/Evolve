@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "old_package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha21-e7cowf8u/package",
+  "new_package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r4-mku29_z_/package",
+  "commands": 8,
+  "actual_old_protocol": 14,
+  "actual_new_protocol": 16,
+  "explicit_upgrade": {
+    "committed": true,
+    "outcome": "upgraded",
+    "project_id": "550e6c6d-4df1-49da-94ee-1644bf7ae99b",
+    "workspace_epoch": "8caaf334-0f94-4e89-b050-f64f77e4ee2a",
+    "old_epoch": "b10bba78-cc99-456e-9de2-413481475346",
+    "plan_id": "5f0b706d-3d76-46ec-9dae-8a2e86c10f48",
+    "protection": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r4-mku29_z_/compatibility-alpha21/project/.evolve-local/control/restores/5f0b706d-3d76-46ec-9dae-8a2e86c10f48/protection",
+    "quarantined_managed": [],
+    "external_pending": 0,
+    "external_coverage": "unverified",
+    "business_data_restored": false,
+    "commands_replayed": false,
+    "checks_run": false,
+    "request_context": {
+      "request_id": "explicit-old-to-new-upgrade",
+      "project_id": "550e6c6d-4df1-49da-94ee-1644bf7ae99b",
+      "expected_workspace_epoch": "b10bba78-cc99-456e-9de2-413481475346"
+    },
+    "input_bindings": {}
+  },
+  "ordinary_init_no_migration": true,
+  "incompatible_requests_preserve_all_bytes": true,
+  "model_requests_sent": false
+}

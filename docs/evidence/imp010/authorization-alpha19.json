@@ -1,0 +1,10 @@
+{
+  "source": "actual human reply in this chat",
+  "question_id": "call_553ff52fd0df4d8f9a2d9cfde8430dc9",
+  "answer": "授权 Codex、上述具体决定及同范围必要复验（推荐）",
+  "scope_digest": "9521202f24d8d21824d8a72d4f50effb84fd8e0221435ba1fea51e31b7d988e8",
+  "plan": "docs/evidence/imp010/model-acceptance-plan.md",
+  "host": "codex",
+  "claude": "deferred_by_user",
+  "recorded_at": "2026-11-01T01:11:29.874618+00:00"
+}

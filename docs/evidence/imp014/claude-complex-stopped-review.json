@@ -1,0 +1,17 @@
+{
+  "status": "stopped_not_passed",
+  "first_stop": "Noninteractive AskUserQuestion unavailable; candidate safely remained unapproved",
+  "next_turn_permission_stop": "Actual compound Bash rg request required approval and referenced package-external host tool-result file. Denied operation is not retried or read by alternative means.",
+  "old_raw_summaries_unchanged": true,
+  "old_projects_not_resumed_again": true,
+  "new_retest": "New independent full seven-case current R4 fixture, same business/approval criteria, project-local CLI receipts and narrower headless tool use; no permission guard relaxation.",
+  "facts": "claude-complex-held-runtime-facts.json",
+  "archive": "claude-complex-r3-stopped-evidence.zip",
+  "sha256": "87e09e0a09eb939ceae06fa2ad67c9456f11d2b7bdf2ae4c1420f52953ca39d9",
+  "bytes": 2161345,
+  "files": 276,
+  "skipped_symlinks": [],
+  "current_old_change_state": "active",
+  "live_runs": 0,
+  "claims": 0
+}

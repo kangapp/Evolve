@@ -1,0 +1,98 @@
+{
+  "slice": "IMP-013",
+  "status": "held_after_late_source_authority_red_and_native_scope_conflict",
+  "package_version": "0.1.0-alpha.24",
+  "protocol_version": 16,
+  "schema_version": 4,
+  "resources": 80,
+  "source_digest": "8daa8949bc84ee6e1ccfc5fe644a1c61ed1d73f163265361ebb8d134ff4b2981",
+  "package_digest": "ebe4bb163e3c92f60149414d2bd1ee0ac77aa956c663d8aaca4ed3f217dddb7e",
+  "full_regression": {
+    "count": 631,
+    "seconds": 138.843,
+    "log": "component-tests-alpha24-final.txt",
+    "does_not_cover_later_new_failing_source_conflict_test": true
+  },
+  "external_focused": {
+    "count": 70,
+    "seconds": 11.308,
+    "log": "external-final-components-alpha24.txt",
+    "overlaps_full_regression": true
+  },
+  "public_frozen": {
+    "commands": 21,
+    "cases": 6,
+    "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp013-frozen-alpha24-avhouh0j/public-cli",
+    "controlled_review_only_not_native": true
+  },
+  "actual_old_packages": [
+    {
+      "version": "alpha.21",
+      "protocol": 14,
+      "commands": 8,
+      "log": "actual-alpha21-to-frozen-alpha24.txt"
+    },
+    {
+      "version": "alpha.23",
+      "protocol": 15,
+      "commands": 8,
+      "log": "actual-alpha23-to-frozen-alpha24.txt"
+    }
+  ],
+  "isolated_install": {
+    "hosts": [
+      "codex",
+      "claude"
+    ],
+    "model_requests_sent": false,
+    "digest_matches_frozen": true,
+    "evidence": "/tmp/evolve-imp013-host-install-alpha24-first/summary.json"
+  },
+  "skill_checks": 8,
+  "native_gate": {
+    "slice": "IMP-013",
+    "package_version": "0.1.0-alpha.24",
+    "status": "held_not_passed",
+    "actual_fresh_sessions": 5,
+    "completed_parent_cases": [
+      "seed",
+      "unknown",
+      "reconcile",
+      "compensate"
+    ],
+    "native_parent_failure": {
+      "type": "AssertionError",
+      "message": "Confirmed ended effects remain unresolved"
+    },
+    "case_not_dispatched": [
+      "current_verify"
+    ],
+    "semantic_gate": "not_passed",
+    "actual_native_reason": "Model correctly stopped before reconcile because the controller prompt forbade new backups, but new-epoch first-write automatic protection is required. Repair the controller to prohibit extra manual backup while retaining automatic protection; never disable required protection.",
+    "late_kernel_red": {
+      "log": "capsule-authority-conflict-red-alpha24.txt",
+      "probe": "capsule-authority-conflict-probe-alpha24.json",
+      "actual_failure": "Self-consistent altered protection capsule overrode the available operation source, recording actual19 as succeeded against the approved20; claims were incorrectly released."
+    },
+    "raw_archive": {
+      "path": "codex-model-alpha24-r1-evidence.zip",
+      "sha256": "d57ae6aed697d35e2c381300cce60e201e2d3bd07f016fca688d4a3701aef118",
+      "bytes": 1326955,
+      "files": 321,
+      "skipped_symlinks": [
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0v5xhWa/apply_patch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0v5xhWa/applypatch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0v5xhWa/codex-execve-wrapper"
+      ]
+    },
+    "no_original_failure_overwrite": true,
+    "model_default": "gpt-6-astra",
+    "next": "alpha.25 source/reference fix and clarified exact six-session controlled retest under existing uniform authorization"
+  },
+  "limitations": [
+    "Controlled finite synchronous project Python/SQLite only, no real production validation",
+    "No remote provider, arbitrary dynamic closure or detached/delayed work",
+    "No implicit business-target rebinding after project move",
+    "External editors/provider writers are outside the local tool lock"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "unavailable_by_user_report",
+  "source": "Actual send_user_message_question_reply in current chat",
+  "question_item": "request_user_input_async / call_6ff7fc3d409943659382298d91885e2f / 0",
+  "answer": "没有",
+  "scope": "Native Windows machine/VM or accessible actual acceptance evidence",
+  "native_windows_test": "not_run",
+  "decision": "Do not infer a waiver of V-137 or permission to enter M2. Continue independent M1 model work; no repeated environment question or automatic provisioning.",
+  "feasibility_observation": {
+    "host": "Darwin arm64",
+    "memory_bytes": 51539607552,
+    "cpu_count": 15,
+    "workspace_disk_free_bytes": 695491170304,
+    "purpose": "Read-only resource feasibility; no download, installation or VM created",
+    "proposal": "windows-vm-proposal.md",
+    "license_available": "not_confirmed",
+    "vm_creation_authorized": false
+  },
+  "vm_decision": {
+    "source": "Actual human reply in this chat",
+    "question_item": "request_user_input_async / call_ed39f6b8c017412f83a77d455c589fc4 / 0",
+    "answer": "暂不创建，保留 Windows 未验收门槛（推荐）",
+    "effect": "Do not provision/download/create VM; native Windows remains not_run; no waiver of V-137 or M1 gate"
+  }
+}

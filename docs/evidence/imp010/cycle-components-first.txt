@@ -1,0 +1,8 @@
+test_counterexample_reaches_rule_and_pending_plan_without_rewriting (test_learning_cycle.LearningCycleTests.test_counterexample_reaches_rule_and_pending_plan_without_rewriting) ... ok
+test_independent_guard_requires_real_extra_coverage_and_original_literals (test_learning_cycle.LearningCycleTests.test_independent_guard_requires_real_extra_coverage_and_original_literals) ... ok
+test_old_actual_green_cannot_clear_a_new_input_domain_counterexample (test_learning_cycle.LearningCycleTests.test_old_actual_green_cannot_clear_a_new_input_domain_counterexample) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.184s
+
+OK

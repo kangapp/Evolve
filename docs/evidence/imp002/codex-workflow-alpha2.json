@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "runtime": "/private/tmp/evolve-imp002-host-workflows-03/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.2/runtime/evolve.py",
+  "project": "/private/tmp/evolve-imp002-host-workflows-03/codex-business",
+  "project_id": "774a4d25-445b-4705-af5a-51c70a7bd645",
+  "change_id": "73184aec-285a-4a0a-a744-791d25461bb9",
+  "original_test_exit_code": 1,
+  "task_check_status": "passed",
+  "verification_status": "passed",
+  "completion_outcome": "archived",
+  "formal_baseline": "baseline_applied",
+  "incremental_configuration": "configuration_updated",
+  "unrequested_check_executed": false,
+  "model_requests_sent": false,
+  "review_inputs": "controlled fixture observations, not independent model review",
+  "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad"
+}

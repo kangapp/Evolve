@@ -1,0 +1,11 @@
+{
+  "status": "exact_frozen_runtime_artifact_prepared_final_native_gate_pending",
+  "runtime_directory": "dist/evolve-0.1.0",
+  "runtime_archive": "dist/evolve-0.1.0.zip",
+  "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+  "files": 84,
+  "archive_sha256": "67717278accfa584c456a785e3200be91ac7df44b86b119450c953fcd82024bf",
+  "archive_bytes": 272365,
+  "all_archived_bytes_match_frozen_package": true,
+  "publication": false
+}

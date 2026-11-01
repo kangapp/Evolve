@@ -1,0 +1,1442 @@
+{
+  "host": "codex",
+  "run": "alpha14-r1",
+  "observed_at": "2026-10-31T23:00:33.497799+00:00",
+  "status": "passed_current_host_scope",
+  "passed": true,
+  "controller_exit_code": 0,
+  "native_model": "gpt-6-astra",
+  "selection_basis": "Actual model/list isDefault; nine distinct fresh native conversations.",
+  "package_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "scope_digest": "f0b384bd558f90e7042fbbc13a31c32f202689604d55ff992d66bcae8e5cb20e",
+  "controller_archive": {
+    "path": "model-runner-alpha14-rate-limit-fix.zip",
+    "sha256": "9cbf0a3349d31ceb6e1d73e5b9a07efe75e889f030b69162b2adf248e4caf6c6"
+  },
+  "authorization": "model-authorization-alpha14.json",
+  "native_command_items": 152,
+  "native_approval_or_input_requests": [],
+  "cases": [
+    {
+      "case": "baseline",
+      "thread_id": "01a19428-2dac-7ab2-b117-fa36fa0e5664",
+      "turn_id": "01a19428-2e2e-78e1-b9ab-e8e99d9e2a50",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已完成 Evolve 接入及初次正式文档交付，工作项 `CHG-20261031-48f231e1` 已封存。\n\n- 短方案已保存：`responsible_action=init`，scope 仅 `guide.md`。\n- 已完成结构化候选、实际内容检查、具体批准、init 实际应用及 verify 目标验收，验收通过。\n- `guide.md` 原文、空行和末尾换行全部保留。\n- `policy_a`、`policy_b` 已按指定 argv 和项目根 cwd 登记，未运行。\n- `policy.py` 和两个测试文件未修改。",
+      "command_count": 24
+    },
+    {
+      "case": "deliver_a",
+      "thread_id": "01a19429-0205-7f01-9200-78a451887546",
+      "turn_id": "01a19429-0242-7b53-91d4-903b5e2bbe36",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 保存并登记接受完整方案“标签 A 与正式约定”：`CHG-20261031-8e90b9ba`。\n\n- CODE 已完成：仅将 `policy.py` 改为 `POLICY = \"A\"`；原 `policy_a` 先失败，修改后通过，单独 Task 验收也通过。\n- 已记录候选经验“标签交付核查”，原因标记为 `observed`，保留真实证据、项目范围与局限，不声称因果收益。\n- SPEC、RULES 均未实施；`guide.md` 和原测试未变，`policy_b` 未运行。\n- 未创建或批准正式知识候选，未整体验收或封存 Change。",
+      "command_count": 17
+    },
+    {
+      "case": "candidates",
+      "thread_id": "01a19429-f6ff-7561-ba95-a2d116f1efc6",
+      "turn_id": "01a19429-f74d-7b20-9c8f-41fd54b1815b",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已保存并实际检查三项候选，明确登记为同一批次：\n\n| 候选 | 主题 | 交付绑定 | 内容检查 |\n|---|---|---|---|\n| KP-002 | policy-spec-a | required，SPEC / AC-004 | passed |\n| KP-003 | label-review-rule | required，RULES / AC-005 | passed |\n| KP-004 | policy-note | followup，A Change | passed |\n\n三项均保存完整正文、具体判据、原 UTF-8 字节范围及不同 semantic_target，基于同一真实初次正式版本。实现验收及经验状态、反例和限定范围已绑定。\n\n三项仍为 `proposed`，无批准、无应用；后续说明留待以后集中决定。`guide.md`、业务代码和测试字节均未改变，无未收尾运行。上述通过仅指候选内容检查，不代表实际目标或任务验收通过。",
+      "command_count": 9
+    },
+    {
+      "case": "decisions",
+      "thread_id": "01a1942a-b555-7a53-852b-5e9c4df800a6",
+      "turn_id": "01a1942a-b596-7a80-94cd-1da36ad8030b",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已保存明确三项批次，逐项绑定本轮真实决定及档案中的版本、基线、内容摘要和检查记录：\n\n- **policy-spec-a v1**：批准“待定→A”的狭义差异。\n- **label-review-rule v1**：批准指定审查约定的狭义差异。\n- **policy-note v1**：延期，原因“稍后再决定说明”。\n\n记录运行：`c263915f-6f8d-40bb-ac34-78d6ab116301`。\n\n未改变候选含义，未写正式文件，未实施、验收或封存。",
+      "command_count": 13
+    },
+    {
+      "case": "finish_a",
+      "thread_id": "01a1942b-0cfb-7bc1-a955-5199b8bb9bb7",
+      "turn_id": "01a1942b-0d3c-73f0-9b3c-d0706d16d880",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "“标签 A 与正式约定”已真实通过并封存。\n\n- SPEC 经 sync 应用并单独验收；RULES 经 learn 沿真实应用链组合，保留标签 A。\n- 两项应用后验收、必需 Task 及整项双维验收通过；policy_a 实际退出码为 0。\n- CODE 原成果、经验、具体批准及应用来源均保留；policy-note 仍延期。\n- 具名观察如实登记为当前助手自审，无未决运行。\n\n整项 VER：`4e9f3163-db88-40f4-9dc3-2b1170f005ea`。",
+      "command_count": 25
+    },
+    {
+      "case": "adopt_external",
+      "thread_id": "01a1942b-f60e-7313-8d49-90e23325c98c",
+      "turn_id": "01a1942b-f64f-7872-b038-41b4d3705239",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 完成采纳并封存 `CHG-20261031-9d79e51a`。\n\n- 已呈现原正式全文与实际外部全文；KP-005 绑定原版本、摘要、实际观察及 Task／AC-006、AC-007。\n- 仅登记既有外部字节，未重写 guide.md，修改时间保持不变。\n- 目标内容验收、整体验收及 `policy_a` 均通过。\n- 旧 A、规则及原决定保持；policy-note 仍为延期，未隐式批准。\n- 无待恢复运行。",
+      "command_count": 19
+    },
+    {
+      "case": "deliver_b",
+      "thread_id": "01a1942c-e68e-71e3-bb3f-c5365fe00828",
+      "turn_id": "01a1942c-e6cf-70e2-9bb1-6687a91fd289",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已完成：\n\n- 新建“标签 B”，仅将 `policy.py` 改为 `POLICY = \"B\"`。\n- 预置 `policy_b` 实际通过，新的规格／规范双维自审验收通过；两个测试未改，未冒用 A 历史结果。\n- 新候选 `KP-006 v2`（`policy-note`）已保存并检查通过，关联 B Change 及真实验收，准确声明两个独立 edits。\n- 旧 `KP-004` 已建立后继关系，原文与延期决定保留。\n\n新候选未批准、未应用；`guide.md` 保持原样，B 未封存。",
+      "command_count": 15
+    },
+    {
+      "case": "finish_b",
+      "thread_id": "01a1942d-ba81-7d03-9dcb-682766e77223",
+      "turn_id": "01a1942d-bac9-7590-b456-057375ecb538",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已完成同步、验收并封存 B。\n\n- KP-006 第 2 版已绑定原正式基线和本次批准，由 `sync` 应用；实际文档验收通过。\n- 正式文档仅修改 A→B 标签并追加“后续说明：标签 B。”；规则、外部范围及其他原字节保持。\n- 文档变更后重新核对现场，`policy_b` 实际执行通过，取得新的整体验收 `749b2ba5-5905-4f88-9418-7f303b65e4e6`，B 已封存。\n- 已查询 A 的旧说明及后继关系：KP-004 的延期决定和 A 的历史通过均保留，旧标签 A 说明未恢复、未批准、未应用。",
+      "command_count": 19
+    },
+    {
+      "case": "verify",
+      "thread_id": "01a1942e-723a-74e2-9e89-a2e6912ce8bc",
+      "turn_id": "01a1942e-727f-7460-8f24-e8ccbff54b4f",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "parent_checks": "passed",
+      "final_claim": "已通过 Evolve 为最后 B policy-note（KP-006 v2）的实际 application 追加验收 `2194a9ed-cea9-4186-a9e4-85acc1c9c3ab`，结果为 **blocked**。\n\n- **历史结果**：原应用与原 passed 验收完整保留；全部 4 个工作项仍为 archived，6 个任务仍为 done。\n- **当前不确认**：“外部范围”变为未经批准的“未知范围”，`preserve` 判据为 **failed**，当前正式全文为 **unconfirmed**。旧源代码判据通过不代表当前全文已确认。\n- **下一步**：需另行明确授权恢复已批准内容，或具体审阅、批准并按 Evolve 协议采纳外部全文，之后重新验收。\n\n本次未修复或采纳外部内容，未修改业务／测试，未运行代码测试；无待收尾运行。",
+      "command_count": 11
+    }
+  ],
+  "actual_state": {
+    "integrity": [
+      {
+        "integrity_check": "ok"
+      }
+    ],
+    "changes": [
+      {
+        "id": "48f231e1-59b3-494f-aa71-7804b3cf3ff6",
+        "code": "CHG-20261031-48f231e1",
+        "state": "archived",
+        "current_revision": "bac584ed-922a-4e53-a371-2d9f0201975e"
+      },
+      {
+        "id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "code": "CHG-20261031-8e90b9ba",
+        "state": "archived",
+        "current_revision": "5e7afc13-0289-4c97-b4ee-ff4b055c609e"
+      },
+      {
+        "id": "9d79e51a-5c85-4608-ba20-ba30747c4a97",
+        "code": "CHG-20261031-9d79e51a",
+        "state": "archived",
+        "current_revision": "e8544843-87ed-41d0-bdab-0d5f746e132d"
+      },
+      {
+        "id": "a71cc1d2-352d-4af3-9754-4491f415b6cd",
+        "code": "CHG-20261031-a71cc1d2",
+        "state": "archived",
+        "current_revision": "3403d28b-91a3-49c5-aa20-058fcbb1aa21"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "6dfc7ad9-461b-4124-81c4-80aa35015361",
+        "change_id": "48f231e1-59b3-494f-aa71-7804b3cf3ff6",
+        "state": "done"
+      },
+      {
+        "id": "c152cecc-238d-4373-9cab-511a5acebbc6",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "state": "done"
+      },
+      {
+        "id": "01a62c24-b0ed-41a5-983f-7212144fd483",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "state": "done"
+      },
+      {
+        "id": "bcf65aec-a0e8-46db-a086-17d7fc2bc873",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "state": "done"
+      },
+      {
+        "id": "6c7bc8a7-7b85-41f1-87b0-09dc76b062dc",
+        "change_id": "9d79e51a-5c85-4608-ba20-ba30747c4a97",
+        "state": "done"
+      },
+      {
+        "id": "31f06ff5-91df-4b43-a45c-c5ae548720f6",
+        "change_id": "a71cc1d2-352d-4af3-9754-4491f415b6cd",
+        "state": "done"
+      }
+    ],
+    "proposals": [
+      {
+        "id": "3e9f7b08-9247-43bc-aad1-bb82d5dec0ca",
+        "version": 1,
+        "owner_skill": "evolve-init",
+        "target_kind": "baseline",
+        "target_path": "guide.md",
+        "state": "approved",
+        "approved_event_id": "a696e303-0e45-493c-b828-5c960fac0cee",
+        "applied_operation_id": "f2737985-fa5a-4ee8-b9dc-c2ed9539c6de"
+      },
+      {
+        "id": "ee82472d-a37d-43e1-a101-4f53542c0ba6",
+        "version": 1,
+        "owner_skill": "evolve-archive",
+        "target_kind": "spec",
+        "target_path": "guide.md",
+        "state": "approved",
+        "approved_event_id": "4b2a946a-052b-4f24-bb64-1b73d6f017ff",
+        "applied_operation_id": "29beacee-1c5b-414e-a32e-02f888a51b46"
+      },
+      {
+        "id": "78a70b8e-df6f-4679-b669-a11152c48129",
+        "version": 1,
+        "owner_skill": "evolve-learn",
+        "target_kind": "rule",
+        "target_path": "guide.md",
+        "state": "approved",
+        "approved_event_id": "42d427e8-20bc-4cfa-8c95-fbc035f7c21f",
+        "applied_operation_id": "06e1e4a3-27fe-45c5-825b-c85170f26a7e"
+      },
+      {
+        "id": "7cbfcbc8-507c-4c07-81d6-58f050591593",
+        "version": 1,
+        "owner_skill": "evolve-archive",
+        "target_kind": "spec",
+        "target_path": "guide.md",
+        "state": "superseded",
+        "approved_event_id": null,
+        "applied_operation_id": null
+      },
+      {
+        "id": "afce8ce1-902a-4c72-ae74-ade585773d50",
+        "version": 1,
+        "owner_skill": "evolve-archive",
+        "target_kind": "spec",
+        "target_path": "guide.md",
+        "state": "approved",
+        "approved_event_id": "81efdeea-80e1-4880-a386-9c936ddfced1",
+        "applied_operation_id": "0799865e-2413-4f0f-8105-6c2f8ccb148a"
+      },
+      {
+        "id": "a26fccac-67e5-455f-a093-f87a31e0c121",
+        "version": 2,
+        "owner_skill": "evolve-archive",
+        "target_kind": "spec",
+        "target_path": "guide.md",
+        "state": "approved",
+        "approved_event_id": "a611e8dc-62f4-472d-98a8-cea57e67b0d3",
+        "applied_operation_id": "f2c233e0-3755-4e52-b831-8bbf1745fbaa"
+      }
+    ],
+    "applications": [
+      {
+        "id": "cb80e982-a730-4220-a014-e4cd72de8cae",
+        "delta_id": "d538ace4-9947-4e3a-812a-05f70c3e6a9f",
+        "proposal_id": "3e9f7b08-9247-43bc-aad1-bb82d5dec0ca",
+        "proposal_version": 1,
+        "approved_event_id": "a696e303-0e45-493c-b828-5c960fac0cee",
+        "candidate_check_run_id": "5a5ad3a7-02b9-41d6-ab6a-0b69bdcb7bcd",
+        "baseline_digest": "dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8",
+        "result_digest": "dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8",
+        "artifact_version_id": "f4e49c09-7658-4437-90cf-003b7b3387d8",
+        "operation_id": "f2737985-fa5a-4ee8-b9dc-c2ed9539c6de",
+        "source_run_id": "3c545950-daf4-4648-8816-93a8ad51650f",
+        "verification_id": "0c72a1ea-7fef-4772-9389-e888d588636b"
+      },
+      {
+        "id": "56e83ec2-d417-42c3-b98d-98b38e9061a6",
+        "delta_id": "10cd3334-dc4a-49f9-9537-66b861cb1da3",
+        "proposal_id": "ee82472d-a37d-43e1-a101-4f53542c0ba6",
+        "proposal_version": 1,
+        "approved_event_id": "4b2a946a-052b-4f24-bb64-1b73d6f017ff",
+        "candidate_check_run_id": "6583c93c-1734-4a7e-831d-d3291328e818",
+        "baseline_digest": "dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8",
+        "result_digest": "d99e985c64a3e4195b3a3dbe80d2a6cd3afc6d6a1eb60a77bcce320eb18f0814",
+        "artifact_version_id": "b59aa1fa-1571-471e-b5ad-65cb760ddf46",
+        "operation_id": "29beacee-1c5b-414e-a32e-02f888a51b46",
+        "source_run_id": "d22e62d0-86bc-487a-a9e8-c12681d4a1ac",
+        "verification_id": "4e9f3163-db88-40f4-9dc3-2b1170f005ea"
+      },
+      {
+        "id": "34802bb9-854b-4625-bbdc-6811073bed41",
+        "delta_id": "e77bde05-9b96-4586-9c69-aac64f52b216",
+        "proposal_id": "78a70b8e-df6f-4679-b669-a11152c48129",
+        "proposal_version": 1,
+        "approved_event_id": "42d427e8-20bc-4cfa-8c95-fbc035f7c21f",
+        "candidate_check_run_id": "4172a919-aabb-4756-9f67-7604cd12dd9f",
+        "baseline_digest": "d99e985c64a3e4195b3a3dbe80d2a6cd3afc6d6a1eb60a77bcce320eb18f0814",
+        "result_digest": "b1f310b5908ac87e3d5d6a7121f8a0856b3f7d40685b51a61840e20e622bc2a7",
+        "artifact_version_id": "8d66ec37-f8df-4c2a-b821-32b1d7a9bcf0",
+        "operation_id": "06e1e4a3-27fe-45c5-825b-c85170f26a7e",
+        "source_run_id": "d8f8ecaa-7bf4-4bdd-bf13-41dc7881e29e",
+        "verification_id": "4e9f3163-db88-40f4-9dc3-2b1170f005ea"
+      },
+      {
+        "id": "1f1ece94-3650-4907-8db0-8997d85c10c1",
+        "delta_id": "d170aa38-d89b-47b2-a275-540ccd3ab119",
+        "proposal_id": "afce8ce1-902a-4c72-ae74-ade585773d50",
+        "proposal_version": 1,
+        "approved_event_id": "81efdeea-80e1-4880-a386-9c936ddfced1",
+        "candidate_check_run_id": "9b4957a4-88fc-4234-9260-f4197b2c9c6c",
+        "baseline_digest": "622b283136c4174ef8174002f09dfe7e055399edc25dd22d2692719b0ee43179",
+        "result_digest": "622b283136c4174ef8174002f09dfe7e055399edc25dd22d2692719b0ee43179",
+        "artifact_version_id": "3d5a21f3-c0eb-4ff0-a833-0366600b1bba",
+        "operation_id": "0799865e-2413-4f0f-8105-6c2f8ccb148a",
+        "source_run_id": "3004ef97-04b5-4237-968c-e223db4e1836",
+        "verification_id": "7bba520c-64fd-477f-997a-172addd81baa"
+      },
+      {
+        "id": "add88ffa-7d71-4350-8750-15634b1a627e",
+        "delta_id": "a3eaf4e4-a9a8-4cfb-a269-a65f0f9dfd97",
+        "proposal_id": "a26fccac-67e5-455f-a093-f87a31e0c121",
+        "proposal_version": 2,
+        "approved_event_id": "a611e8dc-62f4-472d-98a8-cea57e67b0d3",
+        "candidate_check_run_id": "10061e12-2d62-41c9-8a7e-f200e7d5d74d",
+        "baseline_digest": "622b283136c4174ef8174002f09dfe7e055399edc25dd22d2692719b0ee43179",
+        "result_digest": "54d7e4639b5a549b2de4f75d7888a3dd184931b95c0c655db4bc77b7835bc4d8",
+        "artifact_version_id": "bccaf50f-0561-4d35-bdba-d06bdc01fdc0",
+        "operation_id": "f2c233e0-3755-4e52-b831-8bbf1745fbaa",
+        "source_run_id": "832c5da7-091d-4ff3-8807-92904fc68ad7",
+        "verification_id": "2194a9ed-cea9-4186-a9e4-85acc1c9c3ab"
+      }
+    ],
+    "verifications": [
+      {
+        "id": "0c72a1ea-7fef-4772-9389-e888d588636b",
+        "change_id": "48f231e1-59b3-494f-aa71-7804b3cf3ff6",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "4bd744f0-0b2b-42ae-bc67-fab793827ef1"
+      },
+      {
+        "id": "33bcc30c-5d17-47af-9531-51d5fc17a579",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "14bb3bc7-a3fd-4a95-b5a1-60c12e3379ed"
+      },
+      {
+        "id": "450de04c-8036-4eed-b1e7-ff52df4e8f48",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "ac6e89db-2bc4-43d0-a8ce-ca3bb1256ba4"
+      },
+      {
+        "id": "f7f1e83f-44ec-4280-84ab-f880b6249ba5",
+        "change_id": null,
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "265071b3-ebe6-4101-ae7c-a8f1d1734c0c"
+      },
+      {
+        "id": "a6feebd7-d2b4-4c6d-8342-ab702c785235",
+        "change_id": null,
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "393f86cd-f666-43b9-8d96-2b45143aff53"
+      },
+      {
+        "id": "853b2c5f-0035-42c9-ba5f-3f65a67fc103",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "d80120f3-d1c0-4931-8376-1f5a377a717d"
+      },
+      {
+        "id": "4e9f3163-db88-40f4-9dc3-2b1170f005ea",
+        "change_id": "8e90b9ba-f8cb-4d3b-9689-053eb0a6cf0c",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "a3637313-b9a7-4469-a9eb-a7763f7ef520"
+      },
+      {
+        "id": "4851ce3f-c71f-40de-8582-ebd18c79aab5",
+        "change_id": null,
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "8c2af7ae-cd78-490d-831e-39e1c271b4f2"
+      },
+      {
+        "id": "7bba520c-64fd-477f-997a-172addd81baa",
+        "change_id": "9d79e51a-5c85-4608-ba20-ba30747c4a97",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "8d48eea6-078a-4e83-b786-ef98f9069e84"
+      },
+      {
+        "id": "5259005a-4ef1-4846-8018-e31136be464f",
+        "change_id": "a71cc1d2-352d-4af3-9754-4491f415b6cd",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "59ff9d33-7513-4fa1-a54b-b49b61aee120"
+      },
+      {
+        "id": "72e0a159-e22e-4d53-88f2-1b4d266da8c9",
+        "change_id": null,
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "d102c64e-840f-4324-9871-aac5d18c4354"
+      },
+      {
+        "id": "749b2ba5-5905-4f88-9418-7f303b65e4e6",
+        "change_id": "a71cc1d2-352d-4af3-9754-4491f415b6cd",
+        "subject_kind": "applied",
+        "status": "passed",
+        "source_run_id": "761d9ea3-6d88-40c9-a2f0-2bf291b3681c"
+      },
+      {
+        "id": "2194a9ed-cea9-4186-a9e4-85acc1c9c3ab",
+        "change_id": null,
+        "subject_kind": "applied",
+        "status": "blocked",
+        "source_run_id": "f0855517-7b9e-48c2-9002-6bde02e3cb0f"
+      }
+    ],
+    "rule_bindings": [
+      {
+        "application_id": "34802bb9-854b-4625-bbdc-6811073bed41",
+        "proposal_id": "78a70b8e-df6f-4679-b669-a11152c48129",
+        "artifact_version_id": "8d66ec37-f8df-4c2a-b821-32b1d7a9bcf0",
+        "sources_json": "[{\"basis\":\"本次实际读取经验及三个来源：原 policy_a 退出 1，改为 A 后退出 0，CODE 单独验收再次退出 0。当前状态 candidate、cause=observed，已知及待处理反例均为空。仅支持当前临时项目按阶段核查独立字面量测试并注明范围；未验证因果收益、其他平台或 B 契约。SPEC/RULES 未实施，不能声称其目标验收完成。\",\"counterexamples\":[],\"experience_ref\":{\"result_digest\":\"2613b4d78a00d9028842a1090ebc5caebccc9355c6f909053d76fa3e6481a331\",\"run_id\":\"921b47c9-b291-4cc5-817c-c4930d3eb356\"},\"state_ref\":{\"result_digest\":\"2613b4d78a00d9028842a1090ebc5caebccc9355c6f909053d76fa3e6481a331\",\"run_id\":\"921b47c9-b291-4cc5-817c-c4930d3eb356\"}}]",
+        "scope_json": "[\"仅当前临时业务项目的标签交付；A 阶段检查 policy_a，未来 B 阶段对应 policy_b；不宣称 B 已通过，不推广其他项目或环境，不声称因果收益。\"]"
+      }
+    ],
+    "claims": [],
+    "phase_counts": [
+      {
+        "action": "apply",
+        "method": "implement",
+        "status": "completed",
+        "count": 3
+      },
+      {
+        "action": "archive",
+        "method": "close",
+        "status": "completed",
+        "count": 4
+      },
+      {
+        "action": "init",
+        "method": "baseline.apply",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "init",
+        "method": "baseline.propose",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "init",
+        "method": "connect",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "learn",
+        "method": "promote",
+        "status": "completed",
+        "count": 2
+      },
+      {
+        "action": "learn",
+        "method": "record",
+        "status": "completed",
+        "count": 1
+      },
+      {
+        "action": "propose",
+        "method": "create",
+        "status": "completed",
+        "count": 4
+      },
+      {
+        "action": "sync",
+        "method": "apply",
+        "status": "completed",
+        "count": 3
+      },
+      {
+        "action": "sync",
+        "method": "check",
+        "status": "completed",
+        "count": 6
+      },
+      {
+        "action": "sync",
+        "method": "propose",
+        "status": "completed",
+        "count": 4
+      },
+      {
+        "action": "sync",
+        "method": "review",
+        "status": "completed",
+        "count": 4
+      },
+      {
+        "action": "verify",
+        "method": "knowledge",
+        "status": "completed",
+        "count": 5
+      },
+      {
+        "action": "verify",
+        "method": "run",
+        "status": "completed",
+        "count": 8
+      }
+    ],
+    "unfinished_runs": 0,
+    "latest_verification_items": {
+      "application_id": "add88ffa-7d71-4350-8750-15634b1a627e",
+      "approved_effect_state": {
+        "preserved": false,
+        "reason": "external_bytes"
+      },
+      "candidate_check": {
+        "evidence_ids": [
+          "aa0b5e8f-8028-4c29-bb06-ba26ca50de29",
+          "c46f48a8-d3d2-4c4a-b926-197e22d239d2",
+          "a0852a82-a421-4b1f-8258-cfaf3a23aa8d"
+        ],
+        "recorded_status": "passed",
+        "run_id": "10061e12-2d62-41c9-8a7e-f200e7d5d74d",
+        "source_pending": false
+      },
+      "current_matches_application": false,
+      "equivalent_candidate_check": false,
+      "implementation_basis_error": null,
+      "limitations": "Actual target bytes and named content observations; no code test or exhaustive semantic guarantee inferred.",
+      "observations": [
+        {
+          "basis": "本轮读取 guide.md 全文字节，当前标签仍为 B，与 KP-006 v2 批准的标签一致；该局部判据不确认全文。",
+          "criterion_key": "label",
+          "observer": "Codex 本轮实际全文自审",
+          "status": "passed"
+        },
+        {
+          "basis": "本轮读取 guide.md 末尾仍为空行及后续说明：标签 B。和末尾换行，与批准说明一致；该局部判据不确认全文。",
+          "criterion_key": "note",
+          "observer": "Codex 本轮实际全文自审",
+          "status": "passed"
+        },
+        {
+          "basis": "逐字比较 KP-006 v2 已批准全文与当前 guide.md，唯一差异为外部范围：仅此临时项目。变为外部范围：未知范围。当前摘要 7d4c7042b86b24cd91ab0aeb684a803dd59187f0c1267e54506419cf8b936229 不等于应用摘要 54d7e4639b5a549b2de4f75d7888a3dd184931b95c0c655db4bc77b7835bc4d8。用户明确尚未批准该编辑，外部范围保持判据失败，当前正式全文不确认；旧源代码判据通过不能替代当前全文验收。",
+          "criterion_key": "preserve",
+          "observer": "Codex 本轮实际全文自审",
+          "status": "failed"
+        }
+      ]
+    },
+    "decision_events": [
+      {
+        "id": "a696e303-0e45-493c-b828-5c960fac0cee",
+        "run_id": "2e004414-9a16-4f7f-81e9-efb895bfe67f",
+        "payload_json": "{\"candidate_check\":{\"evidence_ids\":[\"f962d653-fc1c-45d8-a918-494ed229338e\",\"cf9b1502-bbd1-492e-86df-e8efa5fa77d8\"],\"recorded_status\":\"passed\",\"run_id\":\"5a5ad3a7-02b9-41d6-ab6a-0b69bdcb7bcd\",\"source_pending\":false},\"decision\":\"approved\",\"proposal\":{\"candidate_digest\":\"dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8\",\"expected_digest\":\"dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8\",\"proposal_id\":\"3e9f7b08-9247-43bc-aad1-bb82d5dec0ca\",\"proposal_version\":1},\"reason\":\"KP-001 全文及换行与用户指定原文一致，实际内容检查已通过。\",\"source\":\"本轮用户对已存在全文的明确批准\",\"text\":\"本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。\"}"
+      },
+      {
+        "id": "4b2a946a-052b-4f24-bb64-1b73d6f017ff",
+        "run_id": "c263915f-6f8d-40bb-ac34-78d6ab116301",
+        "payload_json": "{\"candidate_check\":{\"evidence_ids\":[\"f9649ac1-98b5-4d90-ae39-98934b11c05c\",\"5910032a-34b3-4ccf-b14d-003ebdc56d7d\"],\"recorded_status\":\"passed\",\"run_id\":\"6583c93c-1734-4a7e-831d-d3291328e818\",\"source_pending\":false},\"decision\":\"approved\",\"proposal\":{\"candidate_digest\":\"d99e985c64a3e4195b3a3dbe80d2a6cd3afc6d6a1eb60a77bcce320eb18f0814\",\"expected_digest\":\"dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8\",\"proposal_id\":\"ee82472d-a37d-43e1-a101-4f53542c0ba6\",\"proposal_version\":1},\"reason\":\"用户明确批准该版本狭义差异；已从档案核对完整正文、版本、原正式基线及最新通过的内容检查，仅记录决定。\",\"source\":\"本轮用户对上一轮实际呈现候选的逐项明确决定\",\"text\":\"批准 policy-spec-a 中待定→A 的狭义差异\"}"
+      },
+      {
+        "id": "42d427e8-20bc-4cfa-8c95-fbc035f7c21f",
+        "run_id": "c263915f-6f8d-40bb-ac34-78d6ab116301",
+        "payload_json": "{\"candidate_check\":{\"evidence_ids\":[\"23a66090-f1cc-4eec-b62d-3491f7b725d6\",\"0e6040d5-9665-4836-b731-653bb0512cf2\",\"ba7f7ebe-d7c1-4068-9b5b-31cc610f10bd\"],\"recorded_status\":\"passed\",\"run_id\":\"4172a919-aabb-4756-9f67-7604cd12dd9f\",\"source_pending\":false},\"decision\":\"approved\",\"proposal\":{\"candidate_digest\":\"6202a786e837342cb1918aeaa87bfecb7919e6507bdd4ba03ff4de21ff424c47\",\"expected_digest\":\"dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8\",\"proposal_id\":\"78a70b8e-df6f-4679-b669-a11152c48129\",\"proposal_version\":1},\"reason\":\"用户明确批准该版本狭义差异；已从档案核对完整正文、版本、原正式基线及最新通过的内容检查，仅记录决定。\",\"source\":\"本轮用户对上一轮实际呈现候选的逐项明确决定\",\"text\":\"批准 label-review-rule 中尚无→“检查当前标签对应阶段的独立字面量测试，并注明范围。”的狭义差异\"}"
+      },
+      {
+        "id": "66c2cd12-525a-405c-8f83-0b3c86133c09",
+        "run_id": "c263915f-6f8d-40bb-ac34-78d6ab116301",
+        "payload_json": "{\"candidate_check\":{\"evidence_ids\":[\"1fbbefbc-2a9a-4db8-b90d-1339d22c9a9d\",\"79dd2c31-54b3-4426-89c5-625f269e84d4\"],\"recorded_status\":\"passed\",\"run_id\":\"c11e8581-99f5-4844-b31f-e79e841b9ebc\",\"source_pending\":false},\"decision\":\"deferred\",\"proposal\":{\"candidate_digest\":\"4b259e33eaaa92068b7c79b9b2d19f97941639f06774b6876336447ed775a49c\",\"expected_digest\":\"dc4b09bbb4e86948f8e2120f95dc9535df002d7140e3555347c9eb1d4bda06a8\",\"proposal_id\":\"7cbfcbc8-507c-4c07-81d6-58f050591593\",\"proposal_version\":1},\"reason\":\"稍后再决定说明。\",\"source\":\"本轮用户对上一轮实际呈现候选的逐项明确决定\",\"text\":\"延期 policy-note 中“后续说明：标签 A。”，原因是稍后再决定说明\"}"
+      },
+      {
+        "id": "81efdeea-80e1-4880-a386-9c936ddfced1",
+        "run_id": "d2829b0d-5088-4951-a951-939ddfebaa83",
+        "payload_json": "{\"candidate_check\":{\"evidence_ids\":[\"1dd37155-e13a-48f0-8b70-b501c53ea42f\",\"69b2fa55-e0bb-444e-ae77-4da1e80ce74d\"],\"recorded_status\":\"passed\",\"run_id\":\"9b4957a4-88fc-4234-9260-f4197b2c9c6c\",\"source_pending\":false},\"decision\":\"approved\",\"proposal\":{\"candidate_digest\":\"622b283136c4174ef8174002f09dfe7e055399edc25dd22d2692719b0ee43179\",\"expected_digest\":\"622b283136c4174ef8174002f09dfe7e055399edc25dd22d2692719b0ee43179\",\"proposal_id\":\"afce8ce1-902a-4c72-ae74-ade585773d50\",\"proposal_version\":1},\"reason\":\"已呈现原正式与实际外部全文，并实际核对仅末尾追加；此决定仅绑定 KP-005，不改变旧 A、规则及延期 policy-note 决定。\",\"source\":\"本轮用户对实际外部全文的明确批准\",\"text\":\"本轮我具体批准仅采纳这份实际外部全文及该新增范围，不额外改写。\"}"
+      },
+      {
+        "id": "a611e8dc-62f4-472d-98a8-cea57e67b0d3",
+        "run_id": "9f880a81-8e80-4191-afbb-9057f4ea6c02",
+        "payload_json": "{\"candidate_check\":{\"evidence_ids\":[\"aa0b5e8f-8028-4c29-bb06-ba26ca50de29\",\"c46f48a8-d3d2-4c4a-b926-197e22d239d2\",\"a0852a82-a421-4b1f-8258-cfaf3a23aa8d\"],\"recorded_status\":\"passed\",\"run_id\":\"10061e12-2d62-41c9-8a7e-f200e7d5d74d\",\"source_pending\":false},\"decision\":\"approved\",\"proposal\":{\"candidate_digest\":\"54d7e4639b5a549b2de4f75d7888a3dd184931b95c0c655db4bc77b7835bc4d8\",\"expected_digest\":\"622b283136c4174ef8174002f09dfe7e055399edc25dd22d2692719b0ee43179\",\"proposal_id\":\"a26fccac-67e5-455f-a093-f87a31e0c121\",\"proposal_version\":2},\"reason\":\"已读取完整 KP-006 v2、原正式基线及三个判据；仅标签 A→B 和末尾 B 说明，原规则与外部范围字节保持，最新候选检查 passed；不批准 KP-004。\",\"source\":\"本轮用户明确批准新候选\",\"text\":\"这里具体批准该新候选中 A→B 的标签差异及末尾“后续说明：标签 B。”；规则、外部范围与其他已批准含义保持。绑定准确新版本、原正式基线和实际决定后由 sync 应用，再验收实际目标。\"}"
+      }
+    ],
+    "successor_events": [
+      {
+        "id": "15ca4a1e-dc61-428a-8936-a5a73a33f9d5",
+        "run_id": "9e088a3d-f19a-4c1e-bf1e-9308e1355048",
+        "payload_json": "{\"proposal_id\":\"7cbfcbc8-507c-4c07-81d6-58f050591593\",\"reason\":\"用户明确要求以实际 B 行为和新内容替代旧 A 同主题延期说明；保留旧全文与延期决定，新候选不继承批准。\",\"successor_id\":\"a26fccac-67e5-455f-a093-f87a31e0c121\"}"
+      }
+    ]
+  },
+  "actual_phase_authorizations": [
+    {
+      "run_id": "eefdf97e-c22a-4c87-841d-6b2f66abf6dd",
+      "action": "init",
+      "method": "connect",
+      "owner": "evolve-init",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "connected"
+    },
+    {
+      "run_id": "b6729c87-5240-4c14-a860-b89dd9483900",
+      "action": "propose",
+      "method": "create",
+      "owner": "evolve-propose",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "planned"
+    },
+    {
+      "run_id": "2f734bc6-d103-43b3-91ec-fb759dda5d67",
+      "action": "init",
+      "method": "baseline.propose",
+      "owner": "evolve-init",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "knowledge_proposed"
+    },
+    {
+      "run_id": "5a5ad3a7-02b9-41d6-ab6a-0b69bdcb7bcd",
+      "action": "sync",
+      "method": "check",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "candidate_checked"
+    },
+    {
+      "run_id": "2e004414-9a16-4f7f-81e9-efb895bfe67f",
+      "action": "sync",
+      "method": "review",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "knowledge_reviewed"
+    },
+    {
+      "run_id": "3c545950-daf4-4648-8816-93a8ad51650f",
+      "action": "init",
+      "method": "baseline.apply",
+      "owner": "evolve-init",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "knowledge_applied"
+    },
+    {
+      "run_id": "4bd744f0-0b2b-42ae-bc67-fab793827ef1",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "daec08bd-edbf-4040-86fa-527773d9a7e7",
+      "action": "archive",
+      "method": "close",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 接入当前临时项目；本轮明确批准的初次正式全文就是这份已存在原文，不额外改正文。它是本次必需文档成果：先呈现并保存短方案，responsible_action=init，scope 仅 guide.md，明确内容 AC。按结构化初次候选、实际内容检查、具体决定、init 实际应用、verify 目标验收和封存完成。登记 policy_a、policy_b 两个真实检查，本轮文档任务不运行它们。"
+      },
+      "outcome": "archived"
+    },
+    {
+      "run_id": "5ff2ad17-243b-4b09-ba3b-a46081e43e7f",
+      "action": "propose",
+      "method": "create",
+      "owner": "evolve-propose",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 呈现并保存新复杂方案“标签 A 与正式约定”，本轮明确接受符合下述边界的完整方案。只实施 CODE，先实际观察初始 policy_a 失败，再经 apply 修正、实际检查与独立 Task 验收。原检查文件只读；policy_b 是以后 B 契约的独立判据，本轮未要求通过它。根据 CODE 的实际修改和检查结果记录 observed 原因的项目候选经验，主题固定“标签交付核查”，建议为上述规则文本；说明范围只含此临时项目的标签交付，保留真实来源证据和局限，不声称因果收益。本轮不创建／批准正式知识候选，不实施 SPEC／RULES，不整体验收或封存该 Change。"
+      },
+      "outcome": "planned"
+    },
+    {
+      "run_id": "276a41c2-eda9-4476-a816-a282bc27a0e6",
+      "action": "apply",
+      "method": "implement",
+      "owner": "evolve-apply",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "business_files",
+          "checks"
+        ],
+        "paths": [
+          "policy.py"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 呈现并保存新复杂方案“标签 A 与正式约定”，本轮明确接受符合下述边界的完整方案。只实施 CODE，先实际观察初始 policy_a 失败，再经 apply 修正、实际检查与独立 Task 验收。原检查文件只读；policy_b 是以后 B 契约的独立判据，本轮未要求通过它。根据 CODE 的实际修改和检查结果记录 observed 原因的项目候选经验，主题固定“标签交付核查”，建议为上述规则文本；说明范围只含此临时项目的标签交付，保留真实来源证据和局限，不声称因果收益。本轮不创建／批准正式知识候选，不实施 SPEC／RULES，不整体验收或封存该 Change。"
+      },
+      "outcome": "checks_not_passed"
+    },
+    {
+      "run_id": "14ae97e0-928f-49a9-9f8b-62c90d10aa80",
+      "action": "apply",
+      "method": "implement",
+      "owner": "evolve-apply",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "business_files",
+          "checks"
+        ],
+        "paths": [
+          "policy.py"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 呈现并保存新复杂方案“标签 A 与正式约定”，本轮明确接受符合下述边界的完整方案。只实施 CODE，先实际观察初始 policy_a 失败，再经 apply 修正、实际检查与独立 Task 验收。原检查文件只读；policy_b 是以后 B 契约的独立判据，本轮未要求通过它。根据 CODE 的实际修改和检查结果记录 observed 原因的项目候选经验，主题固定“标签交付核查”，建议为上述规则文本；说明范围只含此临时项目的标签交付，保留真实来源证据和局限，不声称因果收益。本轮不创建／批准正式知识候选，不实施 SPEC／RULES，不整体验收或封存该 Change。"
+      },
+      "outcome": "implemented"
+    },
+    {
+      "run_id": "14bb3bc7-a3fd-4a95-b5a1-60c12e3379ed",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "checks"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 呈现并保存新复杂方案“标签 A 与正式约定”，本轮明确接受符合下述边界的完整方案。只实施 CODE，先实际观察初始 policy_a 失败，再经 apply 修正、实际检查与独立 Task 验收。原检查文件只读；policy_b 是以后 B 契约的独立判据，本轮未要求通过它。根据 CODE 的实际修改和检查结果记录 observed 原因的项目候选经验，主题固定“标签交付核查”，建议为上述规则文本；说明范围只含此临时项目的标签交付，保留真实来源证据和局限，不声称因果收益。本轮不创建／批准正式知识候选，不实施 SPEC／RULES，不整体验收或封存该 Change。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "921b47c9-b291-4cc5-817c-c4930d3eb356",
+      "action": "learn",
+      "method": "record",
+      "owner": "evolve-learn",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "使用 Evolve 呈现并保存新复杂方案“标签 A 与正式约定”，本轮明确接受符合下述边界的完整方案。只实施 CODE，先实际观察初始 policy_a 失败，再经 apply 修正、实际检查与独立 Task 验收。原检查文件只读；policy_b 是以后 B 契约的独立判据，本轮未要求通过它。根据 CODE 的实际修改和检查结果记录 observed 原因的项目候选经验，主题固定“标签交付核查”，建议为上述规则文本；说明范围只含此临时项目的标签交付，保留真实来源证据和局限，不声称因果收益。本轮不创建／批准正式知识候选，不实施 SPEC／RULES，不整体验收或封存该 Change。"
+      },
+      "outcome": "experience_recorded"
+    },
+    {
+      "run_id": "6387fb86-fbd1-4b18-a9cf-8ba87a5ea4db",
+      "action": "sync",
+      "method": "propose",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "从 Evolve 档案恢复“标签 A 与正式约定”，本轮仅保存并实际检查三项 guide.md 候选，不批准或应用。三项都呈现各自完整正文、具体内容判据、原 UTF-8 字节范围和不同 semantic_target；均基于此刻真实初次正式版本。保存实际内容观察和明确三项批次，不改 guide.md 或业务，不将候选检查冒充实际目标验收。"
+      },
+      "outcome": "knowledge_proposed"
+    },
+    {
+      "run_id": "7fe7d620-2461-4b4b-9d7e-2ff2d57653dd",
+      "action": "learn",
+      "method": "promote",
+      "owner": "evolve-learn",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "从 Evolve 档案恢复“标签 A 与正式约定”，本轮仅保存并实际检查三项 guide.md 候选，不批准或应用。三项都呈现各自完整正文、具体内容判据、原 UTF-8 字节范围和不同 semantic_target；均基于此刻真实初次正式版本。保存实际内容观察和明确三项批次，不改 guide.md 或业务，不将候选检查冒充实际目标验收。"
+      },
+      "outcome": "knowledge_proposed"
+    },
+    {
+      "run_id": "d8dadd9c-9d13-46e1-8d2f-4f23d533dcdc",
+      "action": "sync",
+      "method": "propose",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "从 Evolve 档案恢复“标签 A 与正式约定”，本轮仅保存并实际检查三项 guide.md 候选，不批准或应用。三项都呈现各自完整正文、具体内容判据、原 UTF-8 字节范围和不同 semantic_target；均基于此刻真实初次正式版本。保存实际内容观察和明确三项批次，不改 guide.md 或业务，不将候选检查冒充实际目标验收。"
+      },
+      "outcome": "knowledge_proposed"
+    },
+    {
+      "run_id": "6583c93c-1734-4a7e-831d-d3291328e818",
+      "action": "sync",
+      "method": "check",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "保存实际内容观察和明确三项批次，不改 guide.md 或业务，不将候选检查冒充实际目标验收。本轮仅保存并实际检查三项 guide.md 候选，不批准或应用。"
+      },
+      "outcome": "candidate_checked"
+    },
+    {
+      "run_id": "4172a919-aabb-4756-9f67-7604cd12dd9f",
+      "action": "sync",
+      "method": "check",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "保存实际内容观察和明确三项批次，不改 guide.md 或业务，不将候选检查冒充实际目标验收。本轮仅保存并实际检查三项 guide.md 候选，不批准或应用。"
+      },
+      "outcome": "candidate_checked"
+    },
+    {
+      "run_id": "c11e8581-99f5-4844-b31f-e79e841b9ebc",
+      "action": "sync",
+      "method": "check",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "保存实际内容观察和明确三项批次，不改 guide.md 或业务，不将候选检查冒充实际目标验收。本轮仅保存并实际检查三项 guide.md 候选，不批准或应用。"
+      },
+      "outcome": "candidate_checked"
+    },
+    {
+      "run_id": "c263915f-6f8d-40bb-ac34-78d6ab116301",
+      "action": "sync",
+      "method": "review",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "本轮仅记录我对上一轮实际呈现的准确三项候选的具体决定：批准 policy-spec-a 中待定→A 的狭义差异；批准 label-review-rule 中尚无→“检查当前标签对应阶段的独立字面量测试，并注明范围。”的狭义差异；延期 policy-note 中“后续说明：标签 A。”，原因是稍后再决定说明。从档案读取实际完整正文、版本、基线和内容检查，逐项绑定此处真实决定来源，保存明确三项批次；不改变原候选含义，不转移或伪造批准，不写正式文件、实施、验收或封存。"
+      },
+      "outcome": "knowledge_reviewed"
+    },
+    {
+      "run_id": "d22e62d0-86bc-487a-a9e8-c12681d4a1ac",
+      "action": "sync",
+      "method": "apply",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "knowledge_applied"
+    },
+    {
+      "run_id": "ac6e89db-2bc4-43d0-a8ce-ca3bb1256ba4",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "d8f8ecaa-7bf4-4bdd-bf13-41dc7881e29e",
+      "action": "learn",
+      "method": "promote",
+      "owner": "evolve-learn",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "knowledge_applied"
+    },
+    {
+      "run_id": "265071b3-ebe6-4101-ae7c-a8f1d1734c0c",
+      "action": "verify",
+      "method": "knowledge",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "knowledge_verified"
+    },
+    {
+      "run_id": "393f86cd-f666-43b9-8d96-2b45143aff53",
+      "action": "verify",
+      "method": "knowledge",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "knowledge_verified"
+    },
+    {
+      "run_id": "d80120f3-d1c0-4931-8376-1f5a377a717d",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "a3637313-b9a7-4469-a9eb-a7763f7ef520",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "dba18836-2699-4f1f-bf69-1236e06c7e2d",
+      "action": "archive",
+      "method": "close",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确续接与完整验收封存指令",
+        "text": "从档案恢复已经批准的 policy-spec-a 与 label-review-rule，以及 CODE 的实际成果。按具体批准由 sync 完成 SPEC、独立验收 SPEC，再由 learn 完成 RULES；同文件沿真实应用链保留前项批准，实际阅读组合后的完整正文再提供具名组成观察。只应用已批准子集，policy-note 仍延期。完成必需 Task、应用后验收、policy_a 真实检查和整项双维验收，真实通过后封存“标签 A 与正式约定”。CODE 原结果、经验、具体决定及各真实应用来源均保持；不把候选检查或 Task 通过当整项通过。"
+      },
+      "outcome": "archived"
+    },
+    {
+      "run_id": "31e66af2-dcb0-4b4d-81d2-1a0c188be401",
+      "action": "propose",
+      "method": "create",
+      "owner": "evolve-propose",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge",
+          "checks"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "本轮我具体批准仅采纳这份实际外部全文及该新增范围，不额外改写。将其作为一个新必需正式文档成果，responsible_action=sync，绑定实际 Task／AC。实际检查、记录具体决定、登记既有字节为正式版本，保持文件修改时间，不重写文件；目标验收通过后封存。旧 A、规则、延期 policy-note 及其原决定保持，不隐式批准旧说明。"
+      },
+      "outcome": "planned"
+    },
+    {
+      "run_id": "768a0393-2cac-49af-b3fc-1f13ead2bfec",
+      "action": "sync",
+      "method": "propose",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "本轮我具体批准仅采纳这份实际外部全文及该新增范围，不额外改写。将其作为一个新必需正式文档成果，responsible_action=sync，绑定实际 Task／AC。具体 adoption 候选绑定原 artifact 版本／摘要、真实外部字节及实际观察，修改者未知，edits 只声明该末尾追加。"
+      },
+      "outcome": "knowledge_proposed"
+    },
+    {
+      "run_id": "9b4957a4-88fc-4234-9260-f4197b2c9c6c",
+      "action": "sync",
+      "method": "check",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "实际检查、记录具体决定；本轮我具体批准仅采纳这份实际外部全文及该新增范围，不额外改写。旧 A、规则、延期 policy-note 及其原决定保持，不隐式批准旧说明。"
+      },
+      "outcome": "candidate_checked"
+    },
+    {
+      "run_id": "d2829b0d-5088-4951-a951-939ddfebaa83",
+      "action": "sync",
+      "method": "review",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "实际检查、记录具体决定；本轮我具体批准仅采纳这份实际外部全文及该新增范围，不额外改写。旧 A、规则、延期 policy-note 及其原决定保持，不隐式批准旧说明。"
+      },
+      "outcome": "knowledge_reviewed"
+    },
+    {
+      "run_id": "3004ef97-04b5-4237-968c-e223db4e1836",
+      "action": "sync",
+      "method": "apply",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "本轮我具体批准仅采纳这份实际外部全文及该新增范围，不额外改写。将其作为一个新必需正式文档成果，responsible_action=sync，绑定实际 Task／AC。实际检查、记录具体决定、登记既有字节为正式版本，保持文件修改时间，不重写文件；目标验收通过后封存。"
+      },
+      "outcome": "knowledge_applied"
+    },
+    {
+      "run_id": "8c2af7ae-cd78-490d-831e-39e1c271b4f2",
+      "action": "verify",
+      "method": "knowledge",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "checks"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "实际检查、记录具体决定、登记既有字节为正式版本，保持文件修改时间，不重写文件；目标验收通过后封存。"
+      },
+      "outcome": "knowledge_verified"
+    },
+    {
+      "run_id": "8d48eea6-078a-4e83-b786-ef98f9069e84",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "checks"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "实际检查、记录具体决定、登记既有字节为正式版本，保持文件修改时间，不重写文件；目标验收通过后封存。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "1d57c01d-97b6-41d9-886a-c866862b46ba",
+      "action": "archive",
+      "method": "close",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "目标验收通过后封存。旧 A、规则、延期 policy-note 及其原决定保持，不隐式批准旧说明。"
+      },
+      "outcome": "archived"
+    },
+    {
+      "run_id": "e0066b28-a68c-401b-9eab-18d6a7732183",
+      "action": "propose",
+      "method": "create",
+      "owner": "evolve-propose",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "本轮明确接受并授权仅将 policy.py 的 POLICY 改为字符串 B。实际实施、运行 policy_b 并完成新的双维验收。保存并实际检查新候选，本轮不批准或应用它，也不封存 B。"
+      },
+      "outcome": "planned"
+    },
+    {
+      "run_id": "50ee613d-d469-4013-94e0-ecb2ca82bdcc",
+      "action": "apply",
+      "method": "implement",
+      "owner": "evolve-apply",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "business_files",
+          "checks"
+        ],
+        "paths": [
+          "policy.py"
+        ],
+        "source": "本轮用户明确接受与授权",
+        "text": "本轮明确接受并授权仅将 policy.py 的 POLICY 改为字符串 B。当前契约使用预置的 policy_b 检查与独立字面量 B 预期；policy_a 保留为旧 A 历史判据，不修改两个测试。实际实施、运行 policy_b 并完成新的双维验收。"
+      },
+      "outcome": "implemented"
+    },
+    {
+      "run_id": "59ff9d33-7513-4fa1-a54b-b49b61aee120",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "checks"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "实际实施、运行 policy_b 并完成新的双维验收。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "9e088a3d-f19a-4c1e-bf1e-9308e1355048",
+      "action": "sync",
+      "method": "propose",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "随后仅提出新的 topic=policy-note 正式候选：以此刻实际已批准 guide.md 为基线，将“当前标签：A。”改为“当前标签：B。”，并在末尾追加空行及“后续说明：标签 B。”，规则和外部范围保持。delivery=followup 关联新 B Change，引用 B 真实验收；准确 edits 声明两个独立范围。旧 A 同主题延期说明被本次明确新行为和内容替代，保留其原文、延期决定与后继关系。保存并实际检查新候选，本轮不批准或应用它，也不封存 B。"
+      },
+      "outcome": "knowledge_proposed"
+    },
+    {
+      "run_id": "10061e12-2d62-41c9-8a7e-f200e7d5d74d",
+      "action": "sync",
+      "method": "check",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "保存并实际检查新候选，本轮不批准或应用它，也不封存 B。"
+      },
+      "outcome": "candidate_checked"
+    },
+    {
+      "run_id": "9f880a81-8e80-4191-afbb-9057f4ea6c02",
+      "action": "sync",
+      "method": "review",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "这里具体批准该新候选中 A→B 的标签差异及末尾“后续说明：标签 B。”；规则、外部范围与其他已批准含义保持。绑定准确新版本、原正式基线和实际决定后由 sync 应用，再验收实际目标。"
+      },
+      "outcome": "knowledge_reviewed"
+    },
+    {
+      "run_id": "832c5da7-091d-4ff3-8807-92904fc68ad7",
+      "action": "sync",
+      "method": "apply",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "knowledge"
+        ],
+        "paths": [
+          "guide.md"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "这里具体批准该新候选中 A→B 的标签差异及末尾“后续说明：标签 B。”；规则、外部范围与其他已批准含义保持。绑定准确新版本、原正式基线和实际决定后由 sync 应用，再验收实际目标。"
+      },
+      "outcome": "knowledge_applied"
+    },
+    {
+      "run_id": "d102c64e-840f-4324-9871-aac5d18c4354",
+      "action": "verify",
+      "method": "knowledge",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "由 sync 应用，再验收实际目标。"
+      },
+      "outcome": "knowledge_verified"
+    },
+    {
+      "run_id": "761d9ea3-6d88-40c9-a2f0-2bf291b3681c",
+      "action": "verify",
+      "method": "run",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records",
+          "checks"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "正式文档改变后重新核对 B 当前现场，执行 policy_b 并取得新的整体验收，随后封存 B。"
+      },
+      "outcome": "verified"
+    },
+    {
+      "run_id": "1517059c-c990-438a-ad71-694357061564",
+      "action": "archive",
+      "method": "close",
+      "owner": "evolve-archive",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "正式文档改变后重新核对 B 当前现场，执行 policy_b 并取得新的整体验收，随后封存 B。"
+      },
+      "outcome": "archived"
+    },
+    {
+      "run_id": "f0855517-7b9e-48c2-9002-6bde02e3cb0f",
+      "action": "verify",
+      "method": "knowledge",
+      "owner": "evolve-verify",
+      "status": "completed",
+      "authorization": {
+        "effect_kinds": [
+          "project_records"
+        ],
+        "source": "本轮用户明确指令",
+        "text": "控制侧已仅将 guide.md 中“外部范围：仅此临时项目。”改为“外部范围：未知范围。”，尚未批准该编辑。使用 Evolve 只验收最后 B policy-note 实际 application 的当前正式内容，追加真实 blocked／failed 观察。保留原应用、原 passed 验收与全部既有工作项的封存终态，不修复、采纳外部内容或修改业务／测试。分别说明历史结果、当前不确认及需要的下一步；旧源代码判据通过不表示当前正式全文已确认。"
+      },
+      "outcome": "knowledge_verified"
+    }
+  ],
+  "nonzero_commands": [
+    {
+      "case": "baseline",
+      "command": "/bin/zsh -lc \"python3 -B - <<'PY'\nfrom pathlib import Path\nimport sys,json,hashlib\nsys.path.insert(0,str(Path('.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/runtime').resolve()))\nfrom evolve_core.work import fingerprint\nfor name in ['guide.md','policy.py','test_policy_a.py','test_policy_b.py']:\n b=Path(name).read_bytes()\n print(json.dumps({'path':name,'sha256':hashlib.sha256(b).hexdigest(),'content':b.decode()},ensure_ascii=False))\nprint(json.dumps(fingerprint(Path('.').resolve(),{'scope':['guide.md'],'required_checks':[]}),ensure_ascii=False))\nPY\"",
+      "exit_code": 1,
+      "output_tail": "nfrom policy import POLICY\\nclass PolicyA(unittest.TestCase):\\n    def test_independent_literal(self):\\n        self.assertEqual(POLICY, 'A')\\n\"}\n{\"path\": \"test_policy_b.py\", \"sha256\": \"c9304b5148d7741226ef935e0194ee347c598d2882168ac7da32070ba5241787\", \"content\": \"import unittest\\nfrom policy import POLICY\\nclass PolicyB(unittest.TestCase):\\n    def test_independent_literal(self):\\n        self.assertEqual(POLICY, 'B')\\n\"}\n    basis = {'files': files, 'scope': scope, 'checks': check_basis(root, definition)}\n                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-native-model-alpha14-ysvbh8ut/codex-execution-alpha14-r1/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/runtime/evolve_core/work.py\", line 63, in check_basis\n    for original in definition['checks_basis']:\n                    ~~~~~~~~~~^^^^^^^^^^^^^^^^\nKeyError: 'checks_basis'\n"
+    },
+    {
+      "case": "deliver_a",
+      "command": "/bin/zsh -lc 'python3 -B -m unittest test_policy_a -v'",
+      "exit_code": 1,
+      "output_tail": "test_independent_literal (test_policy_a.PolicyA.test_independent_literal) ... FAIL\n\n======================================================================\nFAIL: test_independent_literal (test_policy_a.PolicyA.test_independent_literal)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp007-native-model-alpha14-ysvbh8ut/codex-execution-alpha14-r1/business/test_policy_a.py\", line 5, in test_independent_literal\n    self.assertEqual(POLICY, 'A')\nAssertionError: 'unset' != 'A'\n- unset\n+ A\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "case": "candidates",
+      "command": "/bin/zsh -lc 'python3 .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/runtime/evolve.py --project . status; cat .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/evolve-package.json .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/skills/evolve-sync/SKILL.md .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/skills/evolve-learn/SKILL.md .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/shared/knowledge-candidates.md .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/shared/knowledge-rules.md'",
+      "exit_code": 1,
+      "output_tail": "ery 绑定实际 Task／AC；附带规则仍可延期。\n\n具体批准且来源仍适用后，learn.promote.input.stage=apply，给准确 proposal 四项引用和 approved_event_id。必需成果另给当前 Change／Task／accepted_plan_digest；授权含 project_records、knowledge 及具体 paths。Learn 是实际文件写入方；同文件其他 owner 的已批准独立差异按[批准链约定](knowledge-patches.md)推进，实际组成正文仍需具名检查。\n\n实际应用在同一事务保存 application、artifact 和 rule_bindings，绑定准确经验／提案、适用范围和实际规则版本。verify 重新检查目标；候选检查或旧批准不充当应用后验收。规则是必需成果时，未实际应用／未验收或当前来源受阻均不能封存。\n\n来源经实际复审后，即使规则正文不变，也可为新的准确依据／范围形成具体候选并经检查、批准后重新关联实际版本；使用新的 delta，保留旧应用，不重放旧批准。正文和实际依据均未变时报告 KNOWLEDGE_NO_CHANGE。\n\n## 反例、查询与恢复\n\n新状态或反例使原来源绑定失效时，待应用候选停止；已应用规则的 status.rule_state 及 knowledge_refs.rule_bindings 标 needs_review，保留原批准、文件和历史验收。新的实际目标验收记录 blocked；原经验仍按原事实保存，不因为已关联规则变成自动授权。后续纠正正文需要新的具体候选，不能自动覆盖正式文件。\n\n查询不写库或补检查。supported_basis 只表示来源绑定当前适用，规则语义仍需实际内容观察；effect_state 只证明声明范围的字节保留。完整反例处理与对后续方案的集成继续按 IMP-010 验收，本截点不以局部标记代替它。\n\n中断由 maintain recover 核对原实际 journal／批准／来源；尚未写入时门禁仍适用，已经写入的字节只补确定事实。rule_bindings 与实际应用一起提交，恢复不重复分配。未收尾文件日志会阻止其他记录写入，先恢复原操作。protocol v10／schema v4，完整旧兼容包保留，不自动迁移。\n"
+    },
+    {
+      "case": "finish_a",
+      "command": "/bin/zsh -lc 'cat .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/evolve-package.json; cat .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/skills/evolve-{sync,learn,verify,archive}/SKILL.md'",
+      "exit_code": 1,
+      "output_tail": "tructured-plans.md)，明确本次是指定 Task 还是整项，使用对应的实际现场指纹及 AC；单项通过不代替最终集成。\n\n验收正式文档时，读取[正式知识的目标验收](../../shared/knowledge-candidates.md)，核对实际应用版本和当前字节，保存新的 applied 观察；候选检查或批准不能代替目标验收。修订交对应 init／sync／learn owner。\n\n首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目，再执行只读 status。当前 alpha 的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-verify`，动作必须属于本 Skill。用户不需要填写内部编号。\n---\nname: evolve-archive\ndescription: 封存 Evolve 成果，或保存、审阅与应用正式项目知识候选时使用。\n---\n\n归属 archive、sync。先核对必需成果和验收，封存完成事实与正式知识应用分别表达。archive 不隐式批准知识；必需文档尚未应用不能完成，附带知识可延期。\n\n外部正式版本采纳或旧提案被后续工作替代时，读取[采纳与后继约定](../../shared/knowledge-adoption.md)，展示实际旧新全文及关联，按具体批准登记，不覆盖后来的有效含义。\n\n保存、检查、集中审阅或应用正式知识时，读取[正式知识候选](../../shared/knowledge-candidates.md)，区分必需文档与附带候选，按具体批准应用并保留实际产物；应用后交 verify 核对目标。\n\n复杂工作封存前按[复杂规格与任务](../../shared/structured-plans.md)核对全部任务及整项 VER，任务验收引用不能替代它。\n\n首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目，再执行只读 status。当前 alpha 的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-archive`，动作必须属于本 Skill。用户不需要填写内部编号。\n"
+    }
+  ],
+  "empty_aggregate_output_commands": [
+    {
+      "case": "candidates",
+      "command": "/bin/zsh -lc \"python3 .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/runtime/evolve.py --project . learn '标签交付核查' --owner evolve-learn --method search; python3 .agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14/runtime/evolve.py --project . resume '标签 A 与正式约定'\"",
+      "exit_code": 0
+    }
+  ],
+  "installation_digests": {
+    "registered_installation_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+    "host_cache_root": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34"
+  },
+  "final_business_bytes": {
+    "policy.py": "POLICY = \"B\"\n",
+    "guide.md": "# 项目约定\n\n当前标签：B。\n\n审查约定：检查当前标签对应阶段的独立字面量测试，并注明范围。\n\n外部范围：未知范围。\n\n后续说明：标签 B。\n"
+  },
+  "semantic_review": {
+    "observer": "Current Codex review of actual separate native conversations, commands, literal test observations, requests and persisted facts.",
+    "independent_third_reviewer": false,
+    "observations": [
+      "Initial existing guide was specifically checked and approved, applied through init without rewriting bytes, actually verified and archived; no business tests were run for that formal-only task.",
+      "A code was implemented with real initial failing and later passing independent policy_A checks, Task acceptance and retained observed experience; required SPEC/RULES stayed open until actual owner applications.",
+      "Three initial candidates retained separate scopes and exact original baseline. SPEC and rule received concrete approvals; the A followup stayed deferred and was not applied.",
+      "Sync and Learn applied disjoint same-file effects through the real chain, retaining earlier approval and narrow authority; actual target, Task and whole A acceptance completed before archive.",
+      "Exact externally appended text was specifically observed, checked and approved before no-write adoption; parent separately proved file bytes and mtime unchanged during adoption.",
+      "B used the original independent policy_B literal and fresh acceptance; original policy_A now correctly failed and remained historical. Its new two-range followup superseded deferred A without transferring or inventing approval.",
+      "Specific B successor approval led to actual sync application, target acceptance, new business whole acceptance and archive. Existing rule and external scope bytes were preserved.",
+      "Last verification only appended a blocked applied-target observation for the controlled external range drift, with a real failed preserve criterion. Old passed verifications, archived Changes/done Tasks and immutable application facts remained; current application verification pointer advanced as intended.",
+      "All direct file writes in native command bodies staged five owned receipts inside .evolve-local/control/requests and later removed those same receipts. All business/formal changes were made through authorized Evolve owner actions; SQLite helper probes were readonly.",
+      "Actual review observations were labelled current-assistant self-review, without pretending third-party independence, universal behavior coverage or causal improvement."
+    ]
+  },
+  "limitations": [
+    "This proves the exact four-file/nine-case Codex scope only; Claude IMP007 is authorized but not dispatched due actual HTTP429 from its preceding controlled batch.",
+    "Keep the final unapproved external drift and the old A literal failure; they are required negative observations, not fixtures to repair to green.",
+    "Read probes guessed a nonexistent evolve-sync Skill twice and an old .evolve/config.toml path once; one direct readonly fingerprint helper first omitted checks_basis then corrected it. These real errors remain in the trace.",
+    "One readonly learn-search/resume combined command had null aggregate output with exit0; it is not used to prove a new fact. Actual source/state and other returned observations provide the evidence.",
+    "The native project contains an existing guide but no distinct preexisting ADR fixture; broader global V135/combined workflows are not inferred from this host scope.",
+    "IMP007 and M2 remain in_progress; no whole global V or complete project delivery is declared."
+  ],
+  "archive": {
+    "path": "codex-model-alpha14-r1.zip",
+    "sha256": "177f0bbf2500fe899e6dc34f29d9e2970deb41420d99db159bd44e12fb365514"
+  }
+}

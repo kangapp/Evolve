@@ -1,0 +1,85 @@
+{
+  "slice": "IMP-006",
+  "status": "in_progress",
+  "completed_subflow": "Required pre-refactor before/after behavior evidence, preparation-only, no-check pause and preservation through actual recovery.",
+  "package_version": "0.1.0-alpha.5",
+  "protocol_version": 4,
+  "schema_version": 1,
+  "source_content_digest": "665957cf72a38c9ed0053c848267179cd436d5703f853b1b60a1771c4cb694bd",
+  "distribution_digest": "4aa4932c8e7af15cb04940d921f77a1c824f6453ac372cdd1901fd1fe65bb319",
+  "inventory_files": 51,
+  "environment": {
+    "system": "Darwin",
+    "release": "25.6.0",
+    "python": "3.11.9"
+  },
+  "full_regression": {
+    "tests": 298,
+    "seconds": 30.25,
+    "passed": true,
+    "raw": "component-tests-preservation-full.txt",
+    "prior_failure": "component-tests-preservation-full-r1.txt"
+  },
+  "preservation_regression": {
+    "tests": 15,
+    "passed": true,
+    "raw": "component-tests-preservation.txt"
+  },
+  "runtime_cli": {
+    "commands": 23,
+    "checks": 13,
+    "passed": true,
+    "summary": "preservation-cli-proof.json",
+    "trace": "preservation-cli-trace.zip",
+    "case": "Extract a shared single-pass sum/count interface while preserving the original total contract, then deliver its report.",
+    "zero_test_case": "A separate disposable project returns 0 with no tests; proof is blocked and no candidate file is dispatched."
+  },
+  "package_archive": {
+    "path": "preservation-package-alpha5.zip",
+    "sha256": "2964ad3c703284ddfdfa0082a036735347bd883fcf9444ba199ed2ac01ed16cd"
+  },
+  "source_inventory_check": "passed",
+  "skill_validation": "evolve-apply and evolve-propose quick_validate passed",
+  "spec_review": {
+    "observer": "current Codex self-review",
+    "independent_model_review": false,
+    "verified": [
+      "Original declared checks execute before refactor file dispatch; actual failures and empty test suites do not create a passing baseline.",
+      "Original source and declared behavior input bytes are retained in inline artifact versions; formal document approval/version authority is unchanged.",
+      "No-check pause remains no-check; preparation-only is a separate safely ended partial run, not Task completion.",
+      "Post-check failure and repair reuse the original source event instead of rerunning checks on modified code as a new original baseline.",
+      "Two actual child exits at file commit and after Task done preserve original proof and require safe recovery; recovery runs no checks.",
+      "Actual original and post checks can acquire their own short writer lock and SQLite write transaction.",
+      "Only an actual matching before/after pair with unchanged inputs can support Task and whole-change completion."
+    ],
+    "limits": [
+      "Proof is bounded by declared checks and inputs; it does not guarantee untested behavior.",
+      "REV comparison, scope acceptance, formatting-only reuse and new native host complex-model acceptance remain unfinished.",
+      "Runtime CLI review inputs are controlled observations, not independent model judgments."
+    ]
+  },
+  "standards_review": {
+    "observer": "current Codex self-review",
+    "independent_model_review": false,
+    "verified": [
+      "Existing schema1 runs, events, check evidence, artifact versions and file journals reused; no new state store or scheduler.",
+      "Proof source references are checked against actual Task/REV/definition/epoch, raw execution events and retained bytes.",
+      "Read-only input/output aliases are checked at proposal and actual dispatch; current grants remain required.",
+      "Only disposable projects and local source files were changed; no personal host configuration, model dispatch, nested agents or publication."
+    ]
+  },
+  "initial_test_adjustment": "The file-symlink case was rejected by the existing earlier FILE_TYPE guard; the regression was changed to a supported directory alias to exercise the new actual-dispatch preservation guard, without loosening protection.",
+  "acceptance_branches": {
+    "V-126": "Actual required pre-refactor preserves original total checks and verifies the new shared interface before its dependent report; current-runtime branch verified.",
+    "V-037": "Preparation-only, before failure, empty before/post suites and incomplete post evidence cannot complete a Task or Change.",
+    "V-021": "Changed declared behavior inputs block reuse; formal-context observation does not change approved authority.",
+    "V-028": "No-check pause remains separate from preparation; complete execution runs real before and after checks.",
+    "V-006": "Existing behavior proof survives safe retry/recovery; REV-specific reuse remains pending."
+  },
+  "model_requests_sent": false,
+  "native_host_installation_run": false,
+  "next_work": [
+    "Implement REV scope/definition comparison and applicable result reuse.",
+    "Prepare and complete current-environment native host complex acceptance before closing IMP-006."
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "slice": "IMP-013",
+  "reviewer": "Primary Codex actual trajectory and kernel-facts review; not an independent sub-agent",
+  "reviewed_at": "2026-11-01T03:38:47.750532+00:00",
+  "passed": true,
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.25",
+  "package_digest": "993711f866cc2e85873fefee222c117555bc4fef0b940e435d80b12df89d9ee6",
+  "source_digest": "6d1218ad483e35a16be466e8b3b83b2943b99f47ab5f520b5b92e4b88a320707",
+  "scope_digest": "2365752e4dd9374ce316ce22b376a7ad0f1a96bfe6e6979fd4b7b92267db7f14",
+  "host": "codex",
+  "actual_model": "gpt-6-astra (model/list isDefault)",
+  "fresh_sessions": 6,
+  "actual_commands": 82,
+  "commands_per_case": [
+    18,
+    12,
+    16,
+    11,
+    10,
+    15
+  ],
+  "raw_summary_left_immutable": {
+    "review_status": "pending",
+    "passed": false
+  },
+  "semantic_findings": [
+    "Read and reviewed all82 completed commands and six final messages. No raw business/history SQL writes, mechanism/test edits, personal config changes, nested actors or production/publication calls; extra Python reads used mode=ro or pure fingerprint helpers. Request/receipt files stayed under controlled project records.",
+    "Seed actually prepared and specifically approved finite candidate and target before one dispatch; required data20 task check and separate verify passed before archive and exact manual backup.",
+    "20→30 lost transport receipt remained unknown with original resources. Next fresh session reconciled original provider/data, then explicit stage=checks and separate final verification/archive; receipts stayed two.",
+    "30→20 compensation used new Change/Task, candidate and approval linked to the exact confirmed30 source; one new provider receipt and unknown retained. It did not reuse the original candidate or run task checks through unknown.",
+    "Actual damaged archive and WAL were protected, selected seed archive restored into a new epoch without data rollback. Necessary automatic protection was allowed, no new manual backup. Compensation source survived; reconcile registered in new epoch without fabricating its absent original run or recreating its Task.",
+    "Final actual ledger19 caused original data20 check returncode1 and current VER blocked; AC001 failed, AC002 provider receipt provenance passed. Historical passed VER and archived Change/done Task remained unchanged; no repair, resend or re-open.",
+    "One nonmutating old-epoch experience source lookup was rejected LEARNING_SOURCE (command76/exit2); rejection was retained and did not authorize rebind or invent experience. It was not a permission or quota failure."
+  ],
+  "actual_final_facts": {
+    "ledger": [
+      [
+        1,
+        19
+      ]
+    ],
+    "provider_receipts": [
+      {
+        "operation_id": "9dc8c178-0f2e-4257-bc04-0ef7f96fde53",
+        "outcome": "succeeded",
+        "known_effects": {
+          "ledger_id": 1,
+          "before": 10,
+          "after": 20,
+          "complete_scope": true
+        },
+        "finished": 1
+      },
+      {
+        "operation_id": "a0694751-f217-48a9-84a8-59ac469a1075",
+        "outcome": "succeeded",
+        "known_effects": {
+          "ledger_id": 1,
+          "before": 20,
+          "after": 30,
+          "complete_scope": true
+        },
+        "finished": 1
+      },
+      {
+        "operation_id": "8d3e6bed-cb1c-4c54-baef-ace3bf79276d",
+        "outcome": "succeeded",
+        "known_effects": {
+          "ledger_id": 1,
+          "before": 30,
+          "after": 20,
+          "complete_scope": true
+        },
+        "finished": 1
+      }
+    ],
+    "current_verifications": [
+      [
+        "6b4340e8-58a3-4c73-9618-1bfa9ea8e5f6",
+        "passed"
+      ],
+      [
+        "9160a749-b9a5-4b69-b6db-3ee7f6fc8791",
+        "blocked"
+      ]
+    ],
+    "historical_change_state": "archived",
+    "task_state": "done",
+    "active_claims": 0,
+    "pending_external": 0,
+    "started_runs": 0,
+    "old_compensation_run_present": false,
+    "restored_source_recorded": true
+  },
+  "evidence": {
+    "trajectory": "codex-trajectory-alpha25-r1.json",
+    "kernel_facts": "codex-runtime-facts-alpha25-r1.json",
+    "raw_archive": "codex-model-alpha25-r1-evidence.zip",
+    "raw_sha256": "e80708838ab31b182bb6997aa8d52752d8ffa9c03671b00733b231e3df0bee73",
+    "raw_bytes": 1416520,
+    "files": 327,
+    "skipped_symlinks": [
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg09fgFxD/apply_patch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg09fgFxD/applypatch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg09fgFxD/codex-execve-wrapper"
+    ]
+  },
+  "retained_failures": [
+    "codex-model-review-alpha24-r1-held.json",
+    "capsule-authority-conflict-red-alpha24.txt",
+    "capsule-authority-conflict-probe-alpha24.json"
+  ],
+  "limits": [
+    "Current controlled synchronous project SQLite mechanism only; not real production or remote-provider validation",
+    "Claude native scope remains deferred under the user Codex-first preference; host installation is not native execution evidence",
+    "No dynamic/detached mechanisms, implicit old-target relocation or claimed realtime protection from external editors"
+  ]
+}

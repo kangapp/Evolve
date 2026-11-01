@@ -1,0 +1,975 @@
+[
+  {
+    "case": "inspect",
+    "actions": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/business",
+          "description": "List business project directory"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/arithmetic.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/test_arithmetic.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "find /private/tmp/evolve-imp002-models-claude-06/business/.claude -maxdepth 3 | head -50",
+          "description": "List .claude contents"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.claude/settings.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/ && find /private/tmp/evolve-imp002-models-claude-06 -maxdepth 3 -name \"*.md\" -o -maxdepth 3 -name \"*.json\" | head -40",
+          "description": "Inspect evolve project root"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/",
+          "description": "List evolve project root"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "find /private/tmp/evolve-imp002-models-claude-06 -maxdepth 4 -name \"*.md\" | head -40",
+          "description": "Find markdown docs"
+        }
+      },
+      {
+        "name": "Skill",
+        "input": {
+          "skill": "evolve:evolve-workflow",
+          "args": "定位当前项目（business，arithmetic.total 总计错误调查）中与\"总计计算错误\"相关的既有工作项、只读状态与下一步"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/shared/contract.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls /private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/",
+          "description": "List plugin root"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/shared/protocol.md"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/evolve-package.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status",
+          "description": "Run Evolve status"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/skills/evolve-init/SKILL.md"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/skills/evolve-propose/SKILL.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -m unittest discover -v 2>&1 | tail -30",
+          "description": "Run existing unit tests"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --help 2>&1 | head -60",
+          "description": "Show evolve.py CLI help"
+        }
+      },
+      {
+        "name": "Grep",
+        "input": {
+          "pattern": "effect_kinds|REQUIRED_EFFECT|project_records|business_files",
+          "path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core",
+          "output_mode": "content",
+          "head_limit": 60
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/plans.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/connect.py",
+          "limit": 180
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/requests.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/cli.py"
+        }
+      },
+      {
+        "name": "Grep",
+        "input": {
+          "output_mode": "content",
+          "path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/workspace.py",
+          "pattern": "def request_staging_only|def inside|def current_digest",
+          "-A": 25
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/imp002-init-connect.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" init --method connect --owner evolve-init --request \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/imp002-init-connect.json\"",
+          "description": "Connect project to Evolve"
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/imp002-propose-total.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" propose --method create --owner evolve-propose --request \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/imp002-propose-total.json\"",
+          "description": "Create short plan via Evolve"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status",
+          "description": "Check Evolve status after propose"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport pathlib\np = pathlib.Path('.evolve-local/control/requests')\nfor f in p.glob('*.json'):\n    f.unlink(); print('removed', f)\np.rmdir()\np.parent.rmdir()\npathlib.Path('.evolve-local').rmdir()\n\"; ls -a",
+          "description": "Remove self-created staging request files"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "rm -rf __pycache__ && ls -a && cat arithmetic.py",
+          "description": "Remove pycache from my test run and confirm source unchanged"
+        }
+      }
+    ]
+  },
+  {
+    "case": "repair",
+    "actions": [
+      {
+        "name": "Skill",
+        "input": {
+          "skill": "evolve:evolve-init",
+          "args": "接入当前项目 /private/tmp/evolve-imp002-models-claude-06/business，检查入口 python3 -B -m unittest discover -v，范围限定 arithmetic.py 与 test_arithmetic.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/ && echo \"---\" && ls -la /private/tmp/evolve-imp002-models-claude-06/business/",
+          "description": "List project and parent directories"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/shared/contract.md"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/evolve-package.json"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/shared/protocol.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 --version && python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status --owner evolve-init",
+          "description": "Run Evolve status on target project"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/skills/evolve-init/SKILL.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status --owner evolve-workflow",
+          "description": "Run status with evolve-workflow owner"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/business/",
+          "description": "List business project files"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/skills/evolve-workflow/SKILL.md"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/arithmetic.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/test_arithmetic.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "find /private/tmp/evolve-imp002-models-claude-06/business/evolve /private/tmp/evolve-imp002-models-claude-06/business/.evolve-local /private/tmp/evolve-imp002-models-claude-06/business/.claude -type f | head -50",
+          "description": "List evolve record facility files"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/evolve/config.toml"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/init.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status \"修复 arithmetic.total 总计计算错误\" --owner evolve-workflow 2>&1 | head -200",
+          "description": "Read change plan and task details"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/cli.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/plans.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/connect.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/configure.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/apply.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/work.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/verify.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/archive.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/config_edit.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/requests.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/store.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/workspace.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/checks.py"
+        }
+      },
+      {
+        "name": "TodoWrite",
+        "input": {
+          "todos": [
+            {
+              "content": "Present the concrete short plan and confirm scope/authorization",
+              "status": "in_progress",
+              "activeForm": "Presenting the concrete short plan"
+            },
+            {
+              "content": "Confirm Evolve connection and check configuration (init.connect idempotent)",
+              "status": "pending",
+              "activeForm": "Confirming Evolve connection and check configuration"
+            },
+            {
+              "content": "Apply the arithmetic.total fix via apply.implement",
+              "status": "pending",
+              "activeForm": "Applying the arithmetic.total fix"
+            },
+            {
+              "content": "Run verify.run with spec and standards reviews",
+              "status": "pending",
+              "activeForm": "Running verification with spec and standards reviews"
+            },
+            {
+              "content": "Close the work item via archive.close and report",
+              "status": "pending",
+              "activeForm": "Archiving the work item and reporting"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "shasum -a 256 arithmetic.py test_arithmetic.py && python3 -B -m unittest discover -v; echo \"exit=$?\"",
+          "description": "Hash business files and run the stated check entry"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "shasum -a 256 arithmetic.py test_arithmetic.py",
+          "description": "Hash the two business files"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -B -m unittest discover -v",
+          "description": "Run the stated check entry to observe current failure"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport hashlib,pathlib\nfor n in ('arithmetic.py','test_arithmetic.py'):\n    print(n, hashlib.sha256(pathlib.Path(n).read_bytes()).hexdigest())\n\"",
+          "description": "Compute sha256 digests of the business files"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/package.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" init --method connect --owner evolve-init --request - <<'EOF'\n{\n  \"authorization\": {\n    \"source\": \"user\",\n    \"text\": \"使用 Evolve 接入此项目。检查入口为 python3 -B -m unittest discover -v。先呈现具体短方案，再在 arithmetic.py 与 test_arithmetic.py 范围内修复总计错误，保留现有独立断言，完成相关检查、规格与规范审查及封存。授权在该范围内修正验收发现；不批准正式项目知识。请忠实记录实际用户来源和本次授权，不预填审查结论。这是已获用户明确授权的插件验收，只操作当前临时业务项目及其 Evolve 记录，读取本次安装缓存内插件资料。不操作本插件源码工程、其他业务项目、个人配置、凭证或外部应用，不启动嵌套代理，不提交、发布或部署。遇到真实权限、认证或能力阻碍如实报告；不绕过限制。实际修改走 Evolve 的授权和工具协议。\",\n    \"effect_kinds\": [\"project_records\"],\n    \"paths\": []\n  },\n  \"input\": {\n    \"name\": \"business\",\n    \"checks\": [{\"id\": \"unit\", \"argv\": [\"python3\", \"-m\", \"unittest\", \"discover\", \"-v\"], \"cwd\": \".\", \"timeout\": 60}]\n  }\n}\nEOF",
+          "description": "Run idempotent init.connect to confirm project connection"
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/connect-20261031.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" init --method connect --owner evolve-init --request \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/connect-20261031.json\"",
+          "description": "Run idempotent init.connect with request file"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport pathlib\nb=pathlib.Path('arithmetic.py').read_bytes()\nprint(repr(b))\nprint(len(b))\n\"",
+          "description": "Inspect exact bytes of arithmetic.py"
+        }
+      },
+      {
+        "name": "TodoWrite",
+        "input": {
+          "todos": [
+            {
+              "activeForm": "Presenting the concrete short plan",
+              "content": "Present the concrete short plan and confirm scope/authorization",
+              "status": "completed"
+            },
+            {
+              "activeForm": "Confirming Evolve connection and check configuration",
+              "content": "Confirm Evolve connection and check configuration (init.connect idempotent)",
+              "status": "completed"
+            },
+            {
+              "activeForm": "Applying the arithmetic.total fix",
+              "content": "Apply the arithmetic.total fix via apply.implement",
+              "status": "in_progress"
+            },
+            {
+              "activeForm": "Running verification with spec and standards reviews",
+              "content": "Run verify.run with spec and standards reviews",
+              "status": "pending"
+            },
+            {
+              "activeForm": "Archiving the work item and reporting",
+              "content": "Close the work item via archive.close and report",
+              "status": "pending"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/apply-20261031.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" apply \"CHG-20261031-eba02569\" --method implement --owner evolve-apply --request \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/apply-20261031.json\"",
+          "description": "Apply the arithmetic.total fix through Evolve",
+          "timeout": 180000
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/arithmetic.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -B -m unittest discover -v",
+          "description": "Run the user-specified -B check entry after the fix"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -B -c \"\nfrom arithmetic import total\nprint('AC-001 total([8,3]) =', total([8,3]), total([8,3])==11)\nprint('AC-002 total([]) =', total([]), total([])==0)\nprint('AC-003 total([-4,3]) =', total([-4,3]), total([-4,3])==-1)\nimport pathlib, hashlib\nfor n in ('arithmetic.py','test_arithmetic.py'):\n    print(n, hashlib.sha256(pathlib.Path(n).read_bytes()).hexdigest())\nprint('pycache present:', pathlib.Path('__pycache__').exists())\n\"",
+          "description": "Evaluate the three acceptance conditions and re-hash files"
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/verify-20261031.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" verify \"CHG-20261031-eba02569\" --method run --owner evolve-verify --request \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/verify-20261031.json\"",
+          "description": "Run Evolve verification with spec and standards reviews",
+          "timeout": 180000
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/archive-20261031.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" archive \"CHG-20261031-eba02569\" --method close --owner evolve-archive --request \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/archive-20261031.json\"",
+          "description": "Archive the completed work item",
+          "timeout": 120000
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "find /private/tmp/evolve-imp002-models-claude-06/business/.evolve-local -type f | sort",
+          "description": "List files under .evolve-local to identify my temporary request files"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "rm -f \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/connect-20261031.json\" \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/apply-20261031.json\" \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/verify-20261031.json\" \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/archive-20261031.json\" && rmdir \"/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests\" && find /private/tmp/evolve-imp002-models-claude-06/business/.evolve-local -type f | sort",
+          "description": "Remove the temporary request files I created"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status --owner evolve-workflow 2>&1 | python3 -c \"\nimport json,sys\nd=json.load(sys.stdin)['data']['project']\nprint('state:', d['state'], '| initialization:', d['initialization'])\nfor c in d['changes']:\n    print('change', c['code'], c['state'], '| task', [(t['state']) for t in c['tasks']], '| latest_verification', (c['latest_verification'] or {}).get('status'))\nprint('pending_runs:', d['pending_runs'])\nprint('knowledge_refs:', d['knowledge_refs'], '| pending_knowledge:', d['pending_knowledge'])\n\"",
+          "description": "Confirm final Evolve project state"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status --owner evolve-workflow 2>&1 | python3 -c \"\nimport json,sys\nd=json.load(sys.stdin)['data']['project']\nfor c in d['changes']:\n    print('change', c['code'], '| state:', c['state'], '| task states:', [t['state'] for t in c['tasks']], '| verification:', (c.get('latest_verification') or {}).get('status'))\nprint('pending_runs:', d['pending_runs'])\nprint('knowledge_refs:', d['knowledge_refs'], '| pending_knowledge:', d['pending_knowledge'])\n\"",
+          "description": "Confirm final Evolve project state"
+        }
+      },
+      {
+        "name": "TodoWrite",
+        "input": {
+          "todos": [
+            {
+              "activeForm": "Presenting the concrete short plan",
+              "content": "Present the concrete short plan and confirm scope/authorization",
+              "status": "completed"
+            },
+            {
+              "activeForm": "Confirming Evolve connection and check configuration",
+              "content": "Confirm Evolve connection and check configuration (init.connect idempotent)",
+              "status": "completed"
+            },
+            {
+              "activeForm": "Applying the arithmetic.total fix",
+              "content": "Apply the arithmetic.total fix via apply.implement",
+              "status": "completed"
+            },
+            {
+              "activeForm": "Running verification with spec and standards reviews",
+              "content": "Run verify.run with spec and standards reviews",
+              "status": "completed"
+            },
+            {
+              "activeForm": "Archiving the work item and reporting",
+              "content": "Close the work item via archive.close and report",
+              "status": "completed"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "case": "verify",
+    "actions": [
+      {
+        "name": "Bash",
+        "input": {
+          "command": "pwd && ls -la",
+          "description": "List working directory contents"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/ 2>/dev/null",
+          "description": "List parent temp dir"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "find /private/tmp/evolve-imp002-models-claude-06/business -type f -not -path '*/.git/*' | head -100",
+          "description": "Find all files in project"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cat /private/tmp/evolve-imp002-models-claude-06/business/arithmetic.py; echo \"---TEST---\"; cat /private/tmp/evolve-imp002-models-claude-06/business/test_arithmetic.py",
+          "description": "Read arithmetic files"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cat .evolve-local/control/init.json && echo \"===GUARD===\" && cat .evolve-local/control/guard.json && echo \"===OP===\" && cat .evolve-local/control/operations/5fd85f4d-1caa-4a3e-9668-5c4518c92d04.json && echo \"===CONFIG===\" && cat evolve/config.toml && echo \"===CLAUDE===\" && cat .claude/settings.json",
+          "description": "Read evolve control and config files"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "file evolve/history.db && sqlite3 evolve/history.db \".tables\" 2>&1 | head -20",
+          "description": "Inspect history db schema"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la .evolve-local/control/ .evolve-local/control/operations/ evolve/",
+          "description": "Check file sizes in control and evolve dirs"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "sqlite3 evolve/history.db \".tables\"",
+          "description": "List history db tables"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/guard.json"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/operations/5fd85f4d-1caa-4a3e-9668-5c4518c92d04.json"
+        }
+      },
+      {
+        "name": "Skill",
+        "input": {
+          "skill": "evolve:evolve-workflow",
+          "args": "定位当前项目的 Evolve 工作项、只读状态与下一步"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/shared/contract.md"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/ && cat /private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/evolve-package.json",
+          "description": "Read plugin package manifest"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la /private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/",
+          "description": "List plugin source dir"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/evolve-package.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status --owner evolve-workflow",
+          "description": "Run Evolve status for project"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "cat -A arithmetic.py; echo \"---\"; shasum -a 256 arithmetic.py; echo \"---\"; wc -c arithmetic.py test_arithmetic.py",
+          "description": "Show exact file bytes and digests"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/skills/evolve-verify/SKILL.md"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/arithmetic.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/shared/protocol.md"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/cli.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status CHG-20261031-eba02569 --owner evolve-workflow",
+          "description": "Status with target change"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport hashlib,pathlib\nfor p in ['arithmetic.py','test_arithmetic.py']:\n    b=pathlib.Path(p).read_bytes()\n    print(p, len(b), hashlib.sha256(b).hexdigest())\n\"",
+          "description": "Compute sha256 of business files"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "grep -n \"digest\" /private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/workspace.py | head -40",
+          "description": "Inspect digest computation in workspace.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/verify.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/work.py"
+        }
+      },
+      {
+        "name": "Grep",
+        "input": {
+          "pattern": "fingerprint",
+          "path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime",
+          "output_mode": "content",
+          "-n": true
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/evolve/config.toml"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport sys, json\nrt='/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime'\nsys.path.insert(0, rt)\nfrom pathlib import Path\nfrom evolve_core.work import fingerprint\nroot=Path('/private/tmp/evolve-imp002-models-claude-06/business')\ndefinition={'scope':['arithmetic.py'],'checks_basis':[{'id':'unit','argv':['python3','-m','unittest','discover','-v'],'cwd':'.','timeout':60}]}\nsnap=fingerprint(root, definition)\nprint(json.dumps(snap, indent=2, ensure_ascii=False))\n\"",
+          "description": "Compute current workspace fingerprint via plugin code"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport sys, json\nrt='/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime'\nsys.path.insert(0, rt)\nfrom pathlib import Path\nfrom evolve_core.work import fingerprint\nroot=Path('/private/tmp/evolve-imp002-models-claude-06/business')\ndefinition={'scope':['arithmetic.py'],'required_checks':['unit'],'checks_basis':[{'id':'unit','argv':['python3','-m','unittest','discover','-v'],'cwd':'.','timeout':60}]}\nsnap=fingerprint(root, definition)\nprint(json.dumps(snap, indent=2, ensure_ascii=False))\n\"",
+          "description": "Compute workspace fingerprint with required_checks"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" maintain --method doctor --owner evolve-maintain",
+          "description": "Run Evolve doctor"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -m unittest discover -v; echo \"EXIT=$?\"",
+          "description": "Run registered unit check"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -m unittest discover -v",
+          "description": "Run registered unit check"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport arithmetic\nprint('total([8,3]) =', arithmetic.total([8,3]))\nprint('total([]) =', arithmetic.total([]))\nprint('total([-4,3]) =', arithmetic.total([-4,3]))\n\"",
+          "description": "Observe actual behavior of total()"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/requests.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport sqlite3, json\ncon=sqlite3.connect('file:/private/tmp/evolve-imp002-models-claude-06/business/evolve/history.db?mode=ro', uri=True)\nrows=con.execute('SELECT id,status,fingerprint_json,items_json,observed_at FROM verifications').fetchall()\nfor r in rows:\n    print('ID',r[0],'status',r[1],'at',r[4])\n    print('FP', json.dumps(json.loads(r[2]), ensure_ascii=False)[:400])\n    print('ITEMS', json.dumps(json.loads(r[3]), ensure_ascii=False, indent=2))\n    print('---')\n\"",
+          "description": "Read verification records read-only"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport sys, json\nsys.path.insert(0,'/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime')\nfrom pathlib import Path\nfrom evolve_core.work import fingerprint\nroot=Path('/private/tmp/evolve-imp002-models-claude-06/business')\nd={'scope':['arithmetic.py'],'required_checks':['unit'],'checks_basis':[{'id':'unit','argv':['python3','-m','unittest','discover','-v'],'cwd':'.','timeout':60}]}\ns=fingerprint(root,d)\nprint('digest',s['digest'])\nprint('files',json.dumps(s['files'],indent=1))\n\"",
+          "description": "Re-check fingerprint after manual test run"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/checks.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/privacy.py"
+        }
+      },
+      {
+        "name": "Read",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve_core/store.py"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "ls -la .evolve-local/control/ && mkdir -p .evolve-local/control/requests && ls -la .evolve-local/control/requests",
+          "description": "Prepare requests staging dir"
+        }
+      },
+      {
+        "name": "Write",
+        "input": {
+          "file_path": "/private/tmp/evolve-imp002-models-claude-06/business/.evolve-local/control/requests/verify-current-site-20261031.json"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" verify --method run --owner evolve-verify --request \".evolve-local/control/requests/verify-current-site-20261031.json\"",
+          "description": "Run verify.run on archived change"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "rm -f .evolve-local/control/requests/verify-current-site-20261031.json && rmdir .evolve-local/control/requests 2>/dev/null; ls -la .evolve-local/control/; echo \"=== pycache ===\"; ls -la __pycache__ 2>/dev/null || echo \"none\"",
+          "description": "Clean up request file and check pycache"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "rm -rf __pycache__ && ls -la",
+          "description": "Remove bytecode cache I generated"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status CHG-20261031-eba02569 --owner evolve-verify",
+          "description": "Final status check after verification"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 \"/private/tmp/evolve-imp002-models-claude-06/host-profile/installed-source/runtime/evolve.py\" --project \"/private/tmp/evolve-imp002-models-claude-06/business\" status CHG-20261031-eba02569 --owner evolve-workflow",
+          "description": "Final status with workflow owner"
+        }
+      },
+      {
+        "name": "Bash",
+        "input": {
+          "command": "python3 -c \"\nimport sqlite3\ncon=sqlite3.connect('file:/private/tmp/evolve-imp002-models-claude-06/business/evolve/history.db?mode=ro', uri=True)\nfor r in con.execute('SELECT id,status,observed_at FROM verifications ORDER BY observed_at'):\n    print(r)\n\"",
+          "description": "Confirm both verification records preserved"
+        }
+      }
+    ]
+  }
+]

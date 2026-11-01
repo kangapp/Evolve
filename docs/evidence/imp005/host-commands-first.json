@@ -1,0 +1,264 @@
+[
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/Users/liufukang/Workplace/spec-driven/scripts/build_package.py",
+      "--out",
+      "/private/tmp/evolve-imp005-lifecycle-01/download"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01",
+    "exit_code": 0,
+    "stdout": "{\"ok\": true, \"version\": \"0.1.0-alpha.3\", \"files\": 45, \"digest\": \"240d19be86696a0adbd21c5a4ab461224b37a2b1c2f8fac714ddd7acbe1f77f2\"}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "--version"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01",
+    "exit_code": 0,
+    "stdout": "codex-cli 0.154.0\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "marketplace",
+      "add",
+      "/private/tmp/evolve-imp005-lifecycle-01/安装 space 中文",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+    "exit_code": 0,
+    "stdout": "{\n  \"marketplaceName\": \"evolve-local\",\n  \"installedRoot\": \"/private/tmp/evolve-imp005-lifecycle-01/安装 space 中文\",\n  \"alreadyAdded\": false\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "add",
+      "evolve@evolve-local",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"evolve@evolve-local\",\n  \"name\": \"evolve\",\n  \"marketplaceName\": \"evolve-local\",\n  \"version\": \"0.1.0-alpha.3\",\n  \"installedPath\": \"/private/tmp/evolve-imp005-lifecycle-01/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3\",\n  \"authPolicy\": \"ON_USE\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "--version"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01",
+    "exit_code": 0,
+    "stdout": "2.1.117 (Claude Code)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "marketplace",
+      "add",
+      "/private/tmp/evolve-imp005-lifecycle-01/安装 space 中文",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "Adding marketplace…✔ Successfully added marketplace: evolve-local (declared in project settings)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "install",
+      "evolve@evolve-local",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "Installing plugin \"evolve@evolve-local\"...✔ Successfully installed plugin: evolve@evolve-local (scope: project)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "list",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"id\": \"evolve@evolve-local\",\n    \"version\": \"0.1.0-alpha.3\",\n    \"scope\": \"project\",\n    \"enabled\": true,\n    \"installPath\": \"/private/tmp/evolve-imp005-lifecycle-01/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3\",\n    \"installedAt\": \"2026-10-31T10:47:03.863Z\",\n    \"lastUpdated\": \"2026-10-31T10:47:03.863Z\",\n    \"projectPath\": \"/private/tmp/evolve-imp005-lifecycle-01/claude-business\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "disable",
+      "evolve@evolve-local",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "✔ Successfully disabled plugin: evolve (scope: project)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "list",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "[\n  {\n    \"id\": \"evolve@evolve-local\",\n    \"version\": \"0.1.0-alpha.3\",\n    \"scope\": \"project\",\n    \"enabled\": false,\n    \"installPath\": \"/private/tmp/evolve-imp005-lifecycle-01/claude-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3\",\n    \"installedAt\": \"2026-10-31T10:47:03.863Z\",\n    \"lastUpdated\": \"2026-10-31T10:47:03.863Z\",\n    \"projectPath\": \"/private/tmp/evolve-imp005-lifecycle-01/claude-business\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "remove",
+      "evolve@evolve-local",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"evolve@evolve-local\",\n  \"name\": \"evolve\",\n  \"marketplaceName\": \"evolve-local\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "add",
+      "evolve@evolve-local",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"evolve@evolve-local\",\n  \"name\": \"evolve\",\n  \"marketplaceName\": \"evolve-local\",\n  \"version\": \"0.1.0-alpha.3.lifecycle.1\",\n  \"installedPath\": \"/private/tmp/evolve-imp005-lifecycle-01/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3.lifecycle.1\",\n  \"authPolicy\": \"ON_USE\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "marketplace",
+      "update",
+      "evolve-local"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "Updating marketplace: evolve-local...Validating local marketplace\n✔ Successfully updated marketplace: evolve-local\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "update",
+      "evolve@evolve-local",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "Checking for updates for plugin \"evolve@evolve-local\" at project scope…\n✔ Plugin \"evolve\" updated from 0.1.0-alpha.3 to 0.1.0-alpha.3.lifecycle.1 for scope project (/private/tmp/evolve-imp005-lifecycle-01/claude-business). Restart to apply changes.\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "claude",
+      "plugin",
+      "enable",
+      "evolve@evolve-local",
+      "--scope",
+      "project"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/claude-business",
+    "exit_code": 0,
+    "stdout": "✔ Successfully enabled plugin: evolve (scope: project)\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-01/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3.lifecycle.1/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+      "status"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01",
+    "exit_code": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"action\": \"status\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": false,\n    \"run_id\": null,\n    \"outcome\": \"observed\",\n    \"owner_skill\": \"evolve-workflow\",\n    \"project\": {\n      \"state\": \"connected\",\n      \"root\": \"/private/tmp/evolve-imp005-lifecycle-01/codex-business\",\n      \"project_id\": \"c83a4376-6338-49bb-b32d-4b5ed6948f5c\",\n      \"workspace_epoch\": \"b8eacec9-0a4b-40ac-9a06-5086abd096bd\",\n      \"schema_version\": 1,\n      \"checkpoint\": \"201505e2-4ddf-4c35-b48b-08cb7e8bb148\",\n      \"changes\": [\n        {\n          \"id\": \"45b7d1bd-4333-48c8-87d3-8e4f6ca04fe8\",\n          \"code\": \"CHG-20261031-45b7d1bd\",\n          \"title\": \"Correct fixture total\",\n          \"kind\": \"modification\",\n          \"complexity\": \"simple\",\n          \"state\": \"archived\",\n          \"current_revision\": \"b55830e7-bae1-41cf-88ce-addecc721485\",\n          \"row_version\": 3,\n          \"tasks\": [\n            {\n              \"id\": \"6b9e20d2-f5eb-41dc-829c-fe1c39641fde\",\n              \"state\": \"done\",\n              \"row_version\": 3,\n              \"definition_digest\": \"43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447\"\n            }\n          ],\n          \"plan_digest\": \"b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60\",\n          \"details_loaded\": false\n        }\n      ],\n      \"analyses\": [],\n      \"pending_runs\": [],\n      \"knowledge_refs\": [\n        {\n          \"path\": \"evolve/project.md\",\n          \"artifact_version_id\": \"c6c2babc-7d8c-4136-bdb2-9ac9ebfb780e\",\n          \"registered_digest\": \"578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782\",\n          \"source_run_id\": \"800b398c-1521-4b58-a242-971d0ca239f8\",\n          \"registered_at\": \"2026-10-31T10:47:03.242722+00:00\",\n          \"observed_digest\": \"578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782\",\n          \"confirmation\": \"approved_version\"\n        }\n      ],\n      \"pending_knowledge\": [],\n      \"write_compatible\": true,\n      \"initialization\": \"committed\"\n    },\n    \"package_root\": \"/private/tmp/evolve-imp005-lifecycle-01/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3.lifecycle.1\",\n    \"package_version\": \"0.1.0-alpha.3.lifecycle.1\",\n    \"content_digest\": \"c6c83783496c201b78532eaeed802dbe522fbc346589b546ca843f2048bb6e71\",\n    \"available_methods\": [\n      \"analyze.investigate\",\n      \"apply.implement\",\n      \"archive.close\",\n      \"init.baseline.apply\",\n      \"init.baseline.propose\",\n      \"init.connect\",\n      \"maintain.doctor\",\n      \"maintain.recover\",\n      \"propose.create\",\n      \"status.show\",\n      \"verify.run\"\n    ],\n    \"unavailable_methods\": [\n      \"apply.external.compensate\",\n      \"apply.external.execute\",\n      \"apply.external.reconcile\",\n      \"apply.external.record\",\n      \"history.show\",\n      \"learn.disable\",\n      \"learn.promote\",\n      \"learn.record\",\n      \"learn.retro\",\n      \"learn.review\",\n      \"learn.search\",\n      \"maintain.backup\",\n      \"maintain.cancel\",\n      \"maintain.export\",\n      \"maintain.restore\",\n      \"next.show\",\n      \"resume.show\",\n      \"sync.apply\",\n      \"update.revise\",\n      \"verify.record\"\n    ],\n    \"host_enablement\": \"not_observed\",\n    \"warnings\": []\n  },\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-01/codex 缓存 space 中文/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+      "maintain",
+      "--method",
+      "doctor"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01",
+    "exit_code": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"action\": \"maintain\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": false,\n    \"run_id\": null,\n    \"outcome\": \"observed\",\n    \"owner_skill\": \"evolve-maintain\",\n    \"project\": {\n      \"state\": \"connected\",\n      \"root\": \"/private/tmp/evolve-imp005-lifecycle-01/codex-business\",\n      \"project_id\": \"c83a4376-6338-49bb-b32d-4b5ed6948f5c\",\n      \"workspace_epoch\": \"b8eacec9-0a4b-40ac-9a06-5086abd096bd\",\n      \"schema_version\": 1,\n      \"checkpoint\": \"201505e2-4ddf-4c35-b48b-08cb7e8bb148\",\n      \"changes\": [\n        {\n          \"id\": \"45b7d1bd-4333-48c8-87d3-8e4f6ca04fe8\",\n          \"code\": \"CHG-20261031-45b7d1bd\",\n          \"title\": \"Correct fixture total\",\n          \"kind\": \"modification\",\n          \"complexity\": \"simple\",\n          \"state\": \"archived\",\n          \"current_revision\": \"b55830e7-bae1-41cf-88ce-addecc721485\",\n          \"row_version\": 3,\n          \"tasks\": [\n            {\n              \"id\": \"6b9e20d2-f5eb-41dc-829c-fe1c39641fde\",\n              \"state\": \"done\",\n              \"row_version\": 3,\n              \"definition_digest\": \"43b85347652d520c81245ab367b57a33836bd83f974e9637b531797ec7092447\"\n            }\n          ],\n          \"plan_digest\": \"b5f5f813f2eb78ac38c9c8b08c1170e233df0eeaf486ce2fddaa84cc117e4e60\",\n          \"details_loaded\": false\n        }\n      ],\n      \"analyses\": [],\n      \"pending_runs\": [],\n      \"knowledge_refs\": [\n        {\n          \"path\": \"evolve/project.md\",\n          \"artifact_version_id\": \"c6c2babc-7d8c-4136-bdb2-9ac9ebfb780e\",\n          \"registered_digest\": \"578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782\",\n          \"source_run_id\": \"800b398c-1521-4b58-a242-971d0ca239f8\",\n          \"registered_at\": \"2026-10-31T10:47:03.242722+00:00\",\n          \"observed_digest\": \"578323b6e54324fd8849ecabb0c44871a00e8dcee836997681927e19027f4782\",\n          \"confirmation\": \"approved_version\"\n        }\n      ],\n      \"pending_knowledge\": [],\n      \"write_compatible\": true,\n      \"initialization\": \"committed\"\n    },\n    \"package_root\": \"/private/tmp/evolve-imp005-lifecycle-01/codex 缓存 space 中文\",\n    \"package_version\": \"0.1.0-alpha.3.lifecycle.1\",\n    \"content_digest\": \"c6c83783496c201b78532eaeed802dbe522fbc346589b546ca843f2048bb6e71\",\n    \"available_methods\": [\n      \"analyze.investigate\",\n      \"apply.implement\",\n      \"archive.close\",\n      \"init.baseline.apply\",\n      \"init.baseline.propose\",\n      \"init.connect\",\n      \"maintain.doctor\",\n      \"maintain.recover\",\n      \"propose.create\",\n      \"status.show\",\n      \"verify.run\"\n    ],\n    \"unavailable_methods\": [\n      \"apply.external.compensate\",\n      \"apply.external.execute\",\n      \"apply.external.reconcile\",\n      \"apply.external.record\",\n      \"history.show\",\n      \"learn.disable\",\n      \"learn.promote\",\n      \"learn.record\",\n      \"learn.retro\",\n      \"learn.review\",\n      \"learn.search\",\n      \"maintain.backup\",\n      \"maintain.cancel\",\n      \"maintain.export\",\n      \"maintain.restore\",\n      \"next.show\",\n      \"resume.show\",\n      \"sync.apply\",\n      \"update.revise\",\n      \"verify.record\"\n    ],\n    \"host_enablement\": \"not_observed\",\n    \"warnings\": []\n  },\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "remove",
+      "evolve@evolve-local",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"evolve@evolve-local\",\n  \"name\": \"evolve\",\n  \"marketplaceName\": \"evolve-local\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "codex",
+      "plugin",
+      "add",
+      "evolve@evolve-local",
+      "--json"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+    "exit_code": 0,
+    "stdout": "{\n  \"pluginId\": \"evolve@evolve-local\",\n  \"name\": \"evolve\",\n  \"marketplaceName\": \"evolve-local\",\n  \"version\": \"0.1.0-alpha.3.lifecycle.1\",\n  \"installedPath\": \"/private/tmp/evolve-imp005-lifecycle-01/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3.lifecycle.1\",\n  \"authPolicy\": \"ON_USE\"\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/Users/liufukang/.local/bin/python3",
+      "/private/tmp/evolve-imp005-lifecycle-01/codex-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.3.lifecycle.1/runtime/evolve.py",
+      "--project",
+      "/private/tmp/evolve-imp005-lifecycle-01/codex-business",
+      "init",
+      "--request",
+      "-"
+    ],
+    "cwd": "/private/tmp/evolve-imp005-lifecycle-01",
+    "exit_code": 0,
+    "stdout": "{\n  \"ok\": true,\n  \"action\": \"init\",\n  \"operation_id\": null,\n  \"data\": {\n    \"committed\": true,\n    \"outcome\": \"already_connected\",\n    \"project_id\": \"c83a4376-6338-49bb-b32d-4b5ed6948f5c\",\n    \"workspace_epoch\": \"b8eacec9-0a4b-40ac-9a06-5086abd096bd\",\n    \"configuration_changed\": false,\n    \"run_id\": \"2914bf3f-c724-4be7-81d5-4b82ce2cded8\",\n    \"request_context\": {\n      \"request_id\": \"d1550ca8-0d4b-4689-a1e5-2d90a3c0f36d\",\n      \"project_id\": \"c83a4376-6338-49bb-b32d-4b5ed6948f5c\",\n      \"expected_workspace_epoch\": \"b8eacec9-0a4b-40ac-9a06-5086abd096bd\"\n    },\n    \"input_bindings\": {}\n  },\n  \"warnings\": []\n}\n",
+    "stderr": ""
+  }
+]

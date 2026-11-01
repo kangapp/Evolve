@@ -1,0 +1,102 @@
+{
+  "recorded_at": "2026-10-31T16:01:06.662319+00:00",
+  "authorization": {
+    "source": "direct human answer in current conversation",
+    "answer": "授权两个宿主及同范围复验（推荐）",
+    "plan": "model-acceptance-plan.md",
+    "scope": "seven temporary files, seven fresh sessions per host and necessary same-scope repairs/retests; two production files writable, five tests readonly; no personal config changes, nested agents or publication; stop on quota/permission failure"
+  },
+  "frozen_package": {
+    "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af",
+    "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/preserved/package",
+    "digest": "55be374a378ddb3b3fb2cf6a9b7dab448d8a30278b0def8f849ca94683590fb7",
+    "controller_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/frozen-controller"
+  },
+  "controller_archive": "model-runner-alpha6.zip",
+  "hosts": {
+    "codex": {
+      "session_id": 71370,
+      "scope_digest": "9e43c19fc7a91b450b42766c5ed81fe5be8125431ace3a3092843fb09361ec61",
+      "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/codex-execution-r1",
+      "state": "passed_current_host_scope",
+      "model": "account default from model/list",
+      "terminal_exit_code": 0,
+      "review": "codex-model-review-r1.json"
+    },
+    "claude": {
+      "session_id": 29322,
+      "scope_digest": "891008fa118ba0f99dc5abc9a338d7f82879d4ae73f4fecfdc1940c7b642e290",
+      "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/claude-execution-r1",
+      "state": "stopped_permission_failure",
+      "model": "MiniMax-M3.1-Flash (process only)",
+      "terminal_exit_code": 143,
+      "review": "claude-model-review-r1.json",
+      "first_run_state": "stopped_permission_failure",
+      "retests": [
+        {
+          "run": "r2",
+          "session_id": 20774,
+          "state": "stopped_permission_failure",
+          "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/claude-execution-r2",
+          "scope_digest": "65530668db9fcf6a17b13f9f5426bb960e8b9edae7eea4cc13d02779054bee81",
+          "controller_archive": "model-runner-alpha6-permission-fix.zip",
+          "controller_sha256": "a7b57e17cea9f536e0c42e602da85b4a1e2cc8b11fcbc852cfce443de1c73e9a",
+          "reason": "Diagnosed supported-command-form mismatch repaired without changing host permissions; same seven files/sessions/model and actual same-scope-retest grant.",
+          "regression": "native-transport-fix-validation.json",
+          "dispatched_at_recorded": "2026-10-31T16:11:07.961552+00:00",
+          "terminal_exit_code": 1,
+          "review": "claude-model-review-r2.json"
+        },
+        {
+          "run": "r3",
+          "state": "stopped_permission_failure",
+          "scope_digest": "1d78c4c72f3908dca70762431e378c9375ca89344c9f3adad88898f3862db6da",
+          "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/claude-execution-r3",
+          "controller_archive": "model-runner-alpha6-layout-fix.zip",
+          "controller_sha256": "620d0be7262111e097cc4828d3c020e3387d6d7763822eb1fb5ea8a793a6153e",
+          "reason": "Known outside-working-root cache placement corrected without changing original files, cases, model, native permission options or effect boundaries.",
+          "authorization_basis": "Existing direct human grant explicitly covers necessary same-scope repairs and retests.",
+          "regression": "installation-layout-fix-validation.json",
+          "session_id": 89507,
+          "dispatched_at_recorded": "2026-10-31T17:51:32.564967+00:00",
+          "terminal_exit_code": 1,
+          "review": "claude-model-review-r3.json"
+        },
+        {
+          "run": "r4",
+          "state": "stopped_parent_check_failure",
+          "session_id": 50383,
+          "scope_digest": "34db572ad971ccf58abcb06263a4b0c0a0ac34af5badaf15d7ab624de53575c0",
+          "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/claude-execution-r4",
+          "controller_archive": "model-runner-alpha6-command-guide-fix.zip",
+          "controller_sha256": "17de79fcf8e300756c9a61878081248aecb2218f32083eccb6bd44797e333d1c",
+          "reason": "Clarify existing native command allowlist and use Evolve-provided observations; no permission change, denied shasum replay or semantic scope change.",
+          "authorization_basis": "Existing direct human grant explicitly covers necessary same-scope repairs and retests.",
+          "regression": "command-guide-fix-validation.json",
+          "dispatched_at_recorded": "2026-10-31T18:06:02.229203+00:00",
+          "terminal_exit_code": 1,
+          "review": "claude-model-review-r4.json"
+        },
+        {
+          "run": "r5",
+          "state": "stopped_parent_check_failure",
+          "session_id": 41316,
+          "scope_digest": "150338976bd3f6faa820adacf924343b03aadc9765827f4829b1dbde45dbe748",
+          "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-native-preparation-mui6k3af/claude-execution-r5",
+          "controller_archive": "model-runner-alpha6-pending-candidate-fix.zip",
+          "controller_sha256": "4637a63dc304561c14ae045695104eb1419b5bdc35d30d747df014ab8875fbcf",
+          "reason": "Diagnosed parent current-REV-only check omitted legitimate pending scope-confirmation candidate. Clarify fifth/sixth inputs; preserve actual exact-candidate acceptance, final mean assertions, same files/model/effects and native permissions.",
+          "authorization_basis": "Existing direct human grant explicitly covers necessary same-scope repairs and retests.",
+          "regression": "pending-candidate-fix-validation.json",
+          "dispatched_at_recorded": "2026-10-31T18:28:00.735124+00:00",
+          "terminal_exit_code": 1,
+          "review": "claude-model-review-r5.json"
+        }
+      ],
+      "current_review": "claude-model-review-r5.json"
+    }
+  },
+  "passed": false,
+  "limitation": "Dispatch receipt only; actual traces, parent assertions and final state still require review. Historical preparation remains no-model evidence.",
+  "status": "claude_r5_stopped_parent_check_failure"
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="935" viewBox="0 0 1440 935" role="img" aria-labelledby="title desc">
+<title id="title">轻量任务、升级与停止</title><desc id="desc">材料随复杂度调整；取消不删除已做事实</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#235da8"/></marker>
+<marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#176c61"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94520b"/></marker>
+<marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a33342"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#52647b"/></marker>
+</defs>
+<style>text{font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif}path,line,rect{vector-effect:non-scaling-stroke}</style>
+<rect width="1440" height="935" fill="#ffffff"/>
+<text x="44" y="45" fill="#235da8" font-size="15" font-weight="600" text-anchor="start">EVOLVE / 14</text>
+<text x="44" y="90" fill="#172b46" font-size="32" font-weight="600" text-anchor="start">轻量任务、升级与停止</text>
+<text x="44" y="124" fill="#52647b" font-size="18" font-weight="400" text-anchor="start">材料随复杂度调整；取消不删除已做事实</text>
+<line x1="44" y1="146" x2="1396" y2="146" stroke="#bac8d8" stroke-width="1.7"/>
+<rect x="12.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="112.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">用户</text>
+<line x1="112.0" y1="247" x2="112.0" y2="844" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="417.33333333333326" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="517.3333333333333" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">规划／实施</text>
+<line x1="517.3333333333333" y1="247" x2="517.3333333333333" y2="844" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="822.6666666666666" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="922.6666666666666" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">记录与方案</text>
+<line x1="922.6666666666666" y1="247" x2="922.6666666666666" y2="844" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<rect x="1228.0" y="169" width="200" height="77" rx="8" fill="#eef4fc" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="1328.0" y="199" fill="#172b46" font-size="21" font-weight="600" text-anchor="middle">成果／证据</text>
+<line x1="1328.0" y1="247" x2="1328.0" y2="844" stroke="#bac8d8" stroke-width="1.7" stroke-dasharray="7 6"/>
+<g data-box="126.0,265,377.33333333333326,37">
+<rect x="126.0" y="265" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="287" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">01  明确简单修改</text>
+</g>
+<line x1="112.0" y1="309" x2="517.3333333333333" y2="309" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="126.0,332,377.33333333333326,37">
+<rect x="126.0" y="332" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="354" fill="#52647b" font-size="21" font-weight="400" text-anchor="middle">02  简述范围、做法与检查</text>
+</g>
+<line x1="517.3333333333333" y1="376" x2="112.0" y2="376" stroke="#52647b" stroke-width="1.7" stroke-dasharray="7 6" marker-end="url(#arrow-muted)"/>
+<g data-box="531.3333333333333,399,377.33333333333337,37">
+<rect x="531.3333333333333" y="399" width="377.33333333333337" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="421" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">03  保存短方案正文和授权</text>
+</g>
+<line x1="517.3333333333333" y1="443" x2="922.6666666666666" y2="443" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="562.6666666666666,466,720,37">
+<rect x="562.6666666666666" y="466" width="720" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="922.6666666666666" y="488" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">04  实施和相关验证</text>
+</g>
+<line x1="517.3333333333333" y1="510" x2="1328.0" y2="510" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,533,1344,60">
+<rect x="48" y="533" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="565" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">发现复杂度升级：复用材料，生成 spec／任务清单并确认</text>
+</g>
+<g data-box="126.0,613,377.33333333333326,37">
+<rect x="126.0" y="613" width="377.33333333333326" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="314.66666666666663" y="635" fill="#235da8" font-size="21" font-weight="400" text-anchor="middle">05  修改范围或停止工作</text>
+</g>
+<line x1="112.0" y1="657" x2="517.3333333333333" y2="657" stroke="#235da8" stroke-width="1.7" marker-end="url(#arrow-blue)"/>
+<g data-box="531.3333333333333,680,377.33333333333337,37">
+<rect x="531.3333333333333" y="680" width="377.33333333333337" height="37" rx="3" fill="#ffffff" stroke="#ffffff" stroke-width="1.2"/>
+<text x="720.0" y="702" fill="#176c61" font-size="21" font-weight="400" text-anchor="middle">06  新 REV 或取消记录；保留旧结果</text>
+</g>
+<line x1="517.3333333333333" y1="724" x2="922.6666666666666" y2="724" stroke="#176c61" stroke-width="1.7" marker-end="url(#arrow-green)"/>
+<g data-box="48,747,1344,60">
+<rect x="48" y="747" width="1344" height="60" rx="8" fill="#f5f7fa" stroke="#bac8d8" stroke-width="1.2"/>
+<text x="68" y="779" fill="#52647b" font-size="21" font-weight="500" text-anchor="start">范围缩减需接受；取消 Task 不自动豁免 AC；停止不自动回退用户源码</text>
+</g>
+<line x1="44" y1="864" x2="1396" y2="864" stroke="#bac8d8" stroke-width="1.7"/>
+<text x="44" y="891" fill="#52647b" font-size="15" font-weight="400" text-anchor="start">设计 0.6.2 · Evolve / 八个 Skill / 尚未实现 · 2026-10-31</text>
+<text x="1396" y="891" fill="#52647b" font-size="15" font-weight="400" text-anchor="end">实线：请求/操作   虚线：返回/条件路径   编号：图内顺序</text>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "name": "evolve",
+  "version": "0.1.0",
+  "description": "单项目的需求、实施、验证、知识与跨会话续接工作流。当前能力以 status 为准。",
+  "author": {
+    "name": "Evolve maintainers"
+  },
+  "license": "LicenseRef-Proprietary",
+  "skills": "./skills/"
+}

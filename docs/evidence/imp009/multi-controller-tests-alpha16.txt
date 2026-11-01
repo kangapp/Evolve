@@ -1,0 +1,8 @@
+test_frozen_controller_preflight_survives_a_real_directory_alias (test_model_multi_acceptance.MultiScopeTests.test_frozen_controller_preflight_survives_a_real_directory_alias) ... ok
+test_old_or_absent_authorization_is_rejected_before_installation (test_model_multi_acceptance.MultiScopeTests.test_old_or_absent_authorization_is_rejected_before_installation) ... ok
+test_preflight_exposes_seven_fresh_sessions_and_concrete_formal_decisions (test_model_multi_acceptance.MultiScopeTests.test_preflight_exposes_seven_fresh_sessions_and_concrete_formal_decisions) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.185s
+
+OK

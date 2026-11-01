@@ -1,0 +1,10 @@
+test_lost_receipt_is_actually_probed_once_and_never_replayed (test_external_reconcile.ExternalReconcileTests.test_lost_receipt_is_actually_probed_once_and_never_replayed) ... ok
+test_older_archive_preserves_pending_capsule_and_reconciliation_does_not_invent_old_run (test_external_reconcile.ExternalReconcileTests.test_older_archive_preserves_pending_capsule_and_reconciliation_does_not_invent_old_run) ... ok
+test_pending_resources_cannot_change_the_immutable_capsule_resource_protection (test_external_reconcile.ExternalReconcileTests.test_pending_resources_cannot_change_the_immutable_capsule_resource_protection) ... ok
+test_probe_failure_retains_unknown_then_later_failure_does_not_erase_confirmed_facts (test_external_reconcile.ExternalReconcileTests.test_probe_failure_retains_unknown_then_later_failure_does_not_erase_confirmed_facts) ... ok
+test_valid_but_different_pending_capsule_cannot_override_the_recorded_operation_source (test_external_reconcile.ExternalReconcileTests.test_valid_but_different_pending_capsule_cannot_override_the_recorded_operation_source) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.163s
+
+OK

@@ -1,0 +1,264 @@
+{
+  "slice": "IMP-014",
+  "status": "functional_passed_native_review_pending",
+  "package_version": "0.1.0",
+  "package_digest": "38a7ab9947093eaf99b87cb159f1e3bef532904893eba5611eec97748527ecdb",
+  "source_digest": "bba65e268802d8f1f2d3cc30f8a52ca954b902063e516ce95055cb9fdcd48b96",
+  "protocol_version": 16,
+  "schema_version": 4,
+  "runtime_resources": 83,
+  "full_regression": {
+    "tests": 640,
+    "seconds": 143.057,
+    "log": "component-tests-010-guide-r3.txt",
+    "sha256": "a1a1ffb034feb666cf65d154385e6409d328b225472ab32c8916c2767995b3f9"
+  },
+  "installation": "installation-summary-010-r3.json",
+  "lifecycle_primary_review": "lifecycle-primary-review-010-r3.json",
+  "native_model_gate": "pending actual both-host trajectory/semantic review",
+  "retained_actual_failures": [
+    "input-checks-red.txt",
+    "parent-input-digest-red.txt",
+    "parent-input-digest-green.txt",
+    "component-tests-010-source-checks.txt",
+    "history-public-red.txt",
+    "component-tests-010-final-first.txt",
+    "lifecycle-010-first.txt"
+  ],
+  "limits": [
+    "Only current actual macOS environment; Windows gate explicitly withdrawn by human",
+    "Finite controlled synchronous Python/SQLite data operations; no production or remote-provider proof",
+    "Native scope and shared-core/CLI tests remain distinct; no independent sub-agent review claimed"
+  ],
+  "current_guide_correction": "guide-correction-native-hold-r2.json",
+  "relocation": {
+    "status": "passed_for_observed_runtime_platform",
+    "platform": {
+      "system": "Darwin",
+      "release": "25.6.0",
+      "os_name": "posix",
+      "python": "3.11.9",
+      "encoding": "UTF-8",
+      "child_python_utf8": true
+    },
+    "native_windows_observed": false,
+    "model_requests_sent": false,
+    "host_discovery": "not_run",
+    "checks": {
+      "download_removed": true,
+      "installed_root_used": true,
+      "project_initially_not_connected": true,
+      "actual_repair_and_closure": true,
+      "old_installation_removed": true,
+      "relocated_root_used": true,
+      "relocated_package_unchanged": true,
+      "original_project_identity": true,
+      "relocation_queries_are_pure": true,
+      "actual_pause_continuation_and_learning": true,
+      "supplied_package_unchanged": true
+    },
+    "limitations": [
+      "Runtime CLI fixtures only; no native host install or Skill discovery in this runner",
+      "Review inputs are controlled observations, not independent model judgments",
+      "Only the observed platform is tested; this result alone does not complete V-137 or M1"
+    ],
+    "content_digest": "38a7ab9947093eaf99b87cb159f1e3bef532904893eba5611eec97748527ecdb",
+    "package_version": "0.1.0",
+    "workflow": {
+      "passed": true,
+      "runtime": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/relocation/安装 整包/runtime/evolve.py",
+      "project": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/relocation/业务 项目",
+      "project_id": "4c0eab7c-1a21-4a5b-a3d8-27e0247f38d5",
+      "change_id": "d92705d0-27f0-4ad5-b721-599490f1956a",
+      "original_test_exit_code": 1,
+      "task_check_status": "passed",
+      "verification_status": "passed",
+      "completion_outcome": "archived",
+      "formal_baseline": "baseline_applied",
+      "incremental_configuration": "configuration_updated",
+      "unrequested_check_executed": false,
+      "model_requests_sent": false,
+      "review_inputs": "controlled fixture observations, not independent model review",
+      "source_digest": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "investigation": {
+        "answer_only_created_records": false,
+        "recorded_run_id": "8269b75b-b2a7-46eb-8b3f-7e4e28926a16",
+        "criterion_digest": "31bfed614665b5e746e6d8c62e1e04c6883eac7f9daabc09132371135b496e3c",
+        "original_red_saved": true,
+        "post_repair_original_criterion": "passed",
+        "investigation_created_change": false
+      }
+    },
+    "continuation": {
+      "passed": true,
+      "evidence_kind": "Actual installed-runtime CLI processes with controlled fixture inputs, not native model-semantic acceptance",
+      "runtime": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/relocation/移动 整包/runtime/evolve.py",
+      "project": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/relocation/业务 项目",
+      "model_requests_sent": false,
+      "experience_ref": {
+        "run_id": "ebd1ae94-9e31-4ad0-afaa-79ee68ad1ce9",
+        "result_digest": "2b8a89745c7cc7cb5649257ffa9a7557bac1891c286d5d8c12c6999356dd80ed"
+      },
+      "experience_produced_from_actual_work": true,
+      "second_change_id": "5087067d-b6e4-4fb5-b51c-fb915794e396",
+      "second_real_red_exit_code": 1,
+      "normal_pause": {
+        "run_id": "aaf1271c-74c1-40da-bd44-351113c2762d",
+        "outcome": "partial",
+        "checks": "not_run",
+        "new_run_id": "4dc95145-4ff8-4fc0-83bc-2d0ba79e35e5"
+      },
+      "fresh_context_restored_prior_adoption": true,
+      "old_run_result_unchanged": true,
+      "feedback": {
+        "run_id": "25979238-0094-4c80-97a7-693adc043678",
+        "outcome": "unknown"
+      },
+      "final_state": "candidate",
+      "new_discovery_status_after_archive": "no_new_learning",
+      "verification": "passed",
+      "closure": "archived",
+      "original_and_second_literal_assertions_unchanged": true,
+      "learning_did_not_approve_formal_knowledge": true
+    }
+  },
+  "public_external_cli": {
+    "model_requests_sent": false,
+    "commands": 21,
+    "observations": [
+      {
+        "case": "seed",
+        "actual_ledger": 20,
+        "actual_provider_receipts": 1,
+        "pending_external": 0,
+        "active_claims": 0,
+        "changes": 1,
+        "verifications": 1,
+        "readonly_files_and_packages_preserved": true,
+        "semantic_model_review": "pending"
+      },
+      {
+        "case": "unknown",
+        "actual_ledger": 30,
+        "actual_provider_receipts": 2,
+        "pending_external": 1,
+        "active_claims": 3,
+        "changes": 2,
+        "verifications": 1,
+        "readonly_files_and_packages_preserved": true,
+        "semantic_model_review": "pending"
+      },
+      {
+        "case": "reconcile",
+        "actual_ledger": 30,
+        "actual_provider_receipts": 2,
+        "pending_external": 0,
+        "active_claims": 0,
+        "changes": 2,
+        "verifications": 2,
+        "readonly_files_and_packages_preserved": true,
+        "semantic_model_review": "pending"
+      },
+      {
+        "case": "compensate",
+        "actual_ledger": 20,
+        "actual_provider_receipts": 3,
+        "pending_external": 1,
+        "active_claims": 3,
+        "changes": 3,
+        "verifications": 2,
+        "readonly_files_and_packages_preserved": true,
+        "semantic_model_review": "pending"
+      },
+      {
+        "case": "restore_reconcile",
+        "actual_ledger": 20,
+        "actual_provider_receipts": 3,
+        "pending_external": 0,
+        "active_claims": 0,
+        "changes": 1,
+        "verifications": 1,
+        "readonly_files_and_packages_preserved": true,
+        "semantic_model_review": "pending"
+      },
+      {
+        "case": "current_verify",
+        "actual_ledger": 19,
+        "actual_provider_receipts": 3,
+        "pending_external": 0,
+        "active_claims": 0,
+        "changes": 1,
+        "verifications": 2,
+        "readonly_files_and_packages_preserved": true,
+        "semantic_model_review": "pending"
+      }
+    ],
+    "tampering_rejected": true
+  },
+  "actual_old_compatibility": {
+    "alpha21": {
+      "passed": true,
+      "old_package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp011-frozen-alpha21-e7cowf8u/package",
+      "new_package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/package",
+      "commands": 8,
+      "actual_old_protocol": 14,
+      "actual_new_protocol": 16,
+      "explicit_upgrade": {
+        "committed": true,
+        "outcome": "upgraded",
+        "project_id": "2bdfca81-a1a9-4ec0-b336-cb7bedfabf36",
+        "workspace_epoch": "d608b756-bfc1-4e39-b847-1434f1ed54e9",
+        "old_epoch": "cc07c3d1-9f25-414e-bda0-a081c008640c",
+        "plan_id": "0759fce2-98e1-4d3c-a7a0-139df8bdb71b",
+        "protection": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/compatibility-alpha21/project/.evolve-local/control/restores/0759fce2-98e1-4d3c-a7a0-139df8bdb71b/protection",
+        "quarantined_managed": [],
+        "external_pending": 0,
+        "external_coverage": "unverified",
+        "business_data_restored": false,
+        "commands_replayed": false,
+        "checks_run": false,
+        "request_context": {
+          "request_id": "explicit-old-to-new-upgrade",
+          "project_id": "2bdfca81-a1a9-4ec0-b336-cb7bedfabf36",
+          "expected_workspace_epoch": "cc07c3d1-9f25-414e-bda0-a081c008640c"
+        },
+        "input_bindings": {}
+      },
+      "ordinary_init_no_migration": true,
+      "incompatible_requests_preserve_all_bytes": true,
+      "model_requests_sent": false
+    },
+    "alpha23": {
+      "passed": true,
+      "old_package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha23-onuepfa3/package",
+      "new_package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/package",
+      "commands": 8,
+      "actual_old_protocol": 15,
+      "actual_new_protocol": 16,
+      "explicit_upgrade": {
+        "committed": true,
+        "outcome": "upgraded",
+        "project_id": "3d68d6e2-6965-4407-9355-c5f34b22cb2d",
+        "workspace_epoch": "00b4513a-0553-4a39-806f-548fe2d415d5",
+        "old_epoch": "3001d31b-c538-4213-afea-2f5188533007",
+        "plan_id": "7a5ab148-1072-48d6-b87a-c520dda639f5",
+        "protection": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r3-lg0e6ccx/compatibility-alpha23/project/.evolve-local/control/restores/7a5ab148-1072-48d6-b87a-c520dda639f5/protection",
+        "quarantined_managed": [],
+        "external_pending": 0,
+        "external_coverage": "local-protocol-15",
+        "business_data_restored": false,
+        "commands_replayed": false,
+        "checks_run": false,
+        "request_context": {
+          "request_id": "explicit-old-to-new-upgrade",
+          "project_id": "3d68d6e2-6965-4407-9355-c5f34b22cb2d",
+          "expected_workspace_epoch": "3001d31b-c538-4213-afea-2f5188533007"
+        },
+        "input_bindings": {}
+      },
+      "ordinary_init_no_migration": true,
+      "incompatible_requests_preserve_all_bytes": true,
+      "model_requests_sent": false
+    }
+  }
+}

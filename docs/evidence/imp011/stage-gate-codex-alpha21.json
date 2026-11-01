@@ -1,0 +1,56 @@
+{
+  "slice": "IMP-011",
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.21",
+  "protocol_version": 14,
+  "schema_version": 4,
+  "package_digest": "e521b7f75d252bd207bd109dd899a2721b582062bacf94949fd3112a73edcce0",
+  "scope_digest": "a0e30a156876f0785fd4b683f0f9a521fe24418a2e60fd2c4b20dbd7dfe8b0d6",
+  "authorization": "../continuation-authorization-20261101.json",
+  "regression": {
+    "tests": 549,
+    "seconds": 97.212,
+    "passed": true,
+    "log": "component-tests-alpha21.txt"
+  },
+  "targeted": {
+    "tests": 6,
+    "passed": true,
+    "log": "known-conflict-and-composition-green-alpha21.txt"
+  },
+  "public_cli": {
+    "commands": 238,
+    "suites": 4,
+    "actual_database_snapshots": 12,
+    "audit": "dispatch-readiness-audit-alpha21.json",
+    "passed": true
+  },
+  "native": {
+    "fresh_sessions": 8,
+    "commands": 104,
+    "actual_model": "gpt-6-astra account default",
+    "review": "codex-model-review-alpha21-r1.json",
+    "passed": true
+  },
+  "requirements": {
+    "mapped_V_branches": 72,
+    "focus_V": 46,
+    "actual_unique_test_references": 151,
+    "map": "acceptance-map.json",
+    "whole_global_V_pass_inferred": false
+  },
+  "known_gap_repaired": {
+    "red": "known-conflict-no-write-red-alpha20.txt",
+    "probe": "known-conflict-no-write-probe-alpha20.json",
+    "fix": "Preflight candidate impact on required upstream formal meaning before claim/journal; write/recovery gates retained.",
+    "proof": "Actual strict component and independent package CLI conflict now leaves no pending run/claim."
+  },
+  "final_negative": {
+    "current_report": "external: prefix remains; actual original integration failed and blocked VER preserved",
+    "history": "Both changes archived, three current Tasks done, four historical passed VER preserved",
+    "candidate": "One deferred, unapproved, unapplied, unwritten optional guide"
+  },
+  "Claude": "deferred_by_user_Codex_first_policy",
+  "formal_data_execution": "unavailable_not_claimed",
+  "next_stage": "IMP-012 may start; IMP-013/014 not implemented and full-project goal remains incomplete."
+}

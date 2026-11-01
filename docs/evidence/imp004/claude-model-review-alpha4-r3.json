@@ -1,0 +1,356 @@
+{
+  "host": "claude",
+  "model": "MiniMax-M3.1-Flash",
+  "content_digest": "11e30bb2cc61e07331da43c8ba5696e055df378291a71ec2d911eb889ed2566d",
+  "status": "passed_local_for_core_scenarios_with_documented_reporting_limits",
+  "reviewer": "Current Codex trace/fact self-review, not independent agent review",
+  "raw_summary": {
+    "host": "claude",
+    "content_digest": "11e30bb2cc61e07331da43c8ba5696e055df378291a71ec2d911eb889ed2566d",
+    "package_version": "0.1.0-alpha.4",
+    "authorization": {
+      "source": "actual human authorization in this chat",
+      "text": "授权两个宿主，仅限上述受控验收（推荐）"
+    },
+    "model_requests_sent": true,
+    "automated_checks_passed": true,
+    "review_status": "pending",
+    "passed": false,
+    "cases": [
+      {
+        "case": "inspect",
+        "model_result": {
+          "exit_code": 0
+        },
+        "parent_observation": {
+          "case": "inspect",
+          "business_files_unchanged": true,
+          "records_created": false
+        }
+      },
+      {
+        "case": "pause",
+        "model_result": {
+          "exit_code": 0
+        },
+        "parent_observation": {
+          "case": "pause",
+          "run_id": "71bd2ba8-8c3d-468b-b325-d9b5d3dc26db",
+          "run_status": "completed",
+          "task_state": "in_progress",
+          "outcome": "partial",
+          "checks": "not_run",
+          "analysis_run": "deef6ef1-13ce-4e1e-8a7e-05a072982e58"
+        }
+      },
+      {
+        "case": "continue",
+        "model_result": {
+          "exit_code": 0
+        },
+        "parent_observation": {
+          "case": "continue",
+          "change_id": "9ac7b7d0-2fbe-4805-8b1f-a85f91504789",
+          "status": "passed",
+          "closed": true,
+          "produced_experiences": [
+            "8e73463e-8e6f-4cc0-b144-5b46dc3f8162"
+          ],
+          "pause_run_unchanged": true
+        }
+      },
+      {
+        "case": "similar",
+        "model_result": {
+          "exit_code": 0
+        },
+        "parent_observation": {
+          "case": "similar",
+          "change_id": "988e25d4-11f4-41d5-9277-d125883473b8",
+          "closed": true,
+          "experience_applications": [
+            {
+              "experience_id": "8e73463e-8e6f-4cc0-b144-5b46dc3f8162",
+              "decision": "adopted",
+              "feedback": {
+                "attribution": "observer_assessment_not_inferred_from_task_status",
+                "basis": "本次实际采用了该经验中被决策记录限定为可迁移的方法部分，并在本次工作里各自产生了可观察的效果：（1）语义判别——本次留档调查 run ade777d6 的假设 H2 明确按该经验指出空输入断言 total([])==0 在长度语义与求和语义下结果相同、不具判别力，判别性证据只取两个非空多元素输入 [5,7] 与 [9,-2]（缺陷态实际输出 2、0、2 与期望 12、0、7 仅在空输入上一致），因此缺陷位置与“求和是唯一自洽解释”的判断有具体证据支撑，而非凭直觉改写实现；（2）只改实现、保持原断言字节不变——本次 apply 只写入 arithmetic_second.py，验收条件 AC-010 要求 test_arithmetic_second.py 与方案基线逐字节一致，复查确认其 sha256 仍为 30bdd433…、三条独立断言一条未删未改；（3）以已登记检查作为原症状判据的复验入口——本次 verify 的 symptom_result 沿用同一 criterion_digest f8748105… 与同一条登记检查命令（python3 -B -m unittest discover -v），2 次尝试 0 次失败，未换更宽松条件。这三项效果的对应工作来源是本次验收 run e83766f4-6c98-402f-a1dd-67c367611689（以及同一 Change 下的 apply run 7d570c6f-3c34-4bb2-86b3-33b69e4e5152）。",
+                "committed": true,
+                "decision_ref": {
+                  "result_digest": "7b94e4825e8f67563ba7bbe60fc2438e62724d99535baa1d84e1c3e04b5ff35f",
+                  "run_id": "7e81bec4-9445-4aac-ae2d-b020a6350903"
+                },
+                "experience_ref": {
+                  "result_digest": "8962d868145cc9adb88f92a72299cb1e1b458aec60e051ff48424d4b08598ebc",
+                  "run_id": "8e73463e-8e6f-4cc0-b144-5b46dc3f8162"
+                },
+                "kind": "feedback",
+                "limitations": [
+                  "归因仅限该经验中被采用的方法部分（语义判别方式、保持断言字节不变、用已登记检查复验原判据）；该经验针对 arithmetic.py／test_arithmetic.py 的具体文件结论本次未采用，也不能转移为对 arithmetic_second.py 的既有结论。",
+                  "不把整单通过归功于该经验：登记检查 unittest 退出码 0 与五条验收条件全部通过，其依据是修正后 arithmetic_second.total 的求和语义与 test_arithmetic_second.py 的三条独立断言一致，与该经验是否被引用无关。",
+                  "缺陷是否成立、修正是否正确，均以本次现场的文件字节与独立断言为准；该经验不是缺陷证据，判据来自留档调查 run ade777d6。",
+                  "本次效果评估由同一会话的自审观察者作出，不是独立第三方复核；“helped” 表示观察到上述方法被实际采用并产生了上述具体效果，不表示跨环境或跨项目的因果证明。",
+                  "该经验在本项目中目前只有这一次采用结果，样本量为 1；其状态仍为 candidate，不因本次采用而升级为 active 或正式规则。",
+                  "“只改实现、保持断言字节不变”这一点本次同时来自用户本轮授权（保留现有独立字面量断言），不能单独归因于该经验。"
+                ],
+                "outcome": "helped",
+                "result_source": {
+                  "evidence_ids": [],
+                  "result_digest": "f635bffc0e8fc1a6928a50001bb0ca250ef72d8ddcc5383ab7852130cd6e5888",
+                  "run_id": "e83766f4-6c98-402f-a1dd-67c367611689"
+                },
+                "run_id": "245b1cbc-d81d-4a71-a284-7026d171d37d",
+                "feedback_ref": {
+                  "run_id": "245b1cbc-d81d-4a71-a284-7026d171d37d",
+                  "result_digest": "23887683ada70dbe69727d5d80f7defeba8514dbc5c2de5d8f2537ef250c9111"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "case": "verify",
+        "model_result": {
+          "exit_code": 0
+        },
+        "parent_observation": {
+          "case": "verify",
+          "business_files_unchanged": true,
+          "historical_work_unchanged": true,
+          "new_verifications": [
+            {
+              "id": "0e23afe3-29a3-4327-91fa-a7da12973115",
+              "status": "blocked"
+            }
+          ]
+        }
+      }
+    ],
+    "diagnostic_variant": false,
+    "session_learning_variant": true,
+    "prepare_only": false,
+    "expanded_scope_digest": "ae2ba90afaeb6edb023818329f0fb7476def2d701e7f81d9ac72ed24f3292dd0",
+    "verify_missing_tests_variant": false,
+    "explicit_user_model_choice": "MiniMax-M3.1-Flash",
+    "registered_installation_root": "/private/tmp/evolve-imp004-models-claude-03/host-profile/installed-source",
+    "host_cache_root": "/private/tmp/evolve-imp004-models-claude-03/host-profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.4"
+  },
+  "completed_case_review": "claude-completed-case-notes-alpha4-r3.json",
+  "immediate_answer_review": "claude-inspect-review-alpha4-r3.json",
+  "observed_invariants": [
+    "Read-only immediate answer has no request staging/init/business edits; generated Python cache explicitly distinguished",
+    "Safe pause stores full actually granted future checks while post-repair check remains not_run",
+    "Fresh source-bound continuation seals original criterion and preserves old partial run",
+    "Second task retrieves actual prior candidate, rechecks new files/independent literal expectations, records adoption and scoped feedback; old work and assertions preserved",
+    "Verify-only records current failed checks and blocked drift without modifying business bytes, sealed histories, completed Task/Change or candidate state",
+    "All five native CLI processes completed with exit0; no quota rejection, nested agent, formal knowledge promotion or unresolved claim observed"
+  ],
+  "remaining": [],
+  "stage": "IMP-004 core M1 branches passed_local; global V advanced branches remain assigned to later slices; no Windows/M1 completion or M2 permission",
+  "actual_final_answers": [
+    {
+      "case": "inspect",
+      "text": "已通过 Evolve 的\"即时解释\"分支（只读观察）完成定位。**未接入、未留档、未修改任何业务代码**——`status` 显示 `state: not_connected`，`learn.search` 返回 `not_connected` / `formal_context: []`（无正式知识、无历史经验可参考）。\n\n## 实际代码\n\n缺陷只有一处，在 `arithmetic.py:1-2`：\n\n```python\ndef total(values):\n    return len(values)\n```\n\n函数名和测试表达的是\"合计/求和\"语义，但实现返回的是**元素个数**（`len`），从未做累加。\n\n调用点只有测试一处（`test_arithmetic.py:2`），业务目录共 4 个文件，影响面限于本模块。\n\n## 症状\n\n运行项目自带的原检查 `python3 -m unittest test_arithmetic`：\n\n```\nFAIL: test_independent_examples (test_arithmetic.Arithmetic.test_independent_examples)\n  File \".../test_arithmetic.py\", line 5, in\n    self.assertEqual(total([8,3]),11)\nAssertionError: 2 != 11\n```\n\n实际返回值与期望对照：\n\n| 输入 | `total` 实际 | 期望（sum） | 说明 |\n|---|---|---|---|\n| `[8,3]` | 2 | 11 | 失败，`len` = 2 |\n| `[]` | 0 | 0 | **巧合通过**，`len([]) == sum([]) == 0` |\n| `[-4,3]` | 2 | -1 | 实际同样错，但断言在第 5 行就中断，从未执行到 |\n| `[10]` | 1 | 10 | 单元素也错，现有测试未覆盖 |\n\n两个关键点：\n\n1. **空列表用例通过是假象**——`len` 与 `sum` 在空列表上取值相同，不构成正确性证据。\n2. **负数用例实际是错的**，只是 `assertEqual` 在第 5 行失败后第 7 行从未执行，所以看不出第二个缺陷。这正是 `sum` 语义与 `len` 语义分歧最明显的地方。\n\n## 假设\n\n- **H1（已支持）**：`total` 是求和函数，实现被写成了计数函数。这是直接观察到的返回值 `len(values)` 所证。\n- **H2（未确认）**：为什么写成 `len` 无法确认——目录不是 git 仓库，没有提交历史、没有注释、没有正式知识或经验记录可追溯。原始意图（是否先写占位桩后未实现）只是推测，不能作为结论。\n\n## 建议\n\n1. **主修**：`arithmetic.py:2` 改为 `return sum(values)`。`sum([])` 本身就返回 `0`，空列表语义自然正确，无需额外分支。若要支持任意可迭代对象（生成器等），`len` 方案本来就会抛 `TypeError`，而 `sum` 可用——这也是选 `sum` 的旁证。\n2. **验证**：改完重跑 `python3 -m unittest test_arithmetic`，三条断言应全绿（`sum([8,3])==11`、`sum([])==0`、`sum([-4,3])==-1`）。\n3. **可选补测**：现有用例对单元素列表没有覆盖，若业务上会传入单元素或多元素混合列表，值得补一条以防再次退化成\"数量\"语义。\n\n## 限制\n\n- 未执行任何修改或修复验证，上述\"改后全绿\"是基于 `sum` 语义的推算，**未实测**。\n- 无提交历史与文档佐证意图，仅测试文件可作为期望行为的唯一依据。\n- 未接入 Evolve，因此未建立基线知识、未留档、未派生任何 run；本次仅为只读现场观察。\n\n若要把这次定位转成实际修复，需要走 Evolve 的授权链（propose → apply → verify），届时请明确授权 `business_files` 效果与具体文件路径。",
+      "num_turns": 26,
+      "duration_ms": 224417
+    },
+    {
+      "case": "pause",
+      "text": "本轮按暂停边界正常结束，实际状态如下。\n\n**接入**：`init.connect` 成功，project_id `4961b585…`，登记检查 `unittest` = `python3 -B -m unittest discover -v`（cwd=`.`，timeout=120）。未提出也未批准任何正式项目知识（`knowledge_refs`/`pending_knowledge` 均为空）。\n\n**独立留档调查**（未创建 Change）：run `deef6ef1-13ce-4e1e-8a7e-05a072982e58`\n- 真实失败：3 次尝试 3 次失败，`AssertionError: 2 != 11`（test_arithmetic.py:5），退出码 1\n- 独立预期：来自 test_arithmetic.py 三条断言（11 / 0 / -1），与长度语义（2/0/2）冲突，只与求和语义一致\n- 原症状判据：criterion_digest `f306f9b9c820b14abd79b0faf73354a0298e28dbbb81e63bc84eb8cd477ebf44`，内含登记检查的完整 check 定义\n- 来源 S1–S4（两个文件字节 + 两次带时区观察）、限制 4 条均已存档；result_digest `a8e9c69b…`\n\n**短方案**：已实际呈现并保存为 `CHG-20261031-9ac7b7d0`（rev 1，5 条 AC，必需检查 unittest），并绑定上述调查的 run/digest/criterion。\n\n**实施**：`apply` 完成文件段 — `arithmetic.py` 由 `return len(values)` 改为 `return sum(values)`；`test_arithmetic.py` 摘要仍为 `647b900b…`，与基线逐字节一致，三条独立断言原样保留。\n\n**暂停**：run `71bd2ba8-8c3d-468b-b325-d9b5d3dc26db`，`outcome=partial`、`checks=not_run`、Task 保持 `in_progress`（未记 done），无 pending_runs，非异常退出。`resume` 复查显示现场与暂停指纹完全一致（`scope_changes: []`），续接需下一轮明确继续意图 + 新版本绑定。\n\n两点如实说明：宿主沙箱拒绝了 stdin 管道与部分 shell 命令，故按运行约定改用项目内 `.evolve-local/control/requests/` 回退路径，用完已清理自建文件；本轮未执行 `unittest` 检查，修复后的检查、审查、验收与封存按你的要求留到下一轮，授权已按原范围保留（含 checks）。",
+      "num_turns": 67,
+      "duration_ms": 262816
+    },
+    {
+      "case": "continue",
+      "text": "已完成 CHG-20261031-9ac7b7d0 的续接、验收与封存，并记录了项目候选经验。\n\n**现场核对（resume）**：授权未撤销、无 pending_runs、`scope_changes` 为空；`test_arithmetic.py` 的 sha256 仍为 `647b900b…`，与方案基线逐字节一致，`arithmetic.py` 为已修正的 `3251dbf1…`。\n\n**本轮执行（4 个新 run，全部走 Evolve 协议）**\n- `apply` 续接（e3f255fc）：引用暂停 run `71bd2ba8` 的 run_id/result_digest 作 continuation，复用原授权范围（未扩路径/效果），文件段幂等重放后执行登记检查 `unittest` → 退出码 0，Task 由 `in_progress` 推进到 `done`。此前 verify 之所以不能直接跑，是因为 verify 的门禁要求 Task 状态为 `done`，而暂停语义让它停在了 `in_progress`。\n- `verify`（6064e561）：登记检查再执行一次（退出码 0），两维审查绑定当前指纹 `2947d931…`，逐条核对 AC-001…AC-005 全部 `passed`，`unresolved_prior_findings` 为空 → **status=passed**，verification `15f7a2c3`。\n- `archive`（7c3035a3）：以最新通过的 verification 封存，change → `archived`；`knowledge=not_proposed`，`knowledge_proposals` 仍为 0（符合\"不批准正式项目知识\"）。\n- `learn record`（8e73463e）：以本次真实失败（3 次尝试 3 次失败，AssertionError: 2 != 11）、续接修复与验收结果为来源，保存候选经验，state=`candidate`、`formal_rule=false`、`modification_authorization=false`。\n\n**原症状复验**：用原判据 `criterion_digest f306f9b9…`（未降低预期、未换检查）复验，3 次尝试 0 次失败，`causal_resolution` 由运行时记为 `not_inferred`；限制如实保留（单环境、判据在首个失败断言处中止的取样缺陷未改变、断言集合未在项目外验证）。\n\n**两维审查 findings（均非阻碍）**：SP-001 字节核对不覆盖运行时断言是否被执行；ST-001 名称 `total` 修正前后语义不同、未随语义收敛；ST-002 三条独立断言合并在同一测试方法内。\n\n**边界**：只操作本临时项目及其 Evolve 记录，只读取安装缓存内插件资料，未改插件源码、无嵌套代理、无提交/发布/部署，未提出任何正式项目知识。历史部分结果（原调查 run、暂停 run 及其 progress）均保留，自建的 4 个请求暂存文件已清理。\n\n**一处环境阻碍如实报告**：通过管道把请求 JSON 送入 `--request -` 被宿主 shell 的模式检测拦截，我改用协议允许的 `.evolve-local/control/requests/` 回退路径，事后按约定只清理了自己创建的文件。",
+      "num_turns": 63,
+      "duration_ms": 315455
+    },
+    {
+      "case": "similar",
+      "text": "Done. The work is complete and sealed as `CHG-20261031-988e25d4`.\n\n**What was found and done**\n\n- **Official records read first**: `evolve/config.toml` (registered check `unittest`), the archived prior change `CHG-20261031-9ac7b7d0` (which fixed `arithmetic.py`), its investigation run `deef6ef1`, and `knowledge_refs` (empty — no formal project knowledge exists or was approved).\n- **Prior experience retrieved**: `learn.search` hit the candidate experience `8e73463e` (state `candidate`, scoped to `arithmetic.py`/`test_arithmetic.py`).\n- **New scene verified**: `arithmetic_second.py` was `return len(values)` — the same defect. A new read-only investigation (`ade777d6`) reproduced it: 3 attempts, 3 failures, `AssertionError: 2 != 12` at `test_arithmetic_second.py:5`; direct evaluation gave 2/0/2 against the independent expectations 12/0/7. `arithmetic.py` was already correct and untouched.\n- **Adoption decision recorded** (`7e81bec4`): **adopted**, but only the transferable method — discriminate semantics via the non-empty independent assertions (the empty-input assertion is non-discriminative), change implementation only while keeping assertion bytes identical, re-verify via the registered check under the original criterion. Its file-specific conclusions about `arithmetic.py` were explicitly rejected as out of scope.\n- **Short plan presented and saved** (`8034048a`, digest `3a70d864…`), scope `arithmetic_second.py` + `test_arithmetic_second.py`, five acceptance conditions (AC-006…AC-010).\n- **Fix applied** (`7d570c6f`): only `arithmetic_second.py` written (`len`→`sum`); registered check passed (exit 0).\n- **Verified** (`e83766f4`, verification `ffdc3bc2`): status `passed`, all five ACs passed, spec + standards reviews bound to the current workspace, plus symptom re-verification under the original criterion digest (`f8748105…`, 2 attempts / 0 failures). One **non-blocking** standards finding was logged: the two modules are now byte-identical duplicates — a maintenance suggestion, not a required issue, and out of the authorized scope.\n- **Archived** (`d3b24dec`), `knowledge: not_proposed`.\n- **Adoption effect recorded** (`7e81bec4` → feedback run): outcome `helped`, sourced to the verify run `e83766f4` and apply run `7d570c6f`, with limitations stating that the wholesale check pass is **not** credited to the experience (the fix is correct because of the current bytes and the independent assertions), that the file-specific conclusions of the old experience did not transfer, and that the assessment is same-session self-review, not independent. A separate candidate experience for this work was also recorded with its analyze/apply/verify sources.\n\n**Boundaries honored**: only `arithmetic_second.py` was modified; `test_arithmetic_second.py` is byte-identical to its baseline (assertions untouched); `arithmetic.py`/`test_arithmetic.py` and the prior change's history are unchanged; no formal project knowledge was proposed or approved; no commits, publishing, deployment, nested agents, or out-of-project operations were performed. Temporary request files I created were removed.",
+      "num_turns": 85,
+      "duration_ms": 326562
+    },
+    {
+      "case": "verify",
+      "text": "## 验收对象\n\n第二个同类工作项 = `CHG-20261031-988e25d4`（change `988e25d4…`，task `13f6e7d3…`，arithmetic_second.total）。本轮只做验收记录，未改任何业务/测试源码。\n\n## 一、历史结果（未被改写）\n\n| 时点(UTC) | 记录 | 内容 |\n|---|---|---|\n| 13:01:03 | analyze `ade777d6…` | 复现缺陷：3 次 3 失败，`2 != 12` |\n| 13:01:26 | propose REV `dd99b44b…` | 方案已接受，AC-006…AC-010，范围 arithmetic_second.py + test_arithmetic_second.py |\n| 13:01:53 | apply `7d570c6f…` | 落地 `return sum(values)`，sha256 `3251dbf1…` |\n| 13:02:26 | verify `ffdc3bc2…` | **passed**：5 条 AC 全通过，`unittest` 退出码 0 |\n| 13:02:32 | archive `d3b24dec…` | 封存，完成截点指纹 `de8a6ba7…` |\n| 13:02:58 / 13:03:19 | learn `7e81bec4…` / `a5727d47…` | 采用前次经验 `8e73463e…`；新录经验 `a5727d47…`（均 candidate） |\n\n历史 VER `ffdc3bc2…` 仍是 passed，change 仍 archived、row_version 3，task 仍 done —— 未重开、未回写。\n\n## 二、当前观察（本轮实测）\n\n**现场已与完成截点不一致**：`arithmetic_second.py` 现为 `return len(values)`（sha256 `d3410e41…`），mtime `2026-10-31 21:03:41+08:00`，**晚于**封存截点（21:02:32+08:00）与最后一条 Evolve 记录（learn record，21:03:19+08:00）；此后 operations 表无任何 business_files 操作、journal 目录无对应条目 → 修改来源为外部或未知。`arithmetic.py`(`3251dbf1…`)、`test_arithmetic.py`(`647b900b…`)、`test_arithmetic_second.py`(`30bdd433…`) 与历史基线一致，未被触碰。\n\n**实测结果**（登记检查 `python3 -B -m unittest discover -v`，cwd=`.`）：退出码 1，`test_arithmetic_second…FAIL / AssertionError: 2 != 12`（test_arithmetic_second.py:5），`test_arithmetic…ok`，`FAILED (failures=1)`；直接求值 `2 / 0 / 2`。\n\n**本轮 Evolve 验收记录**：`verification 0e23afe3…`（run `c261dc0d…`）→ status **blocked**；AC-006 failed、AC-007 passed（该条无判别力）、AC-008 failed、AC-009 failed、AC-010 passed；`implementation_scope_matches=false`、`workspace_changed=false`；必需发现 SP-002（blocking，当前字节≠实施指纹、来源外部未知），非阻碍 ST-003（先前 F-STD-01 保持未解决）。\n\n**经验未被证伪**：两条经验均为 candidate、`reviewed_counterexamples` 为空。`8e73463e…` 的适用范围限于 arithmetic.py/test_arithmetic.py 且内容为方法性建议；`a5727d47…` 自身写明“跨模块复用前一模块的修正本身不构成缺陷已消除的证据”。当前失败只能说明“当前现场 ≠ 完成截点”，既不推翻两条经验的方法性结论，也不改写历史 passed 记录（该记录在其观察时点为真）。\n\n## 三、必要后续方案（未执行）\n\n本包对 archived 工作项无法原地重做：`apply`/`archive` 的 `change_context` 对 archived 抛 `TERMINAL_CHANGE`，且 `archive.close` 要求最新 VER 为 passed 且指纹吻合。因此需**新建工作项**：\n\n1. `propose.create`：标题「恢复 arithmetic_second.total 求和语义（封存后回退）」，scope `[\"arithmetic_second.py\"]`，acceptance 沿用 5 条（12/0/7 + unittest 退出 0 + 断言文件逐字节不变），`required_checks=[\"unittest\"]`，presentation 记原文；引用新 VER `0e23afe3…` 与封存截点作为依据。\n2. `apply.implement`：`files=[arithmetic_second.py, expected_digest=d3410e41…, content=求和版]`，授权须含 `business_files` 且 `paths=[\"arithmetic_second.py\"]`（propose 时 baseline 即当前字节，无需 observations）。\n3. `verify.run` → `archive.close`；可选先 `analyze.investigate` 把“外部回退”登记为带来源的事实。\n\n这一步需要新的明确修改授权：既有 init 授权覆盖“原范围内后续修正”，但本轮用户指令明确只验收不修复，故未自行推进。\n\n## 四、实际来源限制\n\n- 插件资料只取自本次安装缓存 `host-profile/installed-source`（0.1.0-alpha.4，protocol v3 / schema v1）；未操作插件源码工程、其他项目、凭证或外部应用，未启动嵌套代理，未提交/发布/部署。\n- `status` 报 `host_enablement=not_observed`（运行时未核对宿主启用配置）；我只能读到 `.claude/settings.json` 里 `evolve@evolve-local: true` 的文件事实。\n- `verify.record`、`apply.external.*`、`history.show`、`maintain.restore`、`update.revise` 等在本包 UNAVAILABLE，无第二通道交叉验证；`maintain.restore` 未开放，故未做任何恢复尝试。\n- 回退的修改者与动机不可知：Evolve 记录内无痕迹，项目外证据未越界采集。\n- 检查只采样 1 次（未重复采样）；失败运行在首个断言处中止，AC-008 的当前值来自直接求值而非失败运行。观察限本机 macOS Darwin 25.6.0 / CPython 3.11.9 / 项目根，未跨平台验证。\n- 观察方法限制：并行 Read 的返回顺序一度与调用顺序不一致，导致我第一次把文件内容与文件名错配；已用直接落盘内容 + sha256 复核为准，本报告所有字节摘要以该复核结果为准。\n- 本轮仅新增 1 条验收记录 + 1 次检查证据；自建请求文件已删除；未重开任何已完成状态，未改写历史验证。",
+      "num_turns": 66,
+      "duration_ms": 314793
+    }
+  ],
+  "database_facts": {
+    "changes": [
+      {
+        "id": "9ac7b7d0-2fbe-4805-8b1f-a85f91504789",
+        "code": "CHG-20261031-9ac7b7d0",
+        "state": "archived",
+        "row_version": 4
+      },
+      {
+        "id": "988e25d4-11f4-41d5-9277-d125883473b8",
+        "code": "CHG-20261031-988e25d4",
+        "state": "archived",
+        "row_version": 3
+      }
+    ],
+    "tasks": [
+      {
+        "id": "dea2a1d5-1a1d-4eab-84dd-5e4ed294ea45",
+        "state": "done",
+        "row_version": 5
+      },
+      {
+        "id": "13f6e7d3-112a-46ff-a73e-5f58b50077c6",
+        "state": "done",
+        "row_version": 3
+      }
+    ],
+    "started_runs": 0,
+    "resource_claims": 0,
+    "continuation_sources": [
+      {
+        "run_id": "e3f255fc-615d-4382-ae62-dc79e914cc2f",
+        "source_run_id": "71bd2ba8-8c3d-468b-b325-d9b5d3dc26db",
+        "result_digest": "665748611476b40e4d1f4d0a651c03dff1b2538fc674d8b4b783d511e81b5fbd",
+        "purpose": "normal_continuation"
+      }
+    ],
+    "apply_authorizations": [
+      {
+        "run_id": "71bd2ba8-8c3d-468b-b325-d9b5d3dc26db",
+        "status": "completed",
+        "authorization": {
+          "effect_kinds": [
+            "project_records",
+            "business_files",
+            "checks"
+          ],
+          "paths": [
+            "arithmetic.py",
+            "test_arithmetic.py"
+          ],
+          "source": "user",
+          "text": "随后实际呈现并保存短方案，在 arithmetic.py 与 test_arithmetic.py 范围内完成已经确定的修正，保留原三条独立断言。本轮在文件段结束后正常暂停并保存实际进度，修复后的检查、审查、验收与封存下次继续；不要将 Task 记成 done，也不要假报异常退出。整体授权覆盖该原范围内后续修正及真实检查，换会话仍保留；本轮暂停边界仍须遵守。不批准正式项目知识。"
+        },
+        "continuation": null,
+        "outcome": "partial",
+        "checks": "not_run"
+      },
+      {
+        "run_id": "e3f255fc-615d-4382-ae62-dc79e914cc2f",
+        "status": "completed",
+        "authorization": {
+          "effect_kinds": [
+            "project_records",
+            "business_files",
+            "checks"
+          ],
+          "paths": [
+            "arithmetic.py",
+            "test_arithmetic.py"
+          ],
+          "source": "user",
+          "text": "本轮续接指令原文：继续此项目中已经明确的未完成工作，以 Evolve 档案和当前现场为依据，核对原方案、进度及仍有效的授权。完成必要检查、规格／规范审查、原症状复验及封存，保留历史部分结果。根据本次真实失败、修复和实际结果，保存带来源、适用范围和限制的项目候选经验；不把一般假设、经验或通过记录当正式规则或新增修改权限。 所依据的既有整体授权原文（存档于 run 71bd2ba8-8c3d-468b-b325-d9b5d3dc26db）：随后实际呈现并保存短方案，在 arithmetic.py 与 test_arithmetic.py 范围内完成已经确定的修正，保留原三条独立断言。本轮在文件段结束后正常暂停并保存实际进度，修复后的检查、审查、验收与封存下次继续；不要将 Task 记成 done，也不要假报异常退出。整体授权覆盖该原范围内后续修正及真实检查，换会话仍保留；本轮暂停边界仍须遵守。不批准正式项目知识。"
+        },
+        "continuation": {
+          "result_digest": "665748611476b40e4d1f4d0a651c03dff1b2538fc674d8b4b783d511e81b5fbd",
+          "run_id": "71bd2ba8-8c3d-468b-b325-d9b5d3dc26db"
+        },
+        "outcome": "implemented",
+        "checks": null
+      },
+      {
+        "run_id": "7d570c6f-3c34-4bb2-86b3-33b69e4e5152",
+        "status": "completed",
+        "authorization": {
+          "effect_kinds": [
+            "project_records",
+            "business_files",
+            "checks"
+          ],
+          "paths": [
+            "arithmetic_second.py",
+            "test_arithmetic_second.py"
+          ],
+          "source": "Claude Code host, from the user standing authorization for this session",
+          "text": "新授权只允许修改 arithmetic_second.py 与 test_arithmetic_second.py，保留现有独立字面量断言；执行已经登记的检查入口，完成双维审查、必要修正、验收及封存。"
+        },
+        "continuation": null,
+        "outcome": "implemented",
+        "checks": null
+      }
+    ],
+    "learning_runs": [
+      {
+        "id": "8e73463e-8e6f-4cc0-b144-5b46dc3f8162",
+        "method": "record",
+        "started_at": "2026-10-31T12:57:52.471955+00:00",
+        "ended_at": "2026-10-31T12:57:52.476406+00:00"
+      },
+      {
+        "id": "7e81bec4-9445-4aac-ae2d-b020a6350903",
+        "method": "review",
+        "started_at": "2026-10-31T13:01:40.842029+00:00",
+        "ended_at": "2026-10-31T13:01:40.847057+00:00"
+      },
+      {
+        "id": "245b1cbc-d81d-4a71-a284-7026d171d37d",
+        "method": "review",
+        "started_at": "2026-10-31T13:02:58.479444+00:00",
+        "ended_at": "2026-10-31T13:02:58.484024+00:00"
+      },
+      {
+        "id": "a5727d47-02da-4a42-85fc-1d72b23460d6",
+        "method": "record",
+        "started_at": "2026-10-31T13:03:19.036732+00:00",
+        "ended_at": "2026-10-31T13:03:19.041683+00:00"
+      }
+    ]
+  },
+  "trace_archive": {
+    "file": "claude-model-trace-alpha4-r3.zip",
+    "sha256": "6d221c37c317d9984eb3317f43f99f1364d6eec0c8769d8e4f4df5f9fed195d5"
+  },
+  "limits": [
+    "Current exact 11e3 complete package and observed macOS native host only; not independent model/code review",
+    "Rejected home-directory root probes and inaccurate pause wording are retained and corrected in completed-case notes; successful personal-directory access was not observed",
+    "The similar-task final answer used English; no response-language consistency claim is made",
+    "Verify final answer associated an adoption run with a later timestamp; database_facts.learning_runs provides actual persisted times; no database history was changed",
+    "Generated Python bytecode and authorized request staging are distinguished from business or formal-history modifications",
+    "Controlled negative final fixture intentionally remains reverted/blocked; do not repair it or turn that expected failure into a global passed V claim"
+  ],
+  "native_sessions": [
+    {
+      "case": "inspect",
+      "session_id": "81963bb1-056c-43eb-be30-90e7d3c7c8ed",
+      "model": "MiniMax-M3.1-Flash",
+      "cwd": "/private/tmp/evolve-imp004-models-claude-03/business"
+    },
+    {
+      "case": "pause",
+      "session_id": "1fc3ebd8-8b86-48e5-975a-975f176c2bb3",
+      "model": "MiniMax-M3.1-Flash",
+      "cwd": "/private/tmp/evolve-imp004-models-claude-03/business"
+    },
+    {
+      "case": "continue",
+      "session_id": "3e9bc76b-0041-41d8-94e4-bd9002c7cdc1",
+      "model": "MiniMax-M3.1-Flash",
+      "cwd": "/private/tmp/evolve-imp004-models-claude-03/business"
+    },
+    {
+      "case": "similar",
+      "session_id": "c3835abd-c2dd-4a1f-b189-fd0b0f237f4f",
+      "model": "MiniMax-M3.1-Flash",
+      "cwd": "/private/tmp/evolve-imp004-models-claude-03/business"
+    },
+    {
+      "case": "verify",
+      "session_id": "3caf77ab-950a-47b9-bce4-d5c1cce314bf",
+      "model": "MiniMax-M3.1-Flash",
+      "cwd": "/private/tmp/evolve-imp004-models-claude-03/business"
+    }
+  ]
+}

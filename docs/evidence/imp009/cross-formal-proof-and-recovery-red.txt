@@ -1,0 +1,34 @@
+test_batch_approval_does_not_bypass_cross_change_application_condition (test_cross_formal_dependencies.CrossFormalTests.test_batch_approval_does_not_bypass_cross_change_application_condition) ... ok
+test_external_formal_edit_stops_only_related_b_and_keeps_approval (test_cross_formal_dependencies.CrossFormalTests.test_external_formal_edit_stops_only_related_b_and_keeps_approval) ... ok
+test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain (test_cross_formal_dependencies.CrossFormalTests.test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain) ... ERROR
+test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings) ... FAIL
+
+======================================================================
+ERROR: test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain (test_cross_formal_dependencies.CrossFormalTests.test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 154, in test_real_exit_after_second_owner_write_recovers_the_original_preserving_chain
+    recovered = recover(self.root, self.f.request({'run_id': pending}))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/recover.py", line 216, in recover
+    return recover_application(store, request, original, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/formal.py", line 466, in recover_application
+    context = None if existing else _context(store, source, proposal)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liufukang/Workplace/spec-driven/runtime/evolve_core/formal.py", line 211, in _context
+    raise EvolveError('DEPENDENCY_NOT_READY', 'Document task dependencies are not ready', exit_code=3)
+evolve_core.errors.EvolveError: Document task dependencies are not ready
+
+======================================================================
+FAIL: test_verified_formal_dependency_retains_both_owner_meanings (test_cross_formal_dependencies.CrossFormalTests.test_verified_formal_dependency_retains_both_owner_meanings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 107, in test_verified_formal_dependency_retains_both_owner_meanings
+    self.assertFalse(self.ready_b()['revalidation_required'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.484s
+
+FAILED (failures=1, errors=1)

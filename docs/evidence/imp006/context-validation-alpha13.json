@@ -1,0 +1,91 @@
+{
+  "slice": "IMP-006",
+  "observed_at": "2026-10-31T18:37:04.218306+00:00",
+  "status": "context_guidance_prepared_native_pending",
+  "requirement": "V-088 / G-002: context depth selected for actual gaps, independently of implementation complexity; reason, scope, unknowns and stopping criterion made visible.",
+  "gap": "Runtime package skills previously only said reuse materials; no concrete lightweight/focused/global process or stopping criteria was shipped.",
+  "changes": [
+    "One shared/context.md source for three depth branches and completion criteria",
+    "Explicit pointers from workflow/init/propose; no new Skill or depth/profile state",
+    "User installation/usage and version metadata aligned with alpha.13",
+    "First and continuation of original seven cases clarify bounded overview and relevant producer/consumer investigation"
+  ],
+  "package_version": "0.1.0-alpha.13",
+  "protocol_version": 10,
+  "schema_version": 4,
+  "files": 61,
+  "source_inventory_digest": "516247136070d6a2abb32d499191c5e65279e3558143dc2e23940b72233d0942",
+  "distribution_digest": "83cee98e7e1807e3347690b7fd633463651f519e9d0c34b91af9dfdedfc9efdd",
+  "checks": {
+    "component-tests-context-alpha13-full.txt": {
+      "tests": 470,
+      "seconds": 69.186,
+      "passed": true
+    },
+    "component-tests-context-alpha13-complex.txt": {
+      "tests": 19,
+      "seconds": 8.876,
+      "passed": true
+    },
+    "component-tests-context-alpha13-package.txt": {
+      "tests": 22,
+      "seconds": 1.41,
+      "passed": true
+    }
+  },
+  "full_regression_note": "470 tests include the new guide and version. Subsequent README/usage volatile host-status wording was removed before final freeze; final 22 package tests, 19 complex tests, inventory/link checks use final files. No runtime implementation changed.",
+  "skill_validation": "context-skill-validation-alpha13.json",
+  "preparations": {
+    "codex": {
+      "model_requests_sent": false,
+      "scope_digest": "c19db884d42a043ef798e7b121443ec0789ede55a008c692124a573e206b01cc",
+      "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/codex-preparation/business/.agents/evolve-acceptance/installed-source",
+      "cache": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/codex-preparation/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.13",
+      "business_state": "not_connected",
+      "discovery": "actual native CLI preparation; eight Evolve skills"
+    },
+    "claude": {
+      "model_requests_sent": false,
+      "scope_digest": "adee80d60ee537d22c0f3f1a8e8a050207ee8ff59c681431c0ddce2ba606bd7d",
+      "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/claude-preparation/business/.agents/evolve-acceptance/installed-source",
+      "cache": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-context-alpha13-1s5zume4/claude-preparation/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.13",
+      "business_state": "not_connected",
+      "discovery": "actual native CLI preparation; eight Evolve skills"
+    }
+  },
+  "archives": {
+    "context-package-alpha13.zip": "2d8024d575110ccddb1c6a801c9442462bbf7ba01eff80cea645829f4c589f82",
+    "model-runner-alpha13.zip": "39ef314677609d187b541cd53f310f0d28774978040482b0076815edf38112ea",
+    "context-preparation-alpha13.zip": "30012e67c3b17adf648694fa0960416d979cbf78681d962e73260b13d8060cef"
+  },
+  "same_original_model_scope_invariants": [
+    "first_files",
+    "second_files",
+    "business_write_paths",
+    "maximum_sessions",
+    "fresh_conversation_per_case",
+    "model_selection",
+    "claude_model",
+    "limits",
+    "installation_layout"
+  ],
+  "case_clarifications": {
+    "propose": "先梳理这个临时项目的整体入口、模块职责、检查方式与关键约束，再形成下述方案；结论限本项目。",
+    "continue": "重点核对 summarize 的生产与 report.render 的消费链路及当前判据，沿相关链路解决缺口，已有可信背景直接复用。"
+  },
+  "authorization_basis": "Direct human grant explicitly allows both hosts and necessary same-scope repairs/retests; this repairs an existing IMP-006 V-088 obligation within original seven files/seven sessions. No formal knowledge approval or new business effect.",
+  "native_review_required": [
+    "Actual source/knowledge and saved-context use",
+    "Visible depth, reason, coverage/unknowns and stopping criteria",
+    "Depth differs by current gap rather than complexity/profile/line count",
+    "All original seven workflow boundaries and final five readonly test assertions"
+  ],
+  "native_model_requests_sent_for_alpha13": false,
+  "imp006_gate": "not passed",
+  "imp007_new_authorization": "still pending; frozen alpha.12 four-file/nine-session artifacts untouched",
+  "limits": [
+    "Preparation/component checks do not prove actual model behavior.",
+    "Current alpha.6 Claude r5 remains a separate running frozen batch; do not mix packages or retry its denied actions.",
+    "Current environment only; no Windows gate."
+  ]
+}

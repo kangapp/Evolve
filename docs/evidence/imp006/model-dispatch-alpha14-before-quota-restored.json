@@ -1,0 +1,56 @@
+{
+  "slice": "IMP-006",
+  "observed_at": "2026-10-31T19:22:45.777584+00:00",
+  "status": "codex_passed_claude_stopped_native_quota",
+  "authorization": {
+    "source": "direct actual human same-scope necessary repair/retest grant",
+    "answer": "授权两个宿主及同范围复验（推荐）",
+    "basis": "Necessary runtime repairs within original seven-file/seven-session/two-production-write/five-readonly-test business/model/effect scope; no permission increase."
+  },
+  "package": {
+    "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj",
+    "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/package",
+    "package_version": "0.1.0-alpha.14",
+    "distribution_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+    "controller_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/frozen-controller",
+    "scope_digests": {
+      "codex": "6c6c33527b2a01f7bb40a690ac746bb4ef1e882769e65382d8767e9db354ef0a",
+      "claude": "543d81c630d07b101100ea7b87c2b45ae2075d0a31fd57fe5460bd01308d96bd"
+    },
+    "controller_archive": "model-runner-alpha14.zip",
+    "controller_sha256": "d92e670ae98806077babffcf155d9e3408a17ccc5dc87323c0874b6e46bef2c3",
+    "package_archive": "runtime-package-alpha14.zip",
+    "package_sha256": "00de9e547e2e69a1ef43a61fe89ec5937d4aca93834a329561fac620318048ac"
+  },
+  "validation": "runtime-fix-validation-alpha14.json",
+  "hosts": {
+    "codex": {
+      "state": "passed_current_host_scope",
+      "scope_digest": "6c6c33527b2a01f7bb40a690ac746bb4ef1e882769e65382d8767e9db354ef0a",
+      "session_id": 67620,
+      "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-execution-alpha14-r1",
+      "dispatched_at_recorded": "2026-10-31T19:00:47.167170+00:00",
+      "model_requests_sent": true,
+      "terminal_exit_code": 0,
+      "review": "codex-model-review-alpha14-r1.json"
+    },
+    "claude": {
+      "state": "stopped_native_quota",
+      "scope_digest": "543d81c630d07b101100ea7b87c2b45ae2075d0a31fd57fe5460bd01308d96bd",
+      "session_id": 42980,
+      "output_directory": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/claude-execution-alpha14-r1",
+      "dispatched_at_recorded": "2026-10-31T19:00:47.167434+00:00",
+      "model_requests_sent": true,
+      "terminal_exit_code": 1,
+      "review": "claude-model-review-alpha14-r1.json",
+      "completed_parent_cases": [
+        "propose",
+        "refactor_pause",
+        "cosmetic_revision"
+      ],
+      "native_error": "429 / 2056 Token Plan quota"
+    }
+  },
+  "model_requests_sent": true,
+  "passed": false
+}

@@ -1,0 +1,246 @@
+{
+  "status": "passed_current_package_targeted_guide_scope",
+  "passed": true,
+  "reviewer": "Primary actual eight-command trajectory, parent observations and read-only sealed-history review; not independent sub-agent review",
+  "reviewed_at": "2026-11-01T04:43:32.583905+00:00",
+  "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+  "source_digest": "7092b24b1b47b28b44ce48f751955d390758c391a008801f077b727365fee329",
+  "scope_digest": "a52d2e86db3f0046f9e68e946445254846f7e769a44b712d1ac5f2b37a64ed73",
+  "fresh_sessions": 1,
+  "commands": 8,
+  "actual_model": "gpt-6-astra",
+  "facts": {
+    "meta": {
+      "project_id": "4ee157c0-0e44-408d-9417-540c63c7f772",
+      "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+      "schema_version": "4",
+      "protocol_version": "16",
+      "package_version": "0.1.0",
+      "checkpoint": "98ed2d0a-29cd-4d11-bbf3-ab63754b3baf"
+    },
+    "runs": [
+      {
+        "id": "0504350c-24f4-4095-993a-3845bf089f99",
+        "request_id": "0dd87612-6956-47f6-a624-9206ae28ae12",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "6d5a03e7ffa01ac3d2ac98fe24a3416b8664e37c483bdd3af533b9879396e82e",
+        "input_json": "{\"action\":\"init\",\"method\":\"connect\",\"owner_skill\":\"evolve-init\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"business_files\",\"checks\"],\"paths\":[\"arithmetic.py\"],\"source\":\"actual human unified authorization call_05f0a84076f549568b149504edf7e4b8; controlled guide-only fixture\",\"text\":\"后续都统一授权，不需要再询问我\"},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":30}]},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "init",
+        "method": "connect",
+        "owner_skill": "evolve-init",
+        "status": "completed",
+        "result_json": "{\"committed\":true,\"formal_baseline\":\"not_proposed\",\"operation_id\":\"114e05b3-1150-497d-9fd9-e54833f575c0\",\"outcome\":\"connected\",\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\",\"run_id\":\"0504350c-24f4-4095-993a-3845bf089f99\",\"workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\"}",
+        "result_digest": "cc1a00fce1dc753375679e15cc6b41789369a4caa49e3e29bbf1e2aaf7154600",
+        "started_at": "2026-11-01T04:34:40.378649+00:00",
+        "ended_at": "2026-11-01T04:34:40.381359+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"37374563-d5a2-40c8-9da7-aa20feee6a9a\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":35447}"
+      },
+      {
+        "id": "2bf9a1b2-2408-465b-b5c8-c2cb1760489a",
+        "request_id": "00753d31-f14c-4b95-8f46-f69a4ef0745a",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "a5776e5dd3d428013e463146b2d1675be25090dd3c0a7e55e79fffd79c420dbf",
+        "input_json": "{\"action\":\"propose\",\"method\":\"create\",\"owner_skill\":\"evolve-propose\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"business_files\",\"checks\"],\"paths\":[\"arithmetic.py\"],\"source\":\"actual human unified authorization call_05f0a84076f549568b149504edf7e4b8; controlled guide-only fixture\",\"text\":\"后续都统一授权，不需要再询问我\"},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"acceptance\":[\"Original literal list, empty, negative and one-pass iterator assertions pass.\"],\"completion\":\"The original total check passes without changing any business file.\",\"plan\":\"Preserve the existing total behavior; execute only the original four independent assertions. No source or test changes; summary/report behavior is outside this narrow guide-shape fixture.\",\"presentation\":{\"source\":\"actual controlled parent plan presentation\",\"text\":\"Preserve the existing total behavior; execute only the original four independent assertions. No source or test changes; summary/report behavior is outside this narrow guide-shape fixture.\"},\"required_checks\":[\"original\"],\"scope\":[\"arithmetic.py\"],\"title\":\"Original total guide-shape check\"},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "propose",
+        "method": "create",
+        "owner_skill": "evolve-propose",
+        "status": "completed",
+        "result_json": "{\"acceptance\":[{\"id\":\"AC-001\",\"required\":true,\"text\":\"Original literal list, empty, negative and one-pass iterator assertions pass.\"}],\"accepted\":false,\"change_code\":\"CHG-20261101-c268f173\",\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"change_version\":1,\"committed\":true,\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"outcome\":\"planned\",\"plan_digest\":\"1b642a91a99c8f450b123165a43b880fb215f59c84dceb876b4c47372e0aea3b\",\"plan_ref\":{\"digest\":\"1b642a91a99c8f450b123165a43b880fb215f59c84dceb876b4c47372e0aea3b\",\"entity_id\":\"a5b7bbdd-7ebe-413b-bf87-4e91ae81ae81\",\"entity_type\":\"artifact_version\"},\"revision\":1,\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\",\"run_id\":\"2bf9a1b2-2408-465b-b5c8-c2cb1760489a\",\"task_id\":\"41667883-8533-4ef4-a411-95b4520d4033\",\"task_version\":1}",
+        "result_digest": "ba073f79853fe11878a47524d69c40b65bf7a9aaa42905571cea806323b856d7",
+        "started_at": "2026-11-01T04:34:40.476919+00:00",
+        "ended_at": "2026-11-01T04:34:40.479772+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"7d8c0fee-934c-4ff9-b93e-5ec4f510f0ab\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":35448}"
+      },
+      {
+        "id": "26aca4f0-cd9b-4986-ad2e-4e6b840be77e",
+        "request_id": "5ff5dc3f-6b1b-4e92-baef-5eea8cbd7d6b",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "87932295199407e3d6b113d74a4c8110eefd7505dab609fec3940a4ff0567df4",
+        "input_json": "{\"action\":\"apply\",\"method\":\"implement\",\"owner_skill\":\"evolve-apply\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"business_files\",\"checks\"],\"paths\":[\"arithmetic.py\"],\"source\":\"actual human unified authorization call_05f0a84076f549568b149504edf7e4b8; controlled guide-only fixture\",\"text\":\"后续都统一授权，不需要再询问我\"},\"expected_versions\":{\"change\":1,\"task\":1},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"accepted_plan_digest\":\"1b642a91a99c8f450b123165a43b880fb215f59c84dceb876b4c47372e0aea3b\",\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"files\":[],\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\"},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "apply",
+        "method": "implement",
+        "owner_skill": "evolve-apply",
+        "status": "completed",
+        "result_json": "{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"committed\":true,\"continuation\":null,\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"fingerprint\":{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":30}],\"digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"files\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\",\"report.py\":\"9dd86a972b86bb635bd49f8c40e784c370af9a04437a9d0fdadcca23864854ae\",\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"scope\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\"}},\"operation_id\":\"0de1981b-f253-4864-b8e7-2e09f897cc42\",\"outcome\":\"implemented\",\"overall_verification\":\"not_run\",\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\",\"run_id\":\"26aca4f0-cd9b-4986-ad2e-4e6b840be77e\",\"task_checks\":[{\"check_id\":\"original\",\"evidence_id\":\"8f23739f-befb-4078-a4f0-9dde9bb0116a\",\"returncode\":0,\"status\":\"passed\"}],\"task_id\":\"41667883-8533-4ef4-a411-95b4520d4033\",\"versions\":{\"change\":2,\"task\":3}}",
+        "result_digest": "9508b7fe821f8f3114fbba3e05a7badd21dfc694cfcde677739e104ed25afef7",
+        "started_at": "2026-11-01T04:34:40.568086+00:00",
+        "ended_at": "2026-11-01T04:34:40.682552+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"f91b3e81-d46f-4849-8761-8e741bbaeea7\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":35449}"
+      },
+      {
+        "id": "3eafcb28-fca3-4616-8ab8-1dec3fd2dd46",
+        "request_id": "0177d130-0311-48e8-9cf6-a5e035e80557",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "fbb4da90e5f4f05bd476f392ace05c8d2e6454fb2e2d5f2e3007823a4bd0f8b9",
+        "input_json": "{\"action\":\"verify\",\"method\":\"run\",\"owner_skill\":\"evolve-verify\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"business_files\",\"checks\"],\"paths\":[\"arithmetic.py\"],\"source\":\"actual human unified authorization call_05f0a84076f549568b149504edf7e4b8; controlled guide-only fixture\",\"text\":\"后续都统一授权，不需要再询问我\"},\"expected_versions\":{\"change\":2,\"task\":3},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"reviews\":[{\"acceptance_results\":[{\"ac_id\":\"AC-001\",\"basis\":\"Actual registered test_arithmetic ran all four original assertions; other modules not claimed.\",\"status\":\"passed\"}],\"axis\":\"spec\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"actual controlled parent fixture, not a native model\",\"summary\":\"Inspected unchanged total=sum, original literal test and actual original check; no assertion or production modifications.\"},{\"axis\":\"standards\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"actual controlled parent fixture, not a native model\",\"summary\":\"Inspected unchanged total=sum, original literal test and actual original check; no assertion or production modifications.\"}],\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\"},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "verify",
+        "method": "run",
+        "owner_skill": "evolve-verify",
+        "status": "completed",
+        "result_json": "{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"change_state\":\"active\",\"checks\":[{\"check_id\":\"original\",\"evidence_id\":\"9d1fba66-e8c3-49cf-9288-1d46b0752595\",\"returncode\":0,\"status\":\"passed\"}],\"committed\":true,\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"outcome\":\"verified\",\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\",\"run_id\":\"3eafcb28-fca3-4616-8ab8-1dec3fd2dd46\",\"status\":\"passed\",\"task_id\":null,\"unresolved_prior_findings\":[],\"verification_context\":{\"independent_isolation\":\"not_asserted\",\"observed_at\":\"2026-11-01T04:34:40.775745+00:00\",\"required_dependency_basis\":{},\"required_dependency_proofs\":{},\"scope\":\"actual_whole_working_directory_including_untracked_inputs\",\"workspace_work\":[]},\"verification_id\":\"c89cdd11-7329-42dd-909a-0dbff6314d67\",\"verification_scope\":\"change\",\"versions\":{\"change\":2,\"task\":3}}",
+        "result_digest": "a0b203babe5e9bae68b88c9539b70dfe3d81ee78447225f20a3500f083c393ad",
+        "started_at": "2026-11-01T04:34:40.772715+00:00",
+        "ended_at": "2026-11-01T04:34:40.861525+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"9907e469-4a41-4f79-a40d-8a113f4caaac\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":35452}"
+      },
+      {
+        "id": "4142d7c7-b654-498a-a21b-b98a3a452a91",
+        "request_id": "7e38daf8-9965-4831-b902-e5eb10bf0fba",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "c2bfa45696d1105c2b73377626d7ca4a96391b365d957aaa1fb09e71a2c52b17",
+        "input_json": "{\"action\":\"archive\",\"method\":\"close\",\"owner_skill\":\"evolve-archive\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"business_files\",\"checks\"],\"paths\":[\"arithmetic.py\"],\"source\":\"actual human unified authorization call_05f0a84076f549568b149504edf7e4b8; controlled guide-only fixture\",\"text\":\"后续都统一授权，不需要再询问我\"},\"expected_versions\":{\"change\":2,\"task\":3},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\",\"verification_id\":\"c89cdd11-7329-42dd-909a-0dbff6314d67\"},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "archive",
+        "method": "close",
+        "owner_skill": "evolve-archive",
+        "status": "completed",
+        "result_json": "{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"committed\":true,\"completion_fingerprint\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"knowledge\":\"not_proposed\",\"knowledge_scope\":\"project\",\"outcome\":\"archived\",\"pending_knowledge\":[],\"run_id\":\"4142d7c7-b654-498a-a21b-b98a3a452a91\",\"verification_id\":\"c89cdd11-7329-42dd-909a-0dbff6314d67\",\"versions\":{\"change\":3,\"task\":3}}",
+        "result_digest": "bdd6a02264d5fca77c0fe23248aab31d5db3e94f59b0598f98816d42f24243f4",
+        "started_at": "2026-11-01T04:34:40.949792+00:00",
+        "ended_at": "2026-11-01T04:34:40.965511+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"c20dabeb-fc42-43ef-a574-6b32ddd0ffd2\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":35457}"
+      },
+      {
+        "id": "b81d4089-2084-4111-9a6a-89454661e099",
+        "request_id": "cef3eade-1494-4289-b29e-9d8b11faa05c",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "781648092e35ea96807b2fa9ed0175dc686b4e0a8f0595408b32102765b14c41",
+        "input_json": "{\"action\":\"verify\",\"method\":\"run\",\"owner_skill\":\"evolve-verify\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"business_files\",\"checks\"],\"paths\":[\"arithmetic.py\"],\"source\":\"actual human unified authorization call_05f0a84076f549568b149504edf7e4b8; controlled guide-only fixture\",\"text\":\"后续都统一授权，不需要再询问我\"},\"expected_versions\":{\"change\":3,\"task\":3},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"reviews\":{\"spec\":{\"acceptance_results\":[{\"ac_id\":\"AC-001\",\"basis\":\"Actual registered test_arithmetic ran all four original assertions; other modules not claimed.\",\"status\":\"passed\"}],\"axis\":\"spec\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"actual controlled parent fixture, not a native model\",\"summary\":\"Inspected unchanged total=sum, original literal test and actual original check; no assertion or production modifications.\"},\"standards\":{\"axis\":\"standards\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"actual controlled parent fixture, not a native model\",\"summary\":\"Inspected unchanged total=sum, original literal test and actual original check; no assertion or production modifications.\"}},\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\"},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "verify",
+        "method": "run",
+        "owner_skill": "evolve-verify",
+        "status": "blocked",
+        "result_json": "{\"committed\":true,\"message\":\"Provide separate actual spec and standards review observations\",\"outcome\":\"blocked\",\"run_id\":\"b81d4089-2084-4111-9a6a-89454661e099\"}",
+        "result_digest": "512d296c523d3b67844a61bdecf10396d48dc134453e29d0fd02194f5876944c",
+        "started_at": "2026-11-01T04:34:41.055506+00:00",
+        "ended_at": "2026-11-01T04:34:41.059367+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"3f9a00cf-a17e-4b5b-8429-6f4414cf1570\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":35459}"
+      },
+      {
+        "id": "762d42a2-e97d-4e14-9553-9f561d3f6465",
+        "request_id": "2b57c942-7f00-49f8-8c58-9ae2f52b0152",
+        "workspace_epoch": "07e6ee9f-20a4-4365-bfad-612a232e1fd7",
+        "input_digest": "255aa39404f5bcf8b23479ee6345520f1f2ccdd227338fdd153b72df11db64a6",
+        "input_json": "{\"action\":\"verify\",\"method\":\"run\",\"owner_skill\":\"evolve-verify\",\"request\":{\"authorization\":{\"effect_kinds\":[\"project_records\",\"checks\"],\"source\":\"本轮用户明确指令：reviews容器说明的定向复验\",\"text\":\"本轮仅以你实际读取、原original检查和两维实际自审，按新指南的reviews数组追加该已封存工作项的当前verify；保留历史、Change/Task终态和全部六份业务／测试字节，不改源码、测试、配置或知识，不新增/重开任务，不登记经验。只覆盖原total，summary/report和其余测试不在本轮通过范围。\"},\"expected_versions\":{\"change\":3,\"task\":3},\"expected_workspace_epoch\":\"07e6ee9f-20a4-4365-bfad-612a232e1fd7\",\"input\":{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"reviews\":[{\"acceptance_results\":[{\"ac_id\":\"AC-001\",\"basis\":\"本轮实际读取并执行未修改的test_arithmetic.OriginalTotal.test_original_literals：[2,3]→5、[]→0、[-2,3]→1、iter([2,3])→5；单个unittest方法含四项断言，真实输出OK，退出码0。verify运行时另执行原original检查留证。\",\"status\":\"passed\"}],\"axis\":\"spec\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"Codex当前主代理本人实际自审，非独立审查，非控制侧夹具观察\",\"summary\":\"已实际读取原方案、AC-001、arithmetic.py和test_arithmetic.py。total直接返回sum(values)，原测试的四个独立字面预期分别为5、0、1、5，覆盖列表、空列表、负数与一次性迭代器。本人本轮执行原命令python3 -B -m unittest test_arithmetic -v，输出Ran 1 test、OK，四项断言均通过。仅原total符合规格；summary/report及其余测试不在通过范围。历史控制侧验证与本次观察分开保留。\"},{\"axis\":\"standards\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"Codex当前主代理本人实际自审，非独立审查，非控制侧夹具观察\",\"summary\":\"依据用户提供的AGENTS.md简单优先、精准改动与目标驱动要求，实际检查total实现与原测试。sum直接消费输入，不预遍历或复制迭代器，无多余抽象、配置或副作用；四项测试使用独立字面预期，未以被测函数构造预期或删弱断言。当前六份文件摘要与原封存现场一致，无源码或测试改动。本轮范围内无阻塞规范问题。已读取其余文件以确认边界，未将尚未实现的summary/report纳入通过声明。\"}],\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\"},\"project_id\":\"4ee157c0-0e44-408d-9417-540c63c7f772\"}}",
+        "action": "verify",
+        "method": "run",
+        "owner_skill": "evolve-verify",
+        "status": "completed",
+        "result_json": "{\"change_id\":\"c268f173-a731-409b-bcec-62872c5f305b\",\"change_state\":\"archived\",\"checks\":[{\"check_id\":\"original\",\"evidence_id\":\"1251f9be-e712-4193-b71c-ee98dc385aca\",\"returncode\":0,\"status\":\"passed\"}],\"committed\":true,\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"outcome\":\"verified\",\"revision_id\":\"694d6521-19a4-4c8e-87b7-73d815339f7b\",\"run_id\":\"762d42a2-e97d-4e14-9553-9f561d3f6465\",\"status\":\"passed\",\"task_id\":null,\"unresolved_prior_findings\":[],\"verification_context\":{\"independent_isolation\":\"not_asserted\",\"observed_at\":\"2026-11-01T04:36:32.465571+00:00\",\"required_dependency_basis\":{},\"required_dependency_proofs\":{},\"scope\":\"actual_whole_working_directory_including_untracked_inputs\",\"workspace_work\":[]},\"verification_id\":\"9a660eb5-8265-4aad-a85c-ff12c5d5f885\",\"verification_scope\":\"change\",\"versions\":{\"change\":3,\"task\":3}}",
+        "result_digest": "bce90219679957bc05e15c567f1c3eaf6f96b53eac3eff2eb283b3aeccad0cb5",
+        "started_at": "2026-11-01T04:36:32.462280+00:00",
+        "ended_at": "2026-11-01T04:36:32.555015+00:00",
+        "package_version": "0.1.0",
+        "protocol_version": 16,
+        "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+        "execution_instance": "{\"generation\":\"cf3944d1-9510-42aa-9b48-a5bebc70aab3\",\"host\":\"liufukangdeMacBook-Pro-M5.local\",\"pid\":36358}"
+      }
+    ],
+    "changes": [
+      {
+        "id": "c268f173-a731-409b-bcec-62872c5f305b",
+        "code": "CHG-20261101-c268f173",
+        "title": "Original total guide-shape check",
+        "kind": "modification",
+        "complexity": "simple",
+        "state": "archived",
+        "current_revision": "694d6521-19a4-4c8e-87b7-73d815339f7b",
+        "row_version": 3
+      }
+    ],
+    "tasks": [
+      {
+        "id": "41667883-8533-4ef4-a411-95b4520d4033",
+        "change_id": "c268f173-a731-409b-bcec-62872c5f305b",
+        "revision_id": "694d6521-19a4-4c8e-87b7-73d815339f7b",
+        "definition_json": "{\"acceptance\":[{\"id\":\"AC-001\",\"required\":true,\"text\":\"Original literal list, empty, negative and one-pass iterator assertions pass.\"}],\"baseline\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\"},\"checks_basis\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":30}],\"completion\":\"The original total check passes without changing any business file.\",\"local_key\":\"TASK-001\",\"required_checks\":[\"original\"],\"required_deliverables\":[\"arithmetic.py\"],\"responsible_action\":\"apply\",\"scope\":[\"arithmetic.py\"],\"spec_delta\":\"none\",\"title\":\"Original total guide-shape check\"}",
+        "definition_digest": "fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00",
+        "state": "done",
+        "row_version": 3,
+        "result_json": "{\"artifacts\":[],\"check_evidence\":[\"8f23739f-befb-4078-a4f0-9dde9bb0116a\"],\"definition_digest\":\"fd4d666813370ffee7d1f30ead63aa84fb36559c6a3b99b5f85d5a1e0ca1ce00\",\"fingerprint\":{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":30}],\"digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"files\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\",\"report.py\":\"9dd86a972b86bb635bd49f8c40e784c370af9a04437a9d0fdadcca23864854ae\",\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"scope\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\"}},\"implementation_source\":\"observed_existing_files\",\"missing\":[]}"
+      }
+    ],
+    "verifications": [
+      {
+        "id": "c89cdd11-7329-42dd-909a-0dbff6314d67",
+        "change_id": "c268f173-a731-409b-bcec-62872c5f305b",
+        "revision_id": "694d6521-19a4-4c8e-87b7-73d815339f7b",
+        "source_run_id": "3eafcb28-fca3-4616-8ab8-1dec3fd2dd46",
+        "subject_kind": "applied",
+        "status": "passed",
+        "fingerprint_json": "{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":30}],\"digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"files\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\",\"report.py\":\"9dd86a972b86bb635bd49f8c40e784c370af9a04437a9d0fdadcca23864854ae\",\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"scope\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\"}}",
+        "items_json": "{\"change_state\":\"active\",\"checks\":[{\"check_id\":\"original\",\"evidence_id\":\"9d1fba66-e8c3-49cf-9288-1d46b0752595\",\"returncode\":0,\"status\":\"passed\"}],\"document_applications\":{},\"implementation_scope_matches\":true,\"missing\":[],\"required_tasks_complete\":true,\"reviews\":[{\"acceptance_results\":[{\"ac_id\":\"AC-001\",\"basis\":\"Actual registered test_arithmetic ran all four original assertions; other modules not claimed.\",\"status\":\"passed\"}],\"axis\":\"spec\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"actual controlled parent fixture, not a native model\",\"summary\":\"Inspected unchanged total=sum, original literal test and actual original check; no assertion or production modifications.\"},{\"axis\":\"standards\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"actual controlled parent fixture, not a native model\",\"summary\":\"Inspected unchanged total=sum, original literal test and actual original check; no assertion or production modifications.\"}],\"unresolved_prior_findings\":[],\"verification_context\":{\"independent_isolation\":\"not_asserted\",\"observed_at\":\"2026-11-01T04:34:40.775745+00:00\",\"required_dependency_basis\":{},\"required_dependency_proofs\":{},\"scope\":\"actual_whole_working_directory_including_untracked_inputs\",\"workspace_work\":[]},\"workspace_changed\":false}",
+        "observed_at": "2026-11-01T04:34:40.860231+00:00"
+      },
+      {
+        "id": "9a660eb5-8265-4aad-a85c-ff12c5d5f885",
+        "change_id": "c268f173-a731-409b-bcec-62872c5f305b",
+        "revision_id": "694d6521-19a4-4c8e-87b7-73d815339f7b",
+        "source_run_id": "762d42a2-e97d-4e14-9553-9f561d3f6465",
+        "subject_kind": "applied",
+        "status": "passed",
+        "fingerprint_json": "{\"checks\":[{\"argv\":[\"python3\",\"-B\",\"-m\",\"unittest\",\"test_arithmetic\",\"-v\"],\"cwd\":\".\",\"id\":\"original\",\"timeout\":30}],\"digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"files\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\",\"report.py\":\"9dd86a972b86bb635bd49f8c40e784c370af9a04437a9d0fdadcca23864854ae\",\"test_arithmetic.py\":\"453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4\",\"test_integration.py\":\"0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1\",\"test_report.py\":\"c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb\",\"test_summary.py\":\"caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660\"},\"scope\":{\"arithmetic.py\":\"3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad\"}}",
+        "items_json": "{\"change_state\":\"archived\",\"checks\":[{\"check_id\":\"original\",\"evidence_id\":\"1251f9be-e712-4193-b71c-ee98dc385aca\",\"returncode\":0,\"status\":\"passed\"}],\"document_applications\":{},\"implementation_scope_matches\":true,\"missing\":[],\"required_tasks_complete\":true,\"reviews\":[{\"acceptance_results\":[{\"ac_id\":\"AC-001\",\"basis\":\"本轮实际读取并执行未修改的test_arithmetic.OriginalTotal.test_original_literals：[2,3]→5、[]→0、[-2,3]→1、iter([2,3])→5；单个unittest方法含四项断言，真实输出OK，退出码0。verify运行时另执行原original检查留证。\",\"status\":\"passed\"}],\"axis\":\"spec\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"Codex当前主代理本人实际自审，非独立审查，非控制侧夹具观察\",\"summary\":\"已实际读取原方案、AC-001、arithmetic.py和test_arithmetic.py。total直接返回sum(values)，原测试的四个独立字面预期分别为5、0、1、5，覆盖列表、空列表、负数与一次性迭代器。本人本轮执行原命令python3 -B -m unittest test_arithmetic -v，输出Ran 1 test、OK，四项断言均通过。仅原total符合规格；summary/report及其余测试不在通过范围。历史控制侧验证与本次观察分开保留。\"},{\"axis\":\"standards\",\"findings\":[],\"fingerprint_digest\":\"1015b7e3cb29140f5f57d64a14e01276b790aa83949118ebd14206b96407b1be\",\"observer\":\"Codex当前主代理本人实际自审，非独立审查，非控制侧夹具观察\",\"summary\":\"依据用户提供的AGENTS.md简单优先、精准改动与目标驱动要求，实际检查total实现与原测试。sum直接消费输入，不预遍历或复制迭代器，无多余抽象、配置或副作用；四项测试使用独立字面预期，未以被测函数构造预期或删弱断言。当前六份文件摘要与原封存现场一致，无源码或测试改动。本轮范围内无阻塞规范问题。已读取其余文件以确认边界，未将尚未实现的summary/report纳入通过声明。\"}],\"unresolved_prior_findings\":[],\"verification_context\":{\"independent_isolation\":\"not_asserted\",\"observed_at\":\"2026-11-01T04:36:32.465571+00:00\",\"required_dependency_basis\":{},\"required_dependency_proofs\":{},\"scope\":\"actual_whole_working_directory_including_untracked_inputs\",\"workspace_work\":[]},\"workspace_changed\":false}",
+        "observed_at": "2026-11-01T04:36:32.553592+00:00"
+      }
+    ]
+  },
+  "semantic_findings": [
+    "All four actual installed guide paths read, including the corrected reviews-array requirement.",
+    "Model inspected original total and all six file contents, ran original four assertions and prepared separate actual spec/standards self-review objects in a reviews array. Public verify performed actual check and returned passed.",
+    "Six business files and mtimes, original CHG/TASK/VER/run rows and both package roots preserved; no source/test/config/knowledge/experience modification or new task.",
+    "Actor explicitly separated parent fixture history from current model observation, retained the real object-negative blocked run and limited current pass to total; report/summary were not claimed."
+  ],
+  "observer_summary": {
+    "host": "codex",
+    "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+    "scope_digest": "a52d2e86db3f0046f9e68e946445254846f7e769a44b712d1ac5f2b37a64ed73",
+    "authorization": "后续都统一授权，不需要再询问我",
+    "model_requests_sent": true,
+    "automated_checks_passed": true,
+    "review_status": "pending",
+    "model_result": {
+      "thread_id": "01a19564-9563-79d3-85ac-4cbf16385819",
+      "turn_id": "01a19564-95c4-7863-aad9-0bfea6dd1d6c",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache"
+    },
+    "new_verifications": [
+      {
+        "id": "9a660eb5-8265-4aad-a85c-ff12c5d5f885",
+        "status": "passed"
+      }
+    ],
+    "six_business_files_and_mtimes_preserved": true,
+    "old_rows_preserved": true
+  },
+  "evidence": {
+    "trajectory": "codex-guide-shape-trajectory-r4.json",
+    "archive": "codex-guide-shape-r4-evidence.zip",
+    "sha256": "ca5c2521e14bea48bfd4227c7ae7093c53a59520c062dbae9b332492e0f89b95",
+    "bytes": 955205,
+    "skipped_symlinks": [
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg066a0cB/apply_patch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg066a0cB/applypatch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg066a0cB/codex-execve-wrapper"
+    ]
+  }
+}

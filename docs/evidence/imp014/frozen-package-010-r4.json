@@ -1,0 +1,15 @@
+{
+  "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r4-mku29_z_",
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r4-mku29_z_/package",
+  "controller": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp014-frozen-010-r4-mku29_z_/controller",
+  "version": "0.1.0",
+  "source_digest": "7092b24b1b47b28b44ce48f751955d390758c391a008801f077b727365fee329",
+  "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+  "model_requests_sent": false,
+  "previous_candidate": "docs/evidence/imp014/frozen-package-010-r3.json",
+  "changed_rendered_resources": [
+    "CHANGELOG.md",
+    "shared/protocol.md"
+  ],
+  "reason": "Clarify reviews array shape found by actual Codex native run; runtime Python and broad acceptance controller bytes unchanged. Use targeted current-package one-session verification per host and retain broad r3 native proof."
+}

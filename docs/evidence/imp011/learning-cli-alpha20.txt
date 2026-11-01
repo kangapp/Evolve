@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "package_version": "0.1.0-alpha.20",
+  "content_digest": "4115593f36e052c714ce735c88cefd4c4fdc05e90cc6cb44d1083282c2dbbb2f",
+  "commands": 46,
+  "cases": [
+    {
+      "case": "LearningCycleTests.test_actual_counterexample_to_check_fix_and_scoped_feedback",
+      "commands": 46,
+      "passed": true,
+      "project_snapshot": "project-1"
+    }
+  ],
+  "model_requests_sent": false,
+  "review_inputs": "Controlled actual fixture observations; not independent model review"
+}

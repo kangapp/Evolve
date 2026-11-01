@@ -1,0 +1,311 @@
+{
+  "slice": "IMP-009",
+  "status": "passed_current_codex_scope",
+  "package_version": "0.1.0-alpha.18",
+  "protocol_version": 14,
+  "schema_version": 4,
+  "package_digest": "a4e7dca7b6a63cef556bca903a514c2013a3adcdfc84181bd3388992b0a4163f",
+  "scope_digest": "c014d0276e9e17c5beb8c155cf3ed3f356e12e1f02c6c906b682a3fba2156891",
+  "host": "codex",
+  "actual_model": "gpt-6-astra",
+  "fresh_sessions": 7,
+  "commands_reviewed": 149,
+  "reviewer": "Current implementation assistant reviewing actual native transcript, six files and retained database; not a third independent reviewer",
+  "cases": [
+    {
+      "thread_id": "01a19481-3cb6-7711-ae7e-ee1e121db691",
+      "turn_id": "01a19481-3d10-79e0-9240-d88c1f1e37f2",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "producer_a",
+      "commands_reviewed": 25,
+      "assessment": "passed",
+      "basis": [
+        "原 sum 真实失败 2 != 5，独立调查只有一条，不以调查创建业务 Change。",
+        "完整复杂方案保留原 analysis_basis／criterion_digest、symptom_before 与原检查；仅 apply 修改 total.py，实际原症状 Task VER 818c6cfb…通过；保持 A 活动，未声称整项或独立报告通过。"
+      ],
+      "parent_observation": {
+        "case": "producer_a",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 1,
+        "analyses": 1,
+        "verifications": 1,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    },
+    {
+      "thread_id": "01a19482-3cbb-7cf1-9956-0c855e344a7f",
+      "turn_id": "01a19482-3d04-7541-9e72-b73b21ad3e14",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "pause_b",
+      "commands_reviewed": 18,
+      "assessment": "passed",
+      "basis": [
+        "只有 REPORT 固定引用 A/SUM 的真实 REV／定义／verification_passed；仅写 report.py，正常 partial 收尾，原后检查与验收未运行。"
+      ],
+      "parent_observation": {
+        "case": "pause_b",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 2,
+        "analyses": 1,
+        "verifications": 1,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    },
+    {
+      "thread_id": "01a19483-027c-7e32-8d96-6d281a655f8d",
+      "turn_id": "01a19483-02c4-7c53-94e5-1579c1fd122f",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "cancel_a_adopt_c",
+      "commands_reviewed": 26,
+      "assessment": "passed",
+      "basis": [
+        "明确取消 A，保留 done、原症状通过及字节；B 仍因原 A 引用受阻。",
+        "C 通过独立具体接受、files=[]、实际 sum 与 Task 验收采用当前成果，生产文件 mtime 保持；未自动追新或借取消授予执行。"
+      ],
+      "parent_observation": {
+        "case": "cancel_a_adopt_c",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 3,
+        "analyses": 1,
+        "verifications": 2,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    },
+    {
+      "thread_id": "01a19483-dc1b-7220-ae7a-1490f8696d56",
+      "turn_id": "01a19483-dc60-7bb3-861f-79bde315a4f3",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "rebind_finish",
+      "commands_reviewed": 25,
+      "assessment": "passed",
+      "basis": [
+        "完整新 REV 仅将 B 固定前置由取消 A 换为当前 C，真实语义变更；旧 REV／部分结果保留，新结果没有复用旧 continuation。",
+        "B、C 原检查及联合现场验收后封存，原全部业务字节保持；观察明确包含 A 历史成果、C 采用与 B 报告，不声称单项隔离。"
+      ],
+      "parent_observation": {
+        "case": "rebind_finish",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 3,
+        "analyses": 1,
+        "verifications": 5,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    },
+    {
+      "thread_id": "01a19484-e6b6-75a2-b26d-0c0ad66cab87",
+      "turn_id": "01a19484-e709-7fe3-bbdd-08209831da02",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "formal_candidates",
+      "commands_reviewed": 27,
+      "assessment": "passed",
+      "basis": [
+        "init 仅对批准的原 55 字节建立实际基线，不重写；具体 DOC／RULE 分属独立工作项。",
+        "同一基线的两个准确 UTF-8 范围、独立 semantic_target、完整批次、真实有范围经验与内容检查已保存；两项候选保持未批准未应用。"
+      ],
+      "parent_observation": {
+        "case": "formal_candidates",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 5,
+        "analyses": 1,
+        "verifications": 5,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    },
+    {
+      "thread_id": "01a19486-1146-7d10-8f60-22b5db0b35dc",
+      "turn_id": "01a19486-118e-78d1-856c-4076e22db3d0",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "formal_apply",
+      "commands_reviewed": 15,
+      "assessment": "passed",
+      "basis": [
+        "集中保存两项准确批准；sync DOC 实际应用及 Task 验收后，learn RULE 沿真实批准差异链组合。",
+        "最终两项含义同时保留，实际目标、Task、整项验收及封存均通过；DOC whole 在合法后续组合后 implementation_scope_matches=true，无重复批准或成果重写。"
+      ],
+      "parent_observation": {
+        "case": "formal_apply",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 5,
+        "analyses": 1,
+        "verifications": 13,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    },
+    {
+      "thread_id": "01a19486-eb9c-7a03-8e5b-d56f3860394c",
+      "turn_id": "01a19486-ebde-79c2-a012-284d4b8d18dd",
+      "status": "completed",
+      "model": "gpt-6-astra",
+      "skill_loading": "explicit documented skill input from the actual isolated installation cache",
+      "case": "verify",
+      "commands_reviewed": 13,
+      "assessment": "passed",
+      "basis": [
+        "控制侧保留 total.py 的 len 回退及 terms.md 未批准追加；只新增 B blocked VER 04a84b20…与规则 applied blocked VER 5141111f…。",
+        "B 在依赖门禁前被阻断，未派发 integration；规则字面仍在但批准效果保留证明失效。最终说明区分源码观察、实际未执行检查与历史通过，未修复或重开。"
+      ],
+      "parent_observation": {
+        "case": "verify",
+        "business_boundary_preserved": true,
+        "readonly_test_bytes_and_mtimes": true,
+        "changes": 5,
+        "analyses": 1,
+        "verifications": 15,
+        "pending_runs": 0,
+        "claims": 0,
+        "semantic_model_review": "pending"
+      }
+    }
+  ],
+  "all_actual_trials": [
+    {
+      "dispatch": "model-dispatch-alpha16.json",
+      "actual_new_threads": 5,
+      "state": "controller_failed",
+      "scope_digest": "608595a484b0b8fa8b9fb9f0ba0f16e12dde6552f329fc4ed1c38177ebc47b19"
+    },
+    {
+      "dispatch": "model-dispatch-alpha16-r2.json",
+      "actual_new_threads": 6,
+      "state": "controller_failed",
+      "scope_digest": "f6b1c67c688e8582894f15aa07daeac3c6ead510d389b9b0cb480cc0343a6253"
+    },
+    {
+      "dispatch": "model-dispatch-alpha17.json",
+      "actual_new_threads": 1,
+      "state": "controller_failed",
+      "scope_digest": "cd491bc3e01b3ce864c166786a32ac9902fd1414718a785fcea28e9d24e4d087"
+    },
+    {
+      "dispatch": "model-dispatch-alpha18.json",
+      "actual_new_threads": 7,
+      "state": "automated_checks_finished_review_pending",
+      "scope_digest": "c014d0276e9e17c5beb8c155cf3ed3f356e12e1f02c6c906b682a3fba2156891"
+    }
+  ],
+  "total_actual_new_threads_including_failed_retests": 19,
+  "retained_failures": [
+    "controller-fix-alpha16-r2.json",
+    "runtime-fix-validation-alpha17.json",
+    "native-gap-analysis-alpha17.json"
+  ],
+  "nonblocking_observations": [
+    {
+      "case": "pause_b",
+      "detail": "Wrong whole-change digest was refused before file write; corrected Task digest under unchanged scope."
+    },
+    {
+      "case": "cancel_a_adopt_c",
+      "detail": "Initial verification lacked actual separate spec/standards reviews; safely blocked, then corrected with actual observations."
+    },
+    {
+      "case": "rebind_finish",
+      "detail": "First revision omitted complexity and entered unavailable simple workflow; corrected full complex proposal, no lower acceptance."
+    },
+    {
+      "case": "formal_apply",
+      "detail": "One review request supplied a keyed object instead of two review records and failed; exact content/approval/applications retained, corrected before all final acceptances."
+    },
+    {
+      "case": "verify",
+      "detail": "Pre-dispatch review referred to intended integration; actual dependency guard prevented dispatch. Raw JSON error inside shell exit zero retained; final answer explicitly says integration not executed. No current check-run claim is credited."
+    }
+  ],
+  "final_facts": {
+    "changes": [
+      {
+        "id": "1f0bfc07-ae71-4580-88d7-55d14e7c4d44",
+        "title": "总额接口 A",
+        "state": "cancelled"
+      },
+      {
+        "id": "e87e922d-ab1f-41b3-914c-41318bc93a2d",
+        "title": "报告交付 B",
+        "state": "archived"
+      },
+      {
+        "id": "4b941f33-9724-489f-b08c-7006dc20eb2f",
+        "title": "接续总额接口 C",
+        "state": "archived"
+      },
+      {
+        "id": "61b91eb2-1a43-4901-a3f8-e0ae8b47808a",
+        "title": "正式总额含义",
+        "state": "archived"
+      },
+      {
+        "id": "40edeb6b-615a-43c8-b0eb-56786f37da7e",
+        "title": "独立审查规则",
+        "state": "archived"
+      }
+    ],
+    "current_tasks_done": 5,
+    "historical_old_report_task": "Old B REV1 remains in_progress with original partial result; not a current unfinished execution",
+    "run_states": {
+      "completed": 49,
+      "blocked": 5
+    },
+    "active_claims": 0,
+    "verifications": {
+      "passed": 13,
+      "blocked": 2
+    },
+    "applications": 3,
+    "rule_bindings": 1,
+    "final_blocked_verifications": [
+      "04a84b20-79d2-4e48-8e44-4fdd77ca7dc2",
+      "5141111f-dde0-48a6-bda4-12682162dbff"
+    ]
+  },
+  "limitations": [
+    "Only current environment and user-selected Codex scope; Claude not dispatched.",
+    "Seven native sessions were sequential; contention and unrelated progress have actual-process regression evidence, not a parallel-native-model benchmark.",
+    "Final controlled negative fixture remains unchanged; no whole global V, M2 integration, production data execution or later-stage pass inferred.",
+    "Actual observers are named native self-reviewers; do not relabel them as independent third reviewers."
+  ],
+  "raw_archive": {
+    "path": "codex-model-alpha18-r1.zip",
+    "sha256": "d15ad08669ef71fb7856e348c2f8c58070b0e6cc7362a2862d071ee76840ce84",
+    "bytes": 1660254,
+    "excluded_host_runtime_symlinks": [
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Aq25sz/apply_patch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Aq25sz/applypatch",
+      "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0Aq25sz/codex-execve-wrapper"
+    ]
+  },
+  "trajectory": {
+    "path": "codex-trajectory-alpha18-r1.json",
+    "sha256": "e9d0723b2f46ca942058cb3fad73450d0f2bda2ce8097484495ca3f1a8cabe58"
+  },
+  "passed": true
+}

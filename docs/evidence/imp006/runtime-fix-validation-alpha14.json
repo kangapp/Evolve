@@ -1,0 +1,102 @@
+{
+  "slice": "IMP-006",
+  "observed_at": "2026-10-31T18:58:43.852177+00:00",
+  "status": "runtime_fixes_passed_native_retest_pending",
+  "failures": [
+    "codex-model-review-alpha13-r1.json",
+    "claude-model-review-r5.json"
+  ],
+  "root_causes": [
+    "Downstream declared producer output was frozen as a fixed external context; legitimate upstream file production changed its revision meaning. Actual native model declined before an update invocation; controlled real-runtime replay confirmed the defect.",
+    "A normal pause could be bypassed by submitting identical existing file bytes without explicit continuation; old before proof stayed valid but no normal pause source was linked."
+  ],
+  "red_capable_loops": [
+    "test_cosmetic_revision_retains_context_produced_by_its_declared_upstream",
+    "test_current_normal_pause_source_is_resolved_when_same_bytes_are_resubmitted"
+  ],
+  "old_runtime_replay": "Preserved complete alpha13 package, exact readonly literals and fresh temporary records; both original symptom assertions fail without model calls.",
+  "fixes": [
+    "Only declared ancestor output paths are removed from fixed context; actual completed/verified dependencies, outputs and unchanged external contexts remain checked.",
+    "Current safe normal file pause is uniquely resolved through actual Task/same-definition REV origin; explicit earlier result cannot replace it. Current/source identity, authority subset, revocation and outstanding claims remain checked; automatic source reference is returned and persisted.",
+    "Parent continuation assertion now requires an actual fresh completed CORE implementation/check attempt linked to the original file pause, rather than any earlier or blocked source row."
+  ],
+  "authorization_choice": "Resolve deterministic actual source internally instead of requiring the human or model to fill internal IDs; no new grant is inferred. Ambiguous, unfinalized, inconsistent, revoked or expanded authority still stops.",
+  "initial_probe_note": "An initial diagnostic considered requiring an explicit continuation parameter; final symptom loop asserts actual missing provenance and proves automatic actual-source binding. Initial replay harness also used a nonexistent result field, corrected without runtime changes; raw trace preserved.",
+  "package_version": "0.1.0-alpha.14",
+  "protocol_version": 11,
+  "schema_version": 4,
+  "source_inventory_digest": "6c7b756199664c910ec22ef5d8dad2899ea627077c2ee550851bc78322da07c3",
+  "distribution_digest": "c7806c6dbb28c7d344afa513d189fe60c8336218c7172ee0f875fb56c354ff34",
+  "files": 61,
+  "checks": {
+    "component-tests-runtime-alpha14-full.txt": {
+      "tests": 477,
+      "seconds": 71.977,
+      "passed": true
+    },
+    "component-tests-runtime-alpha14-complex.txt": {
+      "tests": 25,
+      "seconds": 11.457,
+      "passed": true
+    },
+    "component-tests-runtime-alpha14-revisions.txt": {
+      "tests": 28,
+      "seconds": 7.664,
+      "passed": true
+    },
+    "component-tests-runtime-alpha14-resume.txt": {
+      "tests": 12,
+      "seconds": 0.905,
+      "passed": true
+    }
+  },
+  "public_cli": {
+    "commands": 12,
+    "assertions": [
+      "Actual alpha13 writer refused proto11 without DB byte change",
+      "Exact native full document saved through public CLI",
+      "Real original before proof and normal no-post-check pause",
+      "Only display changes preserve accepted meaning and partial progress with producer context",
+      "Unspecified continuation resolved to actual latest file pause across cosmetic REV",
+      "Old before proof unchanged and post checks actually passed",
+      "CORE independent VER precedes REPORT",
+      "REPORT and whole actual literal checks/reviews passed",
+      "Actual current whole VER archived; tests unchanged; no pending runs/claims"
+    ],
+    "passed": true,
+    "proof": "runtime-cli-proof-alpha14.json",
+    "model_requests_sent": false,
+    "review": "Controlled actual observations, not an independent model or native host pass."
+  },
+  "same_schema_old_writer_test": "Actual alpha13/schema4/protocol10 rejects schema4/protocol11 project without database byte changes.",
+  "compatibility": "Protocol11 isolates writers that omit actual pause provenance; old complete packages retained, no automatic migration or configuration change.",
+  "preparation": {
+    "codex": {
+      "actual_installation_and_skill_discovery": true,
+      "model_requests_sent": false,
+      "scope_digest": "6c6c33527b2a01f7bb40a690ac746bb4ef1e882769e65382d8767e9db354ef0a",
+      "business_state": "not_connected",
+      "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-preparation-alpha14/business/.agents/evolve-acceptance/installed-source",
+      "cache_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/codex-preparation-alpha14/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14"
+    },
+    "claude": {
+      "actual_installation_and_skill_discovery": true,
+      "model_requests_sent": false,
+      "scope_digest": "543d81c630d07b101100ea7b87c2b45ae2075d0a31fd57fe5460bd01308d96bd",
+      "business_state": "not_connected",
+      "registered_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/claude-preparation-alpha14/business/.agents/evolve-acceptance/installed-source",
+      "cache_root": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp006-public-replay-alpha14-b4tnaukj/claude-preparation-alpha14/business/.agents/evolve-acceptance/profile/plugins/cache/evolve-local/evolve/0.1.0-alpha.14"
+    }
+  },
+  "archives": {
+    "runtime-package-alpha14.zip": "00de9e547e2e69a1ef43a61fe89ec5937d4aca93834a329561fac620318048ac",
+    "model-runner-alpha14.zip": "d92e670ae98806077babffcf155d9e3408a17ccc5dc87323c0874b6e46bef2c3",
+    "runtime-cli-trace-alpha14.zip": "ab41510f4de0ee8ba57b2ea0feb94a738a95fd77d8713114ba8c9d1f44e232f6",
+    "runtime-preparation-alpha14.zip": "2d364487eabc3e8ad33f063726fd5d95ab1503b909c17fd9bc456527856ac31d"
+  },
+  "existing_human_authorization": "授权两个宿主及同范围复验（推荐）",
+  "same_scope_retest_basis": "Existing explicit necessary repair/retest grant. Same original seven files, seven cases/sessions, two production writes, five readonly tests, host model selection, native transport options and final assertions; only package/protocol and reviewed implementation hashes changed since alpha13.",
+  "native_model_requests_sent_for_alpha14": false,
+  "imp007_pending_scope_and_frozen_alpha12": "unchanged and not dispatched",
+  "gate": "IMP-006 remains in_progress; no new native pass inferred."
+}

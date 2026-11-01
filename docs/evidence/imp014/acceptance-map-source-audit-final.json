@@ -1,0 +1,6 @@
+{
+  "references": 422,
+  "actual_ast_methods_file_hashes_and_passing_log_match": true,
+  "log": "component-tests-010-headless-io-fixed.txt",
+  "log_sha256": "b3b8acac036086382de4ced34638da26d16b835e1d30c55617654ede888cd2e1"
+}

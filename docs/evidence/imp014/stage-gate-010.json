@@ -1,0 +1,81 @@
+{
+  "slice": "IMP-014",
+  "milestone": "M3",
+  "status": "passed_current_environment_and_declared_host_scopes",
+  "passed": true,
+  "reviewed_at": "2026-11-01T05:49:50.779467+00:00",
+  "package_version": "0.1.0",
+  "protocol_version": 16,
+  "schema_version": 4,
+  "runtime_resources": 83,
+  "maintained_engineering_files": 216,
+  "package_digest": "41a93e83f10e3771195010e91df6742dd8a88e0a47f8ec52587bafce913e56a6",
+  "source_resource_digest": "7092b24b1b47b28b44ce48f751955d390758c391a008801f077b727365fee329",
+  "full_regression": {
+    "tests": 642,
+    "seconds": 140.984,
+    "log": "component-tests-010-headless-io-fixed.txt",
+    "sha256": "b3b8acac036086382de4ced34638da26d16b835e1d30c55617654ede888cd2e1"
+  },
+  "requirements": {
+    "stable_requirements": 140,
+    "passed_current_effective_scope": 138,
+    "explicitly_out_of_scope_not_passed": 2,
+    "current_component_references": 422
+  },
+  "evidence": {
+    "functional": "functional-validation-010-r4.json",
+    "requirements": "acceptance-map.json",
+    "component_reference_audit": "acceptance-map-source-audit-final.json",
+    "test_controller_archive": "final-test-controller-archive.json",
+    "installation": "installation-summary-010-r4.json",
+    "lifecycle_primary_review": "lifecycle-primary-review-010-r4.json",
+    "native_reviews": [
+      "codex-model-review-010-r2.json",
+      "codex-guide-shape-review-r4.json",
+      "claude-representative-review-010-r4.json",
+      "codex-cross-host-tail-review.json"
+    ],
+    "runtime_artifact": "prepared-runtime-artifact-final.json",
+    "final_artifact_receipt": "final-artifacts.json"
+  },
+  "observed_counts": {
+    "installation_checks": 15,
+    "installation_commands": 16,
+    "lifecycle_checks": 38,
+    "lifecycle_commands": 42,
+    "external_public_cli": 21,
+    "actual_protocol14_compatibility_cli": 8,
+    "actual_protocol15_compatibility_cli": 8,
+    "codex_broad_same_runtime_sessions": 5,
+    "codex_broad_same_runtime_commands": 62,
+    "codex_exact_current_guide_sessions": 1,
+    "codex_exact_current_guide_commands": 8,
+    "claude_exact_current_completed_representative_sessions": 4,
+    "claude_exact_current_completed_commands": 92,
+    "claude_exact_current_interrupted_session_on429": 1,
+    "codex_exact_current_cross_host_tail_sessions": 3,
+    "codex_exact_current_cross_host_tail_commands": 45
+  },
+  "prerequisites": [
+    "../imp011/milestone-m2-codex-alpha21.json",
+    "../imp012/stage-gate-codex-alpha23.json",
+    "../imp013/stage-gate-codex-alpha25.json"
+  ],
+  "raw_failures_retained": true,
+  "original_claude_seven_case_batch_passed": false,
+  "required_remaining_model_work": [],
+  "limits": [
+    "Current actual macOS environment; human withdrew Windows-specific gate, no unobserved-platform pass",
+    "Advanced stages retain user Codex-first scope. Claude exact current package representative four completed sessions passed; original seven-case batch stopped on HTTP429, its advanced tail not independently passed",
+    "External execution is finite synchronous controlled Python/SQLite only; no real production/remote/dynamic/background provider proof",
+    "Host dual-axis reviews and primary evidence review are not independent sub-agent reviews",
+    "Local/private delivery only; no personal installation/configuration changes, credentials, commits, public release or deployment"
+  ],
+  "open_choices_after_delivery": [
+    "Public license/repository/marketplace choice",
+    "OQ-009 actual long-term retrieval/capacity measurements",
+    "OQ-010 concrete production-provider capabilities",
+    "Optional explicit capability-catalogue vs CLI action/method naming hint"
+  ]
+}

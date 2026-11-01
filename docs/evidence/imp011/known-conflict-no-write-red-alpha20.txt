@@ -1,0 +1,14 @@
+test_known_conflicting_approved_successor_is_rejected_before_file_write (test_cross_formal_dependencies.CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write) ... FAIL
+
+======================================================================
+FAIL: test_known_conflicting_approved_successor_is_rejected_before_file_write (test_cross_formal_dependencies.CrossFormalTests.test_known_conflicting_approved_successor_is_rejected_before_file_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_cross_formal_dependencies.py", line 198, in test_known_conflicting_approved_successor_is_rejected_before_file_write
+    self.assertFalse(self.f.rows('SELECT * FROM resource_claims'))
+AssertionError: [{'resource': 'change:11908379-4fc4-48d9-9e53-5345fed6dec8', 'operation_id': 'fde3f019-ccfb-4696-9622-28bc644b23cc', 'state': 'active', 'generation': '{"generation":"8d7daf4d-8f44-4819-a9ba-c3360b5cf04b","host":"liufukangdeMacBook-Pro-M5.local","pid":57618}', 'row_version': 1}, {'resource': 'file:/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-workflow-test-8hfkrn0y/terms.md', 'operation_id': 'fde3f019-ccfb-4696-9622-28bc644b23cc', 'state': 'active', 'generation': '{"generation":"8d7daf4d-8f44-4819-a9ba-c3360b5cf04b","host":"liufukangdeMacBook-Pro-M5.local","pid":57618}', 'row_version': 1}] is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.387s
+
+FAILED (failures=1)

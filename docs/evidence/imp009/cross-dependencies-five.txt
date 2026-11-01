@@ -1,0 +1,10 @@
+test_changed_upstream_context_blocks_consumer_without_overwriting_external_edit (test_cross_dependencies.CrossDependencyTests.test_changed_upstream_context_blocks_consumer_without_overwriting_external_edit) ... ok
+test_cross_change_cycle_is_rejected_by_real_revision_without_rewriting_old_definition (test_cross_dependencies.CrossDependencyTests.test_cross_change_cycle_is_rejected_by_real_revision_without_rewriting_old_definition) ... ok
+test_done_is_not_verified_and_produced_inputs_are_not_frozen_as_old_context (test_cross_dependencies.CrossDependencyTests.test_done_is_not_verified_and_produced_inputs_are_not_frozen_as_old_context) ... ok
+test_unknown_or_changed_fixed_target_is_rejected_before_acceptance (test_cross_dependencies.CrossDependencyTests.test_unknown_or_changed_fixed_target_is_rejected_before_acceptance) ... ok
+test_upstream_cancellation_invalidates_only_real_downstream_and_preserves_old_results (test_cross_dependencies.CrossDependencyTests.test_upstream_cancellation_invalidates_only_real_downstream_and_preserves_old_results) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.165s
+
+OK

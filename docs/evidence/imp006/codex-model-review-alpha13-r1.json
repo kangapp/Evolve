@@ -1,0 +1,150 @@
+{
+  "observed_at": "2026-10-31T18:48:03.703660+00:00",
+  "host": "codex",
+  "run": "alpha13-r1",
+  "status": "stopped_parent_check_failure",
+  "passed": false,
+  "package_digest": "83cee98e7e1807e3347690b7fd633463651f519e9d0c34b91af9dfdedfc9efdd",
+  "scope_digest": "c19db884d42a043ef798e7b121443ec0789ede55a008c692124a573e206b01cc",
+  "controller_archive": "model-runner-alpha13.zip",
+  "controller_sha256": "39ef314677609d187b541cd53f310f0d28774978040482b0076815edf38112ea",
+  "completed_cases": [
+    "propose",
+    "refactor_pause"
+  ],
+  "failed_case": "cosmetic_revision",
+  "controller_exit_code": 1,
+  "error": "No actual new REV was saved",
+  "case_reviews": [
+    {
+      "case": "propose",
+      "thread_id": "01a19340-98b1-78e0-82ef-6b70f4fba170",
+      "final_claim": "已接入 Evolve，完整复杂方案已保存为 `CHG-20261031-2144751a`（REV 1），回读确认与呈现文档一致，**未接受、未实施**。\n\n- 已记录六文件整体梳理、完整 spec、测试决定、`broad_migration` 和最终集成边界。\n- CORE 仅涉及 `arithmetic.py`，原行为保持只用 `original`。\n- REPORT 仅涉及 `report.py`，等待 CORE 独立验收通过。\n- 四项检查已登记；最终必须通过 `integration`，任务完成不能替代全项通过。\n- 当前只读检查：`original` 通过，其余因接口尚未实现而失败。\n\n业务及测试文件未修改，未批准正式知识，未实现可选均值。",
+      "parent_checks": "passed"
+    },
+    {
+      "case": "refactor_pause",
+      "thread_id": "01a19341-de29-7d91-950d-ce5b9f422902",
+      "final_claim": "已恢复并呈现完整方案，按本轮授权通过 Evolve 完成文件段并正常暂停。\n\n- 原 `total` 的 `original` 前检查通过，真实前证明已保留。\n- `arithmetic.py` 保留 `total`，新增单次遍历的 `summarize`。\n- `report.py` 和全部测试字节未变。\n- CORE 保持 `in_progress`，证明状态为 `pending_after`；未运行后检查、未验收或封存。\n- 暂停记录保留后续原范围授权，无待恢复运行。\n\n续接记录：`25a8da0c-56cc-485d-aa77-7fd1a4a1c1b2`。",
+      "parent_checks": "passed"
+    },
+    {
+      "case": "cosmetic_revision",
+      "thread_id": "01a19342-9da8-77a3-9842-3f6890c984fd",
+      "final_claim": "展示文案已拟定，但未保存新 REV：当前 Evolve alpha.13 的修订工具会重新采集任务上下文。由于 CORE 的部分实施已改变 arithmetic.py，REPORT 会被判为定义变化，无法按纯展示修订沿用原接受依据。\n\n已停止写入，未绕过工具协议。原方案、部分进度、授权及原行为证明均保留；本轮未实施、未运行检查、未修改业务或测试。",
+      "parent_checks": "failed"
+    }
+  ],
+  "actual_state": {
+    "integrity": [
+      {
+        "integrity_check": "ok"
+      }
+    ],
+    "changes": [
+      {
+        "id": "2144751a-8581-4ff0-baa7-9f5d17db4c01",
+        "code": "CHG-20261031-2144751a",
+        "state": "active",
+        "current_revision": "031a7005-f326-484b-b779-2e6259bbd341"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "ada2a12b-fb60-40ad-98a4-9c4d6b5c52ac",
+        "revision_id": "031a7005-f326-484b-b779-2e6259bbd341",
+        "state": "in_progress",
+        "definition_digest": "3adfed5de0bf26c30bfc32a5a141afb6d183d7d97f747ab5c8309f3d3e2da797"
+      },
+      {
+        "id": "43430e78-fe57-481d-8a42-a07df16aeba7",
+        "revision_id": "031a7005-f326-484b-b779-2e6259bbd341",
+        "state": "todo",
+        "definition_digest": "dc9bc30283c7036819a0edf524361d37d5bd4be86d12dc06eba79669a51974d9"
+      }
+    ],
+    "verifications": [],
+    "runs": [
+      {
+        "id": "b5da67e6-dc23-4e8f-b00e-7af41b9aa148",
+        "action": "init",
+        "status": "completed"
+      },
+      {
+        "id": "11cf006b-dae8-4929-b962-055bffefb2d1",
+        "action": "propose",
+        "status": "completed"
+      },
+      {
+        "id": "b2f54a74-5099-4ee7-abf1-0d93a87bdf39",
+        "action": "apply",
+        "status": "completed"
+      },
+      {
+        "id": "25a8da0c-56cc-485d-aa77-7fd1a4a1c1b2",
+        "action": "apply",
+        "status": "completed"
+      },
+      {
+        "id": "6b42cc93-0415-4490-ae25-9c85a42b1e09",
+        "action": "learn",
+        "status": "completed"
+      }
+    ],
+    "source_runs": [
+      {
+        "run_id": "25a8da0c-56cc-485d-aa77-7fd1a4a1c1b2",
+        "source_run_id": "b2f54a74-5099-4ee7-abf1-0d93a87bdf39",
+        "result_digest": "459de28236df26fe2ea74d184d8c1af30b2fe75941f5f88047e529c4c6a4b326",
+        "purpose": "normal_continuation"
+      },
+      {
+        "run_id": "25a8da0c-56cc-485d-aa77-7fd1a4a1c1b2",
+        "source_run_id": "b2f54a74-5099-4ee7-abf1-0d93a87bdf39",
+        "result_digest": "459de28236df26fe2ea74d184d8c1af30b2fe75941f5f88047e529c4c6a4b326",
+        "purpose": "behavior_preservation_basis"
+      },
+      {
+        "run_id": "6b42cc93-0415-4490-ae25-9c85a42b1e09",
+        "source_run_id": "25a8da0c-56cc-485d-aa77-7fd1a4a1c1b2",
+        "result_digest": "7813d4656583a0d2dc1437ad765b5083162d4a53b3a8427168a1b36d9fd82201",
+        "purpose": "learning_no_new_learning"
+      }
+    ],
+    "claims": [],
+    "unfinished_runs": 0
+  },
+  "task_contexts": {
+    "CORE": {
+      "test_arithmetic.py": "453a138380ec143f5febd26c2e4792feb6a00f65c9f967a3550200b3155c73d4",
+      "test_summary.py": "caaa30457db091763d26a4c71944242fdaeaa4c40d5e35029b682ff9ee088660"
+    },
+    "REPORT": {
+      "arithmetic.py": "3251dbf18617cd67c47707cb9bd1611dbac212ff0ee9814a75b8ce1f34b85aad",
+      "test_integration.py": "0e3916425f110074b09929be49275e2a227e881332aa1a0c720f5b1176259fd1",
+      "test_report.py": "c2e08a7e8c4355d449bf28613d2ce9a2605d1ca29b666316d58311a529ae11bb"
+    }
+  },
+  "installation_digests": {
+    "registered_installation_root": "83cee98e7e1807e3347690b7fd633463651f519e9d0c34b91af9dfdedfc9efdd",
+    "host_cache_root": "83cee98e7e1807e3347690b7fd633463651f519e9d0c34b91af9dfdedfc9efdd"
+  },
+  "four_readonly_tests_unchanged": true,
+  "mean_test_not_added": true,
+  "native_permission_or_quota_failure": false,
+  "process_state_basis": "Specific unified exec session returned terminal exit 1; frozen controller finally closes the native transport. No model retry dispatched after this failure.",
+  "diagnosis": [
+    "Model performed global overview with sources and stopping criterion, then selected lightweight saved-context review for cosmetic change.",
+    "Cosmetic model declined before update invocation: no actual update run or new REV exists.",
+    "Actual REPORT context includes arithmetic.py, also the declared CORE output; a fresh actual-runtime component reproduces loss of accepted cosmetic meaning after legitimate CORE change in 0.2 seconds.",
+    "Native inference is now supported by separate local runtime failure, not treated as an actually attempted update in the native trace."
+  ],
+  "limitations": [
+    "IMP-006 remains in_progress; no same-package two-host acceptance.",
+    "Later cases were not run; no publication, personal configuration change, formal knowledge approval or nested agent."
+  ],
+  "archive": {
+    "path": "codex-model-alpha13-r1.zip",
+    "sha256": "ff2a1ac17c7b7878ebbc3d5a3ce4a0ca53f52751b5a4a886d2b499db71749789"
+  }
+}

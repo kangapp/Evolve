@@ -1,0 +1,43 @@
+test_actual_same_revision_repair_can_resolve_prior_review_with_fresh_evidence (test_verify_archive.AcceptanceTests.test_actual_same_revision_repair_can_resolve_prior_review_with_fresh_evidence) ... ok
+test_archive_rechecks_source_after_verification (test_verify_archive.AcceptanceTests.test_archive_rechecks_source_after_verification) ... ok
+test_archive_rechecks_untracked_business_inputs (test_verify_archive.AcceptanceTests.test_archive_rechecks_untracked_business_inputs) ... ok
+test_archived_work_can_be_reverified_without_reopening_or_rewriting_its_cutoff (test_verify_archive.AcceptanceTests.test_archived_work_can_be_reverified_without_reopening_or_rewriting_its_cutoff) ... ok
+test_changed_check_configuration_cannot_reuse_old_passing_evidence (test_verify_archive.AcceptanceTests.test_changed_check_configuration_cannot_reuse_old_passing_evidence) ... ok
+test_current_failure_after_archival_adds_evidence_and_preserves_historical_success (test_verify_archive.AcceptanceTests.test_current_failure_after_archival_adds_evidence_and_preserves_historical_success) ... ok
+test_display_language_and_comments_keep_prior_acceptance_without_rerunning_checks (test_verify_archive.AcceptanceTests.test_display_language_and_comments_keep_prior_acceptance_without_rerunning_checks) ... ok
+test_executable_verification_requires_its_check_authorization (test_verify_archive.AcceptanceTests.test_executable_verification_requires_its_check_authorization) ... ok
+test_fresh_verification_after_unrelated_document_change_preserves_completed_task (test_verify_archive.AcceptanceTests.test_fresh_verification_after_unrelated_document_change_preserves_completed_task) ... ok
+test_green_tests_do_not_override_a_required_review_finding (test_verify_archive.AcceptanceTests.test_green_tests_do_not_override_a_required_review_finding) ... ok
+test_missing_acceptance_observation_is_rejected (test_verify_archive.AcceptanceTests.test_missing_acceptance_observation_is_rejected) ... ok
+test_new_empty_review_cannot_forget_an_unresolved_prior_finding (test_verify_archive.AcceptanceTests.test_new_empty_review_cannot_forget_an_unresolved_prior_finding) ... ok
+test_newest_failed_verification_prevents_using_an_older_passing_result (test_verify_archive.AcceptanceTests.test_newest_failed_verification_prevents_using_an_older_passing_result) ... ok
+test_project_knowledge_candidate_stays_visible_without_implicit_approval (test_verify_archive.AcceptanceTests.test_project_knowledge_candidate_stays_visible_without_implicit_approval) ... ok
+test_rejected_source_check_retains_the_actual_expected_digest_and_reason (test_verify_archive.AcceptanceTests.test_rejected_source_check_retains_the_actual_expected_digest_and_reason) ... FAIL
+test_review_against_an_old_workspace_is_rejected (test_verify_archive.AcceptanceTests.test_review_against_an_old_workspace_is_rejected) ... ok
+test_same_archive_request_does_not_repeat_closure (test_verify_archive.AcceptanceTests.test_same_archive_request_does_not_repeat_closure) ... ok
+test_same_sealed_result_is_checked_for_two_consumers_without_copying_the_source (test_verify_archive.AcceptanceTests.test_same_sealed_result_is_checked_for_two_consumers_without_copying_the_source) ... FAIL
+test_verified_and_archived_results_are_bound_to_actual_cutoff (test_verify_archive.AcceptanceTests.test_verified_and_archived_results_are_bound_to_actual_cutoff) ... ok
+test_verify_alone_does_not_change_task_state_or_business_sources (test_verify_archive.AcceptanceTests.test_verify_alone_does_not_change_task_state_or_business_sources) ... ok
+
+======================================================================
+FAIL: test_rejected_source_check_retains_the_actual_expected_digest_and_reason (test_verify_archive.AcceptanceTests.test_rejected_source_check_retains_the_actual_expected_digest_and_reason)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_verify_archive.py", line 241, in test_rejected_source_check_retains_the_actual_expected_digest_and_reason
+    self.assertEqual(len(checks), 1)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_same_sealed_result_is_checked_for_two_consumers_without_copying_the_source (test_verify_archive.AcceptanceTests.test_same_sealed_result_is_checked_for_two_consumers_without_copying_the_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_verify_archive.py", line 222, in test_same_sealed_result_is_checked_for_two_consumers_without_copying_the_source
+    self.assertEqual({r['run_id'] for r in checks}, {archived['run_id'], retrospective['run_id']})
+AssertionError: Items in the second set but not the first:
+'ab6ef857-6345-4f94-98bb-8c40f09bf927'
+'8a2ba103-87a6-4a60-8abd-0878407928d7'
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.948s
+
+FAILED (failures=2)

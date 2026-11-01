@@ -1,0 +1,52 @@
+{
+  "package_version": "0.1.0-alpha.22",
+  "protocol_version": 15,
+  "schema_version": 4,
+  "lab": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha22-vlsb0hqg",
+  "package": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha22-vlsb0hqg/package",
+  "controller": "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp012-frozen-alpha22-vlsb0hqg/controller",
+  "scope_digest": "bb04cce3dd43abc9659e773f5230158edb7082331d412f29d88c65199ba17d33",
+  "content_digest": "b59b44c262c52ead899d8e3e53aa8421751f57714e916ffe5c311c9bd29fb571",
+  "state": "frozen-preparing-no-model-dispatch",
+  "status": "withheld_after_late_V035_audit",
+  "model_requests_sent": false,
+  "reason": "Explicit maintain.backup triggered another full daily protection through generic Store.start; actual red and two-collection probe preserved. Fix must pass before native dispatch.",
+  "red": "backup-no-recursion-red-alpha22.txt",
+  "probe": "backup-no-recursion-probe-alpha22.json",
+  "archives": [
+    {
+      "path": "runtime-package-alpha22.zip",
+      "sha256": "146abe025a417d61eda3b6fb6e9c64bff0292e08c41b3a5db053395d47921333",
+      "bytes": 228437,
+      "skipped_links": []
+    },
+    {
+      "path": "model-runner-alpha22.zip",
+      "sha256": "a216fd8d5a5070171fa20213e42ded424c715cd24cac4edfd8b2a9ec443ef148",
+      "bytes": 27542,
+      "skipped_links": []
+    },
+    {
+      "path": "model-preparation-alpha22.zip",
+      "sha256": "5a0d7088f15bd8b0ecdce1727203baf9e348c4c81aafe46703ad5d981647eaba",
+      "bytes": 750651,
+      "skipped_links": [
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0q1V86a/apply_patch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0q1V86a/applypatch",
+        "business/.agents/evolve-acceptance/profile/tmp/arg0/codex-arg0q1V86a/codex-execve-wrapper"
+      ]
+    },
+    {
+      "path": "public-cli-alpha22.zip",
+      "sha256": "21f0e11a74dcf20ba48015a8a2767d80746064203031b24a0f6a58a82f81092d",
+      "bytes": 1881084,
+      "skipped_links": []
+    },
+    {
+      "path": "actual-old-package-alpha22.zip",
+      "sha256": "282ff6620727f93b5fce740f57a08c7a6caf35d6af42049a08ef487390529f7f",
+      "bytes": 53036,
+      "skipped_links": []
+    }
+  ]
+}

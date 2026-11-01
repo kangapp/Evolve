@@ -1,0 +1,13 @@
+test_compatible_package_does_not_adopt_external_bytes_as_task_completion (test_package_lifecycle.PackageLifecycleTests.test_compatible_package_does_not_adopt_external_bytes_as_task_completion) ... ok
+test_full_existing_archive_with_unknown_schema_is_not_reinitialized_by_update (test_package_lifecycle.PackageLifecycleTests.test_full_existing_archive_with_unknown_schema_is_not_reinitialized_by_update) ... ok
+test_lifecycle_reconnect_guard_does_not_accept_self_consistent_unregistered_metadata (test_package_lifecycle.PackageLifecycleTests.test_lifecycle_reconnect_guard_does_not_accept_self_consistent_unregistered_metadata) ... ok
+test_live_writer_cannot_install_business_bytes_after_whole_package_replacement (test_package_lifecycle.PackageLifecycleTests.test_live_writer_cannot_install_business_bytes_after_whole_package_replacement) ... ok
+test_model_controller_preflight_uses_the_selected_version_without_creating_profile (test_package_lifecycle.PackageLifecycleTests.test_model_controller_preflight_uses_the_selected_version_without_creating_profile) ... ok
+test_new_compatible_recovery_preserves_no_operation_external_work_without_claiming_done (test_package_lifecycle.PackageLifecycleTests.test_new_compatible_recovery_preserves_no_operation_external_work_without_claiming_done) ... ok
+test_same_version_complete_content_replacement_cannot_continue_the_old_run (test_package_lifecycle.PackageLifecycleTests.test_same_version_complete_content_replacement_cannot_continue_the_old_run) ... ok
+test_third_value_after_real_exit_blocks_backup_and_keeps_conflict_across_update (test_package_lifecycle.PackageLifecycleTests.test_third_value_after_real_exit_blocks_backup_and_keeps_conflict_across_update) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.530s
+
+OK

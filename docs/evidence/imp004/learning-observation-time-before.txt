@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_new_archive_time_cannot_turn_old_observation_into_fresh_counterexample_support (test_learning.LearningTests.test_new_archive_time_cannot_turn_old_observation_into_fresh_counterexample_support)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liufukang/Workplace/spec-driven/tests/test_learning.py", line 442, in test_new_archive_time_cannot_turn_old_observation_into_fresh_counterexample_support
+    with self.assertRaises(EvolveError) as caught:
+AssertionError: EvolveError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.290s
+
+FAILED (failures=1)

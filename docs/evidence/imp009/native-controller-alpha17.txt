@@ -1,0 +1,11 @@
+{"case": "producer_a", "state": "started"}
+Traceback (most recent call last):
+  File "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha17-pw50zq0t/controller/scripts/model_multi_acceptance.py", line 11, in <module>
+    main(scope_factory=scope_for, checker_type=MultiChecks, prompts=PROMPTS, description=__doc__)
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha17-pw50zq0t/controller/scripts/model_data_acceptance.py", line 245, in main
+    observation = checker.after(case)
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha17-pw50zq0t/controller/scripts/model_multi_checks.py", line 181, in after
+    assert len(self.rows('changes')) == 1 and self.change('总额接口 A')['state'] != 'archived'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
