@@ -36,12 +36,12 @@ def source_run(connection, task, run_id, active_run=None):
     if digest(canonical(body)) != row['input_digest']:
         raise EvolveError('PRESERVATION_SOURCE', 'Behavior evidence input is not the recorded source')
     request = body['request']
-    meta = dict(connection.execute('SELECT key,value FROM project_meta'))
+    from .continuation import retained_source
     from .revisions import origin_tasks
     origins = origin_tasks(connection, task)
     same_task = any(request['input'].get('task_id') == old['id'] and request['input'].get('revision_id') == old['revision_id'] for old in origins)
     if (row['action'] != 'apply' or row['method'] != 'implement'
-            or request.get('project_id') != meta['project_id'] or row['workspace_epoch'] != meta['workspace_epoch']
+            or not retained_source(connection, row, request)
             or not same_task
             or request['input'].get('change_id') != task['change_id']
             or request['input'].get('definition_digest') != task['definition_digest']

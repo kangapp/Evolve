@@ -2,6 +2,8 @@
 name: evolve-verify
 description: 验收 Evolve 工作成果，执行相关检查、回归和规格／规范两方面审查时使用。
 ---
+进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
+
 
 归属 verify。核对实际成果、检查配置和证据时效。规格符合性和规范／维护性分别给结论，必需问题阻碍完成；修复交 apply，只 verify 不改业务或测试源码。缺环境如实 blocked，不凭退出码宣布所有验收通过。
 

@@ -4,7 +4,7 @@ from pathlib import Path
 import re
 import tomllib
 
-from .continuation import sealed_result
+from .continuation import retained_source, sealed_result
 from .errors import EvolveError
 from .package import canonical, digest
 from .requests import normalize, require_effect
@@ -28,8 +28,7 @@ def revision_source(connection, run_id):
     if not row or row['action'] != 'update' or row['method'] != 'revise' or row['status'] == 'started':
         return None
     _, request, result = sealed_result(connection, {'run_id': row['id'], 'result_digest': row['result_digest']})
-    meta = dict(connection.execute('SELECT key,value FROM project_meta'))
-    if request.get('project_id') != meta['project_id'] or row['workspace_epoch'] != meta['workspace_epoch']:
+    if not retained_source(connection, row, request):
         return None
     operation = connection.execute("SELECT result_json FROM operations WHERE run_id=? AND state='committed' AND effect_kind='project_records'", (run_id,)).fetchone()
     if operation is None:

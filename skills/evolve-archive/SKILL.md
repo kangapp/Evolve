@@ -2,6 +2,8 @@
 name: evolve-archive
 description: 封存 Evolve 成果，或保存、审阅与应用正式项目知识候选时使用。
 ---
+进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
+
 
 归属 archive、sync。先核对必需成果和验收，封存完成事实与正式知识应用分别表达。archive 不隐式批准知识；必需文档尚未应用不能完成，附带知识可延期。
 

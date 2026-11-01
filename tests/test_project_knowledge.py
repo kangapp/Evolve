@@ -135,6 +135,18 @@ class ProjectKnowledgeTests(unittest.TestCase):
         self.assertEqual(result['code'], 'KNOWLEDGE_INCOMPLETE')
         self.assertEqual(len(self.cli('status')['project']['knowledge']['survey']['coverage']), 8)
 
+    def test_explicit_epoch_transition_retains_actual_document_sources_and_rejects_old_writes(self):
+        self.connect()
+        self.publish('evolve/guides/rules.md', 'rule', '# Rules\n\n## 适用范围\nTemporary example.\n## 规则\nKeep original expectations.\n## 依据与例外\nControlled local evidence only.\n')
+        before = self.cli('status')['project']['knowledge']['documents']
+        saved = self.cli('maintain', 'backup', {})
+        plan = self.cli('maintain', 'restore', {'stage': 'plan', 'bundle': saved['path'], 'manifest_digest': saved['manifest_digest']})
+        self.cli('maintain', 'restore', {'stage': 'apply', 'plan_id': plan['plan']['plan_id'], 'plan_digest': plan['plan_digest']})
+        after = self.cli('status')['project']['knowledge']['documents']
+        self.assertEqual(after, before)
+        rejected = self.cli('maintain', 'backup', {}, request_id='old-epoch-refused', ok=False)
+        self.assertEqual(rejected['code'], 'WORKSPACE_EPOCH')
+
     def test_survey_rejects_missing_perspective_and_keeps_real_unknowns(self):
         self.connect()
         result = self.cli('init', 'survey', {'scope': ['.'], 'sources': [], 'coverage': []}, ok=False)

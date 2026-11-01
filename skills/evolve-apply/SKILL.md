@@ -2,6 +2,8 @@
 name: evolve-apply
 description: 按已接受的 Evolve 方案及有效修改授权实施和修复，或处理具体授权的数据操作。
 ---
+进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
+
 
 归属 apply。先核对方案版本、目标、现场、依赖和授权。完成可验证的小流程，失败在原范围修正；目标或验收含义变化交 propose。正式数据操作必须明确 external 方法，未知效果不重发。
 

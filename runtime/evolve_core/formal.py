@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import socket
 
-from .continuation import sealed_result
+from .continuation import retained_source, sealed_result
 from .errors import EvolveError
 from .knowledge import baseline_path
 from .knowledge_proposals import OWNER_METHODS, bound_proposal, latest_check, metadata, reference, source_facts
@@ -115,8 +115,7 @@ def application_source(connection, application):
             or not actor or (run['action'], run['method'], run['owner_skill']) != (actor[0], actor[2], proposal['owner_skill']) or operation['run_id'] != run['id']):
         return None
     _, request, result = sealed_result(connection, {'run_id': run['id'], 'result_digest': run['result_digest']})
-    meta = dict(connection.execute('SELECT key,value FROM project_meta'))
-    if request['project_id'] != meta['project_id'] or run['workspace_epoch'] != meta['workspace_epoch']:
+    if not retained_source(connection, run, request):
         return None
     event_run = run['id']
     if run['status'] == 'interrupted':

@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from .continuation import sealed_result
+from .continuation import retained_source, sealed_result
 from .errors import EvolveError
 from .knowledge import baseline_path
 from .package import canonical, digest
@@ -48,8 +48,7 @@ def source_facts(connection, run_id):
     if not row or (row['action'], row['method']) not in (('sync', 'propose'), ('sync', 'check'), ('sync', 'review'), ('sync', 'assess'), ('init', 'baseline.propose'), ('init', 'survey'), ('init', 'complete'), ('learn', 'promote')) or row['status'] == 'started':
         return None
     _, request, result = sealed_result(connection, {'run_id': run_id, 'result_digest': row['result_digest']})
-    meta = dict(connection.execute('SELECT key,value FROM project_meta'))
-    if request['project_id'] != meta['project_id'] or row['workspace_epoch'] != meta['workspace_epoch']:
+    if not retained_source(connection, row, request):
         return None
     if row['status'] == 'interrupted':
         recovery = connection.execute("SELECT * FROM phase_runs WHERE id=? AND action='maintain' AND method='recover' AND status='completed'",

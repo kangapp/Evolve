@@ -99,3 +99,9 @@ DATABASE_OPEN／WRITER_ACTIVE／CHECK_RUNNING 要先明确结束原执行和连�
 `EXTERNAL_MATERIAL_CHANGED`／`EXTERNAL_TARGET_CHANGED`／`EXTERNAL_PRECONDITION`：批准后的入口、helper、SQL、别名、目标身份或前置发生变化，停止使用旧候选，重新调查并呈现具体候选。动态或脱离进程组的机制当前不支持。`EXTERNAL_COMPENSATION_UNKNOWN` 表示原终止／完整范围尚未确证，先核实；补偿必须是自己的新任务、候选和批准。
 
 人工成功声明经 external.record 留作来源，与实际核实分开。实际查询失败不清 unknown，也不抹去上次已确认事实。Task 检查尚未完成时显式 stage=checks，仅继续检查；最终 verify 仍需真实目标只读授权。接口字段与边界见[数据操作](../shared/external-work.md)。
+
+## 已连接但检查保护缺失
+
+先使用 evolve-maintain 的 doctor 查看 readiness。缺少控制资料与运行中断分别处理：未决原操作沿 recover 核实；已有运行安全结束且当前保护与完整历史足以支持时，准备 maintain.repair 方案，核对准确集合后应用。存在未知发送、未决检查或资料身份冲突时保留受阻，不能把缺索引视为没有执行。
+
+SESSION_PACKAGE_MISMATCH 表示当前会话保留的包摘要与执行包不同。启动新会话，从宿主实际 Skill 路径重新核对版本后恢复原工作。每个错误的 workflow.next_steps 给出接手建议；建议不改变授权。

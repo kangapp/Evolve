@@ -7,13 +7,13 @@ import subprocess
 
 from .errors import EvolveError
 from .package import canonical, digest
-from .workspace import current_digest, durable_write, inside, process_alive
+from .workspace import current_digest, durable_write, inside, process_alive, read_control
 
 
 def require_admission(root, token=None):
     path = inside(root, '.evolve-local/control/maintenance.json')
     if path.exists():
-        value = json.loads(path.read_text())
+        value = read_control(path)
         if value.get('state') != 'completed' and value.get('request_id') != token:
             raise EvolveError('MAINTENANCE_ACTIVE', 'A persistent maintenance barrier requires its original request to resume', exit_code=4)
 
@@ -44,6 +44,8 @@ def protected_identity(root):
     if not guard_path.is_file() or not index_path.is_file():
         raise EvolveError('PROTECTION_UNKNOWN', 'A matching local guard and managed-file index are required', exit_code=4)
     guard, index = json.loads(guard_path.read_text()), json.loads(index_path.read_text())
+    if not isinstance(guard, dict) or not isinstance(index, dict) or not isinstance(index.get('files'), list):
+        raise EvolveError('PROTECTION_UNKNOWN', 'Guard and managed index must be structured objects', exit_code=4)
     if (guard.get('managed_index_digest') != current_digest(index_path)
             or any(guard.get(k) != index.get(k) for k in ('project_id', 'workspace_epoch', 'checkpoint'))):
         raise EvolveError('PROTECTION_UNKNOWN', 'Guard and managed-file protection index disagree; inspect healthy history before restore', exit_code=4)
@@ -117,3 +119,48 @@ def initial_execution_indexes(root, meta):
         path = inside(root, '.evolve-local/control/' + name + '.json')
         if not path.exists():
             durable_write(path, canonical({**{k: meta[k] for k in ('project_id', 'workspace_epoch')}, **fields}), new=True)
+
+
+def control_issues(root, meta):
+    effects = ['project_records', 'knowledge', 'business_files', 'checks', 'external']
+    issues = []
+    try:
+        guard, _ = protected_identity(root)
+        if any(guard.get(k) != meta.get(k) for k in ('project_id', 'workspace_epoch', 'checkpoint')):
+            raise EvolveError('PROTECTION_UNKNOWN', 'Protection checkpoint differs from the current archive')
+    except (EvolveError, OSError, ValueError, KeyError, TypeError) as error:
+        issues.append({'code': 'PROTECTION_UNKNOWN', 'path': '.evolve-local/control/guard.json', 'affects': effects, 'reason': str(error)})
+    for name, collection, affected in (('checks', 'attempts', ['checks', 'business_files']), ('external', 'pending', ['external'])):
+        name = '.evolve-local/control/' + name + '.json'
+        try:
+            value = json.loads(inside(root, name).read_text())
+            if (not isinstance(value, dict) or any(value.get(k) != meta.get(k) for k in ('project_id', 'workspace_epoch'))
+                    or not isinstance(value.get(collection), dict if collection == 'attempts' else list)):
+                raise ValueError('Control identity or execution collection differs')
+        except (EvolveError, OSError, ValueError, KeyError, TypeError) as error:
+            issues.append({'code': 'PROTECTION_UNKNOWN', 'path': name, 'affects': affected, 'reason': str(error)})
+    name = '.evolve-local/control/init.json'
+    try:
+        value = json.loads(inside(root, name).read_text())
+        if not isinstance(value, dict) or value.get('state') != 'committed' or value.get('project_id') != meta.get('project_id'):
+            raise ValueError('Initialization has no committed journal of this project')
+    except (EvolveError, OSError, ValueError, KeyError, TypeError) as error:
+        issues.append({'code': 'INITIALIZATION_UNVERIFIED', 'path': name, 'affects': effects, 'reason': str(error)})
+    if meta.get('write_compatible') is False:
+        issues.append({'code': 'SCHEMA_VERSION', 'path': 'evolve/history.db', 'affects': effects, 'reason': 'An explicit supported migration is required.'})
+    return issues
+
+
+def require_action_protection(root, meta, action, method, request):
+    effects = {'project_records'}
+    if action == 'apply':
+        effects.add('external' if method.startswith('external.') else 'business_files')
+        data = request['input']
+        if method.startswith('external.') and (data.get('stage') == 'checks' or
+                data.get('stage') == 'apply' and data.get('change_id')):
+            effects.add('checks')
+    if (action, method) == ('verify', 'run'):
+        effects.add('checks')
+    blocked = [i for i in control_issues(root, meta) if effects.intersection(i['affects'])]
+    if blocked:
+        raise EvolveError('PROTECTION_UNKNOWN', '; '.join(i['path'] + ': ' + i['reason'] for i in blocked), exit_code=4)

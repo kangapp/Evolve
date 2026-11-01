@@ -5,6 +5,13 @@ from .errors import EvolveError
 from .package import canonical, digest
 
 
+def retained_source(connection, row, request):
+    """An archived fact keeps its original epoch; a new write still binds the live epoch."""
+    meta = dict(connection.execute('SELECT key,value FROM project_meta'))
+    return (request.get('project_id') == meta['project_id']
+            and request.get('expected_workspace_epoch') == row['workspace_epoch'])
+
+
 def sealed_result(connection, reference):
     if not isinstance(reference, dict) or not reference.get('run_id') or not reference.get('result_digest'):
         raise EvolveError('CONTINUATION', 'Continuation requires the observed run and result digest')
@@ -57,7 +64,7 @@ def _bind_continuation(store, request, run_id, *, task):
     if (source['status'] != 'completed' or source['action'] != 'apply'
             or result.get('outcome') not in ('partial', 'checks_not_passed')
             or previous['project_id'] != request['project_id']
-            or source['workspace_epoch'] != request['expected_workspace_epoch']):
+            or not retained_source(store.connection, source, previous)):
         raise EvolveError('CONTINUATION', 'Select a safely ended partial implementation in this project/epoch')
     for key in ('change_id', 'definition_digest'):
         if result.get(key) != request['input'].get(key):

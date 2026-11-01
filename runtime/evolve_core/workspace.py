@@ -36,6 +36,16 @@ def current_digest(path):
     return digest(path.read_bytes())
 
 
+def read_control(path):
+    try:
+        value = json.loads(Path(path).read_text())
+        if not isinstance(value, dict):
+            raise ValueError('Expected a control object')
+        return value
+    except (OSError, ValueError, TypeError) as error:
+        raise EvolveError('PROTECTION_UNKNOWN', 'Cannot read control object: ' + str(path) + ': ' + str(error), exit_code=4) from error
+
+
 def durable_write(path, content, *, new=False):
     """Atomic single-file installation; new=True never replaces an existing path."""
     ensure_recordable(content)

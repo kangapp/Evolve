@@ -10,7 +10,7 @@ from . import VERSION, PROTOCOL_VERSION
 from .archive_sets import (MAX_SET_BYTES, RESERVE_BYTES, collect_archive, inspect_database,
                            managed_path, validate_archive)
 from .errors import EvolveError
-from .package import canonical, check_package, digest
+from .package import canonical, check_package, digest, UPGRADE_PROTOCOLS
 from .protection import (managed_index, protected_identity,
                          require_drained)
 from .requests import normalize, require_effect
@@ -133,11 +133,11 @@ def prepare(root, request, method):
     try:
         current = raw_history(root)
     except EvolveError:
-        if method == 'upgrade':
+        if method in ('upgrade', 'repair'):
             raise
     if method == 'upgrade':
         meta, registered, pending = current
-        if meta['protocol_version'] not in ('14', '15', '16'):
+        if meta['protocol_version'] not in UPGRADE_PROTOCOLS:
             raise EvolveError('UPGRADE_UNSUPPORTED', 'Only explicit protocol 14/15/16→17 upgrade is supported', exit_code=4)
         index = {'protocol_version': int(meta['protocol_version']),
                  'files': [{'path': r['path'], 'kind': r['kind'], 'digest': r['blob_digest']} for r in registered],
@@ -163,6 +163,20 @@ def prepare(root, request, method):
         if pending:
             raise EvolveError('NEEDS_RECOVERY', 'Close interrupted old-protocol runs before upgrading', exit_code=4)
         bundle, manifest_digest = None, None
+    elif method == 'repair':
+        meta, registered, pending = current
+        guard, index = protected_identity(root)
+        if (meta['protocol_version'] != str(PROTOCOL_VERSION)
+                or any(meta[k] != guard[k] for k in ('project_id', 'workspace_epoch', 'checkpoint'))):
+            raise EvolveError('REPAIR_UNSAFE', 'Repair requires a supported intact archive and matching current protection checkpoint', exit_code=4)
+        with history_copy(root) as path:
+            connection = sqlite3.connect(path)
+            connection.row_factory = sqlite3.Row
+            try:
+                evidence = repair_evidence(connection, root, meta, pending)
+            finally:
+                connection.close()
+        bundle, manifest_digest = None, None
     else:
         guard, index = protected_identity(root)
         if current:
@@ -185,15 +199,22 @@ def prepare(root, request, method):
             or request.get('expected_workspace_epoch') != guard['workspace_epoch']):
         raise EvolveError('WORKSPACE_EPOCH', 'Maintenance plan must bind the current local identity and epoch', exit_code=3)
     from .external_recovery import merge
-    external = external_protection(root, guard['project_id'], protocol_version=index.get('protocol_version'))
+    if method == 'repair' and 'external.json' in evidence['missing']:
+        external = {'project_id': meta['project_id'], 'workspace_epoch': meta['workspace_epoch'],
+                    'pending': [], 'coverage': 'local-protocol-' + meta['protocol_version']}
+    else:
+        external = external_protection(root, guard['project_id'], protocol_version=index.get('protocol_version'))
     capsules = {}
     if current and current[0]['protocol_version'] in ('16', '17'):
         with history_copy(root) as current_database:
             external, capsules = merge(root, external, current_database, current_snapshot=True)
     external, capsules = merge(root, external, bundle / 'authority/evolve/history.db' if bundle else None, capsules=capsules)
-    require_drained(root, index.get('executions', []), data.get('check_observations', []), legacy=method == 'upgrade',
+    require_drained(root, index.get('executions', []), data.get('check_observations', []), legacy=method in ('upgrade', 'repair'),
                     external_index=external, sender_observations=data.get('sender_observations', []))
     observed = observed_collection(root, index, external)
+    if method == 'repair':
+        observed.extend({'path': '.evolve-local/control/' + name, 'kind': 'control', 'digest': None, 'bytes': 0}
+                        for name in evidence['missing'])
     plan = {'format': 'evolve-maintenance-plan-v1', 'method': method, 'plan_id': request['request_id'],
         'project_id': guard['project_id'], 'old_epoch': guard['workspace_epoch'], 'new_epoch': identifier(),
         'checkpoint': guard['checkpoint'], 'package_digest': check_package()['content_digest'],
@@ -209,7 +230,39 @@ def prepare(root, request, method):
         plan['targets'] = manifest['files']
     else:
         plan['quarantined_managed'], plan['targets'] = [], []
+    if method == 'repair':
+        plan['repair_evidence'] = evidence
     return plan
+
+
+def repair_evidence(connection, root, meta, pending):
+    """Rebuild only missing ledgers supported by complete retained execution facts."""
+    from .checks import pending_checks
+    from .continuation import retained_source, sealed_result
+    missing = [name for name in ('checks.json', 'external.json', 'init.json')
+               if not inside(root, '.evolve-local/control/' + name).exists()]
+    if not missing:
+        raise EvolveError('REPAIR_UNSAFE', 'No supported missing ledger; inspect existing bytes rather than replacing them')
+    for name in ('checks.json', 'external.json'):
+        if name not in missing:
+            value = json.loads(inside(root, '.evolve-local/control/' + name).read_text())
+            if not isinstance(value, dict) or any(value.get(k) != meta[k] for k in ('project_id', 'workspace_epoch')):
+                raise EvolveError('REPAIR_UNSAFE', 'Existing execution protection has another identity: ' + name, exit_code=4)
+    if pending or any(pending_checks(connection, r[0]) for r in connection.execute('SELECT id FROM phase_runs')):
+        raise EvolveError('REPAIR_UNSAFE', 'Unfinished runs or check dispatches prevent reconstruction; recover original executions first', exit_code=4)
+    if connection.execute("SELECT id FROM operations WHERE state IN ('prepared','needs_recovery') LIMIT 1").fetchone():
+        raise EvolveError('REPAIR_UNSAFE', 'Unfinished file effects require their original recovery', exit_code=4)
+    if 'external.json' in missing and connection.execute("SELECT id FROM events WHERE kind LIKE 'external_%' LIMIT 1").fetchone():
+        raise EvolveError('REPAIR_UNSAFE', 'Missing sender protection with external execution history requires original retained protection', exit_code=4)
+    original = connection.execute("SELECT * FROM phase_runs WHERE action='init' AND method='connect' AND status='completed' ORDER BY rowid LIMIT 1").fetchone()
+    if original is None:
+        raise EvolveError('REPAIR_UNSAFE', 'No safely completed retained project connection supports reconstruction', exit_code=4)
+    _, request, result = sealed_result(connection, {'run_id': original['id'], 'result_digest': original['result_digest']})
+    if not retained_source(connection, original, request) or result.get('outcome') != 'connected':
+        raise EvolveError('REPAIR_UNSAFE', 'Retained connection does not establish this project identity', exit_code=4)
+    return {'missing': missing, 'connection_run_id': original['id'], 'connection_result_digest': original['result_digest'],
+            'connection_request': request, 'unfinished_runs': 0, 'unfinished_checks': 0,
+            'basis': 'Matching protected checkpoint and sealed connection; all retained check dispatches terminal. Missing sender ledger allowed only without external execution history.'}
 
 
 def stage_path(root, plan_id):
@@ -286,7 +339,7 @@ def protect_and_stage(root, folder, plan):
               else protection / 'evolve/history.db')
     candidate = folder / 'candidate.db'
     # Candidate uses fixed protected bytes. Include WAL for an old-protocol upgrade.
-    if plan['method'] == 'upgrade':
+    if plan['method'] in ('upgrade', 'repair'):
         with tempfile.TemporaryDirectory(prefix='evolve-upgrade-snapshot-') as temporary:
             for suffix in ('', '-wal', '-shm', '-journal'):
                 path = protection / ('evolve/history.db' + suffix)
@@ -340,6 +393,12 @@ def protect_and_stage(root, folder, plan):
         'checks.json': {'project_id': meta['project_id'], 'workspace_epoch': meta['workspace_epoch'], 'attempts': {}},
         'external.json': {**plan['external'], 'workspace_epoch': meta['workspace_epoch'],
                          'pending': [{**r, 'state': 'unknown', 'requires_reconciliation': True} for r in plan['external']['pending']]}}
+    if plan['method'] == 'repair' and 'init.json' in plan['repair_evidence']['missing']:
+        evidence = plan['repair_evidence']
+        control_values['init.json'] = {'state': 'committed', 'project_id': meta['project_id'],
+            'workspace_epoch': meta['workspace_epoch'], 'run_id': evidence['connection_run_id'],
+            'request': evidence['connection_request'], 'repaired_by_plan': plan['plan_id'],
+            'connection_result_digest': evidence['connection_result_digest']}
     for name, value in control_values.items():
         target = folder / 'candidates' / name
         content = canonical(value)
@@ -400,7 +459,7 @@ def apply_plan(root, request, plan, folder):
                 return journal['result']
         if journal is None:
             recheck(root, plan['observed'])
-            require_drained(root, plan['executions'], plan['check_observations'], legacy=plan['method'] == 'upgrade',
+            require_drained(root, plan['executions'], plan['check_observations'], legacy=plan['method'] in ('upgrade', 'repair'),
                             external_index=plan['external'], sender_observations=plan.get('sender_observations', []))
             barrier = {'request_id': token, 'plan_id': plan['plan_id'], 'state': 'active', 'old_epoch': plan['old_epoch']}
             durable_write(inside(root, '.evolve-local/control/maintenance.json'), canonical(barrier))
@@ -423,7 +482,7 @@ def apply_plan(root, request, plan, folder):
         # The current check index may already be the new epoch's empty one.
         # Resume stopping evidence against the exact protected old execution set.
         protection = validate_protection(folder, plan)
-        require_drained(root, plan['executions'], plan['check_observations'], legacy=plan['method'] == 'upgrade',
+        require_drained(root, plan['executions'], plan['check_observations'], legacy=plan['method'] in ('upgrade', 'repair'),
                         check_index=protection / '.evolve-local/control/checks.json',
                         external_index=plan['external'], sender_observations=plan.get('sender_observations', []))
         for i, step in enumerate(journal['steps']):
@@ -455,7 +514,7 @@ def apply_plan(root, request, plan, folder):
         for step in journal['steps']:
             if current_digest(inside(root, step['path'])) != step['after']:
                 raise EvolveError('RESTORE_CHANGED', 'A target changed before maintenance finalization: ' + step['path'], exit_code=4)
-        result = {'committed': True, 'outcome': 'restored' if plan['method'] == 'restore' else 'upgraded',
+        result = {'committed': True, 'outcome': {'restore': 'restored', 'upgrade': 'upgraded', 'repair': 'repaired'}[plan['method']],
             'project_id': meta['project_id'], 'workspace_epoch': meta['workspace_epoch'],
             'old_epoch': plan['old_epoch'], 'plan_id': plan['plan_id'], 'protection': str(folder / 'protection'),
             'quarantined_managed': plan['quarantined_managed'], 'external_pending': len(plan['external']['pending']),
@@ -510,3 +569,7 @@ def restore(root, payload):
 
 def upgrade(root, payload):
     return maintenance(root, payload, method='upgrade')
+
+
+def repair(root, payload):
+    return maintenance(root, payload, method='repair')

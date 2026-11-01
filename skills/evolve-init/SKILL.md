@@ -2,6 +2,8 @@
 name: evolve-init
 description: 用户请求将已有或新项目接入 Evolve，或调整 Evolve 工具配置时使用。
 ---
+进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
+
 
 归属 init。增量发现资料并保留既有内容；接入记录设施与业务骨架分开。先给基线候选与缺口，具体正式内容获批后应用。包安装由宿主管理，不在 init 自我升级。
 

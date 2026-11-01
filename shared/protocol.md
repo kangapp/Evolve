@@ -12,7 +12,7 @@ python3 <实际插件根>/runtime/evolve.py --project <目标项目根> <动作>
 
 status的能力目录使用动作.方法标识，例如resume.show。CLI分别传动作resume和`--method show`，不把resume.show整体作为--method参数。动作／方法的对应关系见下表。
 
-输入暂存及宿主拒绝标准输入时的回退按[共享运行约定](contract.md)执行；纯查询直接调用，不生成请求文件。
+每个回执另给 workflow 展示及接手信息；会话摘要和使用约定见[工作流交接](workflow-experience.md)。输入暂存及宿主拒绝标准输入时的回退按[共享运行约定](contract.md)执行；纯查询直接调用，不生成请求文件。
 
 ## 请求与授权
 
@@ -45,7 +45,7 @@ apply.implement始终需要project_records、business_files及原准确paths；�
 | init／baseline.propose | path（Markdown）、expected_digest、content、presentation；结构化初次交付另给 topic／reason／acceptance 及可选 delivery／edits，见[初次正式文档](knowledge-candidates.md#初次正式文档)。只存具体候选，目标仍不改 |
 | init／baseline.apply | 结构化候选给准确 proposal 和已记录 approved_event_id，必需交付绑定 Change／Task／方案；旧式候选仍给 proposal_id 与 approval（proposal_version、candidate_digest、expected_digest、source、text）。需 knowledge 效果和具体 paths；批准、实际版本、目标验收分别留档 |
 | maintain／backup | input={}；固定 SQLite 截点与注册 authority，未批准字节单列保护；返回完整目录与准确 manifest_digest，不含业务源码／数据 |
-| maintain／restore、upgrade | stage=plan 展示准确维护集合；restore 另给 bundle／manifest_digest。stage=apply 绑定 plan_id／plan_digest 及预存唯一完整请求；中断只恢复原 journal.request。upgrade 只支持健康 14／15→16，详细保护／排空／冲突与外部未知见[维护协议](recovery.md) |
+| maintain／restore、upgrade、repair | stage=plan 展示准确维护集合；restore 另给 bundle／manifest_digest。stage=apply 绑定 plan_id／plan_digest 及预存唯一完整请求；中断只恢复原 journal.request。upgrade 支持路径以 package.UPGRADE_PROTOCOLS 和当前兼容说明为准，详细保护／排空／冲突与外部未知见[维护协议](recovery.md) |
 | maintain／recover | 明确 operation_id 或 run_id；唯一可判定中断可自动定位。保留现场和候选，只按原有效授权核实本地步骤，不运行旧业务命令或补造通过 |
 | maintain／export | source 绑定已完成分析的 run_id／result_digest，output 指定私有 exports 下新文件，format=markdown／json；只从保存事实渲染，视图失败保留底稿，见[导出](data-work.md#从保存事实导出) |
 | apply／external.execute、reconcile、record、compensate | 具体候选／授权、provider 核实、来源声明和独立补偿见[数据操作](external-work.md)；观察既有 operation 不要求重开工作项 |

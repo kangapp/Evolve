@@ -3,7 +3,7 @@ from datetime import datetime
 import json
 from pathlib import Path
 
-from .continuation import sealed_result
+from .continuation import retained_source, sealed_result
 from .errors import EvolveError
 from .package import canonical, digest
 from .requests import normalize, require_effect
@@ -31,9 +31,8 @@ def reference(row):
 def source_facts(connection, ref):
     try:
         row, request, result = sealed_result(connection, ref)
-        meta = dict(connection.execute('SELECT key,value FROM project_meta'))
-        if request['project_id'] != meta['project_id'] or row['workspace_epoch'] != meta['workspace_epoch']:
-            raise EvolveError('LEARNING_SOURCE', 'Source belongs to another project or epoch')
+        if not retained_source(connection, row, request):
+            raise EvolveError('LEARNING_SOURCE', 'Source is not a retained fact of this project and its original epoch')
         retained = []
         ids = sorted(set(strings(ref.get('evidence_ids', []), 'evidence_ids')))
         for key in ids:

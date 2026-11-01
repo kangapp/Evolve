@@ -68,3 +68,5 @@ python3 -B scripts/external_smoke.py --package /absolute/path/new-evolve-package
 <!-- source-only -->
 工程规范见 [AGENTS](../AGENTS.md)。
 <!-- /source-only -->
+
+`scripts/model_workflow_acceptance.py` 的 work 旅程覆盖六个新会话：指南咨询、只规划、正常暂停、续接封存、只读诊断和受控修复。update 旅程通过隔离宿主原生命令安装真实 0.2.0 包、建立旧知识，再更新至当前包，以两个新会话核对和完成修改。用 --journey work／update 及 --preflight-only 读取准确范围；真实派发绑定该范围摘要和已有用户授权。完整自动检查后审阅实际可见标记、完成范围、接手指令及原始执行轨迹。

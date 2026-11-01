@@ -1,11 +1,11 @@
 # 实际工程目录
 
-版本 0.2.0，protocol 17／schema 4。本页由当前源码和运行包清单生成。
+版本 0.3.0，protocol 17／schema 4。本页由当前源码和运行包清单生成。
 
 <!-- source-only -->
 ## 源码工程
 
-维护文件共 225 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
+维护文件共 232 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
 
 ```text
 evolve/
@@ -66,6 +66,7 @@ evolve/
 │   │   ├── external_registry.py
 │   │   ├── external_work.py
 │   │   ├── formal.py
+│   │   ├── guidance.py
 │   │   ├── knowledge.py
 │   │   ├── knowledge_facts.py
 │   │   ├── knowledge_impact.py
@@ -117,6 +118,7 @@ evolve/
 │   ├── model_recovery_acceptance.py
 │   ├── model_recovery_checks.py
 │   ├── model_session_checks.py
+│   ├── model_workflow_acceptance.py
 │   ├── multiple_work_smoke.py
 │   ├── project_inventory.py
 │   ├── recovery_compatibility.py
@@ -137,10 +139,12 @@ evolve/
 │   ├── knowledge-rules.md
 │   ├── learning-cycle.md
 │   ├── multiple-work.md
+│   ├── plugin-update.md
 │   ├── project-knowledge.md
 │   ├── protocol.md
 │   ├── recovery.md
-│   └── structured-plans.md
+│   ├── structured-plans.md
+│   └── workflow-experience.md
 ├── skills/
 │   ├── evolve-apply/
 │   │   └── SKILL.md
@@ -165,6 +169,7 @@ evolve/
 │   │   ├── candidate-package-alpha7.zip
 │   │   ├── context-package-alpha13.zip
 │   │   ├── evolve-0.1.1-protocol16.zip
+│   │   ├── evolve-0.2.0-protocol17.zip
 │   │   ├── evolve-alpha3-protocol2.zip
 │   │   ├── initial-owner-package-alpha10.zip
 │   │   ├── m1-current-scope-package-alpha4.zip
@@ -226,6 +231,7 @@ evolve/
 │   ├── test_model_project_knowledge_acceptance.py
 │   ├── test_model_recovery_acceptance.py
 │   ├── test_model_session_acceptance.py
+│   ├── test_model_workflow_acceptance.py
 │   ├── test_package.py
 │   ├── test_package_lifecycle.py
 │   ├── test_patch_application.py
@@ -245,6 +251,7 @@ evolve/
 │   ├── test_structured_execution.py
 │   ├── test_structured_plans.py
 │   ├── test_verify_archive.py
+│   ├── test_workflow_guidance.py
 │   ├── test_workspace.py
 │   └── workflow_fixture.py
 ├── .gitignore
@@ -261,7 +268,7 @@ evolve/
 
 ## 独立运行包
 
-完整运行包含 99 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
+完整运行包含 102 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
 
 ```text
 evolve/
@@ -321,6 +328,7 @@ evolve/
 │   │   ├── external_registry.py
 │   │   ├── external_work.py
 │   │   ├── formal.py
+│   │   ├── guidance.py
 │   │   ├── knowledge.py
 │   │   ├── knowledge_facts.py
 │   │   ├── knowledge_impact.py
@@ -358,10 +366,12 @@ evolve/
 │   ├── knowledge-rules.md
 │   ├── learning-cycle.md
 │   ├── multiple-work.md
+│   ├── plugin-update.md
 │   ├── project-knowledge.md
 │   ├── protocol.md
 │   ├── recovery.md
-│   └── structured-plans.md
+│   ├── structured-plans.md
+│   └── workflow-experience.md
 ├── skills/
 │   ├── evolve-apply/
 │   │   └── SKILL.md

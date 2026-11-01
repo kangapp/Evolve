@@ -1,5 +1,7 @@
 # Evolve 运行约定
 
+进入、跨阶段接力及结束时使用[工作流引导与交接](workflow-experience.md)，按真实回执显示标记、完成范围及接手指令。
+
 从宿主提供的 Skill 实际路径或 Base directory 向上定位插件根，读取 evolve-package.json 核对版本。路径信息缺失时说明资源定位缺口，由宿主提供实际加载路径；不遍历个人 Skill 目录或旧下载记录猜根。完整插件只有一份 shared 和 runtime。
 
 执行 `python3 "<插件根>/runtime/evolve.py" --project "<目标项目根>" status` 查看真实能力。Python 需 3.11+；不可用则说明，不自动安装。命令输出 JSON 中 ok 表示接口成功，data.outcome／验证证据才表达业务结果。未提供方法返回 UNAVAILABLE，不能用手写数据库或直接改正式资料绕过。

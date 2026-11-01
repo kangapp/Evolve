@@ -72,6 +72,8 @@ python3 "$HOME/.local/share/evolve/runtime/evolve.py" --project /absolute/path/m
 
 ## 更新
 
+更新分别核对插件安装、会话激活、档案兼容和后续执行条件。可以直接请求：“使用 Evolve 更新插件，保留旧包、项目历史和原启用范围；更新后说明实际加载情况与继续入口。”AI 沿[更新流程](../shared/plugin-update.md)准备和执行。普通接入保持原档案，不隐式迁移。
+
 先结束或核实正在执行的工作，保留旧完整包和项目资料。使用旧包处理未完成的文件日志或数据操作，再更新源码：
 
 ```bash
@@ -80,6 +82,14 @@ python3 "$HOME/.local/share/evolve-source/scripts/build_package.py" --out "$HOME
 ```
 
 `evolve-next` 应尚不存在。将旧安装目录保存在另一个位置，再将新完整目录放到原稳定路径；保持每个安装目录的版本一致。
+
+切换前可用新包做只读检查：
+
+```bash
+python3 "$HOME/.local/share/evolve-next/runtime/evolve.py" --project /absolute/path/my-project maintain --method doctor --candidate-package "$HOME/.local/share/evolve-next"
+```
+
+该步骤核对候选资源和档案兼容，返回 update_check；安装、会话激活与档案迁移均分别标明尚未执行。可读旧协议或损坏档案的诊断保持只读。
 
 Codex 通过重新安装刷新插件：
 
@@ -97,7 +107,9 @@ claude plugin marketplace update evolve-local
 claude plugin update evolve@evolve-local --scope project
 ```
 
-重启会话，核对诊断中的版本和实际资源根。插件更新与档案升级分别处理，支持路径见[兼容说明](compatibility.md)。
+重启会话，核对八个 Skill、诊断中的版本、摘要和实际资源根。新会话从实际 Skill 路径读取清单，后续 CLI 传 --session-package-digest；旧会话与新包摘要不匹配时停止写入并提示换会话。未核实加载时报告尚未激活。插件更新与档案升级分别处理，支持路径见[兼容说明](compatibility.md)。
+
+接手时可发送：“使用 Evolve 核对更新后的实际版本、项目档案与执行条件，再恢复‘原工作标题’。”若安装或迁移失败，保留回执与旧包，按已发生的步骤处理；迁移后的回退需核对兼容关系与新历史。
 
 ## 禁用与卸载
 

@@ -21,6 +21,7 @@ flowchart LR
 | `shared/` | AI 准备请求和处理各分支时使用的执行约定 |
 | `runtime/evolve.py` | 可从任意工作目录运行的 CLI 入口 |
 | `evolve_core/package.py`、`cli.py` | 资源完整性、动作 owner、方法路由和当前请求绑定 |
+| `guidance.py` | 只读执行条件、阶段结果及接手建议，复用现有事实；会话摘要核对与宿主加载分别表达 |
 | `plans.py`、`structured.py`、`revisions.py` | 方案、依赖任务和修订后的结果适用性 |
 | `apply.py`、`checks.py`、`verify.py`、`archive.py` | 实施、检查、两维审查和完成截点 |
 | `analysis.py`、`data_material.py`、`exporting.py` | 独立调查、数据上下文和保存底稿的导出 |
@@ -44,6 +45,8 @@ flowchart LR
 AI 按[共享请求协议](../shared/protocol.md)提交带实际用户授权的输入；运行时定位当前工作项、方案和任务版本。新请求与精确原请求重试分别处理，相同请求身份不能绑定不同输入。
 
 方案保存不代表接受；实施完成不代表整体验收；验收通过后仍需核对当前现场再封存。正常暂停保存部分结果，换会话沿适用的原来源启动新运行。纯状态、历史和上下文查询使用临时 SQLite 快照，保持现场与 sidecar 不变。
+
+历史来源读取核对其原项目身份、原 epoch、封存摘要与具体事实；显式维护更换当前 epoch 后仍保留可读性。新写请求继续绑定当前 epoch。缺失执行保护在任务推进及派发前拒绝，维护 repair 仅在完整历史和当前保护足以证明可重建时生成准确方案，复用维护日志与新 epoch 安装。
 
 ## 文件与执行保护
 

@@ -63,7 +63,8 @@ def current_state(root, target=None):
         raise EvolveError('PROJECT_ROOT', 'Project root must be an existing directory')
     barrier = inside(root, '.evolve-local/control/maintenance.json')
     if barrier.is_file():
-        value = json.loads(barrier.read_text())
+        from .workspace import read_control
+        value = read_control(barrier)
         if value.get('state') != 'completed':
             return {'state': 'maintenance', 'root': str(root), 'maintenance': value,
                     'write_compatible': False, 'changes': [], 'next_step': 'Resume the exact original maintenance apply request'}
@@ -153,10 +154,12 @@ def current_state(root, target=None):
         pending_knowledge = [dict(r) for r in connection.execute("SELECT id,target_path,state,version,candidate_digest FROM knowledge_proposals "
                                                                "WHERE state IN ('proposed','approved','deferred') AND applied_operation_id IS NULL ORDER BY id")] if 'knowledge_proposals' in tables else []
         init_journal = inside(root, '.evolve-local/control/init.json')
-        initialization = json.loads(init_journal.read_text()).get('state') if init_journal.is_file() else 'unregistered'
+        from .workspace import read_control
+        initialization = read_control(init_journal).get('state') if init_journal.is_file() else 'unregistered'
         from .project_knowledge import catalog_view
         return {'state': 'connected', 'root': str(root), 'knowledge': catalog_view(connection, root), 'project_id': meta['project_id'],
                 'workspace_epoch': meta.get('workspace_epoch'), 'schema_version': int(meta['schema_version']),
+                'protocol_version': int(meta['protocol_version']) if 'protocol_version' in meta else None,
                 'checkpoint': meta.get('checkpoint'), 'changes': changes, 'analyses': analyses, 'pending_runs': pending_runs,
                 'knowledge_refs': knowledge_refs, 'pending_knowledge': pending_knowledge, 'knowledge_proposals': proposals,
                 'write_compatible': schema_compatible(connection), 'initialization': initialization}

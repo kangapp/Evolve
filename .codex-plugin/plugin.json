@@ -1,6 +1,6 @@
 {
   "name": "evolve",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "理解项目、规划任务、实施检查、管理知识和跨会话续接。",
   "author": {
     "name": "Evolve maintainers"

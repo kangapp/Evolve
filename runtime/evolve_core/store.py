@@ -291,6 +291,8 @@ class Store:
             from .protection import initial_execution_indexes
             initial_execution_indexes(self.root, self.meta)
         if not first_connection and (action, method) not in {('maintain', 'recover'), ('maintain', 'backup')}:
+            from .protection import require_action_protection
+            require_action_protection(self.root, self.meta, action, method, request)
             from .backup import protect_before_write
             backup_ref = protect_before_write(self, request['request_id'])
         run_id = run_id or identifier()

@@ -28,6 +28,11 @@ class PersistenceTests(unittest.TestCase):
         protection = patch('evolve_core.backup.protect_before_write', return_value='unit-store-fixture-no-archive')
         protection.start()
         self.addCleanup(protection.stop)
+        # Admission of a complete connected archive is covered by public CLI tests;
+        # this bare primitive deliberately has neither init journal nor guard yet.
+        admission = patch('evolve_core.protection.require_action_protection')
+        admission.start()
+        self.addCleanup(admission.stop)
         self.request = {'request_id': 'request-a', 'project_id': 'project-a',
                         'expected_workspace_epoch': 'epoch-a',
                         'authorization': {'source': 'test-fixture', 'effect_kind': 'project_records'},

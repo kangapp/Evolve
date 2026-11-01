@@ -37,3 +37,9 @@ control/external 的 running／unknown 引用和资源独立保护，恢复后�
 保留与旧项目 protocol 14、15 或 16 匹配的完整包。普通 init、安装和读取不迁移旧档案。健康 protocol 14／15／16 档案先由兼容包处理未完运行／file journal／检查；关闭所有旧执行和连接。
 
 调用 maintain.upgrade，input={stage:plan}，呈现准确原字节、协议与新 epoch；再用同样的 plan_id／plan_digest 和预存完整唯一请求执行 stage=apply。先保护旧原始库／sidecar／资料，再从一致副本更新 protocol、package_version、epoch 与新检查点并安装保护索引。原历史与正式正文保留；不支持任意未来迁移、不清库或改业务文件。旧写入器的新请求与旧 epoch 重试均被拒绝。升级中断沿同一日志恢复。
+
+## 缺失控制资料修复
+
+maintain.repair 使用与 restore／upgrade 相同的 stage=plan／apply、准确 plan_id／plan_digest 和预存唯一请求。要求当前受支持的健康档案、匹配 checkpoint 的 guard／managed、封存的初次接入事实、无未决运行／检查／文件提交。仅重建缺失的 checks.json、external.json、init.json；发送索引缺失且存在外部执行历史时拒绝重建。已存在的不同身份或第三种字节保留。
+
+方案保留缺失路径的不存在前置、原字节集合及重建依据。应用保护原现场，安装新 epoch 与控制资料；原任务、运行、知识及验收事实保留，不执行业务命令或补造通过。中断使用原 maintenance 日志继续；完成后重新查询条件并以新绑定继续原工作。证据不足时返回 REPAIR_UNSAFE，诊断说明需要的原保护或执行证据。

@@ -43,8 +43,9 @@ def execute_request(args, method):
     answer_only = args.action == 'analyze' and data.get('record_intent') == 'answer_only'
     existing_connection = (root / 'evolve/config.toml').is_file() and (root / 'evolve/history.db').is_file()
     initial_path = root / '.evolve-local/control/init.json'
-    incomplete_init = not answer_only and initial_path.is_file() and json.loads(initial_path.read_text()).get('state') != 'committed'
-    offline_maintenance = args.action == 'maintain' and method in ('restore', 'upgrade')
+    from .workspace import read_control
+    incomplete_init = not answer_only and initial_path.is_file() and read_control(initial_path).get('state') != 'committed'
+    offline_maintenance = args.action == 'maintain' and method in ('restore', 'upgrade', 'repair')
     if offline_maintenance:
         # A corrupt or old-protocol DB cannot supply normal status. Apply retries
         # keep the old identity from their immutable plan, even after epoch swap.
@@ -66,7 +67,7 @@ def execute_request(args, method):
                 request[key] = value
     if not offline_maintenance and not answer_only and ((args.action, method) != ('init', 'connect') or (existing_connection and not incomplete_init)):
         initial = root / '.evolve-local/control/init.json'
-        if args.action == 'maintain' and method == 'recover' and initial.is_file() and json.loads(initial.read_text()).get('state') != 'committed':
+        if args.action == 'maintain' and method == 'recover' and initial.is_file() and read_control(initial).get('state') != 'committed':
             journal = json.loads(initial.read_text())
             state = {'project_id': journal['project_id'], 'workspace_epoch': journal['workspace_epoch'], 'changes': []}
         else:
@@ -168,7 +169,7 @@ def execute_request(args, method):
     from .formal import apply_knowledge, verify_knowledge
     from .exporting import export_analysis
     from .cancellation import cancel_change
-    from .maintenance import backup, restore, upgrade
+    from .maintenance import backup, restore, upgrade, repair
     from .external import execute as external_execute, reconcile as external_reconcile
     from .external_actions import record as external_record, compensate as external_compensate
     from .project_knowledge import survey as knowledge_survey, complete as knowledge_complete
@@ -186,7 +187,7 @@ def execute_request(args, method):
                 ('sync', 'apply'): apply_knowledge, ('sync', 'facts'): maintain_facts, ('sync', 'assess'): assess_knowledge,
                 ('verify', 'knowledge'): verify_knowledge,
                 ('maintain', 'export'): export_analysis, ('maintain', 'cancel'): cancel_change, ('maintain', 'backup'): backup,
-                ('maintain', 'restore'): restore, ('maintain', 'upgrade'): upgrade}
+                ('maintain', 'restore'): restore, ('maintain', 'upgrade'): upgrade, ('maintain', 'repair'): repair}
     result = (learn(root, request, method=method) if args.action == 'learn' else handlers[(args.action, method)](root, request))
     receipt = {}
     if args.action == 'analyze' or (args.action == 'apply' and method.startswith('external.')):
@@ -208,6 +209,10 @@ def dispatch(args):
     if args.owner and args.owner != owner:
         raise EvolveError("OWNER", f"Action belongs to {owner}")
     manifest = check_package()
+    if getattr(args, 'session_package_digest', None) and args.session_package_digest != manifest['content_digest']:
+        raise EvolveError('SESSION_PACKAGE_MISMATCH', 'Session resource digest differs from the executing complete package; load a new session before continuing', exit_code=4)
+    if getattr(args, 'candidate_package', None) and (action, args.method or 'doctor') != ('maintain', 'doctor'):
+        raise EvolveError('INPUT', 'Candidate package inspection belongs to maintain.doctor')
     if action == "learn" and args.method is None:
         return {"committed": False, "methods": METHODS[action], "outcome": "usage"}
     method = args.method or METHODS[action][0]
@@ -253,17 +258,49 @@ def dispatch(args):
                 'package_version': manifest['package_version'], 'content_digest': manifest['content_digest']}
     if args.target and action != 'status':
         raise EvolveError('INPUT', 'Doctor does not take a business target')
-    return {"committed": False, "run_id": None, "outcome": "observed", "owner_skill": owner,
-            "project": project_status(Path(args.project), args.target), "package_root": str(ROOT),
+    try:
+        project = project_status(Path(args.project), args.target)
+    except (EvolveError, OSError, ValueError, KeyError, TypeError, sqlite3.Error) as error:
+        if (action, method) != ('maintain', 'doctor'):
+            raise
+        project = {'state': 'unavailable', 'root': str(Path(args.project).resolve()),
+                   'diagnostic': {'code': getattr(error, 'code', 'OBSERVATION_REQUIRED'), 'message': str(error)}}
+        from .maintenance import raw_history
+        try:
+            project['archive_metadata'] = raw_history(Path(args.project))[0]
+        except (EvolveError, OSError, ValueError, sqlite3.Error):
+            project['archive_metadata'] = None
+    from .guidance import readiness
+    result = {"committed": False, "run_id": None, "outcome": "observed", "owner_skill": owner,
+            "project": project, "readiness": readiness(Path(args.project), project), "package_root": str(ROOT),
             "package_version": manifest["package_version"], "content_digest": manifest["content_digest"],
             "available_methods": manifest["available_methods"],
             "unavailable_methods": sorted(a + "." + m for a, ms in METHODS.items() for m in ms
                                           if a + "." + m not in AVAILABLE),
             "host_enablement": "not_observed", "warnings": []}
+    if getattr(args, 'candidate_package', None):
+        from .package import inspect_package, UPGRADE_PROTOCOLS
+        candidate = inspect_package(args.candidate_package)
+        result['candidate_package'] = {k: candidate[k] for k in ('package_version', 'protocol_version', 'schema_version', 'content_digest')}
+        result['candidate_package'].update(root=str(Path(args.candidate_package).resolve()),
+            installation='not_performed', session_activation='not_observed', archive_upgrade='not_performed',
+            supported_archive_upgrade_from=list(UPGRADE_PROTOCOLS))
+        archive = project.get('archive_metadata') or project
+        protocol = archive.get('protocol_version')
+        result['update_check'] = {'package_integrity': 'passed',
+            'executing_package': manifest['content_digest'], 'candidate_package': candidate['content_digest'],
+            'archive_compatibility': 'not_connected' if project['state'] == 'not_connected' else
+                'compatible' if str(protocol) == str(candidate['protocol_version']) else
+                'explicit_upgrade_required' if str(protocol) in UPGRADE_PROTOCOLS and candidate['protocol_version'] == manifest['protocol_version'] else 'unknown_or_unsupported',
+            'installation': 'not_performed', 'session_activation': 'not_observed',
+            'old_operations': 'requires_reconciliation' if project.get('pending_runs') else 'inspect_execution_conditions',
+            'next_prompt': '使用 evolve-maintain，按更新指南保留旧包与完整档案，核对宿主切换；在新会话检查版本和执行条件后恢复原工作。'}
+    return result
 
 
 def main(argv=None):
     action = "status"
+    args = None
     try:
         parser = Parser(description="Evolve deterministic runtime (Python 3.11+)")
         parser.add_argument("--project", default=str(Path.cwd()), help="Explicit existing project root")
@@ -272,9 +309,16 @@ def main(argv=None):
         parser.add_argument("--method")
         parser.add_argument("--request", help="Explicit host request JSON file, or - for stdin")
         parser.add_argument("--owner", help="Calling skill; checked against the owner map")
+        parser.add_argument('--session-package-digest', help='Complete package digest observed when loading this session')
+        parser.add_argument('--candidate-package', help='Read-only candidate release inspection for maintain.doctor')
         args = parser.parse_args(argv)
         action = args.action
         data = dispatch(args)
+        data['activation'] = {'session_status': 'matching_package' if args.session_package_digest else 'not_observed',
+                              'host_enablement': 'not_observed'}
+        if args.action in ('next', 'resume'):
+            from .guidance import readiness
+            data['readiness'] = readiness(Path(args.project), data['context']['project'])
         response = {"ok": True, "action": action, "operation_id": data.get("operation_id"), "data": data, "warnings": []}
         code = 0
     except EvolveError as error:
@@ -287,5 +331,11 @@ def main(argv=None):
                     "error": {"code": "OBSERVATION_REQUIRED", "message": "Execution did not return a reliable result: " + type(error).__name__,
                               "next_steps": ["Inspect status and pending operations before retrying effects"]}}
         code = 1
+    from .guidance import workflow_view
+    method = getattr(args, 'method', None) or (METHODS.get(action) or ['show'])[0]
+    root = getattr(args, 'project', '.')
+    response['workflow'] = workflow_view(root, action, method, response['data'], error=response.get('error'))
+    if response.get('error') and not response['error']['next_steps']:
+        response['error']['next_steps'] = [step['prompt'] for step in response['workflow']['next_steps']]
     print(json.dumps(response, ensure_ascii=False, indent=2))
     return code

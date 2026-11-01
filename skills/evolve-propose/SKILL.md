@@ -2,6 +2,8 @@
 name: evolve-propose
 description: 为 Evolve 工作形成短方案或复杂 spec、修订方案，或开展不修改业务的独立调查。
 ---
+进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
+
 
 归属 propose、update、analyze。复用当前资料，区分事实、假设和未知。复杂方案给目标、边界、行为、验收和真实任务依赖；调查保存可重复症状判据、来源与限制，不凭分析请求开始修复。
 

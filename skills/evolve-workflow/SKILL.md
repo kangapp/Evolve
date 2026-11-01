@@ -1,9 +1,11 @@
 ---
 name: evolve-workflow
-description: 定位 Evolve 项目工作项、只读状态、下一步与跨会话续接；或分派明确的 Evolve 动作。
+description: 询问 Evolve 怎么用、首次描述项目修改目标、选择下一步、查看状态或跨会话续接时使用；结合现场引导并分派工作流。
 ---
+进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
 
-归属 status、next、resume。先解释用户意图和唯一目标，再按[运行时动作归属](../../runtime/evolve_core/package.py)的 OWNERS 确定 owner，读取实际 `skills/evolve-<owner>/SKILL.md` 后分派；Skill 路径使用 owner 而非动作名。router 不代写业务。无动作使用 status。resume／next 从封存事实恢复方案、进度、失败与现场差异；多个目标明确选择。查询不写入或授权，不接管旧执行。读取[续接请求](../../shared/protocol.md#normal-continuation)，用户明确继续后由原 owner 核对范围并新建 run。
+
+归属 status、next、resume。指南咨询保持只读；首次修改按目标和实际缺口选择必要接入范围，空项目先明确目标与最小验收行为。先解释用户意图和唯一目标，再按[运行时动作归属](../../runtime/evolve_core/package.py)的 OWNERS 确定 owner，读取实际 `skills/evolve-<owner>/SKILL.md` 后分派；Skill 路径使用 owner 而非动作名。router 不代写业务。无动作使用 status。resume／next 从封存事实恢复方案、进度、失败与现场差异；多个目标明确选择。查询不写入或授权，不接管旧执行。读取[续接请求](../../shared/protocol.md#normal-continuation)，用户明确继续后由原 owner 核对范围并新建 run。
 
 损坏档案恢复或旧协议升级直接交 evolve-maintain，按其维护分支处理；当前正式知识／经验或 status 不可读不阻止安全维护方案，不手改库绕过。
 

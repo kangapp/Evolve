@@ -20,3 +20,5 @@
 | `evolve-0.1.1-protocol16.zip` | 0.1.1 | 16 | `a8bc182937d85cf6f1942b5858a9b22aed776fd7569f74d51b17a0e89b6eeefc` |
 
 0.1.1 夹具从本仓库提交 d320942 的原始源码构建；用于真实旧包拒绝新协议和 16→17 显式升级回归。
+
+- `evolve-0.2.0-protocol17.zip`：从提交 ff925c5 的实际完整 0.2.0 包原样保留；内容摘要 da90a00268904d6e235350ce055855ed931bb686fda0cb56cb23f8e5a9eb8c9c，ZIP SHA-256 de4cb88a991cc53eb6adfe83701c59369d5358349fff64e18060353db2cdee52。用于真实版本更新、保留知识及继续执行验收。
