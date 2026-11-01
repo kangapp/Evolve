@@ -57,6 +57,8 @@ python3 -B scripts/external_smoke.py --package /absolute/path/new-evolve-package
 
 模型测试工具另有 `--preflight-only`，用于先核对固定模型、文件、动作与副作用范围；真实派发按具体授权执行，遇到权限、额度或传输失败立即停对应批次。输出保存在指定临时目录，避免进入源码仓库。
 
+`scripts/model_project_knowledge_acceptance.py` 覆盖六个新会话的知识初始化、必要文档交付、主题迁入与受限事实维护。与其他模型工具一样，先预检并绑定准确范围及已有用户授权；实际 Mermaid 渲染由环境变量 `EVOLVE_ACCEPTANCE_MMDC` 指定宿主 `mmdc`，使用已安装 Chrome，不是插件运行依赖。控制器保留原 CLI 回执、渲染结果、模型轨迹和独立断言，自动检查后仍需审阅正文及实际图文。
+
 ## 维护约定
 
 动作归属由 `runtime/evolve_core/package.py`维护，领域模块实现对应协议。检查和长命令在短事务之外执行；未知数据效果与本地提交状态分别保存。协议或 schema 变化需要保留旧包拒绝和显式升级回归，安装／接入不代替迁移。

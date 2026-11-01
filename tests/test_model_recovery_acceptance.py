@@ -19,7 +19,7 @@ class RecoveryScopeTests(unittest.TestCase):
         result = self.invoke('--preflight-only')
         self.assertEqual(result.returncode, 0, result.stderr)
         scope = json.loads(result.stdout)['expanded_scope']
-        self.assertEqual((scope['slice'], scope['protocol_version'], scope['maximum_sessions']), ('IMP-012', 16, 4))
+        self.assertEqual((scope['slice'], scope['protocol_version'], scope['maximum_sessions']), ('IMP-012', 17, 4))
         self.assertEqual(scope['readonly_paths'], ['test_total.py'])
         self.assertEqual(scope['business_write_paths'], ['total.py'])
         self.assertEqual(set(scope['formal_decisions']) - {'scope'}, {'terms.md', 'later.md'})

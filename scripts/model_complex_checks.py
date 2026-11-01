@@ -86,7 +86,7 @@ PROMPTS = {
 
 def scope_for(manifest, host, model, transport):
     required = {'propose.create','update.revise','apply.implement','verify.run','archive.close','resume.show','init.connect'}
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((1, 5), (2, 6), (2, 7), (3, 8), (4, 9), (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15), (4, 16)) or not required.issubset(manifest['available_methods']):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((1, 5), (2, 6), (2, 7), (3, 8), (4, 9), (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15), (4, 16), (4, 17)) or not required.issubset(manifest['available_methods']):
         raise ValueError('Complex acceptance needs the actual complete schema-1/protocol-5, schema-2/protocol-6-to-7 schema-3/protocol-8 or schema-4/protocol-9-to-11 structured runtime')
     if host == 'claude' and model != 'MiniMax-M3.1-Flash':
         raise ValueError('This reviewed complex scope uses only the human-selected MiniMax-M3.1-Flash process override')

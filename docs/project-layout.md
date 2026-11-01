@@ -1,11 +1,11 @@
 # 实际工程目录
 
-版本 0.1.1，protocol 16／schema 4。本页由当前源码和运行包清单生成。
+版本 0.2.0，protocol 17／schema 4。本页由当前源码和运行包清单生成。
 
 <!-- source-only -->
 ## 源码工程
 
-维护文件共 207 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
+维护文件共 225 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
 
 ```text
 evolve/
@@ -19,7 +19,16 @@ evolve/
 │   └── plugin.json
 ├── assets/
 │   └── templates/
-│       └── config.toml
+│       ├── config.toml
+│       ├── knowledge-architecture.md
+│       ├── knowledge-codemap.md
+│       ├── knowledge-data.md
+│       ├── knowledge-decision.md
+│       ├── knowledge-development.md
+│       ├── knowledge-domain.md
+│       ├── knowledge-project.md
+│       ├── knowledge-rule.md
+│       └── knowledge-spec.md
 ├── docs/
 │   ├── README.md
 │   ├── architecture.md
@@ -58,6 +67,8 @@ evolve/
 │   │   ├── external_work.py
 │   │   ├── formal.py
 │   │   ├── knowledge.py
+│   │   ├── knowledge_facts.py
+│   │   ├── knowledge_impact.py
 │   │   ├── knowledge_proposals.py
 │   │   ├── learning.py
 │   │   ├── maintenance.py
@@ -66,6 +77,7 @@ evolve/
 │   │   ├── plans.py
 │   │   ├── preservation.py
 │   │   ├── privacy.py
+│   │   ├── project_knowledge.py
 │   │   ├── protection.py
 │   │   ├── reading.py
 │   │   ├── recover.py
@@ -101,6 +113,7 @@ evolve/
 │   ├── model_learning_checks.py
 │   ├── model_multi_acceptance.py
 │   ├── model_multi_checks.py
+│   ├── model_project_knowledge_acceptance.py
 │   ├── model_recovery_acceptance.py
 │   ├── model_recovery_checks.py
 │   ├── model_session_checks.py
@@ -119,10 +132,12 @@ evolve/
 │   ├── external-work.md
 │   ├── knowledge-adoption.md
 │   ├── knowledge-candidates.md
+│   ├── knowledge-documents.md
 │   ├── knowledge-patches.md
 │   ├── knowledge-rules.md
 │   ├── learning-cycle.md
 │   ├── multiple-work.md
+│   ├── project-knowledge.md
 │   ├── protocol.md
 │   ├── recovery.md
 │   └── structured-plans.md
@@ -149,6 +164,7 @@ evolve/
 │   │   ├── application-package-alpha8.zip
 │   │   ├── candidate-package-alpha7.zip
 │   │   ├── context-package-alpha13.zip
+│   │   ├── evolve-0.1.1-protocol16.zip
 │   │   ├── evolve-alpha3-protocol2.zip
 │   │   ├── initial-owner-package-alpha10.zip
 │   │   ├── m1-current-scope-package-alpha4.zip
@@ -207,6 +223,7 @@ evolve/
 │   ├── test_model_knowledge_acceptance.py
 │   ├── test_model_learning_acceptance.py
 │   ├── test_model_multi_acceptance.py
+│   ├── test_model_project_knowledge_acceptance.py
 │   ├── test_model_recovery_acceptance.py
 │   ├── test_model_session_acceptance.py
 │   ├── test_package.py
@@ -215,6 +232,7 @@ evolve/
 │   ├── test_plans.py
 │   ├── test_preservation.py
 │   ├── test_privacy.py
+│   ├── test_project_knowledge.py
 │   ├── test_recover.py
 │   ├── test_resume.py
 │   ├── test_revisions.py
@@ -243,7 +261,7 @@ evolve/
 
 ## 独立运行包
 
-完整运行包含 85 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
+完整运行包含 99 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
 
 ```text
 evolve/
@@ -257,7 +275,16 @@ evolve/
 │   └── plugin.json
 ├── assets/
 │   └── templates/
-│       └── config.toml
+│       ├── config.toml
+│       ├── knowledge-architecture.md
+│       ├── knowledge-codemap.md
+│       ├── knowledge-data.md
+│       ├── knowledge-decision.md
+│       ├── knowledge-development.md
+│       ├── knowledge-domain.md
+│       ├── knowledge-project.md
+│       ├── knowledge-rule.md
+│       └── knowledge-spec.md
 ├── docs/
 │   ├── architecture.md
 │   ├── compatibility.md
@@ -295,6 +322,8 @@ evolve/
 │   │   ├── external_work.py
 │   │   ├── formal.py
 │   │   ├── knowledge.py
+│   │   ├── knowledge_facts.py
+│   │   ├── knowledge_impact.py
 │   │   ├── knowledge_proposals.py
 │   │   ├── learning.py
 │   │   ├── maintenance.py
@@ -303,6 +332,7 @@ evolve/
 │   │   ├── plans.py
 │   │   ├── preservation.py
 │   │   ├── privacy.py
+│   │   ├── project_knowledge.py
 │   │   ├── protection.py
 │   │   ├── reading.py
 │   │   ├── recover.py
@@ -323,10 +353,12 @@ evolve/
 │   ├── external-work.md
 │   ├── knowledge-adoption.md
 │   ├── knowledge-candidates.md
+│   ├── knowledge-documents.md
 │   ├── knowledge-patches.md
 │   ├── knowledge-rules.md
 │   ├── learning-cycle.md
 │   ├── multiple-work.md
+│   ├── project-knowledge.md
 │   ├── protocol.md
 │   ├── recovery.md
 │   └── structured-plans.md

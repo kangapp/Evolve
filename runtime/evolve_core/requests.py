@@ -15,6 +15,9 @@ def normalize(payload):
     result.setdefault('request_id', identifier())
     if not isinstance(result['request_id'], str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', result['request_id']):
         raise EvolveError('INPUT', 'Invalid internal request identity')
+    if 'authorization_parent_request_id' in result and (not isinstance(result['authorization_parent_request_id'], str)
+            or not re.fullmatch(r'[A-Za-z0-9_-]{1,100}', result['authorization_parent_request_id'])):
+        raise EvolveError('INPUT', 'Invalid parent authorization request identity')
     if not isinstance(result.get('input'), dict):
         raise EvolveError('INPUT', 'Request input must be an object')
     authorization = result.get('authorization')

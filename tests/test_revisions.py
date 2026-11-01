@@ -319,7 +319,7 @@ revise(sys.argv[2],json.load(sys.stdin))
             archive.extractall(old)
         manifest=json.loads((old/'package/evolve-package.json').read_text())
         self.assertEqual((manifest['schema_version'],manifest['protocol_version']),(4,10))
-        self.assertEqual(self.f.rows("SELECT value FROM project_meta WHERE key='protocol_version'")[0]['value'],'16')
+        self.assertEqual(self.f.rows("SELECT value FROM project_meta WHERE key='protocol_version'")[0]['value'],'17')
         before=(self.f.root/'evolve/history.db').read_bytes()
         result=subprocess.run([sys.executable,'-B',str(old/'package/runtime/evolve.py'),'--project',str(self.f.root),'apply','--request','-'],
             input=json.dumps({'authorization':self.f.auth,'input':{'change_id':self.f.plan['change_id']}}),text=True,capture_output=True,timeout=15)

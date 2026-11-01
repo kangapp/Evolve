@@ -17,3 +17,6 @@
 | `runtime-package-alpha14.zip` | 0.1.0-alpha.14 | 11 | `00de9e547e2e69a1ef43a61fe89ec5937d4aca93834a329561fac620318048ac` |
 | `runtime-package-alpha15.zip` | 0.1.0-alpha.15 | 12 | `5e863a476aa41003cdb517fbeaf05b87e1003bf3852c69e8033c3d4a4e8c8832` |
 | `runtime-package-alpha17.zip` | 0.1.0-alpha.17 | 13 | `952b4f3e799a5e75e3914d5deb93cce51a45d75b0425301c870b3b2afcdcab38` |
+| `evolve-0.1.1-protocol16.zip` | 0.1.1 | 16 | `a8bc182937d85cf6f1942b5858a9b22aed776fd7569f74d51b17a0e89b6eeefc` |
+
+0.1.1 夹具从本仓库提交 d320942 的原始源码构建；用于真实旧包拒绝新协议和 16→17 显式升级回归。

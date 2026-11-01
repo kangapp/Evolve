@@ -25,6 +25,7 @@ flowchart LR
 | `apply.py`、`checks.py`、`verify.py`、`archive.py` | 实施、检查、两维审查和完成截点 |
 | `analysis.py`、`data_material.py`、`exporting.py` | 独立调查、数据上下文和保存底稿的导出 |
 | `knowledge*.py`、`formal.py`、`patches.py`、`learning.py`、`rules.py` | 正式知识候选、应用、经验与规则 |
+| `project_knowledge.py`、`knowledge_impact.py`、`knowledge_facts.py` | 分类知识、覆盖交付、主题替代、知识收尾与受限事实维护 |
 | `store.py`、`workspace.py`、`protection.py` | 不可变事实、文件提交、占用和保护索引 |
 | `continuation.py`、`resume.py`、`recover.py` | 正常续接、只读上下文和中断操作收尾 |
 | `backup.py`、`archive_sets.py`、`maintenance.py` | 完整备份、恢复和显式升级 |

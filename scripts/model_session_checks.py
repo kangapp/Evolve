@@ -34,7 +34,7 @@ PROMPTS = {
 
 
 def scope_for(manifest, host, model, first_files, transport, *, missing_tests=False):
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((1, 3), (1, 4), (1, 5), (2, 6), (2, 7), (3, 8), (4, 9), (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15), (4, 16)) or not REQUIRED.issubset(manifest['available_methods']):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((1, 3), (1, 4), (1, 5), (2, 6), (2, 7), (3, 8), (4, 9), (4, 10), (4, 11), (4, 12), (4, 13), (4, 14), (4, 15), (4, 16), (4, 17)) or not REQUIRED.issubset(manifest['available_methods']):
         raise ValueError('Expanded session learning requires the complete schema-1/protocol-3-to-5, schema-2/protocol-6-to-7 schema-3/protocol-8 or schema-4/protocol-9-to-11 runtime and its actual methods')
     body = {'slice': 'IMP-004', 'host': host, 'claude_model': model, 'package_version': manifest['package_version'],
             'content_digest': manifest['content_digest'], 'schema_version': manifest['schema_version'],

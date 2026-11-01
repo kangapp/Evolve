@@ -117,7 +117,9 @@ def current_state(root, target=None):
                     details['latest_verification'] = ({'id': latest['id'], 'revision_id': latest['revision_id'], 'recorded_status': latest['status'],
                                                        'observed_at': latest['observed_at'], 'source_run_id': latest['source_run_id'],
                                                        'applicability': 'unconfirmed'} if latest else None)
-                changes.append({**dict(row), 'tasks': tasks, 'definition_digest': revision['definition_digest'] if revision else None,
+                from .knowledge_impact import declared_impacts
+                changes.append({**dict(row), 'tasks': tasks, 'knowledge_impact': declared_impacts(connection, row['current_revision']),
+                                'definition_digest': revision['definition_digest'] if revision else None,
                                 'plan_digest': revision['plan_digest'] if revision else None,
                                 'details_loaded': bool(target), **details})
         analyses = analysis_views(connection, target, root=root) if 'phase_runs' in tables else []
@@ -152,7 +154,8 @@ def current_state(root, target=None):
                                                                "WHERE state IN ('proposed','approved','deferred') AND applied_operation_id IS NULL ORDER BY id")] if 'knowledge_proposals' in tables else []
         init_journal = inside(root, '.evolve-local/control/init.json')
         initialization = json.loads(init_journal.read_text()).get('state') if init_journal.is_file() else 'unregistered'
-        return {'state': 'connected', 'root': str(root), 'project_id': meta['project_id'],
+        from .project_knowledge import catalog_view
+        return {'state': 'connected', 'root': str(root), 'knowledge': catalog_view(connection, root), 'project_id': meta['project_id'],
                 'workspace_epoch': meta.get('workspace_epoch'), 'schema_version': int(meta['schema_version']),
                 'checkpoint': meta.get('checkpoint'), 'changes': changes, 'analyses': analyses, 'pending_runs': pending_runs,
                 'knowledge_refs': knowledge_refs, 'pending_knowledge': pending_knowledge, 'knowledge_proposals': proposals,

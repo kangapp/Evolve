@@ -16,7 +16,7 @@ status的能力目录使用动作.方法标识，例如resume.show。CLI分别�
 
 ## 请求与授权
 
-每个写请求包含 `authorization` 和 `input` 两个对象。authorization 保存实际用户来源 `source`、原话 `text`、本次允许的 `effect_kinds`；业务或知识文件修改另有具体 `paths` 数组。effect_kinds 使用 project_records（工作事实）、business_files（业务文件）、checks（已约定检查）、knowledge（具体正式内容应用）；不留档调查使用 read_only。授权来源由宿主忠实提供，字段不是身份认证；历史经验或配置不能充当用户授权。
+每个写请求包含 `authorization` 和 `input` 两个对象。authorization 保存实际用户来源 `source`、原话 `text`、本次允许的 `effect_kinds`；业务或知识文件修改另有具体 `paths` 数组。effect_kinds 使用 project_records（工作事实）、business_files（业务文件）、checks（已约定检查）、knowledge（具体正式内容应用）、facts_maintenance（准确范围内的受限事实维护）；不留档调查使用 read_only。授权来源由宿主忠实提供，字段不是身份认证；历史经验或配置不能充当用户授权。
 
 新请求可不填内部编号，工具在只读准备时生成 request_id，定位 project_id／workspace_epoch，并为实施、验收及封存冻结当前 Change／REV／Task 版本。目标标题唯一时可解析，多个候选须明确。先用 status 指定目标读取 plan 原文及 Task definition；未指定目标时只列导航，不一次展开全部任务正文。knowledge_refs 的批准版本与实际字节分开，pending_knowledge 不是正式规则；latest_verification.recorded_status 不等于当前通过，applicability 未核实时为 unconfirmed。返回的 request_context 和 input_bindings 保存这些绑定；重试必须将它们合并回原请求及 input，并保留原输入，不能重新读当前版本替代旧绑定。已提供 request_id 的请求缺少原身份或 epoch 会拒绝，避免旧请求越过恢复截点。
 
@@ -26,11 +26,13 @@ apply.implement始终需要project_records、business_files及原准确paths；�
 
 ## 已实现的请求内容
 
-当前完整包使用protocol v16／schema v4；外部数据Task绑定具体目标与执行约束。有限同步Python／SQLite方法按[数据操作](external-work.md)使用，实际开放能力以清单为准。维护屏障、执行／受管文件保护和定向升级见[完整档案维护](recovery.md)。复杂 Task 的调查／症状绑定不可由旧写入器忽略。跨项条件／混合现场与安全取消见[多工作项](multiple-work.md)，数据范围和独立导出字段见[数据工作](data-work.md)。
+当前完整包使用protocol v17／schema v4；外部数据Task绑定具体目标与执行约束。有限同步Python／SQLite方法按[数据操作](external-work.md)使用，实际开放能力以清单为准。维护屏障、执行／受管文件保护和定向升级见[完整档案维护](recovery.md)。复杂 Task 的调查／症状绑定不可由旧写入器忽略。跨项条件／混合现场与安全取消见[多工作项](multiple-work.md)，数据范围和独立导出字段见[数据工作](data-work.md)。
 
 | 动作／方法 | input 内容及边界 |
 |---|---|
 | init／connect | 可选 name、checks。checks 是 id、argv 数组、项目相对 cwd、timeout；只配置不执行。初次接入只建记录设施；重复接入沿用身份。已有配置变化先返回 config_candidate；实际呈现 candidate 后，新请求保存相同 name／checks、expected_config_digest 及 presentation（原文 text 与 source）应用；检查按 ID 合并，不运行命令，不模板覆盖未知内容 |
+| init／templates、survey、complete | templates 为无写入分类模板查询；survey 保存八视角覆盖和实际来源，complete 核对范围及已应用文档验收。字段见[知识交付](project-knowledge.md) |
+| sync／facts、assess | facts 推导并验证准确授权的相同字节路径移动；assess 在当前 REV 和实施截点核对全部知识影响。字段及权限见[知识维护](project-knowledge.md) |
 | propose／create | 简单方案：title、plan、completion、scope 文件数组、acceptance 条件数组、required_checks ID 数组、presentation（实际呈现的 text 与 source）。复杂方案使用 complexity=complex，格式及当前边界见[复杂规格提案](structured-plans.md)。只存已呈现方案，不默认接受或修改业务 |
 | update／revise | 绑定整个当前 Change／REV／定义及全部 Task 版本；reason、proposal 给完整呈现的新方案。approval 精确绑定候选；范围移出及结果继承见[REV 请求](structured-plans.md#revision)。仅修改项目记录，不写业务文件 |
 | analyze／investigate | question、scope 项目内文件或目录范围、sources、business_effect=read_only、record_intent=answer_only／record、analysis。独立留档不创建 Change／Task，具体格式见下文 |

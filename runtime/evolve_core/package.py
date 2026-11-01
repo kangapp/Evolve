@@ -13,15 +13,16 @@ OWNERS = {
 }
 METHODS = {
     "status": ["show"], "next": ["show"], "resume": ["show"], "history": ["show"],
-    "init": ["connect", "baseline.propose", "baseline.apply"], "propose": ["create"], "update": ["revise"], "analyze": ["investigate"],
+    "init": ["connect", "baseline.propose", "baseline.apply", "templates", "survey", "complete"], "propose": ["create"], "update": ["revise"], "analyze": ["investigate"],
     "apply": ["implement", "external.execute", "external.reconcile", "external.record", "external.compensate"],
-    "verify": ["run", "record", "knowledge"], "archive": ["close"], "sync": ["apply", "propose", "check", "review"],
+    "verify": ["run", "record", "knowledge"], "archive": ["close"], "sync": ["apply", "propose", "check", "review", "facts", "assess"],
     "learn": ["search", "review", "record", "retro", "promote", "disable"],
     "maintain": ["doctor", "export", "cancel", "backup", "restore", "upgrade", "recover"],
 }
 AVAILABLE = {"apply.external.execute", "apply.external.reconcile", "apply.external.record", "apply.external.compensate", "maintain.backup", "maintain.restore", "maintain.upgrade", "maintain.cancel", "maintain.export", "learn.promote", "sync.apply", "verify.knowledge", "sync.propose", "sync.check", "sync.review", "status.show", "maintain.doctor", "init.connect", "init.baseline.propose", "init.baseline.apply",
              "update.revise", "history.show",
              "learn.search", "learn.record", "learn.retro", "learn.review", "learn.disable", "next.show", "resume.show", "propose.create", "apply.implement", "verify.run", "archive.close", "maintain.recover", "analyze.investigate"}
+AVAILABLE.update({'init.templates', 'init.survey', 'init.complete', 'sync.facts', 'sync.assess'})
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -65,8 +66,10 @@ def check_package(root=ROOT):
                     "runtime/evolve.py", "runtime/evolve_core/cli.py", "assets/templates/config.toml",
                     ".codex-plugin/plugin.json", ".claude-plugin/plugin.json"}
         required.update(f"skills/evolve-{owner}/SKILL.md" for owner in set(OWNERS.values()))
+        from .project_knowledge import KINDS
+        required.update('assets/templates/knowledge-' + kind + '.md' for kind in KINDS)
         required.update('runtime/evolve_core/' + name + '.py' for name in (
-            '__init__', 'errors', 'package', 'cli', 'reading', 'requests', 'privacy', 'store', 'workspace',
+            '__init__', 'errors', 'package', 'cli', 'reading', 'requests', 'privacy', 'store', 'workspace', 'project_knowledge', 'knowledge_facts', 'knowledge_impact',
             'backup', 'archive_sets', 'protection', 'maintenance', 'external_material', 'external', 'external_registry', 'external_process', 'external_recovery', 'external_actions', 'external_work', 'plans', 'structured', 'preservation', 'revisions', 'connect', 'configure', 'config_edit', 'work', 'checks', 'apply', 'verify', 'archive', 'recover', 'knowledge', 'knowledge_proposals', 'formal', 'patches', 'analysis', 'data_material', 'exporting', 'cancellation', 'cross_dependencies', 'continuation', 'resume', 'learning', 'rules'))
         if not required.issubset(files):
             raise EvolveError("PACKAGE_INCOMPLETE", "Missing required package inventory entries")

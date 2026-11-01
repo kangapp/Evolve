@@ -173,7 +173,7 @@ def gate_identity(store, request, run_id):
         raise EvolveError('EXECUTION_CHANGED', 'Run or package changed before a side effect', exit_code=3)
     for event in store.connection.execute("SELECT payload_json FROM events WHERE kind='authorization_revoked'"):
         revoked = json.loads(event[0])
-        if revoked.get('request_id') == request['request_id'] or (
+        if revoked.get('request_id') in {request['request_id'], request.get('authorization_parent_request_id', request['request_id'])} or (
                 request['input'].get('change_id') is not None and revoked.get('change_id') == request['input']['change_id']):
             raise EvolveError('AUTHORIZATION', 'The effective authorization was revoked', exit_code=3)
     return run

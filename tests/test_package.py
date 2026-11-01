@@ -83,7 +83,7 @@ class InstalledPackageTests(unittest.TestCase):
         self.assertEqual(Path(result['data']['package_root']), self.package)
         self.assertEqual(result['data']['available_methods'], [
             'analyze.investigate', 'apply.external.compensate', 'apply.external.execute', 'apply.external.reconcile', 'apply.external.record', 'apply.implement', 'archive.close', 'history.show', 'init.baseline.apply', 'init.baseline.propose',
-            'init.connect', 'learn.disable', 'learn.promote', 'learn.record', 'learn.retro', 'learn.review', 'learn.search', 'maintain.backup', 'maintain.cancel', 'maintain.doctor', 'maintain.export', 'maintain.recover', 'maintain.restore', 'maintain.upgrade', 'next.show', 'propose.create', 'resume.show', 'status.show', 'sync.apply', 'sync.check', 'sync.propose', 'sync.review', 'update.revise', 'verify.knowledge', 'verify.run'])
+            'init.complete', 'init.connect', 'init.survey', 'init.templates', 'learn.disable', 'learn.promote', 'learn.record', 'learn.retro', 'learn.review', 'learn.search', 'maintain.backup', 'maintain.cancel', 'maintain.doctor', 'maintain.export', 'maintain.recover', 'maintain.restore', 'maintain.upgrade', 'next.show', 'propose.create', 'resume.show', 'status.show', 'sync.apply', 'sync.assess', 'sync.check', 'sync.facts', 'sync.propose', 'sync.review', 'update.revise', 'verify.knowledge', 'verify.run'])
 
     def test_unknown_action_and_method_never_fall_back(self):
         for args, code in [(('release',), 'UNKNOWN_ACTION'),

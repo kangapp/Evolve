@@ -14,6 +14,7 @@ EXCLUDED_PARTS = {'.git', '__pycache__', '.pytest_cache', '.venv', 'venv', 'node
 def source_paths():
     return sorted(p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*')
         if p.is_file() and not p.is_symlink() and not (set(p.relative_to(ROOT).parts) & EXCLUDED_PARTS)
+        and p.relative_to(ROOT).parts[:2] != ('docs', 'spec')
         and p != INDEX and p.name != '.DS_Store' and p.suffix not in ('.pyc', '.pyo'))
 
 

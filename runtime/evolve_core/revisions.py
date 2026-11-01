@@ -142,7 +142,7 @@ def _old_document(connection, change, revision, tasks):
     return {'title': change['title'], 'plan': body, 'completion': definition['completion'],
             'scope': definition['scope'], 'acceptance': [a['text'] for a in definition['acceptance']],
             'required_checks': definition['required_checks'], 'responsible_action': definition['responsible_action'],
-            **{k: definition[k] for k in ('execution_kind', 'external_target') if k in definition}}
+            **{k: definition[k] for k in ('execution_kind', 'external_target', 'knowledge_impact') if k in definition}}
 
 
 def _acceptance_preview(data, old):
@@ -182,6 +182,10 @@ def _planned(root, connection, data, order, configured, acceptance, old_tasks, o
             'spec_delta': 'owner_candidate_required' if data.get('responsible_action', 'apply') != 'apply' else 'none'}
         from .external_work import definition_fields
         definition.update(definition_fields(root, data))
+        from .knowledge_impact import freeze as freeze_knowledge_impact
+        knowledge_impact = freeze_knowledge_impact(connection, root, data, data['scope'])
+        if knowledge_impact is not None:
+            definition['knowledge_impact'] = knowledge_impact
         previous = json.loads(old['TASK-001']['definition_json']) if 'TASK-001' in old else {}
         if 'analysis_basis' not in data:
             for key in ('analysis_basis', 'symptom_before'):
@@ -197,6 +201,10 @@ def _planned(root, connection, data, order, configured, acceptance, old_tasks, o
     for key, item in planned.items():
         definition = item['definition']
         previous = json.loads(old[key]['definition_json']) if key in old else None
+        if previous and 'knowledge_impact' in previous and 'knowledge_impact' in definition:
+            without_versions = lambda values: [{k: v for k, v in item.items() if k != 'baseline_version_id'} for item in values]
+            if without_versions(previous['knowledge_impact']) == without_versions(definition['knowledge_impact']):
+                definition['knowledge_impact'] = previous['knowledge_impact']
         if previous and 'spec_basis' in previous: definition['spec_basis'] = previous['spec_basis']
         if spec_changed and key in affected:
             definition['spec_basis'] = digest(canonical(_spec_contract(data.get('spec', {}))))
@@ -248,6 +256,8 @@ def revise(root, payload):
                 if not set(proposal['required_checks']).issubset({c['id'] for c in configured}): raise EvolveError('CHECK_CONFIG', 'Revision requires registered checks')
                 order = ['TASK-001']; new_doc = {k: proposal[k] for k in ('title', 'plan', 'completion', 'scope', 'acceptance', 'required_checks')}
                 new_doc['responsible_action'] = proposal.get('responsible_action', 'apply')
+                if 'knowledge_impact' in proposal:
+                    new_doc['knowledge_impact'] = proposal['knowledge_impact']
                 from .external_work import definition_fields
                 new_doc.update(definition_fields(root, proposal))
             impact = data.get('impact')
@@ -287,6 +297,11 @@ def revise(root, payload):
                 'tasks': {key: 'same_definition' if item['same_definition'] else 'changed_or_new' for key, item in planned.items()},
                 'removed_tasks': sorted(set(old_map) - set(planned)),
                 'task_definition_digests': {key: item['digest'] for key, item in planned.items()}}
+            old_required = [item for row in old_tasks for item in json.loads(row['definition_json']).get('knowledge_impact', []) if item['disposition'] == 'required']
+            new_required = [item for item in planned.values() for item in item['definition'].get('knowledge_impact', []) if item['disposition'] == 'required']
+            removed_knowledge = [item for item in old_required if not any(other['topic'] == item['topic'] and other.get('target_path') == item.get('target_path') for other in new_required)]
+            if old_required or new_required:
+                candidate['removed_knowledge'] = removed_knowledge
             candidate_digest = digest(canonical(candidate))
             approval = data.get('approval')
             row, existing_presentation = presentation(store.connection, revision['id'])
@@ -301,7 +316,7 @@ def revise(root, payload):
                 text(approval.get('source'), 'approval source'); text(approval.get('text'), 'approval text')
             claim_resources(store, run_id, operation_id, generation, change, [], 'project_records')
             gate_identity(store, request, run_id)
-            needs_scope_approval = bool(removed['scope'] or removed['acceptance'] or rewritten or removed_spec or removed_analysis)
+            needs_scope_approval = bool(removed['scope'] or removed['acceptance'] or rewritten or removed_spec or removed_analysis or removed_knowledge)
             if needs_scope_approval and approval is None and not same_document:
                 with store.transaction() as connection:
                     store.artifact(None, 'revision_candidate', canonical(candidate), run_id, proposal['presentation']['source'])

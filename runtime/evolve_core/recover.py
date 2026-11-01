@@ -125,7 +125,7 @@ def recover_metadata(store, request, original, operation, check_observations):
             events = store.connection.execute("SELECT payload_json FROM events WHERE run_id=? AND kind='revision_committed'", (original['id'],)).fetchall()
             if not any(json.loads(row[0]).get('revision_id') == saved.get('revision_id') for row in events):
                 raise EvolveError('RECOVERY_INVALID', 'Committed revision has no matching saved event', exit_code=4)
-        elif original['action'] == 'sync' or (original['action'], original['method']) in (('init', 'baseline.propose'), ('learn', 'promote')):
+        elif original['action'] == 'sync' or (original['action'], original['method']) in (('init', 'baseline.propose'), ('init', 'survey'), ('init', 'complete'), ('learn', 'promote')):
             if not any(json.loads(row[0]).get('result_digest') == digest(canonical(saved)) for row in store.connection.execute(
                     "SELECT payload_json FROM events WHERE run_id=? AND kind='knowledge_metadata_committed'", (original['id'],))):
                 raise EvolveError('RECOVERY_INVALID', 'Committed knowledge metadata has no matching saved event', exit_code=4)
@@ -187,7 +187,7 @@ def recover(root, payload):
             else:
                 candidates = store.connection.execute('SELECT o.* FROM operations o JOIN phase_runs r ON r.id=o.run_id '
                                                       "WHERE r.status='started' AND (r.action IN ('apply','verify','archive','update','sync') OR (r.action='learn' AND r.method='promote') OR "
-                                                      "(r.action='init' AND r.method IN ('baseline.apply','baseline.propose','connect')) OR (r.action='maintain' AND r.method='cancel'))").fetchall()
+                                                      "(r.action='init' AND r.method IN ('baseline.apply','baseline.propose','connect','survey','complete')) OR (r.action='maintain' AND r.method='cancel'))").fetchall()
                 no_operations = store.connection.execute("SELECT r.* FROM phase_runs r LEFT JOIN operations o ON o.run_id=r.id "
                                                         "WHERE r.status='started' AND o.id IS NULL AND (r.action IN ('apply','propose','verify','archive','init','analyze','learn','update','sync') OR (r.action='maintain' AND r.method IN ('export','cancel')))").fetchall()
                 run_target = request['input'].get('run_id')
@@ -210,7 +210,7 @@ def recover(root, payload):
             baseline = original['action'] == 'init' and original['method'] == 'baseline.apply' and operation['effect_kind'] == 'knowledge' and not typed_initial
             configured = original['action'] == 'init' and original['method'] == 'connect' and operation['effect_kind'] == 'config'
             formal = ((original['action'] == 'sync' and original['method'] == 'apply') or typed_initial or (original['action'], original['method']) == ('learn', 'promote')) and operation['effect_kind'] == 'knowledge'
-            metadata = (original['action'], original['method']) in (('verify', 'run'), ('verify', 'knowledge'), ('archive', 'close'), ('update', 'revise'), ('sync', 'propose'), ('sync', 'check'), ('sync', 'review'), ('init', 'baseline.propose'), ('learn', 'promote'), ('maintain', 'cancel'), ('apply', 'external.execute'), ('apply', 'external.compensate')) and operation['effect_kind'] == 'project_records'
+            metadata = (original['action'], original['method']) in (('verify', 'run'), ('verify', 'knowledge'), ('archive', 'close'), ('update', 'revise'), ('sync', 'propose'), ('sync', 'check'), ('sync', 'review'), ('sync', 'assess'), ('init', 'baseline.propose'), ('init', 'survey'), ('init', 'complete'), ('learn', 'promote'), ('maintain', 'cancel'), ('apply', 'external.execute'), ('apply', 'external.compensate')) and operation['effect_kind'] == 'project_records'
             if not business and not baseline and not configured and not metadata and not formal:
                 raise EvolveError('RECOVERY_TARGET', 'This recovery path does not support the selected operation')
             original_request = json.loads(original['input_json'])['request']

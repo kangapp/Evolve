@@ -9,6 +9,8 @@ description: 定位 Evolve 项目工作项、只读状态、下一步与跨会�
 
 定位后先读取正式知识，再由 evolve-learn 检索少量相关经验；经验仍需核对版本、范围和实际效果，不充当原授权。单独 resume／next 查询不登记采用。
 
+完整接入交 evolve-init 执行[项目知识交付](../../shared/project-knowledge.md)。新工作或续接读取 project.md 与 status.project.knowledge 的当前主题和替代关系，核对相关来源适用性；记录设施已连接不等于知识初始化完成。
+
 新工作分派或续接后准备实施时，按[按缺口梳理项目](../../shared/context.md)选择并说明深度、范围与停止条件；纯状态查询直接返回实际记录。
 
 复杂工作按[复杂规格与任务](../../shared/structured-plans.md)恢复逐项结果和条件；完整实施验证授权内，依序交 owner 推进就绪项、必要任务验收及最终整体验收。只请求单阶段则保持边界，没有可推进条件时说明实际阻碍。

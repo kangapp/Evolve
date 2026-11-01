@@ -1,5 +1,7 @@
 # 正式知识候选与审阅
 
+分类正文的 document、来源、初次映射／主题迁入、知识影响收尾和受限事实路径，读取[项目知识交付](project-knowledge.md)；内容、图文与四类必需判据读取[文档约定](knowledge-documents.md)。这些字段补充下述候选版本与应用流程，不替代实际批准或验收。
+
 当前版本提供 init.baseline.propose／apply 的结构化初次文档路径，复用 sync.check／review 的具体内容观察与逐项决定；sync.propose／apply 负责后续修订，verify 负责实际目标验收。候选通过、批准、实际应用及应用后验收分别保存。Learn 规则候选／应用由 learn.promote 的明确阶段负责，经验来源、反例或依据变化时先读[规则交付](knowledge-rules.md)。三者共用文件协议及[同文件批准差异](knowledge-patches.md)；外部正式版本或旧待审内容被替代时，读取[采纳与后继约定](knowledge-adoption.md)，保留现场与历史决定。
 
 ## 保存具体候选

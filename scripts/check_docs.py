@@ -51,6 +51,7 @@ def check(root):
     paths = set(root.glob('*.md'))
     for pattern in ('docs/**/*.md', 'shared/**/*.md', 'skills/**/SKILL.md', 'tests/fixtures/README.md'):
         paths.update(root.glob(pattern))
+    paths = {path for path in paths if path.relative_to(root).parts[:2] != ('docs', 'spec')}
     errors, texts = [], {}
     for path in sorted(paths):
         name = path.relative_to(root).as_posix()

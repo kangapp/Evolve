@@ -100,6 +100,10 @@ def propose(root, payload):
                                   'responsible_action': owner, 'required_deliverables': data['scope']}
                     from .external_work import definition_fields
                     definition.update(definition_fields(root, data))
+                    from .knowledge_impact import freeze as freeze_knowledge_impact
+                    knowledge_impact = freeze_knowledge_impact(connection, root, data, data['scope'])
+                    if knowledge_impact is not None:
+                        definition['knowledge_impact'] = knowledge_impact
                     definition['spec_delta'] = 'none' if owner == 'apply' else 'owner_candidate_required'
                     if analysis_basis:
                         definition['analysis_basis'] = data['analysis_basis']

@@ -42,6 +42,8 @@ def propose_baseline(root, payload):
             if previous is not None:
                 return previous
             try:
+                if store.one("SELECT id FROM events WHERE kind IN ('knowledge_survey_recorded','knowledge_document_applied') LIMIT 1"):
+                    raise EvolveError('KNOWLEDGE_DOCUMENT', 'Managed projects require a typed initial candidate')
                 if current_digest(path) != data['expected_digest']:
                     raise EvolveError('FILE_CONFLICT', 'Baseline target changed before proposal registration', exit_code=3)
                 if store.one("SELECT id FROM artifacts WHERE path=? AND kind='knowledge'", (data['path'],)):
@@ -85,6 +87,8 @@ def apply_baseline(root, payload):
                 return previous
             data = request['input']
             proposal = store.one('SELECT * FROM knowledge_proposals WHERE id=?', (data.get('proposal_id'),))
+            if store.one("SELECT id FROM events WHERE kind IN ('knowledge_survey_recorded','knowledge_document_applied') LIMIT 1"):
+                raise EvolveError('KNOWLEDGE_DOCUMENT', 'Managed projects cannot apply untyped legacy baselines')
             if not proposal or proposal['owner_skill'] != 'evolve-init' or proposal['target_kind'] != 'baseline':
                 raise EvolveError('KNOWLEDGE_OWNER', 'Only init-owned initial baseline proposals can use this path')
             from .knowledge_proposals import metadata

@@ -45,7 +45,7 @@ def bound_proposal(store, value):
 
 def source_facts(connection, run_id):
     row = connection.execute('SELECT * FROM phase_runs WHERE id=?', (run_id,)).fetchone()
-    if not row or (row['action'], row['method']) not in (('sync', 'propose'), ('sync', 'check'), ('sync', 'review'), ('init', 'baseline.propose'), ('learn', 'promote')) or row['status'] == 'started':
+    if not row or (row['action'], row['method']) not in (('sync', 'propose'), ('sync', 'check'), ('sync', 'review'), ('sync', 'assess'), ('init', 'baseline.propose'), ('init', 'survey'), ('init', 'complete'), ('learn', 'promote')) or row['status'] == 'started':
         return None
     _, request, result = sealed_result(connection, {'run_id': run_id, 'result_digest': row['result_digest']})
     meta = dict(connection.execute('SELECT key,value FROM project_meta'))
@@ -171,6 +171,14 @@ def _propose(store, data, run_id, *, owner='evolve-archive'):
             or any(not isinstance(c.get('key'), str) or not c['key'].strip() or not isinstance(c.get('text'), str) or not c['text'].strip() for c in criteria)
             or len({c['key'] for c in criteria}) != len(criteria)):
         raise EvolveError('INPUT', 'Content criteria require distinct local keys and actual reviewable text')
+    from .project_knowledge import document_definition
+    document = document_definition(store, data, owner)
+    fact_update = None
+    if data.get('fact_update') is not None:
+        if owner != 'evolve-archive':
+            raise EvolveError('KNOWLEDGE_FACTS', 'Facts maintain only an existing navigation baseline')
+        from .knowledge_facts import validate_candidate
+        fact_update = validate_candidate(store, data)
     from .formal import delivery_definition, implementation_basis
     delivery = delivery_definition(store, data, owner=OWNER_METHODS[owner][4])
     basis = implementation_basis(store, data, data['path'])
@@ -217,7 +225,7 @@ def _propose(store, data, run_id, *, owner='evolve-archive'):
         if (previous['candidate_digest'] == digest(data['content'].encode()) and previous['expected_digest'] == data['expected_digest']
                 and old['acceptance'] == criteria and old.get('delivery') == delivery and old.get('implementation_basis') == basis
                 and old.get('edits') == edits and old.get('dependencies', []) == dependencies
-                and old.get('adoption') == adoption
+                and old.get('adoption') == adoption and old.get('document') == document and old.get('fact_update') == fact_update
                 and all(old.get(k) == v for k, v in rule.items())):
             store.event(run_id, 'knowledge_candidate_context_added', {'proposal_id': previous['id'], 'reason': data['reason'], 'source': presentation['source']})
             return {'outcome': 'proposal_already_present', **reference(previous), 'path': data['path'], 'applied': False}
@@ -242,7 +250,7 @@ def _propose(store, data, run_id, *, owner='evolve-archive'):
              'formal_version_id': formal['current_version'] if formal else None, 'presentation': presentation,
              'supersedes': previous['id'] if previous else None, 'reconsideration': reconsideration,
              'delivery': delivery, 'delta_id': delta_id, 'implementation_basis': basis, 'edits': edits, 'dependencies': dependencies,
-             'adoption': adoption, **rule}
+             'adoption': adoption, 'document': document, 'fact_update': fact_update, **rule}
     version = previous['version'] + 1 if previous else 1
     if previous and previous['applied_operation_id'] is None:
         store.connection.execute("UPDATE knowledge_proposals SET state='superseded' WHERE id=?", (previous['id'],))
@@ -262,6 +270,14 @@ def _check(store, data, run_id):
     proposal = bound_proposal(store, data.get('proposal'))
     batch = batch_references(store, data, [reference(proposal)])
     require_current(store, proposal, batch)
+    if metadata(proposal).get('document'):
+        from .project_knowledge import document_errors
+        alternatives = {row['target_path']: store.one('SELECT content FROM blobs WHERE digest=?', (row['candidate_digest'],))[0].decode()
+                        for row in store.connection.execute('SELECT * FROM knowledge_proposals') if row['id'] in batch}
+        content = store.one('SELECT content FROM blobs WHERE digest=?', (proposal['candidate_digest'],))[0].decode()
+        errors = document_errors(store.root, proposal['target_path'], content, alternatives=alternatives)
+        if errors:
+            raise EvolveError('KNOWLEDGE_STRUCTURE', '; '.join(errors))
     criteria = metadata(proposal)['acceptance']; observations = data.get('observations')
     if (not isinstance(observations, list) or any(not isinstance(o, dict) or not isinstance(o.get('criterion_key'), str) for o in observations)
             or len(observations) != len(criteria) or {o.get('criterion_key') for o in observations} != {c['key'] for c in criteria}):
@@ -297,7 +313,7 @@ def batch_references(store, data, defaults):
     return ids
 
 
-def _review(store, data, run_id):
+def _review(store, data, run_id, request=None):
     decisions = data.get('decisions')
     if not isinstance(decisions, list) or not decisions or any(not isinstance(d, dict) for d in decisions):
         raise EvolveError('KNOWLEDGE_REVIEW', 'Review an explicit nonempty list of candidate decisions')
@@ -319,11 +335,15 @@ def _review(store, data, run_id):
             raise EvolveError('KNOWLEDGE_PENDING', 'Candidate source is not safely finalized', exit_code=4)
         check = latest_check(store.connection, proposal)
         if selected == 'approved':
+            if metadata(proposal).get('fact_update'):
+                from .knowledge_facts import authority
+                authority(store, proposal, request)
             require_current(store, proposal, batch)
             if not check or check['source_pending'] or check['recorded_status'] != 'passed':
                 raise EvolveError('KNOWLEDGE_CHECK', 'Approval requires the latest safely finalized matching candidate content check', exit_code=3)
         event_id = store.event(run_id, 'knowledge_reviewed', {'proposal': reference(proposal), 'decision': selected,
-            'source': decision['source'], 'text': decision['text'], 'reason': decision['reason'], 'candidate_check': check})
+            'source': decision['source'], 'text': decision['text'], 'reason': decision['reason'], 'candidate_check': check,
+            'authority': 'scoped_facts' if metadata(proposal).get('fact_update') else 'specific_decision'})
         store.connection.execute('UPDATE knowledge_proposals SET state=?,approved_event_id=? WHERE id=?',
             (selected, event_id if selected == 'approved' else proposal['approved_event_id'], proposal['id']))
         results.append({**reference(proposal), 'state': selected, 'decision_event_id': event_id, 'applied': False})
@@ -341,7 +361,8 @@ def check_candidate(root, payload):
 
 
 def review_candidates(root, payload):
-    return _record(root, payload, 'review', _review)
+    request = normalize(payload)
+    return _record(root, request, 'review', lambda store, data, run: _review(store, data, run, request))
 
 
 def proposal_views(connection, root, target=None):

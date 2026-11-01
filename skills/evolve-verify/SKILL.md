@@ -9,6 +9,8 @@ description: 验收 Evolve 工作成果，执行相关检查、回归和规格�
 
 验收正式文档时，读取[正式知识的目标验收](../../shared/knowledge-candidates.md)，核对实际应用版本和当前字节，保存新的 applied 观察；候选检查或批准不能代替目标验收。修订交对应 init／sync／learn owner。
 
+分类知识验收同时读[文档检查](../../shared/knowledge-documents.md#增量维护和检查)，观察 structure／sources／consistency／usefulness 及实际业务判据；有图时保存真实渲染与图文核对，源结构通过不冒充渲染通过。实现与规格冲突时保留冲突，不修改要求换取通过。
+
 首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目，再执行只读 status。当前版本的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-verify`，动作必须属于本 Skill。用户不需要填写内部编号。
 
 验收 external_write 任务前读[数据操作](../../shared/external-work.md)，明确只读目标授权，实际检查当前数据；操作成功不充当业务验收。

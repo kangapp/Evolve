@@ -29,6 +29,8 @@ def document(data):
     result = {key: data.get(key) for key in DOCUMENT_FIELDS}
     if data.get('analysis_basis') is not None:
         result['analysis_basis'] = data['analysis_basis']
+    if data.get('knowledge_impact') is not None:
+        result['knowledge_impact'] = data['knowledge_impact']
     return result
 
 
@@ -205,6 +207,12 @@ def definitions(root, data, order, configured, acceptance, *, connection=None, c
             'preservation_checks': source.get('preservation_checks', []), 'preservation_inputs': source.get('preservation_inputs', [])})
         from .external_work import definition_fields
         definition.update(definition_fields(root, source))
+        if connection is not None:
+            from .knowledge_impact import freeze as freeze_knowledge_impact
+            impact_source = source if 'knowledge_impact' in source else data
+            knowledge_impact = freeze_knowledge_impact(connection, root, impact_source, source['scope'])
+            if knowledge_impact is not None:
+                definition['knowledge_impact'] = knowledge_impact
         if source.get('external_dependencies'):
             from .cross_dependencies import freeze, input_paths
             definition['external_dependencies'] = freeze(connection, source['external_dependencies'], change_id)

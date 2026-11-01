@@ -97,6 +97,11 @@ def approval_fact(store, proposal, approval_id):
     check = latest_check(store.connection, proposal)
     if not check or check['source_pending'] or check['recorded_status'] != 'passed':
         raise EvolveError('KNOWLEDGE_CHECK', 'Application requires the latest matching content check to pass', exit_code=3)
+    if metadata(proposal).get('fact_update'):
+        from .knowledge_facts import authority
+        row = store.one('SELECT * FROM phase_runs WHERE id=?', (event['run_id'],))
+        _, source_request, _ = sealed_result(store.connection, {'run_id': row['id'], 'result_digest': row['result_digest']})
+        authority(store, proposal, source_request)
     return event, check
 
 
@@ -267,6 +272,8 @@ def _commit_application(store, original_run, event_run, operation_id, proposal, 
     store.connection.execute("UPDATE operations SET state='committed',result_json=? WHERE id=?", (canonical(result).decode(), operation_id))
     store.connection.execute('DELETE FROM resource_claims WHERE operation_id=?', (operation_id,))
     store.event(event_run, 'formal_application_committed', {'operation_id': operation_id, 'result_digest': digest(canonical(result))})
+    if metadata(proposal).get('document'):
+        store.event(event_run, 'knowledge_document_applied', {'application_id': application_id, 'path': proposal['target_path']})
     return result
 
 
@@ -293,6 +300,9 @@ def apply_knowledge(root, payload, *, owner='evolve-archive'):
             if source_facts(store.connection, proposal['created_run_id']) is None:
                 raise EvolveError('KNOWLEDGE_PENDING', 'Candidate needs safe finalization', exit_code=4)
             approval, check = approval_fact(store, proposal, request['input'].get('approved_event_id'))
+            if metadata(proposal).get('fact_update'):
+                from .knowledge_facts import authority
+                authority(store, proposal, request)
             if proposal['target_path'] not in request['authorization'].get('paths', []):
                 raise EvolveError('AUTHORIZATION', 'Formal target is outside explicit knowledge authorization')
             context = _context(store, request, proposal)
@@ -306,6 +316,8 @@ def apply_knowledge(root, payload, *, owner='evolve-archive'):
             if current_digest(path) != effect['base_digest']:
                 raise EvolveError('FILE_CONFLICT', 'Approved formal baseline changed; do not overwrite the current meaning', exit_code=3)
             dependency_gate(store.connection, root, proposal)
+            from .project_knowledge import require_document_current
+            require_document_current(store, proposal)
             if context:
                 # Reject a candidate that breaks its own upstream meaning before
                 # claiming resources or preparing a recoverable file operation.
@@ -320,6 +332,7 @@ def apply_knowledge(root, payload, *, owner='evolve-archive'):
                 approval_fact(store, store.one('SELECT * FROM knowledge_proposals WHERE id=?', (proposal['id'],)), approval['id'])
                 implementation_basis(store, metadata(proposal), proposal['target_path'])
                 require_rule_basis(store.connection, proposal)
+                require_document_current(store, proposal)
                 current = resolve_effect(store.connection, root, proposal)
                 if any(current[k] != effect[k] for k in current) or current_digest(path) not in (effect['base_digest'], effect['result_digest']):
                     raise EvolveError('KNOWLEDGE_CHAIN', 'Prepared approved effect or actual target changed during application', exit_code=3)
@@ -394,6 +407,11 @@ def verify_knowledge(root, payload):
                 implementation_basis(store, metadata(proposal), proposal['target_path'])
                 from .rules import require_rule_basis
                 require_rule_basis(store.connection, proposal)
+                if metadata(proposal).get('document') and content is not None:
+                    from .project_knowledge import document_errors
+                    errors = document_errors(root, proposal['target_path'], content.decode())
+                    if errors:
+                        raise EvolveError('KNOWLEDGE_STRUCTURE', '; '.join(errors))
             except EvolveError as error:
                 basis_error = {'code': error.code, 'message': str(error)}
             status = ('blocked' if changed or basis_error or any(o['status'] == 'blocked' for o in observations)
@@ -489,13 +507,16 @@ def recover_application(store, request, original, operation):
             from .cross_dependencies import guard
             guard(store.connection, store.root, original['id'], context[0]['id'], source['input'])
         for event in store.connection.execute("SELECT payload_json FROM events WHERE kind='authorization_revoked'"):
-            if json.loads(event[0]).get('request_id') == original['request_id']:
+            if json.loads(event[0]).get('request_id') in {original['request_id'], source.get('authorization_parent_request_id', original['request_id'])}:
                 raise EvolveError('AUTHORIZATION', 'Original formal write authorization was revoked', exit_code=3)
         approval_fact(store, store.one('SELECT * FROM knowledge_proposals WHERE id=?', (proposal['id'],)), approval['id'])
         implementation_basis(store, metadata(proposal), proposal['target_path'])
         from .rules import require_rule_basis
         require_rule_basis(store.connection, proposal)
         dependency_gate(store.connection, store.root, proposal)
+        if not existing:
+            from .project_knowledge import require_document_current
+            require_document_current(store, proposal)
     gate_identity(store, request, run_id)
     install_files(store.root, journal, before_write=recovery_gate)
     gate_identity(store, request, run_id)

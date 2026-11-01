@@ -7,6 +7,8 @@ description: 为 Evolve 工作形成短方案或复杂 spec、修订方案，或
 
 形成方案或调查前，按[按缺口梳理项目](../../shared/context.md)说明选择的深度、理由、范围、未知与停止条件；已有可信背景可复用，复杂度不决定梳理深度。
 
+已登记项目知识的方案，按[知识影响](../../shared/project-knowledge.md#方案中的知识影响)声明 knowledge_impact，区分必需更新、附带建议与保持不变；核对关联来源之外的业务含义影响。旧主题的修订迁入 evolve/ 并登记替代范围，必要文档纳入实际交付及 owner Task。
+
 保存复杂 spec／任务清单或修订既有方案时，先读[复杂规格与任务](../../shared/structured-plans.md)，整体呈现后保存完整文档；必要预重构保留前后判据及只读输入。修订先读该文档的[REV 分支](../../shared/structured-plans.md#revision)，呈现具体变化，再按实际确认登记接受。
 
 正式文档是必需成果时，读取[正式知识交付](../../shared/knowledge-candidates.md)，在方案／Task 声明负责的 init（初次）／sync（规格修订）／learn（规则）动作及实际文档 AC；正式文件经具体批准后由 owner 应用，不安排普通 apply 抢写。

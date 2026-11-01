@@ -171,15 +171,20 @@ def execute_request(args, method):
     from .maintenance import backup, restore, upgrade
     from .external import execute as external_execute, reconcile as external_reconcile
     from .external_actions import record as external_record, compensate as external_compensate
+    from .project_knowledge import survey as knowledge_survey, complete as knowledge_complete
+    from .knowledge_facts import maintain as maintain_facts
+    from .knowledge_impact import assess as assess_knowledge
     handlers = {('apply', 'external.execute'): external_execute, ('apply', 'external.reconcile'): external_reconcile,
                 ('apply', 'external.record'): external_record, ('apply', 'external.compensate'): external_compensate,
-                ('init', 'connect'): connect, ('init', 'baseline.propose'): propose_baseline,
+                ('init', 'connect'): connect, ('init', 'survey'): knowledge_survey, ('init', 'complete'): knowledge_complete,
+                ('init', 'baseline.propose'): propose_baseline,
                 ('init', 'baseline.apply'): apply_baseline, ('propose', 'create'): propose,
                 ('apply', 'implement'): implement, ('verify', 'run'): verify,
                 ('archive', 'close'): archive, ('maintain', 'recover'): recover,
                 ('analyze', 'investigate'): investigate, ('update', 'revise'): revise,
                 ('sync', 'propose'): propose_knowledge, ('sync', 'check'): check_candidate, ('sync', 'review'): review_candidates,
-                ('sync', 'apply'): apply_knowledge, ('verify', 'knowledge'): verify_knowledge,
+                ('sync', 'apply'): apply_knowledge, ('sync', 'facts'): maintain_facts, ('sync', 'assess'): assess_knowledge,
+                ('verify', 'knowledge'): verify_knowledge,
                 ('maintain', 'export'): export_analysis, ('maintain', 'cancel'): cancel_change, ('maintain', 'backup'): backup,
                 ('maintain', 'restore'): restore, ('maintain', 'upgrade'): upgrade}
     result = (learn(root, request, method=method) if args.action == 'learn' else handlers[(args.action, method)](root, request))
@@ -222,6 +227,11 @@ def dispatch(args):
         raise EvolveError("DUPLICATE_INSTALLATION", "Same-name standalone skills need source verification: "
                           + ", ".join(sorted(duplicates)), exit_code=3,
                           next_steps=["Choose one installation channel; preserve existing files until verified"])
+    if (action, method) == ('init', 'templates'):
+        if args.request:
+            raise EvolveError('INPUT', 'Template discovery is a pure query')
+        from .project_knowledge import templates
+        return templates(args.target)
     if (action, method) == ('learn', 'search'):
         if args.request:
             raise EvolveError('INPUT', 'Experience search is a pure query without mutation requests')

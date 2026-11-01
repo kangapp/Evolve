@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prove explicit 14/15→16 upgrade using the actual preserved old complete runtime."""
+"""Prove explicit 14/15/16→17 upgrade using the actual preserved old complete runtime."""
 import argparse
 import hashlib
 import json
@@ -15,7 +15,7 @@ def run(old, new, output):
     project.mkdir()
     commands = []
     auth = {'source': 'actual-uniform-human-authorization-controlled-compatibility-plan',
-            'text': 'In this temporary project only, compare actual preserved protocol14 and current15, explicitly upgrade the archive; preserve all current bytes on incompatible requests.',
+            'text': 'In this temporary project only, compare the actual preserved old package and current protocol17, explicitly upgrade the archive; preserve all current bytes on incompatible requests.',
             'effect_kinds': ['project_records']}
     def call(package, action, method=None, request=None, *, ok=True):
         argv = [sys.executable, '-B', str(package / 'runtime/evolve.py'), '--project', str(project), action]

@@ -74,9 +74,9 @@ def inventory(root):
 def scope_for(package):
     from evolve_core.package import check_package, canonical
     manifest = check_package(package)
-    assert (manifest['protocol_version'], manifest['schema_version']) == (16, 4)
+    assert (manifest['protocol_version'], manifest['schema_version']) == (17, 4)
     body = {'slice': 'IMP-013', 'host': 'codex', 'package_version': manifest['package_version'],
-        'content_digest': manifest['content_digest'], 'protocol_version': 16, 'schema_version': 4,
+        'content_digest': manifest['content_digest'], 'protocol_version': manifest['protocol_version'], 'schema_version': 4,
         'first_files': FILES, 'business_write_paths': [], 'readonly_paths': list(FILES),
         'external_write_target': TARGET, 'external_transitions': ['10→20', '20→30 with lost receipt', '30→20 compensation with lost receipt'],
         'parent_initial_database': 'Actual new SQLite business.db identity/ledger(1,10)/empty operation_receipts; no Evolve initialization.',

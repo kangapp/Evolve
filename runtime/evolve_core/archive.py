@@ -64,6 +64,8 @@ def archive(root, payload):
                 raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed at completion cutoff', exit_code=3)
             from .external_work import archive_basis
             archive_basis(store.connection, root, change, revision, task, definition, latest)
+            from .knowledge_impact import closure_gate as knowledge_closure_gate
+            knowledge_closure_gate(store.connection, root, change, revision)
             with store.transaction() as connection:
                 connection.execute("UPDATE changes SET state='archived',row_version=row_version+1 WHERE id=?", (change['id'],))
                 store.link_source(run_id, latest['source_run_id'], source['result_digest'], 'completion_basis')

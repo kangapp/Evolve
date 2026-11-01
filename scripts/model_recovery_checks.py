@@ -40,7 +40,7 @@ PROMPTS = {
 def scope_for(package):
     from evolve_core.package import check_package, canonical
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 15), (4, 16)):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 15), (4, 16), (4, 17)):
         raise ValueError('Recovery acceptance requires the actual complete schema4/protocol15-or-16 package')
     names = ['scripts/model_recovery_acceptance.py', 'scripts/model_recovery_checks.py',
              'scripts/model_data_acceptance.py', 'scripts/model_acceptance.py', 'scripts/verify_hosts.py']
