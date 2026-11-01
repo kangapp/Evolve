@@ -170,7 +170,7 @@ except EvolveError as error:
 
     def test_complete_old_alpha15_writer_rejects_protocol13_without_database_write(self):
         old = self.f.root / '.evolve-local/old-alpha15'
-        with zipfile.ZipFile(ROOT / 'docs/evidence/imp008/runtime-package-alpha15.zip') as archive:
+        with zipfile.ZipFile(ROOT / 'tests/fixtures/runtime-package-alpha15.zip') as archive:
             archive.extractall(old)
         database = self.f.root / 'evolve/history.db'
         before = database.read_bytes()

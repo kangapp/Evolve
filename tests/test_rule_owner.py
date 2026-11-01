@@ -260,7 +260,7 @@ learn(sys.argv[2],json.load(sys.stdin),method='promote')
 
     def test_preserved_alpha10_writer_rejects_rule_protocol_without_mutation(self):
         package=self.root/'old-alpha10'
-        with zipfile.ZipFile(formal_fixture.ROOT/'docs/evidence/imp007/initial-owner-package-alpha10.zip') as z:z.extractall(package)
+        with zipfile.ZipFile(formal_fixture.ROOT/'tests/fixtures/initial-owner-package-alpha10.zip') as z:z.extractall(package)
         before=(self.root/'evolve/history.db').read_bytes()
         p=subprocess.run([sys.executable,'-B',str(package/'package/runtime/evolve.py'),'--project',str(self.root),'init','--request','-'],
             input=json.dumps({'authorization':self.f.auth,'input':{}}),text=True,capture_output=True,timeout=15)

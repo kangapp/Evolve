@@ -212,7 +212,7 @@ propose_knowledge(sys.argv[2],json.load(sys.stdin))
 
     def test_actual_old_writer_refuses_new_document_protocol_before_formal_application(self):
         item=self.propose();old=self.root/'old-complete-package'
-        with zipfile.ZipFile(ROOT/'docs/evidence/imp006/revision-package-alpha6.zip') as archive: archive.extractall(old)
+        with zipfile.ZipFile(ROOT/'tests/fixtures/revision-package-alpha6.zip') as archive: archive.extractall(old)
         result=subprocess.run([sys.executable,'-B',str(old/'package/runtime/evolve.py'),'--project',str(self.root),'init','--method','baseline.apply','--request','-'],
             input=json.dumps({'authorization':self.auth,'input':{'proposal_id':item['proposal_id']}}),text=True,capture_output=True,timeout=15)
         self.assertEqual(json.loads(result.stdout)['error']['code'],'SCHEMA_VERSION')

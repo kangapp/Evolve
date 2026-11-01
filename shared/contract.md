@@ -16,4 +16,4 @@ status／doctor 不创建、修复或重建配置、数据库、索引、运行�
 
 正式知识从具体差异批准后应用；经验只作带来源的线索。正式环境写入需绑定环境、执行物和范围的具体授权，未知结果先核实。保留用户及其他工具的编辑，第三种内容停止覆盖。凭证不入档。部署、跨项目经验库、自动提交／发布不在范围。
 
-当前0.1.0的开放能力按真实status调用；正式文档见[知识候选](knowledge-candidates.md)，规则来源与反例见[规则约定](knowledge-rules.md)，外部正式版本见[采纳约定](knowledge-adoption.md)，SQL／数据底稿见[数据工作](data-work.md)，多项协调见[多工作项](multiple-work.md)，经验转检查见[学习循环](learning-cycle.md)，实际数据操作见[数据操作](external-work.md)。准备请求、重试或处理检查结果时读[工具请求协议](protocol.md)，完整档案维护按[恢复协议](recovery.md)。版本与范围见[兼容说明](../docs/compatibility.md)，不从Skill发现或命令退出码推断业务通过。
+当前完整包的开放能力按实际status调用；正式文档见[知识候选](knowledge-candidates.md)，规则来源与反例见[规则约定](knowledge-rules.md)，外部正式版本见[采纳约定](knowledge-adoption.md)，SQL／数据底稿见[数据工作](data-work.md)，多项协调见[多工作项](multiple-work.md)，经验转检查见[学习循环](learning-cycle.md)，实际数据操作见[数据操作](external-work.md)。准备请求、重试或处理检查结果时读[工具请求协议](protocol.md)，完整档案维护按[恢复协议](recovery.md)。版本与范围见[兼容说明](../docs/compatibility.md)，不从Skill发现或命令退出码推断业务通过。

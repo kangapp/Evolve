@@ -264,7 +264,7 @@ exporting.export_analysis(sys.argv[2],json.loads(sys.argv[3]))
     def test_actual_alpha14_writer_cannot_change_new_protocol_data_history(self):
         self.saved()
         package = self.root / '.evolve-local/old-alpha14'
-        with zipfile.ZipFile(ROOT / 'docs/evidence/imp006/runtime-package-alpha14.zip') as archive:
+        with zipfile.ZipFile(ROOT / 'tests/fixtures/runtime-package-alpha14.zip') as archive:
             archive.extractall(package)
         candidates = list(package.rglob('runtime/evolve.py'))
         self.assertEqual(len(candidates), 1)

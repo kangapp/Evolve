@@ -1,8 +1,0 @@
-{
-  "model_requests_sent": false,
-  "basis": "Reobserve completed native fifth-session fixture with actual parent checks; no business or record write",
-  "failure": {
-    "type": "AttributeError",
-    "message": "'NoneType' object has no attribute 'get'"
-  }
-}

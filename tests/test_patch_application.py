@@ -240,7 +240,7 @@ formal.apply_knowledge(sys.argv[2],json.load(sys.stdin))
 
     def test_preserved_alpha8_writer_refuses_patch_dependency_protocol_without_writes(self):
         package = self.root / 'old-package'
-        with zipfile.ZipFile(formal_fixture.ROOT / 'docs/evidence/imp007/application-package-alpha8.zip') as a: a.extractall(package)
+        with zipfile.ZipFile(formal_fixture.ROOT / 'tests/fixtures/application-package-alpha8.zip') as a: a.extractall(package)
         before = (self.root / 'evolve/history.db').read_bytes()
         process = subprocess.run([sys.executable, '-B', str(package / 'package/runtime/evolve.py'), '--project', str(self.root), 'sync', '--method', 'apply', '--request', '-'],
             input=json.dumps({'authorization': self.f.auth, 'input': {}}), text=True, capture_output=True, timeout=15)

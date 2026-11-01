@@ -1,8 +1,0 @@
-test_actual_four_parent_boundaries_and_test_tampering_rejection_without_models (test_model_recovery_acceptance.RecoveryScopeTests.test_actual_four_parent_boundaries_and_test_tampering_rejection_without_models) ... ok
-test_missing_or_wrong_scope_stops_before_installation (test_model_recovery_acceptance.RecoveryScopeTests.test_missing_or_wrong_scope_stops_before_installation) ... ok
-test_scope_pins_four_sessions_exact_initial_documents_and_no_business_restore (test_model_recovery_acceptance.RecoveryScopeTests.test_scope_pins_four_sessions_exact_initial_documents_and_no_business_restore) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 1.265s
-
-OK

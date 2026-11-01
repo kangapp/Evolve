@@ -52,7 +52,7 @@ def main():
         'model_requests_sent': False, 'host_discovery': 'not_run', 'checks': {},
         'limitations': ['Runtime CLI fixtures only; no native host install or Skill discovery in this runner',
                         'Review inputs are controlled observations, not independent model judgments',
-                        'Only the observed platform is tested; this result alone does not complete V-137 or M1']}
+                        'This probe covers the observed runtime platform; native host discovery is checked separately']}
     logs = []
 
     def observe(name, value):

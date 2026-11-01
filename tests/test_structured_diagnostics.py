@@ -124,7 +124,7 @@ class StructuredDiagnosticTests(unittest.TestCase):
 
     def test_complete_alpha17_writer_cannot_ignore_protocol14_repair_semantics(self):
         old = self.root / '.evolve-local/old-alpha17'
-        source = Path(__file__).resolve().parents[1] / 'docs/evidence/imp009/runtime-package-alpha17.zip'
+        source = Path(__file__).resolve().parents[1] / 'tests/fixtures/runtime-package-alpha17.zip'
         with zipfile.ZipFile(source) as bundle:
             bundle.extractall(old)
         database = self.root / 'evolve/history.db'

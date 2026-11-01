@@ -1,80 +1,113 @@
-# 安装与项目启用
+# 安装与更新
 
-本指南对应完整包0.1.0。Python需要3.11+；无需安装Python依赖。当前实际宿主为Codex CLI 0.154.0、Claude Code 2.1.117，其他版本以本机帮助及实际能力为准。
+Evolve 支持 Codex 和 Claude Code，需要 Python 3.11+ 与 Git。运行时只使用 Python 标准库。
 
-## 获取并保留完整目录
+## 构建完整插件
 
-从源码工程根执行：
+选择两个尚不存在的目录，分别保存源码和实际安装包：
 
 ```bash
-python3 scripts/build_package.py --out /absolute/path/evolve-installed
+mkdir -p "$HOME/.local/share"
+git clone https://github.com/kangapp/Evolve.git "$HOME/.local/share/evolve-source"
+python3 "$HOME/.local/share/evolve-source/scripts/build_package.py" --out "$HOME/.local/share/evolve"
 ```
 
-替换为自己的绝对路径，目标目录须不存在。拿到完整运行包时，将整个目录放到稳定安装位置；不要只复制Skill。根目录包含两个宿主清单、八Skill、shared、runtime、模板和本版本指南，清单为evolve-package.json。
+可以替换为自己的路径。构建目标已存在时会停止并保留原目录；更新请使用新目录。
 
-下文使用 `/absolute/path/evolve-installed` 作为稳定安装根。它属于本地安装内容，注册后需要保留。原始下载副本可以移走。Claude本地目录市场会原位加载相对路径插件；`plugin list` 中的独立缓存不代表实际Skill从缓存运行。用宿主显示的Skill Base directory和doctor的package_root核对，不删除真实加载根。
+安装包包含八个 Skill、共享协议、Python 内核、模板、宿主清单和离线指南。保留整个安装目录：宿主可以从本地市场根直接加载资源，其缓存路径不一定是实际加载根。只读诊断中的 `package_root` 给出实际资源位置。
 
 ## Codex
 
 ```bash
-codex plugin marketplace add /absolute/path/evolve-installed
+codex plugin marketplace add "$HOME/.local/share/evolve"
 codex plugin add evolve@evolve-local
 codex plugin list
 ```
 
-本机 `plugin add` 会将用户配置中的插件设为enabled=true。安装后先将用户配置（默认 `~/.codex/config.toml`）中该插件的enabled改为false，再仅在目标项目的 `.codex/config.toml` 中设置：
+安装会在用户级启用插件。要限定在目标项目，将用户配置 `~/.codex/config.toml` 中该插件已有的 `enabled` 改为 `false`：
+
+```toml
+[plugins."evolve@evolve-local"]
+enabled = false
+```
+
+在目标项目的 `.codex/config.toml` 中添加或合并：
 
 ```toml
 [plugins."evolve@evolve-local"]
 enabled = true
 ```
 
-目标项目还需被宿主信任。不要覆盖其他配置。实际发现名称为 `evolve:evolve-workflow` 等八个Skill；按宿主显示名称使用，不依赖全局命令。自动化安装验收只使用临时隔离配置；它没有替你修改个人设置。
+保留其他配置，避免重复添加同名表。在 Codex 中打开并信任目标项目，开始新会话。应能发现 `evolve:evolve-workflow` 等八个 Skill。
 
 ## Claude Code
 
-从目标项目运行：
+在目标项目目录运行：
 
 ```bash
-claude plugin marketplace add /absolute/path/evolve-installed --scope project
+claude plugin marketplace add "$HOME/.local/share/evolve" --scope project
 claude plugin install evolve@evolve-local --scope project
 claude plugin list --json
 ```
 
-启用限定在当前项目。入口按插件命名空间展示，例如 `/evolve:evolve-workflow`。临时调试可用 `claude --plugin-dir /absolute/path/evolve-installed`，但临时加载不代替完整市场安装验证。
+按提示重启会话。入口带插件命名空间，例如 `/evolve:evolve-workflow`；也可以在对话中直接请求使用 Evolve。
 
-## 确认安装和首次接入
+## 第一次接入项目
 
-在目标项目向AI表达“使用Evolve只读查看当前状态”。也可以直接运行：
+先说“使用 Evolve 查看当前项目状态，暂不修改文件”。项目尚未接入时，状态为 `not_connected`。随后说：
 
-```bash
-python3 /absolute/path/evolve-installed/runtime/evolve.py --project /absolute/path/my-project status
+```text
+使用 Evolve 接入项目，识别主要模块和检查入口，保留已有文件。
 ```
 
-安装成功但项目尚未接入时应显示 `data.project.state=not_connected`（history 对应 `data.history.project.state`），不能因此自动建库。请AI按实际指令执行init，展示将建立的配置及检查入口；这只创建 `evolve/` 和 `.evolve-local/` 等记录设施，不批准项目知识或修改业务代码。已有项目应保留原身份和历史；身份冲突、缺资源或不兼容时先[排错](troubleshooting.md)。
+接入建立 `evolve/` 和 `.evolve-local/` 等工作资料并保存检查配置。配置检查时不会执行这些命令；初次正式知识会先展示具体正文供你确认。后续工作见[使用指南](usage.md)。
 
-## 更新、禁用和卸载
+也可以直接检查安装包能否运行：
 
-更新前让原执行安全结束，保留旧完整包和项目资料。未决文件日志、数据操作或检查先用原包核对。将完整新版放到稳定安装根，不逐文件混换；新会话用doctor核对真实根、版本和摘要。安装更新不迁移档案、不重放旧请求或扩大授权，支持路径见[兼容说明](compatibility.md)。
+```bash
+python3 "$HOME/.local/share/evolve/runtime/evolve.py" --project /absolute/path/my-project status
+```
 
-Codex当前没有plugin update子命令，使用本机支持的重新安装路径：
+将目标项目路径替换为自己的路径。未接入时，这条命令保持项目文件不变。
+
+## 更新
+
+先结束或核实正在执行的工作，保留旧完整包和项目资料。使用旧包处理未完成的文件日志或数据操作，再更新源码：
+
+```bash
+git -C "$HOME/.local/share/evolve-source" pull --ff-only
+python3 "$HOME/.local/share/evolve-source/scripts/build_package.py" --out "$HOME/.local/share/evolve-next"
+```
+
+`evolve-next` 应尚不存在。将旧安装目录保存在另一个位置，再将新完整目录放到原稳定路径；保持每个安装目录的版本一致。
+
+Codex 通过重新安装刷新插件：
 
 ```bash
 codex plugin remove evolve@evolve-local
 codex plugin add evolve@evolve-local
-codex plugin list
 ```
 
-重新add后，再按上文关闭用户级enabled，只在所需项目启用。临时禁用将项目enabled设为false，用户级维持false。卸载用remove；不删除目标项目的Evolve资料。
+重新安装后核对用户级 `enabled=false` 和项目级 `enabled=true`。
 
-Claude从目标项目更新：
+Claude Code 在目标项目更新：
 
 ```bash
 claude plugin marketplace update evolve-local
 claude plugin update evolve@evolve-local --scope project
 ```
 
-按宿主提示重启。禁用、重新启用和卸载：
+重启会话，核对诊断中的版本和实际资源根。插件更新与档案升级分别处理，支持路径见[兼容说明](compatibility.md)。
+
+## 禁用与卸载
+
+Codex 临时禁用时，将项目插件配置设为 `enabled=false`，用户级保持 `false`。卸载运行：
+
+```bash
+codex plugin remove evolve@evolve-local
+```
+
+Claude Code 从目标项目按需选择：
 
 ```bash
 claude plugin disable evolve@evolve-local --scope project
@@ -82,8 +115,4 @@ claude plugin enable evolve@evolve-local --scope project
 claude plugin uninstall evolve@evolve-local --scope project
 ```
 
-重装按首次install步骤；保留项目 `evolve/`、`.evolve-local/`、映射文档和业务文件，status应显示原身份／历史。禁用或卸载不证明旧进程或外部操作已停止；删除项目资料需要另一个明确请求。
-
-<!-- source-only -->
-实际安装、发现、目录移动、生命周期和模型执行的范围分别记录在[实施与验收](implementation.md)；宿主发现不冒充业务或模型通过。
-<!-- /source-only -->
+保留目标项目的 `evolve/`、`.evolve-local/`、业务文件和映射文档，重装后可读取原项目历史。禁用或卸载不会终止已经启动的业务进程；先核实进行中的操作。

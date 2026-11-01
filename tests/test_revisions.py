@@ -302,7 +302,7 @@ revise(sys.argv[2],json.load(sys.stdin))
         source = Path(__file__).resolve().parents[1]
         old = self.f.root.parent/(self.f.root.name+'-alpha5')
         self.addCleanup(lambda: __import__('shutil').rmtree(old,ignore_errors=True))
-        with zipfile.ZipFile(source/'docs/evidence/imp006/preservation-package-alpha5.zip') as archive:
+        with zipfile.ZipFile(source/'tests/fixtures/preservation-package-alpha5.zip') as archive:
             archive.extractall(old)
         before = (self.f.root/'evolve/history.db').read_bytes()
         result = subprocess.run([sys.executable,'-B',str(old/'package/runtime/evolve.py'),'--project',str(self.f.root),'apply','--request','-'],
@@ -315,7 +315,7 @@ revise(sys.argv[2],json.load(sys.stdin))
         source=Path(__file__).resolve().parents[1]
         old=self.f.root.parent/(self.f.root.name+'-alpha13')
         self.addCleanup(lambda: __import__('shutil').rmtree(old,ignore_errors=True))
-        with zipfile.ZipFile(source/'docs/evidence/imp006/context-package-alpha13.zip') as archive:
+        with zipfile.ZipFile(source/'tests/fixtures/context-package-alpha13.zip') as archive:
             archive.extractall(old)
         manifest=json.loads((old/'package/evolve-package.json').read_text())
         self.assertEqual((manifest['schema_version'],manifest['protocol_version']),(4,10))

@@ -53,4 +53,4 @@ status 全局给 knowledge_proposals 导航；按候选编号、UUID 或唯一�
 
 不涉及 Change 或需要单独复验实际文档时，用 verify.knowledge，input={application_id,observations}；observations 与候选判据键对应，但依据必须来自本次实际目标阅读。工具重新读取并留存实际字节及 artifact 关联，生成 subject_kind=applied 的新 VER。目标字节改变且缺少已批准的独立差异保留链时 blocked，保留旧 passed 及外部内容；有真实保留链仍需检查本次实际内容，不能沿用旧候选结论。该局部 VER 不替代整个 Change 验收，不运行代码测试或修改目标。
 
-应用中断用 maintain recover：核对原批准、原 journal 和已写事实；未写项只按原有效授权继续，已提交项不重复分配应用或完成 Task。第三种字节保留冲突，恢复不重跑内容检查。alpha.12 使用 protocol v10／schema v4，旧档案保留完整兼容包，不自动迁移或手改版本号。
+应用中断用 maintain recover：核对原批准、原 journal 和已写事实；未写项只按原有效授权继续，已提交项不重复分配应用或完成 Task。第三种字节保留冲突，恢复不重跑内容检查。旧档案使用匹配的完整包，按支持的显式升级路径处理。

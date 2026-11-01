@@ -1,8 +1,0 @@
-{
-  "source": "direct actual human reply in this chat",
-  "question_id": "call_07fd2ccaa8f9417d96af21fbf982a750",
-  "answer": "已恢复，可以运行 Claude",
-  "model": "MiniMax-M3.1-Flash",
-  "observed_at": "2026-10-31T22:51:03.990031+00:00",
-  "effect": "Removes last observed quota availability barrier for original same-scope authorized native batches; no model/account/permission expansion."
-}

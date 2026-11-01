@@ -1,7 +1,7 @@
 {
   "name": "evolve-local",
   "interface": {
-    "displayName": "Evolve local"
+    "displayName": "Evolve"
   },
   "plugins": [
     {

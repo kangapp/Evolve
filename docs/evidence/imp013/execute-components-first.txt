@@ -1,8 +1,0 @@
-test_actual_write_has_receipt_data_observation_and_no_duplicate_replay (test_external_execute.ExternalExecuteTests.test_actual_write_has_receipt_data_observation_and_no_duplicate_replay) ... ok
-test_lost_receipt_keeps_actual_effects_unknown_claimed_and_not_resent (test_external_execute.ExternalExecuteTests.test_lost_receipt_keeps_actual_effects_unknown_claimed_and_not_resent) ... ok
-test_wrong_actual_approval_and_indirect_changes_do_not_dispatch (test_external_execute.ExternalExecuteTests.test_wrong_actual_approval_and_indirect_changes_do_not_dispatch) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.225s
-
-OK

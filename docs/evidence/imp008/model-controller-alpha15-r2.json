@@ -1,7 +1,0 @@
-{
-  "path": "model-controller-alpha15-r2.zip",
-  "sha256": "65e85110396551d3e5f17fb655f940a7f9501065dfcb64312d71d073e3bb828d",
-  "scope_digest": "49ab709879c248c9d1125727fe2be0b1a6ad16f8cb046cead8d5c81931f820aa",
-  "same_runtime_package_digest": "6b5725c8202f5ac1f02d5b8b322efb83572f64d37d0645ddf9806468bda1534a",
-  "source_change": "Resolve frozen controller __file__ alias before relative_to; behavior scope unchanged; actual frozen preflight passed."
-}

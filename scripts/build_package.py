@@ -17,7 +17,7 @@ from evolve_core.package import AVAILABLE, canonical, digest, check_package
 STATIC = ['README.md', 'LICENSE', 'NOTICE.md', 'CHANGELOG.md',
           '.codex-plugin/plugin.json', '.claude-plugin/plugin.json',
           '.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json',
-          'docs/installation.md', 'docs/usage.md', 'docs/troubleshooting.md', 'docs/development.md', 'docs/compatibility.md', 'docs/project-layout.md']
+          'docs/installation.md', 'docs/usage.md', 'docs/troubleshooting.md', 'docs/development.md', 'docs/compatibility.md', 'docs/project-layout.md', 'docs/workflows.md', 'docs/architecture.md']
 
 
 def sources():
@@ -52,7 +52,7 @@ def inventory(contents):
     files = {name: digest(data) for name, data in sorted(contents.items())}
     return {'name': 'evolve', 'package_version': VERSION, 'design_baseline': DESIGN_BASELINE,
             'protocol_version': PROTOCOL_VERSION, 'schema_version': SCHEMA_VERSION,
-            'stage': 'IMP-014-local-private-first-version', 'python_requires': '>=3.11',
+            'stage': 'plugin', 'python_requires': '>=3.11',
             'available_methods': sorted(AVAILABLE), 'files': files, 'content_digest': digest(canonical(files))}
 
 

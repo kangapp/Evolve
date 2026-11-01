@@ -469,7 +469,7 @@ verify_knowledge(sys.argv[2],json.load(sys.stdin))
 
     def test_preserved_alpha7_writer_rejects_new_document_protocol_without_writes(self):
         self.document_plan(); package = self.root / 'old-complete-package'
-        with zipfile.ZipFile(ROOT / 'docs/evidence/imp007/candidate-package-alpha7.zip') as a: a.extractall(package)
+        with zipfile.ZipFile(ROOT / 'tests/fixtures/candidate-package-alpha7.zip') as a: a.extractall(package)
         before = (self.root / 'evolve/history.db').read_bytes()
         result = subprocess.run([sys.executable, '-B', str(package / 'package/runtime/evolve.py'), '--project', str(self.root),
             'archive', '--request', '-'], input=json.dumps({'authorization': self.auth, 'input': {'change_id': self.plan['change_id']}}), text=True, capture_output=True, timeout=15)

@@ -27,6 +27,6 @@ learn.promote.input.stage=propose，给完整候选 path／expected_digest／con
 
 新状态或反例使原来源绑定失效时，待应用候选停止；已应用规则的 status.rule_state 及 knowledge_refs.rule_bindings 标 needs_review，保留原批准、文件和历史验收。新的实际目标验收记录 blocked；原经验仍按原事实保存，不因为已关联规则变成自动授权。后续纠正正文需要新的具体候选，不能自动覆盖正式文件。
 
-查询不写库或补检查。supported_basis 只表示来源绑定当前适用，规则语义仍需实际内容观察；effect_state 只证明声明范围的字节保留。对后续方案和实际检查的影响按[学习循环](learning-cycle.md)复核，阶段结果以对应受检包证据为准。
+查询不写库或补检查。supported_basis 只表示来源绑定当前适用，规则语义仍需实际内容观察；effect_state 只证明声明范围的字节保留。对后续方案和实际检查的影响按[学习循环](learning-cycle.md)复核，各阶段结果按本次实际观察保存。
 
-中断由 maintain recover 核对原实际 journal／批准／来源；尚未写入时门禁仍适用，已经写入的字节只补确定事实。rule_bindings 与实际应用一起提交，恢复不重复分配。未收尾文件日志会阻止其他记录写入，先恢复原操作。protocol v10／schema v4，完整旧兼容包保留，不自动迁移。
+中断由 maintain recover 核对原实际 journal／批准／来源；尚未写入时门禁仍适用，已经写入的字节只补确定事实。rule_bindings 与实际应用一起提交，恢复不重复分配。未收尾文件日志会阻止其他记录写入，先恢复原操作。版本与升级路径见[兼容说明](../docs/compatibility.md)，不自动迁移。

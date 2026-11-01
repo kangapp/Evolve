@@ -1,8 +1,0 @@
-test_a_missing_effect_or_wrong_target_grant_stops_before_candidate_history (test_external_prepare.ExternalPrepareTests.test_a_missing_effect_or_wrong_target_grant_stops_before_candidate_history) ... ok
-test_actual_precondition_mismatch_is_saved_as_unready_without_target_write (test_external_prepare.ExternalPrepareTests.test_actual_precondition_mismatch_is_saved_as_unready_without_target_write) ... ok
-test_prepared_real_candidate_preserves_exact_target_and_indirect_material_without_dispatch (test_external_prepare.ExternalPrepareTests.test_prepared_real_candidate_preserves_exact_target_and_indirect_material_without_dispatch) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.101s
-
-OK

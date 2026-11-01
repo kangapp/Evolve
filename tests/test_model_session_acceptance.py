@@ -282,7 +282,7 @@ class ModelScopeDispatchTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             package = Path(temp) / 'old-complete-package'
             package.mkdir()
-            with zipfile.ZipFile(ROOT / 'docs/evidence/imp003/evolve-alpha3-protocol2.zip') as archive:
+            with zipfile.ZipFile(ROOT / 'tests/fixtures/evolve-alpha3-protocol2.zip') as archive:
                 archive.extractall(package)
             result = subprocess.run([sys.executable, '-B', str(ROOT / 'scripts/model_acceptance.py'), '--host','codex',
                 '--package',str(package),'--preflight-only'], capture_output=True,text=True,timeout=15)
@@ -296,7 +296,7 @@ class ModelScopeDispatchTests(unittest.TestCase):
     def test_preserved_protocol3_session_preflight_remains_usable_without_model_dispatch(self):
         import zipfile
         with tempfile.TemporaryDirectory() as temp:
-            with zipfile.ZipFile(ROOT/'docs/evidence/m1-current-scope-package-alpha4.zip') as archive:
+            with zipfile.ZipFile(ROOT/'tests/fixtures/m1-current-scope-package-alpha4.zip') as archive:
                 archive.extractall(temp)
             result=subprocess.run([sys.executable,'-B',str(ROOT/'scripts/model_acceptance.py'),'--host','codex',
                 '--package',str(Path(temp)/'package'),'--session-learning','--preflight-only'],

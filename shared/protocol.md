@@ -10,6 +10,8 @@ python3 <实际插件根>/runtime/evolve.py --project <目标项目根> <动作>
 
 路径含空格时按 argv 参数传递或正确引用。`--request -` 从标准输入读取 JSON，适合宿主准备请求；纯查询不接受写请求。十四动作的 owner 由运行时固定校验，实际可用方法见 status，未开放方法返回 UNAVAILABLE。
 
+status的能力目录使用动作.方法标识，例如resume.show。CLI分别传动作resume和`--method show`，不把resume.show整体作为--method参数。动作／方法的对应关系见下表。
+
 输入暂存及宿主拒绝标准输入时的回退按[共享运行约定](contract.md)执行；纯查询直接调用，不生成请求文件。
 
 ## 请求与授权
@@ -24,7 +26,7 @@ apply.implement始终需要project_records、business_files及原准确paths；�
 
 ## 已实现的请求内容
 
-当前0.1.0使用protocol v16／schema v4；外部数据Task的具体目标／执行约束隔离旧完整alpha.23写入器。有限同步Python／SQLite方法按[数据操作](external-work.md)使用，实际开放能力以清单为准。维护屏障、执行／受管文件保护和定向升级见[完整档案维护](recovery.md)。复杂 Task 的调查／症状绑定不可由旧写入器忽略。跨项条件／混合现场与安全取消见[多工作项](multiple-work.md)，数据范围和独立导出字段见[数据工作](data-work.md)。
+当前完整包使用protocol v16／schema v4；外部数据Task绑定具体目标与执行约束。有限同步Python／SQLite方法按[数据操作](external-work.md)使用，实际开放能力以清单为准。维护屏障、执行／受管文件保护和定向升级见[完整档案维护](recovery.md)。复杂 Task 的调查／症状绑定不可由旧写入器忽略。跨项条件／混合现场与安全取消见[多工作项](multiple-work.md)，数据范围和独立导出字段见[数据工作](data-work.md)。
 
 | 动作／方法 | input 内容及边界 |
 |---|---|
@@ -79,7 +81,7 @@ analysis 包含 observations、hypotheses 两个数组，以及 answer_status=an
 
 ## 恢复限制
 
-当前 recover 覆盖已有本地实施／初次知识／增量配置文件 journal、初始化截点、未派发文件操作的中断登记，以及 verify／archive 的记录收尾；完整档案restore另按[完整档案维护](recovery.md)执行；数据结果unknown另按[数据操作](external-work.md)核实，不由recover重发或推断完成。记录收尾保留已提交的验收／封存事实，原 run 仍为 interrupted，由 finalized_by 关联维护结果；未提交的验收保持 blocked，不重跑检查。检查执行仍在运行或启动结果尚无确证时拒绝回收占用。启动身份未知时，可在同一 recover 请求中提供 check_observations：逐个绑定 status 中的 execution_id、command_digest、host，给出 outcome=not_started／stopped、带时区的 observed_at、实际 source 和 basis。必须对应派发之后的确证，不能是猜测或仅凭主进程退出；运行时仍能观察到进程组时拒绝接管。确证由维护 run 单独留档，不推断检查通过。第三种文件内容保留冲突，已提交后的外部回退不会按旧候选覆盖。恢复不新增测试通过记录；原来确已保存的任务完成及证据也不会被抹去。验收以当前实际执行环境为准；未运行的其他平台不作为独立门槛，也不宣称已验证。
+当前 recover 覆盖已有本地实施／初次知识／增量配置文件 journal、初始化截点、未派发文件操作的中断登记，以及 verify／archive 的记录收尾；完整档案restore另按[完整档案维护](recovery.md)执行；数据结果unknown另按[数据操作](external-work.md)核实，不由recover重发或推断完成。记录收尾保留已提交的验收／封存事实，原 run 仍为 interrupted，由 finalized_by 关联维护结果；未提交的验收保持 blocked，不重跑检查。检查执行仍在运行或启动结果尚无确证时拒绝回收占用。启动身份未知时，可在同一 recover 请求中提供 check_observations：逐个绑定 status 中的 execution_id、command_digest、host，给出 outcome=not_started／stopped、带时区的 observed_at、实际 source 和 basis。必须对应派发之后的确证，不能是猜测或仅凭主进程退出；运行时仍能观察到进程组时拒绝接管。确证由维护 run 单独留档，不推断检查通过。第三种文件内容保留冲突，已提交后的外部回退不会按旧候选覆盖。恢复不新增测试通过记录；原来确已保存的任务完成及证据也不会被抹去。验收结果明确实际环境和观察范围，不推断未运行环境的结果。
 
 
 <a id="normal-continuation"></a>
@@ -96,7 +98,7 @@ resume／next 与 status 一样是纯查询，不接受写请求；目标可用�
 
 当前版本对正常文件暂停可从实际Task结果自动解析continuation；只在同任务／已证明的同定义 REV 来源唯一且安全结束时绑定，仍核对原授权子集。结果 continuation.resolved_from_task_result=true 标明自动解析，不等于自动授权；更早的 before_only 结果不能替代当前文件暂停。
 
-历史兼容说明：alpha.4使用protocol v3、schema v1。实际旧 alpha.3 会忽略 pause 并继续检查／记 done，因此不能用于支持新暂停语义的档案；不自动改协议、迁移或重建旧项目。保存完整旧兼容包，旧档案写入仅使用其兼容版本，升级／迁移范围另按实际能力核对。
+项目协议不匹配时使用匹配的完整包处理未完成运行，再按[兼容说明](../docs/compatibility.md)执行支持的显式升级。保留原请求与身份，不能手改协议号或重放旧操作。
 
 
 <a id="project-learning"></a>

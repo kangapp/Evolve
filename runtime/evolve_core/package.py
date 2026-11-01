@@ -60,7 +60,7 @@ def check_package(root=ROOT):
                 raise EvolveError("PACKAGE_VERSION", f"Package {key} does not match runtime")
         files = manifest["files"]
         required = {"README.md", "LICENSE", "NOTICE.md", "CHANGELOG.md",
-                    "docs/installation.md", "docs/usage.md", "docs/troubleshooting.md", "docs/development.md", "docs/compatibility.md", "docs/project-layout.md",
+                    "docs/installation.md", "docs/usage.md", "docs/troubleshooting.md", "docs/development.md", "docs/compatibility.md", "docs/project-layout.md", "docs/workflows.md", "docs/architecture.md",
                     ".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json", "shared/contract.md", "shared/learning-cycle.md", "shared/recovery.md", "shared/external-work.md",
                     "runtime/evolve.py", "runtime/evolve_core/cli.py", "assets/templates/config.toml",
                     ".codex-plugin/plugin.json", ".claude-plugin/plugin.json"}

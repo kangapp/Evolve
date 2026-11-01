@@ -222,7 +222,7 @@ else:formal._commit_application=stop;formal.apply_knowledge(sys.argv[2],json.loa
 
     def test_preserved_alpha11_writer_rejects_adoption_protocol_without_mutation(self):
         package=self.root/'old-alpha11'
-        with zipfile.ZipFile(fixture.ROOT/'docs/evidence/imp007/rule-owner-package-alpha11.zip') as z:z.extractall(package)
+        with zipfile.ZipFile(fixture.ROOT/'tests/fixtures/rule-owner-package-alpha11.zip') as z:z.extractall(package)
         before=(self.root/'evolve/history.db').read_bytes()
         p=subprocess.run([sys.executable,'-B',str(package/'package/runtime/evolve.py'),'--project',str(self.root),'init','--request','-'],input=json.dumps({'authorization':self.f.auth,'input':{}}),text=True,capture_output=True,timeout=15)
         self.assertEqual(json.loads(p.stdout)['error']['code'],'SCHEMA_VERSION');self.assertEqual((self.root/'evolve/history.db').read_bytes(),before)

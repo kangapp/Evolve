@@ -1,7 +1,7 @@
 {
   "name": "evolve",
-  "version": "0.1.0",
-  "description": "单项目的需求、实施、验证、知识与跨会话续接工作流。当前能力以 status 为准。",
+  "version": "0.1.1",
+  "description": "理解项目、规划任务、实施检查、管理知识和跨会话续接。",
   "author": {
     "name": "Evolve maintainers"
   },

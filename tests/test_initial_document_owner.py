@@ -219,7 +219,7 @@ apply_baseline(sys.argv[2],json.load(sys.stdin))
 
     def test_preserved_alpha9_writer_rejects_required_init_protocol_without_writes(self):
         package = self.root / 'old-alpha9'
-        with zipfile.ZipFile(fixture.ROOT / 'docs/evidence/imp007/patch-package-alpha9.zip') as a: a.extractall(package)
+        with zipfile.ZipFile(fixture.ROOT / 'tests/fixtures/patch-package-alpha9.zip') as a: a.extractall(package)
         before = (self.root / 'evolve/history.db').read_bytes()
         result = subprocess.run([sys.executable, '-B', str(package / 'package/runtime/evolve.py'), '--project', str(self.root), 'init', '--method', 'baseline.apply', '--request', '-'],
             input=json.dumps({'authorization': self.f.auth, 'input': {}}), text=True, capture_output=True, timeout=15)

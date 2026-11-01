@@ -3,10 +3,10 @@
 本页维护宿主请求字段与具体调用。
 
 <!-- source-only -->
-设计权威的效果／恢复语义归[运行时协议](../docs/runtime.md#external-effects)。
+模块与效果保护见[当前架构](../docs/architecture.md#external-data)。
 <!-- /source-only -->
 
-0.1.0 开放受控本地 SQLite 机制的四个 apply.external 方法，内核已按当前Codex范围通过受控数据验收。它不提供云数据库连接器，不证明正式环境可用；当前受控范围不执行真实生产数据。
+当前提供受控本地 SQLite 机制的四个 apply.external 方法，不提供云数据库连接器。实际数据写入需要具体目标、范围和候选批准；测试夹具的授权不能作为真实环境写入的许可。
 
 ## 先准备，后按准确候选执行
 

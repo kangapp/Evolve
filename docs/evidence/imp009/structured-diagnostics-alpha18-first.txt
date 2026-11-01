@@ -1,8 +1,0 @@
-test_single_task_root_binding_requires_original_post_repair_observation (test_structured_diagnostics.StructuredDiagnosticTests.test_single_task_root_binding_requires_original_post_repair_observation) ... ok
-test_task_binding_rejects_a_changed_criterion_or_missing_original_check (test_structured_diagnostics.StructuredDiagnosticTests.test_task_binding_rejects_a_changed_criterion_or_missing_original_check) ... ok
-test_unpresented_root_binding_and_ambiguous_multi_task_binding_are_rejected (test_structured_diagnostics.StructuredDiagnosticTests.test_unpresented_root_binding_and_ambiguous_multi_task_binding_are_rejected) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.451s
-
-OK

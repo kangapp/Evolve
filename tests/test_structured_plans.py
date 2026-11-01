@@ -221,7 +221,7 @@ class StructuredPlanTests(unittest.TestCase):
     def test_actual_preserved_old_writer_rejects_new_task_protocol(self):
         source=Path(__file__).resolve().parents[1]
         old=self.root/'old-package'
-        with zipfile.ZipFile(source/'docs/evidence/m1-current-scope-package-alpha4.zip') as archive:
+        with zipfile.ZipFile(source/'tests/fixtures/m1-current-scope-package-alpha4.zip') as archive:
             archive.extractall(old)
         runtime=old/'package/runtime/evolve.py'
         before=(self.root/'evolve/history.db').read_bytes()

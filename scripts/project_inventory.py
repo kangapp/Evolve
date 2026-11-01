@@ -9,14 +9,12 @@ ROOT = Path(__file__).resolve().parents[1]
 LAYOUT = ROOT / 'docs/project-layout.md'
 INDEX = ROOT / 'engineering-file-manifest.json'
 EXCLUDED_PARTS = {'.git', '__pycache__', '.pytest_cache', '.venv', 'venv', 'node_modules', 'dist', '.evolve-local'}
-EXCLUDED_PREFIXES = ('docs/evidence/', 'docs/archive/')
 
 
 def source_paths():
     return sorted(p.relative_to(ROOT).as_posix() for p in ROOT.rglob('*')
         if p.is_file() and not p.is_symlink() and not (set(p.relative_to(ROOT).parts) & EXCLUDED_PARTS)
-        and p != INDEX and p.name != '.DS_Store' and p.suffix not in ('.pyc', '.pyo')
-        and not p.relative_to(ROOT).as_posix().startswith(EXCLUDED_PREFIXES))
+        and p != INDEX and p.name != '.DS_Store' and p.suffix not in ('.pyc', '.pyo'))
 
 
 def tree(names):
@@ -40,18 +38,18 @@ def tree(names):
 
 
 def document(paths, package):
-    source_names = paths + [name for name in ('docs/evidence/', 'docs/archive/') if (ROOT / name).is_dir()]
+    source_names = paths
     runtime = sorted(package['files']) + ['evolve-package.json']
     return ('# 实际工程目录\n\n版本 ' + package['package_version'] + '，protocol ' + str(package['protocol_version'])
-        + '／schema ' + str(package['schema_version']) + '。本页由真实文件生成；没有按预期补空目录。\n\n'
+        + '／schema ' + str(package['schema_version']) + '。本页由当前源码和运行包清单生成。\n\n'
         '<!-- source-only -->\n## 源码工程\n\n维护文件共 ' + str(len(paths)) + ' 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。'
-        '原始验收资料和历史归档保留目录但不纳入维护文件摘要，缓存、临时项目及构建输出不计入。\n\n```text\n'
+        '源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。\n\n```text\n'
         + tree(source_names) + '\n```\n<!-- /source-only -->\n\n## 独立运行包\n\n'
-        '完整运行包含 ' + str(len(package['files'])) + ' 份受检资源及 evolve-package.json 自身。实际资源摘要以'
+        '完整运行包含 ' + str(len(package['files'])) + ' 份运行资源及 evolve-package.json 自身。实际资源摘要以'
         '[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。\n\n```text\n'
         + tree(runtime) + '\n```\n\n'
         '运行包保留八 Skill、单份 shared／runtime、模板、宿主与市场清单、许可／来源说明及本版本离线指南。'
-        '源码 tests、开发控制器、设计历史、原始证据和用户数据不进入运行包。目标项目的 evolve/／.evolve-local/ 是工作资料，不放进插件目录。\n')
+        '源码 tests、开发控制器、用户数据不进入运行包。目标项目的 evolve/／.evolve-local/ 是工作资料，不放进插件目录。\n')
 
 
 def main():
@@ -69,7 +67,7 @@ def main():
         rows = [{'path': name, 'bytes': (ROOT / name).stat().st_size,
                  'sha256': hashlib.sha256((ROOT / name).read_bytes()).hexdigest()} for name in paths]
         INDEX.write_text(json.dumps({'package_version': package['package_version'], 'purpose': 'actual-maintained-engineering-files-not-runtime-package',
-            'excluded': ['itself', 'docs/evidence/', 'docs/archive/', 'local caches and temporary/build outputs'], 'files': rows}, ensure_ascii=False, indent=2) + '\n')
+            'excluded': ['itself', 'local caches and temporary/build outputs'], 'files': rows}, ensure_ascii=False, indent=2) + '\n')
     else:
         if LAYOUT.read_text() != expected:
             parser.error('Actual layout is stale; regenerate from the current files')

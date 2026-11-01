@@ -1,8 +1,0 @@
-test_current_work_candidate_and_actual_effect_share_the_real_task (test_external_work.ExternalWorkTests.test_current_work_candidate_and_actual_effect_share_the_real_task) ... ok
-test_ordinary_file_apply_cannot_satisfy_an_explicit_data_task (test_external_work.ExternalWorkTests.test_ordinary_file_apply_cannot_satisfy_an_explicit_data_task) ... ok
-test_wrong_task_target_is_not_attached_or_executed (test_external_work.ExternalWorkTests.test_wrong_task_target_is_not_attached_or_executed) ... ok
-
-----------------------------------------------------------------------
-Ran 3 tests in 0.266s
-
-OK

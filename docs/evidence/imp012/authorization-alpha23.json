@@ -1,8 +1,0 @@
-{
-  "source": "actual human reply in this chat",
-  "question_id": "call_05f0a84076f549568b149504edf7e4b8",
-  "answer": "后续都统一授权，不需要再询问我",
-  "scope_digest": "85f5956d1154e7f5cc1c16e11283b3d13c998dcac8d3a57786278efc098edfff",
-  "interpretation": "Remaining planned implementation, exact temporary controlled acceptance decisions and same-scope necessary retests; do not ask per-slice permission again.",
-  "bounds": "Temporary fixtures/isolated host; Codex actual default only, no personal settings/credentials changes, no nested agents, no real external/production operation, no publication/deployment."
-}

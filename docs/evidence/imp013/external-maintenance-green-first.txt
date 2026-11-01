@@ -1,9 +1,0 @@
-test_lost_protocol16_index_is_not_treated_as_no_sender (test_external_maintenance.ExternalMaintenanceTests.test_lost_protocol16_index_is_not_treated_as_no_sender) ... ok
-test_real_sender_group_prevents_restore_before_barrier_or_swap (test_external_maintenance.ExternalMaintenanceTests.test_real_sender_group_prevents_restore_before_barrier_or_swap) ... ok
-test_selected_snapshot_capsule_collision_preserves_third_value (test_external_maintenance.ExternalMaintenanceTests.test_selected_snapshot_capsule_collision_preserves_third_value) ... ok
-test_selected_snapshot_unknown_is_unioned_and_missing_capsule_rebuilt_from_exact_blob (test_external_maintenance.ExternalMaintenanceTests.test_selected_snapshot_unknown_is_unioned_and_missing_capsule_rebuilt_from_exact_blob) ... ok
-
-----------------------------------------------------------------------
-Ran 4 tests in 1.099s
-
-OK

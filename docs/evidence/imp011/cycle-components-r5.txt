@@ -1,7 +1,0 @@
-test_four_cases_keep_shared_integration_deferral_and_later_negative_truthful (test_daily_workflows.DailyWorkflowTests.test_four_cases_keep_shared_integration_deferral_and_later_negative_truthful) ... ok
-test_missing_environment_does_not_succeed_or_create_replacement_tests (test_daily_workflows.DailyWorkflowTests.test_missing_environment_does_not_succeed_or_create_replacement_tests) ... ok
-
-----------------------------------------------------------------------
-Ran 2 tests in 1.496s
-
-OK

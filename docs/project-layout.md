@@ -1,11 +1,11 @@
 # 实际工程目录
 
-版本 0.1.0，protocol 16／schema 4。本页由真实文件生成；没有按预期补空目录。
+版本 0.1.1，protocol 16／schema 4。本页由当前源码和运行包清单生成。
 
 <!-- source-only -->
 ## 源码工程
 
-维护文件共 216 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。原始验收资料和历史归档保留目录但不纳入维护文件摘要，缓存、临时项目及构建输出不计入。
+维护文件共 207 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
 
 ```text
 evolve/
@@ -21,40 +21,12 @@ evolve/
 │   └── templates/
 │       └── config.toml
 ├── docs/
-│   ├── diagrams/
-│   │   ├── 01-system-architecture.svg
-│   │   ├── 02-end-to-end-workflow.svg
-│   │   ├── 03-command-and-next-step.svg
-│   │   ├── 04-init-new-and-existing.svg
-│   │   ├── 05-propose-and-update.svg
-│   │   ├── 06-apply-task-execution.svg
-│   │   ├── 07-verify-and-evidence.svg
-│   │   ├── 08-sync-and-archive.svg
-│   │   ├── 09-authorized-data-operations.svg
-│   │   ├── 10-resume-and-recover.svg
-│   │   ├── 11-history-export-and-restore.svg
-│   │   ├── 12-learning-and-promotion.svg
-│   │   ├── 13-object-and-trace-model.svg
-│   │   ├── 14-lightweight-and-cancel.svg
-│   │   ├── 15-skill-handoff-and-rotation.svg
-│   │   ├── 16-analysis-and-explanation.svg
-│   │   ├── 17-data-scenarios.svg
-│   │   ├── diagram_sources.py
-│   │   ├── manifest.json
-│   │   └── render_diagrams.py
 │   ├── README.md
-│   ├── archive/
-│   ├── check_design.py
+│   ├── architecture.md
 │   ├── compatibility.md
-│   ├── delivery.md
-│   ├── design.md
 │   ├── development.md
-│   ├── evidence/
-│   ├── implementation.md
 │   ├── installation.md
 │   ├── project-layout.md
-│   ├── runtime.md
-│   ├── scenarios.md
 │   ├── troubleshooting.md
 │   ├── usage.md
 │   └── workflows.md
@@ -109,6 +81,7 @@ evolve/
 │   └── evolve.py
 ├── scripts/
 │   ├── build_package.py
+│   ├── check_docs.py
 │   ├── continuation_smoke.py
 │   ├── daily_inputs.py
 │   ├── daily_smoke.py
@@ -171,6 +144,21 @@ evolve/
 │   └── evolve-workflow/
 │       └── SKILL.md
 ├── tests/
+│   ├── fixtures/
+│   │   ├── README.md
+│   │   ├── application-package-alpha8.zip
+│   │   ├── candidate-package-alpha7.zip
+│   │   ├── context-package-alpha13.zip
+│   │   ├── evolve-alpha3-protocol2.zip
+│   │   ├── initial-owner-package-alpha10.zip
+│   │   ├── m1-current-scope-package-alpha4.zip
+│   │   ├── patch-package-alpha9.zip
+│   │   ├── preservation-package-alpha5.zip
+│   │   ├── revision-package-alpha6.zip
+│   │   ├── rule-owner-package-alpha11.zip
+│   │   ├── runtime-package-alpha14.zip
+│   │   ├── runtime-package-alpha15.zip
+│   │   └── runtime-package-alpha17.zip
 │   ├── daily_cycle_fixture.py
 │   ├── external_acceptance_driver.py
 │   ├── external_fixture.py
@@ -191,6 +179,7 @@ evolve/
 │   ├── test_data_reports.py
 │   ├── test_diagnostic_workflow.py
 │   ├── test_document_workflow.py
+│   ├── test_documentation.py
 │   ├── test_external_actions.py
 │   ├── test_external_cli.py
 │   ├── test_external_execute.py
@@ -254,7 +243,7 @@ evolve/
 
 ## 独立运行包
 
-完整运行包含 83 份受检资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
+完整运行包含 85 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
 
 ```text
 evolve/
@@ -270,12 +259,14 @@ evolve/
 │   └── templates/
 │       └── config.toml
 ├── docs/
+│   ├── architecture.md
 │   ├── compatibility.md
 │   ├── development.md
 │   ├── installation.md
 │   ├── project-layout.md
 │   ├── troubleshooting.md
-│   └── usage.md
+│   ├── usage.md
+│   └── workflows.md
 ├── runtime/
 │   ├── evolve_core/
 │   │   ├── __init__.py
@@ -363,4 +354,4 @@ evolve/
 └── evolve-package.json
 ```
 
-运行包保留八 Skill、单份 shared／runtime、模板、宿主与市场清单、许可／来源说明及本版本离线指南。源码 tests、开发控制器、设计历史、原始证据和用户数据不进入运行包。目标项目的 evolve/／.evolve-local/ 是工作资料，不放进插件目录。
+运行包保留八 Skill、单份 shared／runtime、模板、宿主与市场清单、许可／来源说明及本版本离线指南。源码 tests、开发控制器、用户数据不进入运行包。目标项目的 evolve/／.evolve-local/ 是工作资料，不放进插件目录。

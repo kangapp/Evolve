@@ -1,9 +1,0 @@
-{
-  "lab": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-native-model-alpha16-dk9as0j0",
-  "package": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha16-7i2mdnjz/package",
-  "controller": "/var/folders/2f/w2_2h_7j21gdmhmgh8l4nzp40000gn/T/evolve-imp009-frozen-alpha16-7i2mdnjz/controller",
-  "scope_digest": "608595a484b0b8fa8b9fb9f0ba0f16e12dde6552f329fc4ed1c38177ebc47b19",
-  "host": "codex",
-  "status": "controller_failed",
-  "exit_code": 1
-}
