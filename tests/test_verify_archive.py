@@ -1,5 +1,6 @@
 """Behavioral acceptance and completion cutoff, including failures after green tests."""
 import json
+import sqlite3
 
 from workflow_fixture import WorkflowFixture
 from evolve_core.apply import implement
@@ -23,6 +24,19 @@ class AcceptanceTests(WorkflowFixture):
         self.assertEqual(archived['knowledge'], 'not_proposed')
         self.assertEqual(self.rows('SELECT state FROM changes')[0]['state'], 'archived')
         self.assertFalse((self.root / 'evolve/project.md').exists())
+
+    def test_receipt_for_a_different_verification_cannot_support_archive(self):
+        from evolve_core.package import canonical, digest
+        verified = verify(self.root, self.verification_request())
+        with sqlite3.connect(self.root / 'evolve/history.db') as connection:
+            row = connection.execute('SELECT result_json FROM phase_runs WHERE id=?', (verified['run_id'],)).fetchone()
+            changed = {**json.loads(row[0]), 'verification_id': 'different-verification'}
+            connection.execute('UPDATE phase_runs SET result_json=?,result_digest=? WHERE id=?',
+                (canonical(changed).decode(), digest(canonical(changed)), verified['run_id']))
+        with self.assertRaises(EvolveError) as caught:
+            archive(self.root, self.request({'verification_id': verified['verification_id']}))
+        self.assertEqual(caught.exception.code, 'VERIFICATION')
+        self.assertEqual(self.rows('SELECT state FROM changes')[0]['state'], 'active')
 
     def test_verify_alone_does_not_change_task_state_or_business_sources(self):
         before = {p: (self.root / p).read_bytes() for p in self.auth['paths']}

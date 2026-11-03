@@ -11,6 +11,8 @@ description: 更新 Evolve、核对安装与会话、查询历史、诊断档案
 
 导出报告、有限血缘图或历史底稿时，先读[保存事实导出](../../shared/data-work.md#从保存事实导出)，从原回执绑定源分析；该分支直接 export，不先 status 或重新查询业务来源。
 
+查看、整理或清理本机 review 资料时，读取[review 资料](../../shared/protocol.md#本机-review-资料)。先用 materials 只读查看用途、来源、引用和保留原因；copy／index 导出及 clean 的准确集合按已有授权执行。中断只观察原意图，不重放删除；手工、未知和失败资料保留。
+
 明确取消工作项时，先读[安全取消](../../shared/multiple-work.md#安全取消)，核对当前目标和安全结束状态；已发生效果和未知占用保持。
 
 首次使用先读 [共享运行约定](../../shared/contract.md)，定位真实插件根和目标项目；已定位源分析的 export，以及上述损坏恢复／升级按各自分支直接调用，其余分支先执行只读 status。当前版本的具体能力以 runtime 返回为准；未开放方法停止在明确限制处。调用运行时传 `--owner evolve-maintain`，动作必须属于本 Skill。用户不需要填写内部编号。

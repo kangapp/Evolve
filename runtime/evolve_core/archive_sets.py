@@ -7,7 +7,7 @@ import tempfile
 
 from . import VERSION, PROTOCOL_VERSION, SCHEMA_VERSION
 from .errors import EvolveError
-from .package import canonical, digest
+from .package import canonical, digest, UPGRADE_PROTOCOLS
 from .store import now, schema_compatible
 from .workspace import current_digest, durable_write, inside
 
@@ -57,7 +57,7 @@ def inspect_database(path):
         if not schema_compatible(connection):
             raise EvolveError('ARCHIVE_DATABASE', 'Archive database schema is incomplete', exit_code=4)
         meta = dict(connection.execute('SELECT key,value FROM project_meta'))
-        if int(meta['schema_version']) != SCHEMA_VERSION or int(meta['protocol_version']) not in {14, 15, 16, PROTOCOL_VERSION}:
+        if int(meta['schema_version']) != SCHEMA_VERSION or int(meta['protocol_version']) not in {PROTOCOL_VERSION, *map(int, UPGRADE_PROTOCOLS)}:
             raise EvolveError('SCHEMA_VERSION', 'Archive requires an explicitly supported schema', exit_code=4)
         for row in connection.execute('SELECT digest,content FROM blobs'):
             if digest(row['content']) != row['digest']:

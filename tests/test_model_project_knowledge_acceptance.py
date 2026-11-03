@@ -21,7 +21,7 @@ class ProjectKnowledgeScopeTests(unittest.TestCase):
         self.assertFalse(data['model_requests_sent'])
         scope = data['expanded_scope']
         self.assertEqual(scope['maximum_sessions'], 6)
-        self.assertEqual(scope['protocol_version'], 17)
+        self.assertEqual(scope['protocol_version'], 18)
         self.assertEqual(scope['business_write_paths'], ['calc.py'])
         self.assertEqual(scope['readonly_paths'], ['README.md', 'legacy.md', 'test_calc.py', 'test_summary.py'])
         self.assertEqual(list(scope['cases']), ['survey', 'initial_delivery', 'implement', 'finish', 'facts', 'conflict'])

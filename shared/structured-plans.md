@@ -12,9 +12,9 @@
 
 从独立调查转修复时，具体 Task 的 analysis_basis 及单 Task 根级简写按[调查转修复协议](protocol.md)绑定，完整呈现不能省略引用。原症状的 Task 验收及整项完成门槛沿同一协议核对。
 
-每项 Task 对应可验证的用户结果及实际检查方式，所有文件及必需条件都有任务负责。test_decision_refs 引用本次实际呈现的测试决定，例如 spec.test_decisions/0；保存引用及对应内容摘要。context_paths 是实际存在的相关上下文文件；只记录其字节摘要，相关变化使该任务待核查，无关知识追加不阻塞全部任务。返回的 TASK 局部编号带 change_id，语义 local_key 用于本方案内依赖解析；编号不由用户填写。
+每项 Task 对应可验证的用户结果及实际检查方式，所有文件及必需条件都有任务负责。test_decision_refs 引用本次实际呈现的测试决定，例如 spec.test_decisions/0；保存引用及对应内容摘要。context_paths 声明实际上下文文件；已明确上游将交付的文件可以在规划时尚不存在，其余外部上下文必须可观察。外部文件记录字节摘要，相关变化使该任务待核查，无关知识追加不阻塞全部任务。返回的 TASK 局部编号带 change_id，语义 local_key 用于本方案内依赖解析；编号不由用户填写。
 
-scope 已描述本项改写的文件，context_paths 放补充上下文。若上下文同时是已声明上游（含传递上游）的产物，则沿实际依赖结果核对其字节，不冻结为下游的旧外部输入；上游未满足所需完成／验收条件或产物被外部改动时仍受阻。其余外部上下文按原摘要核对，格式修订不能借此接纳漂移。
+scope 已描述本项改写的文件，context_paths 放补充上下文。若上下文同时是已声明上游（含传递上游）的产物，则沿实际依赖结果核对其字节，不冻结为下游的旧外部输入。新定义的 produced_context 保存声明路径与实际产物目标的绑定，由运行时从方案推导，不要求手工填写。上游未满足所需完成／验收条件、所需文件未产出、路径改向或产物被外部改动时仍受阻；仅把上游标记完成不能替代文件交付。其余外部上下文按原摘要核对，格式修订不能借此接纳漂移。
 
 dependencies 每项给 upstream_task（同 Change 的局部任务键）、condition_kind 和 basis（实际需要的产品／行为／检查条件）。目前接受 task_completed、verification_passed、artifact_available 三种条件定义；artifact_available 另给 condition_ref，必须是上游范围内的产物路径。依赖无环，共享输出文件需有真实的顺序条件。正式文档任务可声明 responsible_action=init（初次正式文档）、sync（规格修订）或 learn（规则），按[正式知识交付](knowledge-candidates.md)形成实际产物和验收；默认仍为 apply。跨Change协调及显式knowledge_applied条件按[多工作项约定](multiple-work.md)绑定实际目标、版本与依据，不用task_completed替代独立验收或知识应用。
 
@@ -65,3 +65,11 @@ Task 沿 local_key 比较，保持 TASK 编号但新建 UUID，旧 Task／结果
 同一正式文档有多个必需 Task 时，按[同文件批准差异](knowledge-patches.md)声明独立范围、顺序及真实验收依赖。实际组合不改写原 Task 结果；上游通过引用真实 application 及仍保留的含义，整项继续核对每项成果和最新失败。
 
 项目协议隔离忽略当前文档、依赖及组合约束的旧写入器；使用兼容完整包和支持的显式升级路径，保留项目身份。
+
+## 提前核对任务输入影响
+
+提案回执 planning_impacts 列出任务输出与其他 Task 的 context／preservation 输入交集，按实际目标比较别名。未处理交集的 Task 保持未就绪；工作区其他活跃项的交集另列 workspace_impacts，作为调查信号，不自动建立依赖。
+
+若消费者需要生产者的新产物，声明带实际 basis 的依赖，运行时把这些路径作为依赖输入，不固定为计划前旧字节。若实际独立，在完整呈现的方案中给 impact_resolutions：producer、consumer、准确 paths、decision=independent 及具体 basis。该决定不放宽只读输入或保行为保护；输入确实变化仍须修订。检查顺序、文件数量和相关名称不能代替依赖判断。
+
+review_policy 可在整项或 Task 声明 self_allowed／independent。整体验收满足所有必需独立要求；具体观察与证据见[公开准备与工作文档](protocol.md#公开准备与工作文档)。

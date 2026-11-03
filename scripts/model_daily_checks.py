@@ -62,7 +62,7 @@ PROMPTS = {
 def scope_for(package):
     from evolve_core.package import check_package, canonical
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 14), (4, 15), (4, 16), (4, 17)):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 14), (4, 15), (4, 16), (4, 17), (4, 18)):
         raise ValueError('IMP-011 requires actual schema-4/protocol-14-or-15 package')
     names = ['scripts/model_daily_acceptance.py', 'scripts/model_daily_checks.py', 'scripts/daily_inputs.py',
         'scripts/model_learning_checks.py', 'scripts/learning_fixture.py', 'scripts/model_data_acceptance.py',

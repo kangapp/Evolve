@@ -66,6 +66,11 @@ class WorkflowGuidanceTests(WorkflowFixture):
         self.assertEqual(result['data']['activation']['host_enablement'], 'not_observed')
         self.assertEqual(result['workflow']['phase_status'], 'observed')
         self.assertFalse(result['workflow']['goal_complete'])
+        observed = result['data']['package_observation']
+        self.assertEqual(observed['executing_root'], str(ROOT))
+        self.assertEqual(observed['source']['kind'], 'build_time_observation')
+        self.assertEqual(observed['host_session_loading'], 'not_observed')
+        self.assertEqual(observed['resource_digest'], manifest['content_digest'])
 
     def test_query_and_unavailable_method_have_actionable_handoff(self):
         before = self.snapshot()

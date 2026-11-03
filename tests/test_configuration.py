@@ -29,6 +29,16 @@ class ConfigurationTests(WorkflowFixture):
         self.assertEqual(result['project_id'], self.project['project_id'])
         self.assertEqual(self.rows('SELECT COUNT(*) n FROM changes')[0]['n'], 1)
 
+    def test_generated_paths_are_presented_before_application_and_preserve_comments(self):
+        path = self.root / 'evolve/config.toml'
+        path.write_text(path.read_text() + '\n# Preserve this local comment\n')
+        before = path.read_bytes()
+        request, candidate = self.prepare({'generated_paths': ['coverage', 'custom-cache.json']})
+        self.assertEqual(path.read_bytes(), before)
+        connect(self.root, self.apply_candidate(request, candidate))
+        self.assertEqual(tomllib.loads(path.read_text())['verification']['generated_paths'], ['coverage', 'custom-cache.json'])
+        self.assertIn('# Preserve this local comment', path.read_text())
+
     def test_new_check_is_presented_before_application_and_retains_unknown_bytes(self):
         path = self.root / 'evolve/config.toml'
         extra = '\n# User-owned commentary\n[user_extension]\nvalue = "preserve this exact line"\n'

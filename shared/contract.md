@@ -6,7 +6,7 @@
 
 执行 `python3 "<插件根>/runtime/evolve.py" --project "<目标项目根>" status` 查看真实能力。Python 需 3.11+；不可用则说明，不自动安装。命令输出 JSON 中 ok 表示接口成功，data.outcome／验证证据才表达业务结果。未提供方法返回 UNAVAILABLE，不能用手写数据库或直接改正式资料绕过。
 
-动作归属由运行时 OWNERS 校验。默认只读 status，未知动作／方法拒绝执行。损坏档案恢复或旧协议升级直接按[完整档案维护](recovery.md)进入 evolve-maintain，不以 status／正式知识／经验可读为前置。
+status／doctor 的 data.action_owners 给出实际动作归属，next／resume 的 execution.owner_skill 给准确接手者；入口同时校验归属。普通流程使用这些公开结果和共享协议，无需阅读内核源码。默认只读 status，未知动作／方法拒绝执行。损坏档案恢复或旧协议升级直接按[完整档案维护](recovery.md)进入 evolve-maintain，不以 status／正式知识／经验可读为前置。
 
 status／doctor 不创建、修复或重建配置、数据库、索引、运行记录；先核对未接入、配置异常、身份冲突和包完整性。相同包的安装不等于项目接入、正式知识批准或业务修改授权。
 

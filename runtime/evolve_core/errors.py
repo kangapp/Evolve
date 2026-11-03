@@ -1,7 +1,8 @@
 class EvolveError(Exception):
-    def __init__(self, code, message, *, exit_code=2, next_steps=(), committed=False):
+    def __init__(self, code, message, *, exit_code=2, next_steps=(), committed=False, details=None):
         super().__init__(message)
         self.code = code
         self.exit_code = exit_code
         self.next_steps = list(next_steps)
         self.committed = committed
+        self.details = details or {}

@@ -24,7 +24,16 @@ def readiness(root, project):
         blockers = [i for i in issues if action in i['affects']]
         actions[action] = {'status': 'blocked' if blockers or project.get('state') == 'unavailable' else 'ready' if connected or action == 'query' else 'requires_connection',
                            'blockers': blockers}
+    environments = []
+    if connected:
+        import tomllib
+        from .check_environment import observe
+        from .workspace import inside
+        config = tomllib.loads(inside(root, 'evolve/config.toml').read_text())
+        environments = [observe(root, check) for check in config.get('verification', {}).get('checks', [])]
     return {'actions': actions, 'issues': issues, 'checks_executed': False,
+            'execution_environment': {'checks': environments, 'commands_executed': False,
+                'status': 'blocked' if any(item['status'] != 'ready' for item in environments) else 'ready' if connected else 'requires_connection'},
             'scope': 'Observed package/project prerequisites; business acceptance and host loading are separate.'}
 
 
@@ -41,7 +50,17 @@ def handoff(root, action, method=None, *, target=None, reason, prompt=None):
             'authorization_granted': False}
 
 
-def error_handoff(root, code):
+def error_handoff(root, code, details=None):
+    if code == 'CONTEXT_CHANGED':
+        execution = (details or {}).get('execution', {})
+        return handoff(root, 'update', 'revise', target=execution.get('change_id'),
+            reason='核对具体只读输入变化和原判据，呈现准确受影响方案并按实际决定修订；保留已有原行为证据。')
+    if code == 'CHECK_ENVIRONMENT':
+        return handoff(root, 'maintain', 'doctor', reason='核对回执中的解释器、声明依赖和环境前置检查；配置变更由 evolve-init 展示准确候选，环境恢复后继续原任务。')
+    if code == 'WORKSPACE_CHANGED':
+        execution = (details or {}).get('execution', {})
+        return handoff(root, 'resume', target=execution.get('change_id'),
+            reason='核对回执中的变化文件及已发生效果；业务文件已提交且没有未决操作时，确认现场后以新请求、files=[]及准确 observations 继续检查。')
     if code == 'SESSION_PACKAGE_MISMATCH':
         return handoff(root, 'status', reason='在新会话加载当前完整插件，重新核对实际包摘要后继续原工作。')
     if code in ('PACKAGE_INCOMPLETE', 'PACKAGE_VERSION', 'DUPLICATE_INSTALLATION'):
@@ -108,7 +127,7 @@ def workflow_view(root, action, method, data, *, error=None):
     remaining, following = [], []
     goal_complete = outcome == 'archived'
     if error:
-        following = [error_handoff(root, error['code'])]
+        following = [error_handoff(root, error['code'], error.get('details'))]
         remaining = [error['message']]
     elif action == 'apply' and method.startswith('external.'):
         if outcome == 'external_candidate_prepared':
@@ -134,6 +153,10 @@ def workflow_view(root, action, method, data, *, error=None):
                                  reason='外部任务检查已完成，按实际业务目标验收及封存。')]
         else:
             following = [handoff(root, 'status', reason='外部观察或阶段已保存，核对原操作的任务检查、业务验收和实际效果后继续。')]
+    elif outcome in ('review_cleanup_planned', 'review_cleanup_partial', 'review_materials_interrupted'):
+        status = 'waiting_confirmation' if outcome == 'review_cleanup_planned' else 'blocked'
+        remaining = ['核对准确资料集合、保留原因和已发生删除；只按有效授权处理可重建辅助副本。']
+        following = [handoff(root, 'maintain', 'materials', reason=remaining[0])]
     elif outcome == 'partial':
         status = 'paused'
         remaining = data.get('progress', {}).get('remaining', ['检查、验收及封存尚未完成。'])
@@ -180,12 +203,21 @@ def workflow_view(root, action, method, data, *, error=None):
     else:
         context = data.get('context', {})
         project = data.get('project') or context.get('project')
-        if project:
+        if data.get('execution'):
+            following = [{key: data['execution'][key] for key in ('owner_skill', 'action', 'method', 'target', 'reason', 'prompt', 'query_command', 'authorization_granted')}]
+        elif project:
             following = [next_handoff(root, project, data.get('readiness') or readiness(root, project), context)]
         else:
             following = [handoff(root, 'next', reason='核对本阶段结果与原工作目标，选择下一步。')]
     labels = {'observed': '只读观察完成', 'completed': '本阶段完成', 'waiting_confirmation': '等待具体决定',
               'paused': '已暂停', 'blocked': '受阻', 'cancelled': '已取消'}
+    if data.get('index_status') in ('manual_conflict', 'changed_since_prepared', 'pending'):
+        remaining.append('主记录已保存；review 索引尚未更新，保留手工内容，使用 evolve-maintain 核对并显式重建。')
+    view = data.get('change_view')
+    if view and view['status'] != 'ready':
+        remaining.append('主执行记录按实际结果保存；派生工作文档尚未更新，保留冲突并由 evolve-maintain 显式重建。')
+        if action == 'maintain' and method == 'export':
+            status = 'blocked'
     return {'owner_skill': owner, 'action': action, 'method': method, 'phase_status': status,
             'marker': f'[Evolve · {owner} · {labels[status]}]', 'call_finished': True,
             'stage_complete': status in ('observed', 'completed', 'cancelled'), 'goal_complete': goal_complete,

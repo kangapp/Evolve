@@ -54,7 +54,7 @@ def save(path, value):
 def scope_for(package):
     from evolve_core.package import check_package, canonical
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 12), (4, 13), (4, 14), (4, 15), (4, 16), (4, 17)):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 12), (4, 13), (4, 14), (4, 15), (4, 16), (4, 17), (4, 18)):
         raise ValueError('IMP-008 scope requires the actual schema-4/protocol-12-to-14 package')
     sys.path.insert(0, str(ROOT / 'tests'))
     import test_sql_workflow as fixture

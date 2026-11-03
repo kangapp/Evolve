@@ -19,8 +19,9 @@ def validate_checks(checks):
     for check in checks:
         if not isinstance(check, dict):
             raise EvolveError('INPUT', 'Each check must be an object')
-        if set(check) - {'id', 'argv', 'cwd', 'timeout'}:
-            raise EvolveError('CONFIG_UNSUPPORTED', 'Check fields are limited to id, argv, cwd and timeout')
+        from .check_environment import FIELDS, validate as validate_environment
+        if set(check) - {'id', 'argv', 'cwd', 'timeout', 'preflight', 'reuse', *FIELDS}:
+            raise EvolveError('CONFIG_UNSUPPORTED', 'Unsupported check fields')
         if not isinstance(check.get('id'), str) or not check['id'] or check['id'] in seen:
             raise EvolveError('INPUT', 'Check identities must be distinct nonempty strings')
         seen.add(check['id'])
@@ -32,21 +33,28 @@ def validate_checks(checks):
         cwd = check.get('cwd', '.')
         if not isinstance(cwd, str) or Path(cwd).is_absolute() or PureWindowsPath(cwd).drive or '..' in Path(cwd).parts or '\\' in cwd:
             raise EvolveError('INPUT', 'Check cwd must be project-relative')
+        validate_environment(check)
     return checks
 
 
-def configuration(project_id, name, checks):
+def configuration(project_id, name, checks, generated_paths=None):
     if not isinstance(name, str) or not name.strip():
         raise EvolveError('INPUT', 'Project name must be a nonempty string')
     content = (ROOT / 'assets/templates/config.toml').read_text()
     content = content.replace('"{{project_id}}"', json.dumps(project_id, ensure_ascii=False))
     content = content.replace('"{{project_name}}"', json.dumps(name, ensure_ascii=False))
+    if generated_paths is not None:
+        from .config_edit import validate_generated_paths
+        content += 'generated_paths = ' + json.dumps(validate_generated_paths(generated_paths), ensure_ascii=False) + '\n'
     for check in checks:
         content += ('\n[[verification.checks]]\n' +
                     'id = ' + json.dumps(check['id'], ensure_ascii=False) + '\n' +
                     'argv = ' + json.dumps(check['argv'], ensure_ascii=False) + '\n' +
                     'cwd = ' + json.dumps(check.get('cwd', '.'), ensure_ascii=False) + '\n' +
                     'timeout = ' + str(check.get('timeout', 60)) + '\n')
+        for field in ('preflight', 'reuse', 'environment_tools', 'environment_files', 'environment_variables'):
+            if field in check:
+                content += field + ' = ' + json.dumps(check[field], ensure_ascii=False) + '\n'
     encoded = content.encode('utf-8')
     ensure_recordable(encoded)
     return encoded
@@ -125,7 +133,7 @@ def connect(root, payload, *, recover=False):
     checks = validate_checks(request['input'].get('checks', []))
     name = request['input'].get('name', root.name)
     # Validate all candidate content before creating any record facilities.
-    configuration('preflight-only', name, checks)
+    configuration('preflight-only', name, checks, request['input'].get('generated_paths'))
     journal_path = inside(root, '.evolve-local/control/init.json')
     if journal_path.exists():
         journal = json.loads(journal_path.read_text())
@@ -155,7 +163,7 @@ def connect(root, payload, *, recover=False):
             candidate = Path(directory) / 'history.db'
             create_database(candidate, project_id, epoch)
             database_bytes = candidate.read_bytes()
-        content = configuration(project_id, name, checks)
+        content = configuration(project_id, name, checks, request['input'].get('generated_paths'))
         journal = {'state': 'prepared', 'project_id': project_id, 'workspace_epoch': epoch,
                    'run_id': identifier(), 'operation_id': identifier(), 'request': request,
                    'request_digest': request_digest, 'config_b64': base64.b64encode(content).decode(),

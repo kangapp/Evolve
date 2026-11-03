@@ -6,7 +6,7 @@ from .errors import EvolveError
 from .package import canonical
 from .requests import normalize, require_effect
 from .store import Store, identifier
-from .work import change_context, claim_resources, fingerprint, gate, verification_source, versions
+from .work import change_context, claim_resources, fingerprint, gate, require_workspace, verification_source, versions
 from .workspace import writer_lock
 
 
@@ -60,8 +60,7 @@ def archive(root, payload):
             claim_resources(store, run_id, operation_id, generation, change, definition['scope'], 'project_records')
             expected = versions(store, change['id'], task['id'])
             gate(store, request, run_id, operation_id, expected)
-            if fingerprint(root, definition)['digest'] != snapshot['digest']:
-                raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed at completion cutoff', exit_code=3)
+            require_workspace(root, definition, snapshot, 'Workspace changed at completion cutoff')
             from .external_work import archive_basis
             archive_basis(store.connection, root, change, revision, task, definition, latest)
             from .knowledge_impact import closure_gate as knowledge_closure_gate

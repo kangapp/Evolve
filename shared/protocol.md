@@ -24,9 +24,27 @@ status的能力目录使用动作.方法标识，例如resume.show。CLI分别�
 
 apply.implement始终需要project_records、business_files及原准确paths；即使正常续接的files=[]、本轮只做后检查，也须忠实携带仍有效的原修改授权，不能把checks授权当作业务授权。非暂停且存在必需检查时另需checks。若原授权没有该范围则停止，不从字段要求反推用户授权。
 
+### 检查环境与保行为
+
+一般工作区指纹排除已识别的生成目录、Python 缓存及 .tsbuildinfo。项目可在 init.connect 的 input.generated_paths 声明额外生成文件或目录，沿准确配置候选及实际决定应用；不使用 .gitignore 推断。scope、context、preservation_inputs 和 dependency_inputs 显式输入仍逐项保护，排除策略本身参与指纹。已有真实输入被生成规则覆盖时，将其声明为显式输入或修订配置。
+
+检查可另声明 `environment_tools`（额外可执行入口）、`environment_files`（项目相对依赖文件）、`environment_variables`（必要的非凭证变量名）及 `preflight=true`。接入只保存配置；status/doctor 只观察路径、字节摘要和变量摘要，不运行命令或安装依赖。解释器版本只有实际可观察时展示；其他工具显示 not_observed。需要实际核对版本或 Python 模块时，将准确命令登记为 preflight 检查；apply 在授权及保护核对后、文件写入前执行，失败保留原输出并阻止派发。环境变量值不进入回执。实际检查记录所用环境，其变化使原指纹失效。
+
+简短方案可用 context_paths 声明只读输入，也可声明 `pre_refactor=true`、非空 `preservation_checks` 与 `preservation_inputs`；检查必须包含在 required_checks，原输入必须在业务 scope 外。保行为任务未给 context_paths 时使用 preservation_inputs。运行时在修改前执行原检查、保存原字节，再执行修改后的相同检查；暂停可先使用 preservation_only，不能在已写入后补造原证据。复杂方案使用相同保行为语义，具体字段见[复杂任务](structured-plans.md)。
+
+WORKSPACE_CHANGED 的 error.details.workspace_change 列出具体路径、检查及环境变化；apply 的 details.execution 分别说明业务文件未派发、已提交或待恢复。committed 表示工作记录状态，不能代替业务文件判断。已提交且没有未决操作时，先确认实际范围与变化，以新请求携带原有效授权、files=[]及准确 observations 继续检查；未知执行沿原操作核实。
+
+### 公开准备与工作文档
+
+status／doctor 的 data.action_owners 给实际动作到 Skill 的映射，包含 sync→evolve-archive、update／analyze→evolve-propose；路由使用该公开结果，无需读取 package.py。next／resume 的 data.execution 给准确 owner、动作、目标、请求字段提示、阻碍及可用的 review_subject。先读取该字段；需要原授权、完整来源或历史正文时再展开 context／history。唯一活跃目标的新请求可由 CLI 定位，多目标仍明确选择。request_help 指向完整协议，不授予授权。失败回执也保留实际准备的 request_context／input_bindings；合并回原输入才能精确重试，不能读新版本代替旧绑定。
+
+方案可声明 review_policy=self_allowed／independent；复杂工作可在 Task 覆盖，整项采用其必需的独立审查要求。新审查如实给 mode=self／independent／human；独立观察须有实际 source 和 independence_basis，人审独立时另给 independent=true。身份为宿主提供的观察，运行时不把名称或不同角色提示当独立证明。未声明的旧观察显示 not_recorded。spec 的逐 AC 观察另给 check_ids，使用本次声明检查；空数组表示仅语义核对。输出 coverage 关联实际检查证据，未声明的旧映射不补造。
+
+工作写入后生成 evolve/changes/<change_id>/summary.md；复杂工作按实际内容增加 spec.md、tasks.md 和 verification.md。它们是已封存事实的可重建视图，修改不会改变任务或正式知识。data.change_view 报告当前视图及准确来源；主记录完成与视图失败分别表达。只读查询保持文件不变。显式重建使用 maintain.export，input={kind:change,change_id:准确目标}，仅需实际的 project_records 授权，不运行检查或重派发业务写入。手工编辑、未知文件和链接冲突保留；需要采用其中的方案调整时，先具体呈现并走 update，不从视图直接导入执行状态。
+
 ## 已实现的请求内容
 
-当前完整包使用protocol v17／schema v4；外部数据Task绑定具体目标与执行约束。有限同步Python／SQLite方法按[数据操作](external-work.md)使用，实际开放能力以清单为准。维护屏障、执行／受管文件保护和定向升级见[完整档案维护](recovery.md)。复杂 Task 的调查／症状绑定不可由旧写入器忽略。跨项条件／混合现场与安全取消见[多工作项](multiple-work.md)，数据范围和独立导出字段见[数据工作](data-work.md)。
+当前完整包使用protocol v18／schema v4；外部数据Task绑定具体目标与执行约束。有限同步Python／SQLite方法按[数据操作](external-work.md)使用，实际开放能力以清单为准。维护屏障、执行／受管文件保护和定向升级见[完整档案维护](recovery.md)。复杂 Task 的调查／症状绑定不可由旧写入器忽略。跨项条件／混合现场与安全取消见[多工作项](multiple-work.md)，数据范围和独立导出字段见[数据工作](data-work.md)。
 
 | 动作／方法 | input 内容及边界 |
 |---|---|
@@ -54,6 +72,14 @@ apply.implement始终需要project_records、business_files及原准确paths；�
 已有源文件发生外部变化时，apply 需用 observations 明确登记路径与当前摘要；工具不猜修改者或意图。同 REV 的 done 任务再次实施还要引用实际失败的 reopen_verification_id。更改需求／验收含义使用 update.revise，先呈现具体候选并按实际用户接受登记。
 
 任务声明 pre_refactor 时，按[前后行为证明](structured-plans.md#behavior-preservation)准备和执行。preservation_only=true 仅用于 files=[] 的原证明准备，不与无检查 pause 混用；partial／before_only 不是实施完成。
+
+## 检查结果复用
+
+检查配置可给 `reuse=true`，默认 false。仅对输入可由项目文件及声明环境固定的本地检查启用；读取 HTTP、浏览器现场、外部数据库或未声明工具／环境的检查应保持实际运行。配置修改仍先展示准确候选。
+
+apply.implement 和 verify.run 接受 `fresh_checks`：需要本次重跑的已声明检查 ID 数组。运行时自动选择来源，无需 Agent 拼装证据编号；输入、检查定义、方案版本、任务、项目 epoch、完整环境及指纹必须相同，来源须完整封存、无未决检查。采用最近的适用回执，不越过较新的失败寻找旧绿灯；缺少旧环境事实也不复用。环境 preflight 和 apply 的保行为 before／after 始终实际运行；verify 可以引用同现场的实际后检查。外部数据操作检查不接入复用。
+
+原 argv-check 保持不变。本次另记 argv-check-reuse、executed=false、reused=true 及准确 reuse_source；真实执行给 executed=true。复用不产生新的进程启动／结束事实，不代替当前审查、现场核对或最终封存条件。配置允许复用也不提供检查授权；不满足条件时仍需在原授权内实际运行。
 
 ## 验收和审查
 
@@ -113,7 +139,7 @@ resume／next 与 status 一样是纯查询，不接受写请求；目标可用�
 
 - **record**：input.experience 给 topic、problem、advice、applicability、version_context、observer 文本，scope／exclusions／tags／limitations 字符串数组；scope 和 limitations 非空。cause 给 statement、confidence=hypothesis／observed，区分假设与已有观察支持。input.sources 是非空实际工作引用数组，每条给 run_id、result_digest、可选 evidence_ids；核对原 run 和原始证据摘要，不能只引用另一经验来充当独立支持。内容保存为不可变候选，经验版本即原记录 run_id／result_digest。完全相同内容及同一来源的新 ID 会报 LEARNING_DUPLICATE，应读原经验及其状态；精确原请求重试仍幂等。实际新观察与修改后的内容另行留证，不以引用次数自动升级。
 - **retro**：有发现时同 record；若另给 source，须也是 finding 的实际来源。检查后没有新发现时 input.experience 可空，给 source、实际 checked_basis 和 observer，单独记录 no_new_learning，不创建经验。未检查仍是 pending，不填成无发现。来源 run 保持不可变，学习结果由独立 learn run 关联。
-- **review，kind=decision**：先保存搜索返回的 experience_ref／search_ref，再给当前 change_id／revision_id／definition_digest，observed_files 为本次实际核对的范围内文件摘要，decision=adopted／rejected／not_used、applicability_basis 和非空 limitations。工具重新检索并核对目录版本及实际文件，记录“命中”和“采用”两个事实；经验不改变 Task 的 AC 或权限。needs_review／retired 先复审，不能直接采用为建议。
+- **review，kind=decision**：先保存搜索返回的 experience_ref／search_ref，再给当前 change_id／revision_id／definition_digest，observed_files 为本次实际核对的范围内文件摘要，decision=adopted／rejected／not_used、applicability_basis 和非空 limitations。工具重新检索并核对目录版本及实际文件，记录“命中”和“采用”两个事实。新决定另给 influence={description:实际影响,affected_items:[方案／任务／检查／AC]}；adopted 的 affected_items 非空，未采用说明原因及无改动。旧记录缺字段时不补造具体影响；next／resume 的 learning_context.consumption 分别列采用、待反馈和实际效果。经验不改变 Task 的 AC 或权限。needs_review／retired 先复审，不能直接采用为建议。
 - **review，kind=feedback**：给先前 decision_ref、该决定之后同一 Task 定义的 result_source（实际 apply／verify run 引用），outcome=helped／not_helped／unknown／counterexample、basis 和非空 limitations。采用效果是有来源的观察者评估，不从整单 passed 自动推断；未采用不能记采用有效或无效。每个决定一次结果，重复请求幂等，另一个新请求不能覆盖旧反馈。反例保留并使当前经验 needs_review。
 - **review，kind=state**：给 experience_ref、最新 expected_state_ref、state=candidate／active／needs_review／retired、basis、实际支持 sources、逐条已复核的 reviewed_counterexamples run ID。状态沿明确前驱引用追加，不按时间猜最新；有新反例时必须逐条核对，旧绿灯不能消除较新的反例，active 需要反例之后的新实际支持，以证据 observed_at 核对，不能用重新入档的时间冒充新观察。业务假设不能因引用和绿灯自动变 active。内容版本保持，状态有独立 state_ref；任何状态都不是正式规则批准。
 - **disable**：同状态审阅输入，状态固定 retired，保留原内容、来源、采用和反例。正式规则的 promote 见下项；检查工具修改仍归普通 Change 与 apply。
@@ -121,3 +147,13 @@ resume／next 与 status 一样是纯查询，不接受写请求；目标可用�
 - **promote**：stage=propose 保存具体规则候选及 rule_scope／rule_sources；sync.check／review 记录实际内容检查与逐项决定；stage=apply 按准确 proposal、批准和当前交付绑定由 learn 实际写入。规则来源、反例、应用后验收和恢复见[规则交付](knowledge-rules.md)。
 
 结果丢失先核对实际 run；已提交经验不能改写，未提交结果保留为草稿／未完整记录。maintain 只收尾真正中断的元数据，不补造经验或采用效果；完整旧 run 保留来源和结果。可选经验来源损坏时，resume 展示 unavailable 并保留原工作方案和正式知识，不能以检索故障迫使重建项目。
+
+## 本机 review 资料
+
+maintain.materials 是纯查询，不建目录、索引或回执，返回正式回执位置、知识候选，以及副本的用途、来源、已知引用和保留原因。引用覆盖保存的请求／结果、任务定义、已登记正式知识，以及项目可读文本中的项目相对路径和文档相对链接，包含手工 review 笔记与手改索引。未修改的运行时副本和自有索引不构成自身的永久引用；不可读来源保留 unknown，生成缓存、宿主／控制目录、二进制和链接不作文本遍历。不宣称分析仓库外引用或程序动态计算的路径。
+
+maintain.export 的 kind=review_copy 给准确 source={run_id,result_digest}，从同项目封存结果建立新辅助副本，自动保存在 `.evolve-local/review/<change_id>/results/`，并生成默认 `index.json`。候选、失败／恢复材料分别标记并保留。kind=review_index 只从保存事实及当前副本观察重建索引；手工索引、链接和其他未知内容不覆盖。主回执、索引状态及原始来源分别表达，重复原请求不重写视图。
+
+maintain.clean 的 stage=plan 和 paths=[materials 中的准确路径] 固定集合，保存 entries；stage=apply 使用完全相同 paths 及 plan_source={run_id,result_digest}。只有运行时拥有、字节未改、来源可重建、工作已封存或取消且没有有效引用的 auxiliary_copy 可清理；未知、手工、候选、失败、恢复和未决执行材料保留。两阶段均需实际 project_records 授权，具体集合在执行前复核；完整授权覆盖时可连续推进。只删除具体副本文件，不删除目录、正式知识、历史数据库或原始证据。
+
+删除前保存意图，逐项保存实际删除。部分失败返回 review_cleanup_partial 和准确 removed／remaining；原请求重试只返回原回执。进程中断使用 maintain.recover 和原 run_id，只观察缺失／现存／变化，不重放删除或业务命令；剩余副本重新核对并准备准确新方案。

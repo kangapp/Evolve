@@ -105,3 +105,19 @@ DATABASE_OPEN／WRITER_ACTIVE／CHECK_RUNNING 要先明确结束原执行和连�
 先使用 evolve-maintain 的 doctor 查看 readiness。缺少控制资料与运行中断分别处理：未决原操作沿 recover 核实；已有运行安全结束且当前保护与完整历史足以支持时，准备 maintain.repair 方案，核对准确集合后应用。存在未知发送、未决检查或资料身份冲突时保留受阻，不能把缺索引视为没有执行。
 
 SESSION_PACKAGE_MISMATCH 表示当前会话保留的包摘要与执行包不同。启动新会话，从宿主实际 Skill 路径重新核对版本后恢复原工作。每个错误的 workflow.next_steps 给出接手建议；建议不改变授权。
+
+## 环境检查与工作区变化
+
+CHECK_ENVIRONMENT：查看回执中的实际可执行入口、缺失文件或必要变量；修改前检查失败时查看其原始输出。使用项目已有环境，配置变更由 evolve-init 展示准确候选，依赖安装按实际授权执行。环境观察不收集凭证或完整环境变量，也不会自动安装工具。
+
+WORKSPACE_CHANGED：查看 error.details.workspace_change 的路径、检查及环境变化，再看 details.execution.business_files。not_dispatched 表示业务文件尚未派发，committed 表示已写入，needs_recovery 表示原日志需要核实。committed 总字段仅说明工作记录状态。已写入且没有未决操作时，确认实际文件后以新请求、原有效授权、files=[]和准确 observations 继续检查；原失败保留。未决进程或日志沿原操作恢复。
+
+常见生成缓存由默认策略排除；额外生成路径通过配置候选处理，不能为消除阻塞直接忽略全部工作区。明确声明的生成文件输入发生变化仍须重新验证。
+
+CONTEXT_CHANGED 表示方案固定的只读输入已经变化。核对 context_changes 中的原摘要和当前摘要，保留原判据，展示具体修订后继续；修改后的测试不能补成原方案的修改前证明。
+
+## 检查没有重新运行或 review 清理受阻
+
+先查看检查回执的 executed／reused 和 reuse_source。只有配置明确允许且完整基准相同时才引用原结果；需要重跑时明确指定检查，由 AI 使用 fresh_checks。复用不代表浏览器、外部数据或新语义审查已执行。
+
+REVIEW_RETAIN 表示副本仍有保留条件，使用 maintain.materials 查看具体原因，不能扩大清理目录或手工删除原证据。REVIEW_PLAN_CHANGED 需要重新核对准确集合。review_cleanup_partial 保留已删除和剩余清单，原请求重试不再删除；中断使用 maintain.recover 和原 run_id，只核对事实后再处理剩余项。索引 manual_conflict 保留用户内容，将其另存后再显式导出 review_index。

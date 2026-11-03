@@ -51,11 +51,17 @@ def validate_plan(root, data):
         raise EvolveError('PRESENTATION', 'Persist the exact plan text actually presented and its source')
     from .external_work import definition_fields
     definition_fields(root, data)
+    from .preservation import definition_fields as preservation_fields
     required_checks = data.get('required_checks')
     if not isinstance(required_checks, list) or any(not isinstance(c, str) for c in required_checks):
         raise EvolveError('INPUT', 'required_checks must be an explicit array (may be empty for inspection-only work)')
     if len(required_checks) != len(set(required_checks)):
         raise EvolveError('INPUT', 'Required checks must not repeat')
+    preservation_fields(root, data)
+    from .knowledge_impact import freeze_review, validate_review_impacts
+    validate_review_impacts(freeze_review(root, data), data.get('knowledge_impact'))
+    from .verify import policy_fields
+    policy_fields(data)
 
 
 def propose(root, payload):
@@ -84,6 +90,11 @@ def propose(root, payload):
                 owner = data.get('responsible_action', 'apply')
                 baseline = {p: current_digest(task_path(root, p, owner)) for p in data['scope']}
                 with store.transaction() as connection:
+                    from .planning_impacts import workspace_observations
+                    workspace_impacts = workspace_observations(connection, root, data['scope'],
+                        data.get('context_paths', data.get('preservation_inputs', [])))
+                    if workspace_impacts:
+                        store.event(run_id, 'workspace_impacts_observed', {'impacts': workspace_impacts})
                     code = 'CHG-' + now()[:10].replace('-', '') + '-' + change_id[:8]
                     acceptance = [{'id': store.number('AC'), 'text': text, 'required': True}
                                   for text in data['acceptance']]
@@ -100,10 +111,18 @@ def propose(root, payload):
                                   'responsible_action': owner, 'required_deliverables': data['scope']}
                     from .external_work import definition_fields
                     definition.update(definition_fields(root, data))
+                    from .preservation import definition_fields as preservation_fields
+                    definition.update(preservation_fields(root, data))
                     from .knowledge_impact import freeze as freeze_knowledge_impact
                     knowledge_impact = freeze_knowledge_impact(connection, root, data, data['scope'])
                     if knowledge_impact is not None:
                         definition['knowledge_impact'] = knowledge_impact
+                    from .knowledge_impact import freeze_review
+                    review = freeze_review(root, data)
+                    if review is not None:
+                        definition['knowledge_review'] = review
+                    from .verify import policy_fields
+                    definition.update(policy_fields(data))
                     definition['spec_delta'] = 'none' if owner == 'apply' else 'owner_candidate_required'
                     if analysis_basis:
                         definition['analysis_basis'] = data['analysis_basis']
@@ -138,7 +157,8 @@ def propose(root, payload):
                                     'change_code': code, 'revision_id': revision_id, 'revision': 1,
                                     'definition_digest': definition_digest, 'plan_digest': plan_digest,
                                     'task_id': task_id, 'task_version': 1, 'change_version': 1,
-                                    'acceptance': acceptance, 'plan_ref': plan_ref, 'accepted': False})
+                                    'acceptance': acceptance, 'plan_ref': plan_ref, 'accepted': False,
+                                    'workspace_impacts': workspace_impacts})
             except EvolveError as error:
                 if not store.run_started(run_id):
                     error.committed = True

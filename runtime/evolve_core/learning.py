@@ -245,6 +245,14 @@ def decision_result(connection, root, data):
         raise EvolveError('LEARNING_REVIEW_REQUIRED', 'This experience needs review before use as a recommendation')
     text(data.get('applicability_basis'), 'applicability_basis')
     strings(data.get('limitations'), 'limitations', nonempty=True)
+    influence = data.get('influence')
+    if influence is not None:
+        if not isinstance(influence, dict):
+            raise EvolveError('LEARNING_INPUT', 'influence must describe the actual plan or check effect')
+        text(influence.get('description'), 'influence.description')
+        strings(influence.get('affected_items'), 'influence.affected_items')
+        if decision == 'adopted' and not influence['affected_items']:
+            raise EvolveError('LEARNING_INPUT', 'Adoption must identify the actual affected plan, task, check or acceptance item')
     definition = target_context(connection, data)
     expected = data.get('observed_files')
     if not isinstance(expected, dict) or not expected or not set(expected).issubset(definition['scope']):
@@ -257,6 +265,7 @@ def decision_result(connection, root, data):
             'search_ref': actual['search_ref'], 'decision': decision, 'change_id': data['change_id'],
             'revision_id': data['revision_id'], 'definition_digest': data['definition_digest'],
             'observed_files': expected, 'applicability_basis': data['applicability_basis'],
+            **({'influence': influence} if influence is not None else {}),
             'limitations': data['limitations'], 'effect': 'unknown', 'formal_rule': False,
             'modification_authorization': False}
 
@@ -422,6 +431,17 @@ def work_learning(connection, change_id):
                         'recommendation_allowed': item['recommendation_allowed'],
                         'state_changed_since_decision': decision['observed_state_ref'] != item['state_ref'] or bool(item['pending_counterexamples']),
                         'decision': decision})
-        return {'status': 'observed', 'applications': applications}
+        adopted = [item for item in applications if item['decision']['decision'] == 'adopted']
+        return {'status': 'observed', 'applications': applications,
+                'consumption': {'retrieval_implies_adoption': False,
+                    'adopted': len(adopted),
+                    'rejected_or_not_used': len(applications) - len(adopted),
+                    'influence_not_recorded': [item['decision']['run_id'] for item in applications if 'influence' not in item['decision']],
+                    'feedback_pending': [item['decision']['run_id'] for item in adopted if not item['decision'].get('feedback')],
+                    'feedback': [{'decision_run_id': item['decision']['run_id'],
+                                  'influence': item['decision'].get('influence'),
+                                  'outcome': item['decision']['feedback']['outcome'],
+                                  'result_source': item['decision']['feedback']['result_source']}
+                                 for item in applications if item['decision'].get('feedback')]}}
     except EvolveError as error:
         return {'status': 'unavailable', 'error': {'code': error.code, 'message': str(error)}}

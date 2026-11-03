@@ -74,7 +74,7 @@ PROMPTS = {
 def scope_for(package):
     from evolve_core.package import canonical, check_package
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 13), (4, 14), (4, 15), (4, 16), (4, 17)):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 13), (4, 14), (4, 15), (4, 16), (4, 17), (4, 18)):
         raise ValueError('Multi-work acceptance requires the actual schema-4/protocol-13-or-14 package')
     required = {'maintain.cancel', 'propose.create', 'update.revise', 'verify.run', 'learn.promote', 'sync.apply'}
     if not required.issubset(manifest['available_methods']):

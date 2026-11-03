@@ -80,10 +80,25 @@ class InstalledPackageTests(unittest.TestCase):
 
     def test_moved_complete_package_works_without_download_source(self):
         result = self.run_cli('maintain', '--method', 'doctor')
+        self.assertEqual(result['data']['action_owners']['sync'], 'evolve-archive')
+        self.assertEqual(result['data']['action_owners']['update'], 'evolve-propose')
+        self.assertEqual(result['data']['action_owners']['analyze'], 'evolve-propose')
         self.assertEqual(Path(result['data']['package_root']), self.package)
+        observation = result['data']['package_observation']
+        self.assertEqual(Path(observation['executing_root']), self.package)
+        self.assertEqual(observation['source']['source_root'], str(ROOT))
+        self.assertEqual(observation['source']['source_attestation'], 'unsigned')
         self.assertEqual(result['data']['available_methods'], [
             'analyze.investigate', 'apply.external.compensate', 'apply.external.execute', 'apply.external.reconcile', 'apply.external.record', 'apply.implement', 'archive.close', 'history.show', 'init.baseline.apply', 'init.baseline.propose',
-            'init.complete', 'init.connect', 'init.survey', 'init.templates', 'learn.disable', 'learn.promote', 'learn.record', 'learn.retro', 'learn.review', 'learn.search', 'maintain.backup', 'maintain.cancel', 'maintain.doctor', 'maintain.export', 'maintain.recover', 'maintain.repair', 'maintain.restore', 'maintain.upgrade', 'next.show', 'propose.create', 'resume.show', 'status.show', 'sync.apply', 'sync.assess', 'sync.check', 'sync.facts', 'sync.propose', 'sync.review', 'update.revise', 'verify.knowledge', 'verify.run'])
+            'init.complete', 'init.connect', 'init.survey', 'init.templates', 'learn.disable', 'learn.promote', 'learn.record', 'learn.retro', 'learn.review', 'learn.search', 'maintain.backup', 'maintain.cancel', 'maintain.clean', 'maintain.doctor', 'maintain.export', 'maintain.materials', 'maintain.recover', 'maintain.repair', 'maintain.restore', 'maintain.upgrade', 'next.show', 'propose.create', 'resume.show', 'status.show', 'sync.apply', 'sync.assess', 'sync.check', 'sync.facts', 'sync.propose', 'sync.review', 'update.revise', 'verify.knowledge', 'verify.run'])
+
+    def test_build_source_observation_tampering_is_rejected(self):
+        path = self.package / 'evolve-package.json'
+        manifest = json.loads(path.read_text())
+        manifest['source_observation']['git_revision'] = 'changed-source-claim'
+        path.write_text(json.dumps(manifest))
+        response = self.run_cli('maintain', '--method', 'doctor', expected=2)
+        self.assertEqual(response['error']['code'], 'PACKAGE_INCOMPLETE')
 
     def test_unknown_action_and_method_never_fall_back(self):
         for args, code in [(('release',), 'UNKNOWN_ACTION'),

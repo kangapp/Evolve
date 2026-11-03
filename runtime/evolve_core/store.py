@@ -356,8 +356,20 @@ class Store:
         if previous is None or previous['status'] != 'started':
             raise EvolveError('RUN_FINALIZED', 'A terminal run cannot be rewritten', exit_code=3)
         result = {**result, 'run_id': run_id}
+        from .change_views import prepare as prepare_view, install as install_view
+        view = None
         with self.transaction() as connection:
+            connection.execute('SAVEPOINT derived_view')
+            try:
+                view = prepare_view(self, run_id, result, status)
+                connection.execute('RELEASE derived_view')
+            except (EvolveError, OSError, ValueError, TypeError, KeyError) as error:
+                connection.execute('ROLLBACK TO derived_view')
+                connection.execute('RELEASE derived_view')
+                from .privacy import redact
+                self.event(run_id, 'change_view_unavailable', {'reason': redact(str(error))})
             connection.execute('UPDATE phase_runs SET status=?,result_json=?,result_digest=?,ended_at=? WHERE id=?',
                                (status, canonical(result).decode(), digest(canonical(result)), now(), run_id))
             self.event(run_id, 'run_finished', {'status': status, 'outcome': result.get('outcome')})
+        install_view(self, view)
         return result

@@ -96,3 +96,11 @@ authorization 除 project_records、knowledge 外，需 facts_maintenance、准�
 该方法依序使用既有 propose／check／review／apply／verify.knowledge，保留 scoped_facts 授权及各子运行。结果给 parent_request_id、application_id 和 factual_verification。重试使用原 request_context 身份和完整原输入；异常中断按 status 的实际子运行 recover 后续接，不能生成新身份重复派发。
 
 此能力不授予修改业务含义、模块职责、规则或已有决定的权限。无法证明受限差异时保存候选，按具体语义决定处理。
+
+## 每项工作的知识复核
+
+新方案及修订给 knowledge_review，按实际含义检查 codemap、domain、spec、decision、development、architecture、data、rule 八类视角。它补充文件来源关联，复用已有 knowledge_impact 和正式候选流程。可将结论与依据相同的视角合为一组，每组包含 views、result（changed／unchanged／unknown／not_applicable）、实际 basis 和可选 source_paths；每个视角出现一次。source_paths 使用实际已读文件，运行时保存其摘要。空项目说明尚无实现及未知，不创建占位文档。
+
+changed 视角在 knowledge_impact 中给具体 topic、views、required／followup、理由及必要目标；正式更新继续展示差异、按具体决定应用和实际文档验收。已有准确文档可以保持不变，说明本次实际核对依据。
+
+收尾 sync.assess 除各 topic 的 observations，还给当次实际 knowledge_review，覆盖原方案结论及当前来源；结论改变先展示并修订方案，不能静默改成 unchanged。封存核对本次实现指纹、原复核定义及最新来源；发生相关变化后重新核对。未声明该字段的历史方案保留其真实缺口，不补造过去已完成八类调查。

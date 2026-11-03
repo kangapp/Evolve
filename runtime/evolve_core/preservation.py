@@ -11,6 +11,49 @@ from .workspace import current_digest, inside
 LIMITATION = 'Proof is limited to the declared checks and unchanged inputs; untested behavior is not proven.'
 
 
+def definition_fields(root, data):
+    """The same preservation contract applies to short and structured plans."""
+    declared = data.get('pre_refactor', False)
+    if type(declared) is not bool:
+        raise EvolveError('INPUT', 'pre_refactor must be boolean')
+    context = data.get('context_paths', data.get('preservation_inputs', []))
+    if (not isinstance(context, list) or any(not isinstance(name, str) or not name for name in context)
+            or len(context) != len(set(context))):
+        raise EvolveError('PRESERVATION', 'Context must list distinct explicit project paths')
+    frozen_context = {name: current_digest(inside(root, name)) for name in context}
+    if not declared:
+        if data.get('preservation_checks') or data.get('preservation_inputs'):
+            raise EvolveError('PRESERVATION', 'Preservation inputs and checks require pre_refactor=true')
+        return {'context': frozen_context} if 'context_paths' in data else {}
+    if data.get('responsible_action', 'apply') != 'apply':
+        raise EvolveError('PRESERVATION', 'Behavior preparation belongs to business implementation')
+    for field in ('preservation_checks', 'preservation_inputs'):
+        value = data.get(field)
+        if (not isinstance(value, list) or not value or any(not isinstance(item, str) or not item.strip() for item in value)
+                or len(value) != len(set(value))):
+            raise EvolveError('PRESERVATION', field + ' requires distinct nonempty strings')
+    if not set(data['preservation_checks']).issubset(data['required_checks']):
+        raise EvolveError('PRESERVATION', 'Behavior checks must be declared required checks')
+    if not set(data['preservation_inputs']).issubset(context):
+        raise EvolveError('PRESERVATION', 'Behavior inputs must belong to the frozen context')
+    inputs = {inside(root, name).resolve() for name in data['preservation_inputs']}
+    if inputs & {inside(root, name).resolve() for name in data['scope']}:
+        raise EvolveError('PRESERVATION', 'Behavior inputs must remain unchanged during implementation')
+    return {'pre_refactor': True, 'preservation_checks': data['preservation_checks'],
+            'preservation_inputs': data['preservation_inputs'],
+            'context': frozen_context}
+
+
+def matches_task(connection, data, task):
+    if data.get('revision_id') != task['revision_id']:
+        return False
+    if data.get('task_id') is not None:
+        return data['task_id'] == task['id']
+    # Short requests bind the single task by revision/definition instead of a task ID.
+    return (not json.loads(task['definition_json']).get('structured')
+            and connection.execute('SELECT COUNT(*) FROM tasks WHERE revision_id=?', (task['revision_id'],)).fetchone()[0] == 1)
+
+
 def checks_for(root, definition):
     from .work import check_basis
     return [check for check in check_basis(root, definition) if check['id'] in definition['preservation_checks']]
@@ -39,7 +82,7 @@ def source_run(connection, task, run_id, active_run=None):
     from .continuation import retained_source
     from .revisions import origin_tasks
     origins = origin_tasks(connection, task)
-    same_task = any(request['input'].get('task_id') == old['id'] and request['input'].get('revision_id') == old['revision_id'] for old in origins)
+    same_task = any(matches_task(connection, request['input'], old) for old in origins)
     if (row['action'] != 'apply' or row['method'] != 'implement'
             or not retained_source(connection, row, request)
             or not same_task
@@ -135,10 +178,10 @@ def before_fact(connection, root, task, definition, reference, dependencies, *, 
 
 def wrote_files(connection, task):
     from .revisions import origin_tasks
-    origins = {(old['id'], old['revision_id']) for old in origin_tasks(connection, task)}
+    origins = origin_tasks(connection, task)
     for row in connection.execute("SELECT r.input_json FROM operations o JOIN phase_runs r ON r.id=o.run_id WHERE r.action='apply' AND o.journal_path IS NOT NULL"):
         data = json.loads(row['input_json'])['request']['input']
-        if (data.get('task_id'), data.get('revision_id')) in origins and data.get('files'):
+        if any(matches_task(connection, data, old) for old in origins) and data.get('files'):
             return True
     return False
 
@@ -177,15 +220,14 @@ def completion_proven(connection, root, task, definition, saved, dependencies):
 
 def run_before(store, request, run_id, operation_id, expected, task, definition, dependencies, snapshot):
     from .checks import run_check
-    from .work import check_event_sink, fingerprint, gate, record_check
+    from .work import check_event_sink, gate, record_check, require_workspace
     from .workspace import writer_lock
     checks = checks_for(store.root, definition)
     results, evidence_ids = [], []
     for check in checks:
         with writer_lock(store.root):
             gate(store, request, run_id, operation_id, expected)
-            if fingerprint(store.root, definition)['digest'] != snapshot['digest']:
-                raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed before original behavior check', exit_code=3)
+            require_workspace(store.root, definition, snapshot, 'Workspace changed before original behavior check', check_id=check['id'])
         result = run_check(store.root, check, event_sink=check_event_sink(store, request, run_id, operation_id, expected))
         with writer_lock(store.root):
             gate(store, request, run_id, operation_id, expected)
@@ -194,15 +236,13 @@ def run_before(store, request, run_id, operation_id, expected, task, definition,
                 store.event(run_id, 'preservation_check_observed', {'stage': 'before', 'evidence_id': evidence_ids[-1], 'status': result['status']})
             if result['unfinished_processes']:
                 raise EvolveError('CHECK_RUNNING', 'Original behavior check still has an executing process group', exit_code=4, committed=True)
-            if fingerprint(store.root, definition)['digest'] != snapshot['digest']:
-                raise EvolveError('WORKSPACE_CHANGED', 'Original behavior check changed its input workspace; no refactor was dispatched', exit_code=3)
+            require_workspace(store.root, definition, snapshot, 'Original behavior check changed its input workspace; no refactor was dispatched', check_id=check['id'])
         results.append(result)
     status = ('blocked' if any(item['status'] == 'blocked' or not has_coverage(item) for item in results)
               else 'failed' if any(item['status'] != 'passed' for item in results) else 'passed')
     with writer_lock(store.root):
         gate(store, request, run_id, operation_id, expected)
-        if fingerprint(store.root, definition)['digest'] != snapshot['digest']:
-            raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed before original behavior facts were recorded', exit_code=3)
+        require_workspace(store.root, definition, snapshot, 'Workspace changed before original behavior facts were recorded')
         fact = {'task_id': task['id'], 'definition_digest': task['definition_digest'], 'status': status,
                 'checks_basis': checks, 'evidence_ids': evidence_ids, 'before_snapshot': snapshot,
                 'protected_inputs': protected_inputs(store.root, definition), 'dependency_basis': dependencies,

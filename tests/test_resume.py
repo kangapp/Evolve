@@ -25,7 +25,7 @@ class ResumeTests(WorkflowFixture):
             'reason': 'Explicit normal conversation pause before checks'}
         if not authorize_checks:
             request['authorization'] = {**self.auth, 'effect_kinds': ['project_records', 'business_files']}
-        with patch('evolve_core.apply.run_check', side_effect=AssertionError('Pause must not execute checks')):
+        with patch('evolve_core.check_reuse.run_check', side_effect=AssertionError('Pause must not execute checks')):
             result = implement(self.root, request)
         row = self.rows('SELECT * FROM phase_runs WHERE id=?', (result['run_id'],))[0]
         return result, {'run_id': row['id'], 'result_digest': row['result_digest']}

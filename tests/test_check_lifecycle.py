@@ -22,7 +22,8 @@ from unittest.mock import patch
 sys.dont_write_bytecode=True
 sys.path.insert(0,sys.argv[1])
 app=importlib.import_module('evolve_core.apply')
-original=app.check_event_sink
+work=importlib.import_module('evolve_core.work')
+original=work.check_event_sink
 def interrupted(*args):
     sink=original(*args)
     def emit(kind,payload):
@@ -30,7 +31,7 @@ def interrupted(*args):
         if kind == sys.argv[3]:
             os._exit(35)
     return emit
-with patch.object(app,'check_event_sink',side_effect=interrupted):
+with patch.object(work,'check_event_sink',side_effect=interrupted):
     app.implement(Path(sys.argv[2]),json.load(sys.stdin))
 '''
 

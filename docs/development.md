@@ -70,3 +70,7 @@ python3 -B scripts/external_smoke.py --package /absolute/path/new-evolve-package
 <!-- /source-only -->
 
 `scripts/model_workflow_acceptance.py` 的 work 旅程覆盖六个新会话：指南咨询、只规划、正常暂停、续接封存、只读诊断和受控修复。update 旅程通过隔离宿主原生命令安装真实 0.2.0 包、建立旧知识，再更新至当前包，以两个新会话核对和完成修改。用 --journey work／update 及 --preflight-only 读取准确范围；真实派发绑定该范围摘要和已有用户授权。完整自动检查后审阅实际可见标记、完成范围、接手指令及原始执行轨迹。
+
+真实 Next／TypeScript 工程回归使用固定的 `tests/fixtures/engineering-next/`。先构建完整临时包，再运行 `python3 -B scripts/engineering_smoke.py --package <完整包> --out <尚不存在的仓库外验收目录> --offline`；npm 缓存不完整时保留安装失败，只有明确允许获取依赖时才去掉 offline。脚本实际运行构建、增量类型检查、保行为及检查复用／重跑，结果在 evidence 中；模型语义验收仍需另行完成。
+
+`scripts/model_engineering_acceptance.py` 复用原生 Codex 验收控制器，另有四个新会话，覆盖真实 Next 模块迁出、独立 Task 审查、正式 codemap 交付、同定义的经验采用反馈、最终独立验收和资料清理。先 `--preflight-only` 冻结包、脚本、夹具和会话范围；只有本次实际授权与准确 scope_digest 匹配才派发。`--prepare-only` 只完成隔离安装发现，不派发模型；正式运行还会在模型前实际准备离线依赖、构建及临时旧地图。保存原生事件、实际 thread ID、CLI 回执和父控制断言，自动断言通过后仍须审阅实际轨迹。

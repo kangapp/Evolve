@@ -85,7 +85,7 @@ PROMPTS = {
 def scope_for(manifest, host, model, transport):
     required={'init.baseline.propose','init.baseline.apply','sync.propose','sync.check','sync.review','sync.apply','learn.promote',
               'verify.knowledge','verify.run','propose.create','archive.close','learn.record','learn.search'}
-    if (manifest['schema_version'],manifest['protocol_version']) not in ((4,10),(4,11),(4,12),(4,13),(4,14),(4,15),(4,16),(4,17)) or not required.issubset(manifest['available_methods']):
+    if (manifest['schema_version'],manifest['protocol_version']) not in ((4,10),(4,11),(4,12),(4,13),(4,14),(4,15),(4,16),(4,17),(4,18)) or not required.issubset(manifest['available_methods']):
         raise ValueError('Knowledge acceptance needs the complete actual schema4/protocol10-to-14 runtime and owner methods')
     if host=='claude' and model!='MiniMax-M3.1-Flash':
         raise ValueError('Reviewed Claude knowledge scope uses only process-local MiniMax-M3.1-Flash')

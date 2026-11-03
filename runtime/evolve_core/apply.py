@@ -3,12 +3,13 @@ import json
 from pathlib import Path
 
 from .checks import pending_checks, run_check
+from .check_reuse import execute as execute_check, fresh_checks, receipt as check_receipt
 from .errors import EvolveError
 from .package import canonical, digest
 from .plans import business_path
 from .requests import normalize, require_effect
 from .store import Store, identifier
-from .work import change_context, check_basis, check_event_sink, claim_resources, fingerprint, gate, record_check, versions
+from .work import change_context, check_basis, check_event_sink, claim_resources, fingerprint, gate, record_check, require_workspace, versions
 from .workspace import (current_digest, finish_journal, inside, install_files,
                         prepare_files, writer_lock)
 
@@ -61,6 +62,9 @@ def implement(root, payload):
                 raise EvolveError('EXTERNAL_METHOD_REQUIRED', 'Use the exact external candidate/target approval; ordinary file apply cannot complete a data task')
             if definition.get('responsible_action') != 'apply':
                 raise EvolveError('KNOWLEDGE_OWNER', 'Use the declared formal-document owner to produce this task output')
+            if not definition.get('structured'):
+                from .work import require_context
+                require_context(root, definition)
             if revision['ordinal'] > 1 and revision['accepted_event_id'] is None:
                 from .revisions import require_ready
                 presented = require_ready(store.connection, revision)
@@ -76,7 +80,14 @@ def implement(root, payload):
                 if ready['unmet']:
                     raise EvolveError('DEPENDENCY_NOT_READY', 'Task conditions are not met: ' + json.dumps(ready['unmet']), exit_code=3)
                 bound_dependencies = dependency_basis(store.connection, task, peers)
-            check_basis(root, definition)
+            fresh_checks(data, definition)
+            task_checks = check_basis(root, definition)
+            preflight_checks = [check for check in task_checks if check.get('preflight')]
+            if pause is None or preflight_checks:
+                from .check_environment import require as require_environment
+                require_environment(root, task_checks)
+            if preflight_checks:
+                require_effect(request, 'checks')
             if definition['required_checks'] and pause is None:
                 require_effect(request, 'checks')
             if data.get('accepted_plan_digest') != revision['plan_digest']:
@@ -137,7 +148,23 @@ def implement(root, payload):
                                                                'source': 'external_or_unknown'})
             expected = versions(store, change['id'], task['id'])
             gate(store, request, run_id, operation_id, expected)
-            segment = fingerprint(root, definition) if pre_refactor else None
+            segment = fingerprint(root, definition) if pre_refactor or preflight_checks else None
+        for check in preflight_checks:
+            with writer_lock(root):
+                gate(store, request, run_id, operation_id, expected)
+                require_workspace(root, definition, segment, 'Workspace changed before environment preflight', check_id=check['id'])
+            checked = run_check(root, check, event_sink=check_event_sink(store, request, run_id, operation_id, expected))
+            with writer_lock(root):
+                gate(store, request, run_id, operation_id, expected)
+                with store.transaction():
+                    evidence = record_check(store, run_id, checked)
+                    store.event(run_id, 'environment_preflight', {'check_id': check['id'], 'evidence_id': evidence, 'status': checked['status']})
+                if checked['unfinished_processes']:
+                    raise EvolveError('CHECK_RUNNING', 'Environment preflight still has an executing process group', exit_code=4, committed=True)
+                require_workspace(root, definition, segment, 'Environment preflight changed its declared inputs; no files dispatched', check_id=check['id'])
+                if checked['status'] != 'passed':
+                    raise EvolveError('CHECK_ENVIRONMENT', 'Environment preflight failed before business file dispatch', exit_code=3,
+                                     details={'check_id': check['id'], 'evidence_id': evidence, 'result': checked})
         if pre_refactor and before is None:
             from .preservation import run_before
             before, before_status, before_results = run_before(store, request, run_id, operation_id, expected,
@@ -165,8 +192,7 @@ def implement(root, payload):
             if pre_refactor:
                 from .preservation import before_fact
                 before_fact(store.connection, root, task, definition, before, bound_dependencies, active_run=run_id)
-                if fingerprint(root, definition)['digest'] != segment['digest']:
-                    raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed between behavior preparation and file dispatch', exit_code=3)
+                require_workspace(root, definition, segment, 'Workspace changed between behavior preparation and file dispatch')
                 if before['run_id'] != run_id:
                     source = store.one('SELECT result_digest FROM phase_runs WHERE id=?', (before['run_id'],))
                     with store.transaction():
@@ -198,8 +224,7 @@ def implement(root, payload):
             if progress is not None:
                 gate(store, request, run_id, operation_id, expected)
                 current = fingerprint(root, definition)
-                if current['digest'] != snapshot['digest']:
-                    raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed before the safe pause', exit_code=3)
+                require_workspace(root, definition, snapshot, 'Workspace changed before the safe pause')
                 result = {'fingerprint': current, 'definition_digest': task['definition_digest'],
                           'artifacts': artifacts, 'check_evidence': [], 'progress': progress,
                           'checks': 'before_only' if preservation_only else 'not_run', 'learning': 'pending'}
@@ -228,9 +253,9 @@ def implement(root, payload):
         for check in check_basis(root, definition):
             with writer_lock(root):
                 gate(store, request, run_id, operation_id, expected)
-                if fingerprint(root, definition)['digest'] != snapshot['digest']:
-                    raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed before task check', exit_code=3)
-            result = run_check(root, check, event_sink=check_event_sink(store, request, run_id, operation_id, expected))
+                require_workspace(root, definition, snapshot, 'Workspace changed before task check', check_id=check['id'])
+            result = execute_check(store, request, run_id, operation_id, expected, definition, snapshot, check,
+                                   allow_reuse=not pre_refactor)
             with writer_lock(root):
                 gate(store, request, run_id, operation_id, expected)
                 with store.transaction():
@@ -240,11 +265,12 @@ def implement(root, payload):
             results.append(result)
             if result['unfinished_processes']:
                 raise EvolveError('CHECK_RUNNING', 'A check process group is still present; inspect before continuing', exit_code=4, committed=True)
+            with writer_lock(root):
+                gate(store, request, run_id, operation_id, expected)
+                require_workspace(root, definition, snapshot, 'Workspace changed during task check; source was preserved', check_id=check['id'])
         with writer_lock(root):
             gate(store, request, run_id, operation_id, expected)
-            current = fingerprint(root, definition)
-            if current['digest'] != snapshot['digest']:
-                raise EvolveError('WORKSPACE_CHANGED', 'Workspace changed during task checks; source was preserved', exit_code=3)
+            current = require_workspace(root, definition, snapshot, 'Workspace changed during task checks; source was preserved')
             missing = [p for p in definition['required_deliverables'] if current['scope'][p] is None]
             passed = not missing and all(item['status'] == 'passed' for item in results)
             comparison = None
@@ -276,8 +302,7 @@ def implement(root, payload):
                                 'continuation': continuation,
                                 **({'preservation': comparison} if comparison else {}),
                                 'versions': versions(store, change['id'], task['id']),
-                                'task_checks': [{**{key: item[key] for key in ('check_id', 'status', 'returncode')},
-                                                'evidence_id': evidence_ids[i]} for i, item in enumerate(results)],
+                                'task_checks': [check_receipt(item, evidence_ids[i]) for i, item in enumerate(results)],
                                 'overall_verification': 'not_run'})
     except (EvolveError, OSError) as error:
         if store is not None and run_id is not None:
@@ -291,6 +316,17 @@ def implement(root, payload):
                 journal_path = inside(root, '.evolve-local/control/operations/' + operation_id + '.json')
                 pending_files = journal_path.exists() and json.loads(journal_path.read_text()).get('state') != 'committed'
                 pending_processes = pending_checks(store.connection, run_id)
+                if isinstance(error, EvolveError):
+                    applied_events = [json.loads(row[0]) for row in store.connection.execute(
+                        "SELECT payload_json FROM events WHERE run_id=? AND kind='files_applied'", (run_id,))]
+                    files_stage_committed = bool(applied_events)
+                    applied = any(event['artifacts'] for event in applied_events)
+                    error.details['execution'] = {'run_id': run_id, 'operation_id': operation_id,
+                        'change_id': request['input'].get('change_id'),
+                        'business_files': 'needs_recovery' if pending_files else 'committed' if applied else 'not_dispatched',
+                        'files_stage_committed': files_stage_committed,
+                        'checks_only_continuation_available': files_stage_committed and not pending_files and not pending_processes,
+                        'pending_checks': pending_processes}
                 with store.transaction() as connection:
                     if isinstance(error, EvolveError) and hasattr(error, 'input_check_reference'):
                         store.rejected_source(run_id, error.input_check_reference, 'normal_continuation', error)
@@ -301,9 +337,11 @@ def implement(root, payload):
                         if operation and operation['state'] == 'prepared':
                             connection.execute("UPDATE operations SET state='failed' WHERE id=?", (operation_id,))
                     store.event(run_id, 'implementation_interrupted' if pending_files else 'implementation_blocked',
-                                {'message': str(error), 'operation_id': operation_id, 'writer_stopped': True})
+                                {'message': str(error), 'operation_id': operation_id, 'writer_stopped': True,
+                                 'details': error.details if isinstance(error, EvolveError) else {}})
                 if not pending_files and not pending_processes:
-                    store.finish(run_id, {'committed': True, 'outcome': 'blocked', 'message': str(error)}, status='blocked')
+                    store.finish(run_id, {'committed': True, 'outcome': 'blocked', 'message': str(error),
+                                          'details': error.details if isinstance(error, EvolveError) else {}}, status='blocked')
                 if isinstance(error, EvolveError):
                     error.committed = True
                     raise

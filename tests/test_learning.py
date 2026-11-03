@@ -63,11 +63,12 @@ class LearningTests(WorkflowFixture):
         plan['title'] = 'Second similar arithmetic regression'
         self.plan = propose(self.root, {**self.identity(), 'request_id': str(uuid.uuid4()), 'authorization': self.auth, 'input': plan})
 
-    def decide(self, decision='adopted', observation=None):
+    def decide(self, decision='adopted', observation=None, influence=None):
         result = self.write({'kind': 'decision', 'experience_ref': self.experience_ref,
             'search_ref': observation or search(self.root, 'arithmetic')['search_ref'], 'decision': decision,
             'change_id': self.plan['change_id'], 'revision_id': self.plan['revision_id'], 'definition_digest': self.plan['definition_digest'],
             'observed_files': {'total.py': digest((self.root / 'total.py').read_bytes())},
+            **({'influence': influence} if influence is not None else {}),
             'applicability_basis': 'Read the new count implementation and unchanged literal expectations; the narrow fixture scope matches',
             'limitations': ['Still a project-local suggestion, not formal authority']}, 'review')
         return self.ref(result['run_id'])
@@ -443,3 +444,47 @@ class LearningTests(WorkflowFixture):
             self.state(reviewed_counterexamples=[counter['run_id']], sources=[self.ref(observation['run_id'], evidence=True)])
         self.assertEqual(caught.exception.code, 'LEARNING_REVIEW_REQUIRED')
         self.assertEqual(search(self.root, 'arithmetic')['results'][0]['state'], 'needs_review')
+
+    def test_adoption_summary_preserves_specific_influence_and_pending_feedback(self):
+        from evolve_core.learning import work_learning
+        self.produce()
+        self.second_task()
+        influence = {'description': 'Keep the three literal sum examples as the acceptance oracle.',
+                     'affected_items': ['unit', 'test_total.py:test_values']}
+        decision = self.decide(influence=influence)
+        store = Store(self.root)
+        try:
+            before = work_learning(store.connection, self.plan['change_id'])
+        finally:
+            store.close()
+        self.assertEqual(before['consumption']['feedback_pending'], [decision['run_id']])
+        self.assertEqual(before['applications'][0]['decision']['influence'], influence)
+        self.give_feedback(decision, 'unknown')
+        store = Store(self.root)
+        try:
+            after = work_learning(store.connection, self.plan['change_id'])
+        finally:
+            store.close()
+        self.assertFalse(after['consumption']['feedback_pending'])
+        self.assertEqual(after['consumption']['feedback'][0]['outcome'], 'unknown')
+        self.assertEqual(after['consumption']['feedback'][0]['influence'], influence)
+
+    def test_legacy_decision_has_no_fabricated_plan_influence(self):
+        from evolve_core.learning import work_learning
+        self.produce()
+        self.second_task()
+        decision = self.decide()
+        store = Store(self.root)
+        try:
+            context = work_learning(store.connection, self.plan['change_id'])
+        finally:
+            store.close()
+        self.assertEqual(context['consumption']['influence_not_recorded'], [decision['run_id']])
+        self.assertNotIn('influence', context['applications'][0]['decision'])
+
+    def test_adoption_with_explicit_but_empty_affected_items_is_rejected(self):
+        self.produce()
+        self.second_task()
+        with self.assertRaises(EvolveError) as caught:
+            self.decide(influence={'description': 'Claimed adoption without identifying any effect.', 'affected_items': []})
+        self.assertEqual(caught.exception.code, 'LEARNING_INPUT')

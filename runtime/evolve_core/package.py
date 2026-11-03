@@ -18,14 +18,15 @@ METHODS = {
     "apply": ["implement", "external.execute", "external.reconcile", "external.record", "external.compensate"],
     "verify": ["run", "record", "knowledge"], "archive": ["close"], "sync": ["apply", "propose", "check", "review", "facts", "assess"],
     "learn": ["search", "review", "record", "retro", "promote", "disable"],
-    "maintain": ["doctor", "export", "cancel", "backup", "restore", "upgrade", "recover", "repair"],
+    "maintain": ["doctor", "export", "cancel", "backup", "restore", "upgrade", "recover", "repair", "materials", "clean"],
 }
 AVAILABLE = {"apply.external.execute", "apply.external.reconcile", "apply.external.record", "apply.external.compensate", "maintain.backup", "maintain.restore", "maintain.upgrade", "maintain.cancel", "maintain.export", "learn.promote", "sync.apply", "verify.knowledge", "sync.propose", "sync.check", "sync.review", "status.show", "maintain.doctor", "init.connect", "init.baseline.propose", "init.baseline.apply",
              "update.revise", "history.show",
              "learn.search", "learn.record", "learn.retro", "learn.review", "learn.disable", "next.show", "resume.show", "propose.create", "apply.implement", "verify.run", "archive.close", "maintain.recover", "analyze.investigate"}
 AVAILABLE.update({'init.templates', 'init.survey', 'init.complete', 'sync.facts', 'sync.assess'})
-AVAILABLE.add('maintain.repair')
-UPGRADE_PROTOCOLS = ('14', '15', '16')
+AVAILABLE.update({'maintain.repair', 'maintain.materials', 'maintain.clean'})
+UPGRADE_PROTOCOLS = ('14', '15', '16', '17')
+ENGINEERING_MODULES = ('check_environment', 'planning_impacts', 'workflow_requests', 'change_views', 'check_reuse', 'review_materials')
 ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -35,6 +36,20 @@ def digest(data):
 
 def canonical(value):
     return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+
+
+def check_provenance(manifest):
+    if manifest.get('protocol_version', 0) < 18:
+        return
+    observation = manifest.get('source_observation')
+    if (not isinstance(observation, dict) or observation.get('kind') != 'build_time_observation'
+            or not isinstance(observation.get('source_root'), str)
+            or not isinstance(observation.get('source_content_digest'), str)
+            or len(observation['source_content_digest']) != 64
+            or observation.get('source_attestation') != 'unsigned'
+            or observation.get('git_dirty') is not None and type(observation['git_dirty']) is not bool
+            or manifest.get('source_observation_digest') != digest(canonical(observation))):
+        raise EvolveError('PACKAGE_INCOMPLETE', 'Build source observation is missing or changed')
 
 
 def file_at(root, name):
@@ -57,7 +72,9 @@ def inspect_package(root):
     try:
         manifest = json.loads((root / 'evolve-package.json').read_text())
         files = manifest['files']
-        required = required_resources(workflow=manifest.get('package_version') != '0.2.0')
+        check_provenance(manifest)
+        required = required_resources(workflow=manifest.get('package_version') != '0.2.0',
+                                      engineering=manifest.get('protocol_version', 0) >= 18)
         if not isinstance(files, dict) or not required.issubset(files) or manifest['content_digest'] != digest(canonical(files)):
             raise ValueError('Incomplete release inventory')
         for name, value in files.items():
@@ -81,7 +98,7 @@ def inspect_package(root):
 
 
 
-def required_resources(*, workflow=True):
+def required_resources(*, workflow=True, engineering=True):
     required = {"README.md", "LICENSE", "NOTICE.md", "CHANGELOG.md",
                 "docs/installation.md", "docs/usage.md", "docs/troubleshooting.md", "docs/development.md", "docs/compatibility.md", "docs/project-layout.md", "docs/workflows.md", "docs/architecture.md",
                 ".agents/plugins/marketplace.json", ".claude-plugin/marketplace.json", "shared/contract.md", "shared/learning-cycle.md", "shared/recovery.md", "shared/external-work.md", "shared/workflow-experience.md", "shared/plugin-update.md",
@@ -95,6 +112,8 @@ def required_resources(*, workflow=True):
         'backup', 'archive_sets', 'protection', 'maintenance', 'external_material', 'external', 'external_registry', 'external_process', 'external_recovery', 'external_actions', 'external_work', 'plans', 'structured', 'preservation', 'revisions', 'connect', 'configure', 'config_edit', 'work', 'checks', 'apply', 'verify', 'archive', 'recover', 'knowledge', 'knowledge_proposals', 'formal', 'patches', 'analysis', 'data_material', 'exporting', 'cancellation', 'cross_dependencies', 'continuation', 'resume', 'learning', 'rules'))
     if not workflow:
         required.difference_update({"shared/workflow-experience.md", "shared/plugin-update.md", "runtime/evolve_core/guidance.py"})
+    if engineering:
+        required.update('runtime/evolve_core/' + name + '.py' for name in ENGINEERING_MODULES)
     return required
 
 def check_package(root=ROOT):
@@ -109,6 +128,7 @@ def check_package(root=ROOT):
             if manifest.get(key) != value:
                 raise EvolveError("PACKAGE_VERSION", f"Package {key} does not match runtime")
         files = manifest["files"]
+        check_provenance(manifest)
         required = required_resources()
         if not required.issubset(files):
             raise EvolveError("PACKAGE_INCOMPLETE", "Missing required package inventory entries")

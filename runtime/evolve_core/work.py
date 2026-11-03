@@ -69,6 +69,20 @@ def check_basis(root, definition):
     return checks
 
 
+def context_changes(root, definition):
+    outputs = {inside(root, name).resolve() for name in definition['scope']}
+    return [{'path': name, 'expected_digest': expected, 'actual_digest': current_digest(inside(root, name))}
+            for name, expected in definition.get('context', {}).items()
+            if inside(root, name).resolve() not in outputs and current_digest(inside(root, name)) != expected]
+
+
+def require_context(root, definition):
+    changed = context_changes(root, definition)
+    if changed:
+        raise EvolveError('CONTEXT_CHANGED', 'Declared original inputs changed after planning; inspect and revise before implementation',
+                         exit_code=3, details={'context_changes': changed})
+
+
 def implementation_baseline(store, change, definition, saved):
     """Use the latest actual same-Change write, including partial and prior-REV files."""
     baseline = dict(saved['fingerprint']['scope'] if saved else definition['baseline'])
@@ -96,13 +110,21 @@ def implementation_baseline(store, change, definition, saved):
 
 
 def fingerprint(root, definition):
+    root = Path(root).resolve()
     # Hash relevant source and untracked inputs without retaining their plaintext.
     # Generated state and environments do not invalidate business verification.
     excluded = {'.git', 'evolve', '.evolve-local', '.codex', '.claude', '.agents',
-                '__pycache__', '.pytest_cache', '.venv', 'venv', 'node_modules', 'dist', 'build'}
+                '__pycache__', '.pytest_cache', '.venv', 'venv', 'node_modules', 'dist', 'build', '.next'}
+    from .config_edit import validate_generated_paths
+    configured = tomllib.loads(inside(root, 'evolve/config.toml').read_text())
+    generated = validate_generated_paths(configured.get('verification', {}).get('generated_paths', []))
+    generated = [inside(root, name).relative_to(root).as_posix() for name in generated]
+    def generated_path(name):
+        return any(name == path or name.startswith(path + '/') for path in generated)
     files = {}
     for directory, subdirs, names in os.walk(root, followlinks=False):
-        subdirs[:] = sorted(d for d in subdirs if d not in excluded)
+        subdirs[:] = sorted(d for d in subdirs if d not in excluded
+                            and not generated_path((Path(directory) / d).relative_to(root).as_posix()))
         for name in list(subdirs):
             path = Path(directory) / name
             relative = path.relative_to(root).as_posix()
@@ -117,7 +139,7 @@ def fingerprint(root, definition):
         for name in sorted(names):
             path = Path(directory) / name
             relative = path.relative_to(root).as_posix()
-            if name.endswith(('.pyc', '.pyo')):
+            if name.endswith(('.pyc', '.pyo', '.tsbuildinfo')) or generated_path(relative):
                 continue
             if path.is_symlink():
                 files[relative] = {'symlink': digest(os.readlink(path).encode())}
@@ -125,13 +147,49 @@ def fingerprint(root, definition):
                 files[relative] = current_digest(path)
     scope = {name: current_digest(inside(root, name)) for name in definition['scope']}
     basis = {'files': files, 'scope': scope, 'checks': check_basis(root, definition)}
-    if definition.get('structured'):
+    basis['input_policy'] = {'version': 1, 'excluded_directories': sorted(excluded),
+                             'generated_suffixes': ['.pyc', '.pyo', '.tsbuildinfo'], 'generated_paths': generated}
+    from .check_environment import observe
+    basis['environment'] = [observe(root, check) for check in basis['checks']]
+    if definition.get('structured') or definition.get('context') or definition.get('preservation_inputs') or definition.get('dependency_inputs'):
         basis['context'] = {name: current_digest(inside(root, name)) for name in definition.get('context', {})}
+        for name in definition.get('preservation_inputs', []):
+            basis['context'][name] = current_digest(inside(root, name))
+        inputs = {name: current_digest(inside(root, name)) for name in definition.get('dependency_inputs', [])}
+        if inputs:
+            basis['dependency_inputs'] = inputs
+    if definition.get('structured'):
         if not definition.get('whole_change'):
             inputs = {name: current_digest(inside(root, name)) for name in definition.get('dependency_inputs', [])}
             basis['task_basis_digest'] = digest(canonical({'scope': scope, 'context': basis['context'],
-                                                         'dependency_inputs': inputs, 'checks': basis['checks']}))
+                'dependency_inputs': inputs, 'checks': basis['checks'], 'environment': basis['environment'],
+                'input_policy': basis['input_policy']}))
     return {**basis, 'digest': digest(canonical(basis))}
+
+
+def workspace_change(before, after, *, check_id=None):
+    """Explain changed hashed inputs without retaining their plaintext."""
+    changed = {}
+    for role in ('files', 'scope', 'context', 'dependency_inputs'):
+        old, new = before.get(role, {}), after.get(role, {})
+        for name in sorted(set(old) | set(new)):
+            if old.get(name) == new.get(name):
+                continue
+            item = changed.setdefault(name, {'path': name, 'roles': [],
+                'change': 'created' if old.get(name) is None else 'deleted' if new.get(name) is None else 'modified'})
+            item['roles'].append(role)
+    return {'check_id': check_id, 'paths': [changed[name] for name in sorted(changed)],
+            'checks_changed': before.get('checks') != after.get('checks'),
+            'environment_changed': before.get('environment') != after.get('environment'),
+            'input_policy_changed': before.get('input_policy') != after.get('input_policy')}
+
+
+def require_workspace(root, definition, snapshot, message, *, check_id=None):
+    observed = fingerprint(root, definition)
+    if observed['digest'] != snapshot['digest']:
+        raise EvolveError('WORKSPACE_CHANGED', message, exit_code=3,
+                         details={'workspace_change': workspace_change(snapshot, observed, check_id=check_id)})
+    return observed
 
 
 def workspace_work(connection, snapshot, change_id):
@@ -186,6 +244,8 @@ def gate(store, request, run_id, operation_id, expected_versions=None):
     if not claim or claim[0] != operation_id:
         raise EvolveError('CLAIM', 'Operation no longer owns the change', exit_code=3)
     change, revision, task, definition = change_context(store, request, versions=False, allow_archived=run['action'] == 'verify')
+    if not definition.get('structured'):
+        require_context(store.root, definition)
     if expected_versions is not None and expected_versions != versions(store, change['id'], task['id']):
         raise EvolveError('VERSION', 'Change or task changed while execution was in progress', exit_code=3)
     from .cross_dependencies import guard
@@ -264,14 +324,29 @@ def versions(store, change_id, task_id):
 
 
 def verification_source(connection, verification):
+    from .continuation import retained_source, sealed_result
     source = connection.execute('SELECT * FROM phase_runs WHERE id=?', (verification['source_run_id'],)).fetchone()
+    if not source or source['status'] == 'started':
+        return None
+    _, request, facts = sealed_result(connection, {'run_id': source['id'], 'result_digest': source['result_digest']})
+    if source['action'] != 'verify' or source['method'] not in ('run', 'knowledge') or not retained_source(connection, source, request):
+        return None
+    formal = source['method'] == 'knowledge'
+    if formal:
+        if (verification['change_id'] is not None or verification['revision_id'] is not None
+                or request['input'].get('application_id') != json.loads(verification['items_json']).get('application_id')):
+            return None
+    elif (request['input'].get('change_id') != verification['change_id']
+          or request['input'].get('revision_id') != verification['revision_id']):
+        return None
     if source and source['status'] == 'completed':
-        return source
+        return source if (facts.get('verification_id') == verification['id'] and facts.get('status') == verification['status']
+            and (facts.get('application_id') == request['input'].get('application_id') if formal else
+                 facts.get('fingerprint_digest') == json.loads(verification['fingerprint_json'])['digest'])) else None
     if source and source['status'] == 'interrupted':
-        facts = json.loads(source['result_json'])
-        recovery = connection.execute("SELECT result_json FROM phase_runs WHERE id=? AND action='maintain' AND method='recover' AND status='completed'",
+        recovery = connection.execute("SELECT * FROM phase_runs WHERE id=? AND action='maintain' AND method='recover' AND status='completed'",
                                        (facts.get('finalized_by'),)).fetchone()
-        result = json.loads(recovery['result_json']) if recovery else {}
+        result = sealed_result(connection, {'run_id': recovery['id'], 'result_digest': recovery['result_digest']})[2] if recovery else {}
         if (facts.get('outcome') == 'reconciled_committed_metadata'
                 and facts.get('saved_operation_result') == {'verification_id': verification['id'], 'status': 'passed'}
                 and result.get('original_run_id') == verification['source_run_id'] and result.get('original_facts_committed') is True):
@@ -284,7 +359,8 @@ def record_check(store, run_id, item, *, verification_id=None):
     evidence_id = identifier()
     content_digest = store.blob(canonical(item))
     store.connection.execute('INSERT INTO evidence VALUES (?,?,?,?,?,?,?,?,?)',
-                             (evidence_id, run_id, verification_id, 'applied', 'local-process', 'argv-check',
+                             (evidence_id, run_id, verification_id, 'applied', 'recorded-check-source' if item.get('reused') else 'local-process',
+                              'argv-check-reuse' if item.get('reused') else 'argv-check',
                               content_digest, now(), 'Command success alone does not prove every acceptance condition'))
     return evidence_id
 

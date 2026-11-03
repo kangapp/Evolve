@@ -133,6 +133,47 @@ class StructuredExecutionTests(unittest.TestCase):
         self.assertEqual(final['verification_scope'],'change')
         self.assertEqual(self.close(final)['outcome'],'archived')
 
+    def test_new_upstream_context_is_consumed_only_after_actual_output_and_review(self):
+        self.data['scope'].append('generated/total.py')
+        self.data['tasks'][0]['scope'].append('generated/total.py')
+        self.data['tasks'][1]['context_paths'].append('generated/total.py')
+        self.auth['paths'].append('generated/total.py')
+        self.plan = self.propose()
+        self.assertFalse((self.root / 'generated/total.py').exists())
+        with self.assertRaises(EvolveError) as caught:
+            self.apply('REPORT', {'report.py': REPORT})
+        self.assertEqual(caught.exception.code, 'DEPENDENCY_NOT_READY')
+        self.apply('SUM', {'total.py': SUM, 'generated/total.py': SUM})
+        with self.assertRaises(EvolveError) as caught:
+            self.apply('REPORT', {'report.py': REPORT})
+        self.assertEqual(caught.exception.code, 'DEPENDENCY_NOT_READY')
+        self.verify('SUM')
+        (self.root / 'generated/total.py').write_text('def total(values): return 99\n')
+        with self.assertRaises(EvolveError) as caught:
+            self.apply('REPORT', {'report.py': REPORT})
+        self.assertEqual(caught.exception.code, 'DEPENDENCY_NOT_READY')
+        (self.root / 'generated/total.py').write_text(SUM)
+        self.apply('REPORT', {'report.py': REPORT.replace('from total import total', 'from generated.total import total')})
+        self.assertEqual(self.verify('REPORT')['status'], 'passed')
+        self.assertEqual(self.close(self.verify())['outcome'], 'archived')
+
+    def test_producer_missing_declared_context_output_does_not_release_consumer(self):
+        self.data['scope'].append('generated/total.py')
+        self.data['tasks'][0]['scope'].append('generated/total.py')
+        self.data['tasks'][1]['context_paths'].append('generated/total.py')
+        self.data['tasks'][1]['dependencies'][0]['condition_kind'] = 'task_completed'
+        self.auth['paths'].append('generated/total.py')
+        self.plan = self.propose()
+        result = self.apply('SUM', {'total.py': SUM})
+        self.assertEqual(result['outcome'], 'checks_not_passed')
+        self.assertTrue(all(check['status'] == 'passed' for check in result['task_checks']))
+        self.assertEqual(self.task('SUM')['state'], 'in_progress')
+        self.assertFalse((self.root / 'generated/total.py').exists())
+        with self.assertRaises(EvolveError) as caught:
+            self.apply('REPORT', {'report.py': REPORT})
+        self.assertEqual(caught.exception.code, 'DEPENDENCY_NOT_READY')
+        self.assertFalse((self.root / 'report.py').exists())
+
     def test_initial_and_done_but_unverified_upstream_cannot_satisfy_verification_condition(self):
         for stage in ('initial','implemented'):
             if stage=='implemented': self.apply('SUM',{'total.py':SUM})

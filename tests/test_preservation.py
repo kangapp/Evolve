@@ -151,6 +151,33 @@ class PreservationTests(unittest.TestCase):
         self.assertIn('Ran 0 tests',result['task_checks'][0]['output'])
         self.assertEqual((self.root/'total.py').read_text(),fixtures.SUM)
 
+    def test_next_build_outputs_do_not_invalidate_before_and_after_checks(self):
+        test = self.root/'test_total.py'
+        test.write_text(test.read_text()+'\nfrom pathlib import Path\n'
+            'build = Path(".next")\nbuild.mkdir(exist_ok=True)\n'
+            'marker = build/"BUILD_ID"\n'
+            'marker.write_text(marker.read_text()+"x" if marker.exists() else "first")\n')
+        self.f.plan = self.f.propose(self.data)
+        result = self.f.apply('SUM', {'total.py': REFACTOR})
+        self.assertEqual(result['outcome'], 'implemented')
+        self.assertEqual(result['preservation']['status'], 'passed')
+        self.assertEqual((self.root/'.next/BUILD_ID').read_text(), 'firstx')
+        self.assertEqual(self.f.verify('SUM')['status'], 'passed')
+
+    def test_explicit_next_context_remains_protected(self):
+        from evolve_core.work import fingerprint
+        directory = self.root/'.next'
+        directory.mkdir()
+        marker = directory/'BUILD_ID'
+        marker.write_text('original')
+        definition = {'scope': [], 'structured': True, 'context': {'.next/BUILD_ID': None},
+                      'required_checks': [], 'checks_basis': []}
+        before = fingerprint(self.root, definition)
+        marker.write_text('changed')
+        after = fingerprint(self.root, definition)
+        self.assertNotEqual(before['context'], after['context'])
+        self.assertNotEqual(before['digest'], after['digest'])
+
     def test_check_that_changes_its_workspace_cannot_establish_a_before_proof(self):
         original=(self.root/'test_total.py').read_text()
         (self.root/'test_total.py').write_text(original+'\nfrom pathlib import Path\nPath("unexpected.txt").write_text("actual check side effect")\n')

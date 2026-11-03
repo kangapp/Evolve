@@ -88,11 +88,11 @@ def sha(content):
 def scope_for(package):
     from evolve_core.package import check_package, canonical
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) != (4, 17):
-        raise ValueError('Project knowledge acceptance requires schema 4 / protocol 17')
+    if (manifest['schema_version'], manifest['protocol_version']) != (4, 18):
+        raise ValueError('Project knowledge acceptance requires schema 4 / protocol 18')
     body = {'slice': 'project-knowledge', 'host': 'codex', 'first_files': FILES,
         'package_version': manifest['package_version'], 'content_digest': manifest['content_digest'],
-        'protocol_version': 17, 'schema_version': 4, 'cases': PROMPTS,
+        'protocol_version': 18, 'schema_version': 4, 'cases': PROMPTS,
         'fresh_conversation_per_case': True, 'maximum_sessions': 6,
         'business_write_paths': ['calc.py'], 'knowledge_write_paths': ['evolve/**/*.md'],
         'readonly_paths': ['README.md', 'legacy.md', 'test_calc.py', 'test_summary.py'],

@@ -17,7 +17,7 @@ def task_semantics(definition):
     for key in ('scope', 'required_deliverables', 'required_checks', 'preservation_checks', 'preservation_inputs', 'exclusions'):
         if key in value:
             value[key] = sorted(value[key])
-    for key in ('acceptance', 'dependencies', 'external_dependencies', 'test_decisions'):
+    for key in ('acceptance', 'dependencies', 'external_dependencies', 'test_decisions', 'input_impacts'):
         if key in value:
             value[key] = sorted(value[key], key=lambda item: canonical(item))
     return value
@@ -141,7 +141,8 @@ def _old_document(connection, change, revision, tasks):
     return {'title': change['title'], 'plan': body, 'completion': definition['completion'],
             'scope': definition['scope'], 'acceptance': [a['text'] for a in definition['acceptance']],
             'required_checks': definition['required_checks'], 'responsible_action': definition['responsible_action'],
-            **{k: definition[k] for k in ('execution_kind', 'external_target', 'knowledge_impact') if k in definition}}
+            **{k: definition[k] for k in ('execution_kind', 'external_target', 'knowledge_impact', 'knowledge_review', 'review_policy', 'pre_refactor', 'preservation_checks', 'preservation_inputs') if k in definition},
+            **({'context_paths': list(definition['context'])} if 'context' in definition else {})}
 
 
 def _acceptance_preview(data, old):
@@ -181,10 +182,18 @@ def _planned(root, connection, data, order, configured, acceptance, old_tasks, o
             'spec_delta': 'owner_candidate_required' if data.get('responsible_action', 'apply') != 'apply' else 'none'}
         from .external_work import definition_fields
         definition.update(definition_fields(root, data))
+        from .preservation import definition_fields as preservation_fields
+        definition.update(preservation_fields(root, data))
         from .knowledge_impact import freeze as freeze_knowledge_impact
         knowledge_impact = freeze_knowledge_impact(connection, root, data, data['scope'])
         if knowledge_impact is not None:
             definition['knowledge_impact'] = knowledge_impact
+        from .knowledge_impact import freeze_review
+        review = freeze_review(root, data)
+        if review is not None:
+            definition['knowledge_review'] = review
+        from .verify import policy_fields
+        definition.update(policy_fields(data))
         previous = json.loads(old['TASK-001']['definition_json']) if 'TASK-001' in old else {}
         if 'analysis_basis' not in data:
             for key in ('analysis_basis', 'symptom_before'):
@@ -200,6 +209,11 @@ def _planned(root, connection, data, order, configured, acceptance, old_tasks, o
     for key, item in planned.items():
         definition = item['definition']
         previous = json.loads(old[key]['definition_json']) if key in old else None
+        if previous and previous.get('knowledge_review') is not None and definition.get('knowledge_review') is not None:
+            semantics = lambda values: {view: {'result': item['result'], 'basis': item['basis'],
+                'source_paths': sorted(item['source_paths'])} for item in values for view in item['views']}
+            if semantics(previous['knowledge_review']) == semantics(definition['knowledge_review']):
+                definition['knowledge_review'] = previous['knowledge_review']
         if previous and 'knowledge_impact' in previous and 'knowledge_impact' in definition:
             without_versions = lambda values: [{k: v for k, v in item.items() if k != 'baseline_version_id'} for item in values]
             if without_versions(previous['knowledge_impact']) == without_versions(definition['knowledge_impact']):

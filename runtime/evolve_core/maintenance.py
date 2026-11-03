@@ -1,4 +1,4 @@
-"""Explicit complete backup and resumable offline archive restore/14/15/16→17 upgrade."""
+"""Explicit complete backup and resumable offline archive restore/14/15/16/17→18 upgrade."""
 from contextlib import contextmanager
 import json
 from pathlib import Path
@@ -75,7 +75,7 @@ def raw_history(root):
 def external_protection(root, project_id, *, protocol_version=None):
     path = inside(root, '.evolve-local/control/external.json')
     if not path.is_file():
-        if str(protocol_version) in ('16', '17'):
+        if str(protocol_version) in ('16', '17', '18'):
             raise EvolveError('EXTERNAL_PROTECTION_UNKNOWN', 'Actual sender protection is missing; absence cannot establish drainage', exit_code=4)
         return {'project_id': project_id, 'coverage': 'unverified', 'pending': []}
     value = json.loads(path.read_text())
@@ -138,7 +138,7 @@ def prepare(root, request, method):
     if method == 'upgrade':
         meta, registered, pending = current
         if meta['protocol_version'] not in UPGRADE_PROTOCOLS:
-            raise EvolveError('UPGRADE_UNSUPPORTED', 'Only explicit protocol 14/15/16→17 upgrade is supported', exit_code=4)
+            raise EvolveError('UPGRADE_UNSUPPORTED', 'Only explicit protocol 14/15/16/17→18 upgrade is supported', exit_code=4)
         index = {'protocol_version': int(meta['protocol_version']),
                  'files': [{'path': r['path'], 'kind': r['kind'], 'digest': r['blob_digest']} for r in registered],
                  'executions': pending}
@@ -205,7 +205,7 @@ def prepare(root, request, method):
     else:
         external = external_protection(root, guard['project_id'], protocol_version=index.get('protocol_version'))
     capsules = {}
-    if current and current[0]['protocol_version'] in ('16', '17'):
+    if current and current[0]['protocol_version'] in ('16', '17', '18'):
         with history_copy(root) as current_database:
             external, capsules = merge(root, external, current_database, current_snapshot=True)
     external, capsules = merge(root, external, bundle / 'authority/evolve/history.db' if bundle else None, capsules=capsules)

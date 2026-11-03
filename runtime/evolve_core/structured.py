@@ -31,6 +31,12 @@ def document(data):
         result['analysis_basis'] = data['analysis_basis']
     if data.get('knowledge_impact') is not None:
         result['knowledge_impact'] = data['knowledge_impact']
+    if data.get('impact_resolutions') is not None:
+        result['impact_resolutions'] = data['impact_resolutions']
+    if data.get('knowledge_review') is not None:
+        result['knowledge_review'] = data['knowledge_review']
+    if data.get('review_policy') is not None:
+        result['review_policy'] = data['review_policy']
     return result
 
 
@@ -98,10 +104,6 @@ def validate(root, data):
             raise EvolveError('SCOPE', 'Task must use the presented file scope and acceptance keys')
         covered.update(task['acceptance'])
         checks.update(task['required_checks'])
-        for name in task['context_paths']:
-            path = inside(root, name)
-            if not path.is_file():
-                raise EvolveError('CONTEXT', 'Declared context must be an observed file: ' + name)
         dependencies = task.get('dependencies')
         if 'external_dependencies' in task:
             from .cross_dependencies import validate as validate_external
@@ -149,6 +151,14 @@ def validate(root, data):
         return result
     for key in by_key:
         visit(key, set())
+    for task in tasks:
+        produced = {inside(root, name).resolve() for key in ancestors[task['local_key']] for name in by_key[key]['scope']}
+        for name in task['context_paths']:
+            path = inside(root, name)
+            if not path.is_file() and (path.exists() or path.resolve() not in produced):
+                raise EvolveError('CONTEXT', 'Context must be an observed file or a declared upstream output: ' + name)
+    from .planning_impacts import observe
+    observe(root, tasks, data.get('impact_resolutions'))
     for index, left in enumerate(tasks):
         for right in tasks[index + 1:]:
             if set(left['scope']) & set(right['scope']) and left['local_key'] not in ancestors[right['local_key']] and right['local_key'] not in ancestors[left['local_key']]:
@@ -173,6 +183,12 @@ def validate(root, data):
     if not isinstance(presentation, dict) or not presentation.get('source') or presentation.get('document') != document(data):
         raise EvolveError('PRESENTATION', 'Persist the entire structured document actually presented, including spec and tasks')
     configured = tomllib.loads(inside(root, 'evolve/config.toml').read_text()).get('verification', {}).get('checks', [])
+    from .knowledge_impact import freeze_review, validate_review_impacts
+    validate_review_impacts(freeze_review(root, data), data.get('knowledge_impact'))
+    from .verify import policy_fields
+    policy_fields(data)
+    for task in tasks:
+        policy_fields(task)
     if not checks.issubset({c['id'] for c in configured}):
         raise EvolveError('CHECK_CONFIG', 'Structured work references a check not registered by init')
     return order, configured
@@ -184,16 +200,19 @@ def definitions(root, data, order, configured, acceptance, *, connection=None, c
     ancestor_outputs = {}
     ac = {item['key']: item for item in acceptance}
     tasks = {task['local_key']: task for task in data['tasks']}
+    from .planning_impacts import observe
+    impacts = observe(root, data['tasks'], data.get('impact_resolutions'))
     for key in order:
         source = tasks[key]
         ancestor_outputs[key] = {name for dep in source['dependencies']
             for name in (set(tasks[dep['upstream_task']]['scope']) | ancestor_outputs[dep['upstream_task']])}
+        ancestor_targets = {inside(root, name).resolve() for name in ancestor_outputs[key]}
         definition = {name: source[name] for name in ('local_key', 'title', 'completion', 'validation', 'exclusions', 'scope', 'required_checks')}
         definition.update({'acceptance': [ac[k] for k in source['acceptance']],
             'checks_basis': [c for c in configured if c['id'] in source['required_checks']],
             'baseline': {name: current_digest(task_path(root, name, source.get('responsible_action', 'apply'))) for name in source['scope']},
             'context': {name: current_digest(inside(root, name)) for name in source['context_paths']
-                        if name not in ancestor_outputs[key]},
+                        if inside(root, name).resolve() not in ancestor_targets},
             'test_decisions': [{'reference': ref, 'digest': digest(canonical(data['spec']['test_decisions'][int(ref.rsplit('/', 1)[1])]))}
                                for ref in source['test_decision_refs']],
             'dependencies': [{**dep, 'required_definition_digest': result[dep['upstream_task']]['digest']} for dep in source['dependencies']],
@@ -205,14 +224,27 @@ def definitions(root, data, order, configured, acceptance, *, connection=None, c
             'spec_delta': 'owner_candidate_required' if source.get('responsible_action', 'apply') != 'apply' else 'none',
             'structured': True, 'pre_refactor': source.get('pre_refactor', False),
             'preservation_checks': source.get('preservation_checks', []), 'preservation_inputs': source.get('preservation_inputs', [])})
+        produced_context = {name: inside(root, name).resolve().relative_to(root).as_posix() for name in source['context_paths']
+                            if inside(root, name).resolve() in ancestor_targets}
+        if produced_context:
+            definition['produced_context'] = produced_context
         from .external_work import definition_fields
         definition.update(definition_fields(root, source))
+        related = [item for item in impacts if key in (item['producer'], item['consumer'])]
+        if related:
+            definition['input_impacts'] = related
+        from .verify import policy_fields
+        definition.update(policy_fields(source if 'review_policy' in source else data))
         if connection is not None:
             from .knowledge_impact import freeze as freeze_knowledge_impact
             impact_source = source if 'knowledge_impact' in source else data
             knowledge_impact = freeze_knowledge_impact(connection, root, impact_source, source['scope'])
             if knowledge_impact is not None:
                 definition['knowledge_impact'] = knowledge_impact
+            from .knowledge_impact import freeze_review
+            review = freeze_review(root, data)
+            if review is not None:
+                definition['knowledge_review'] = review
         if source.get('external_dependencies'):
             from .cross_dependencies import freeze, input_paths
             definition['external_dependencies'] = freeze(connection, source['external_dependencies'], change_id)
@@ -249,6 +281,7 @@ def dependency_basis(connection, task, peers):
         if upstream and upstream['state'] == 'done' and saved and saved.get('definition_digest') == upstream['definition_digest']:
             proof = {'definition_digest': upstream['definition_digest'], 'scope': saved['fingerprint']['scope'],
                      'context': saved['fingerprint'].get('context', {}), 'dependencies': saved.get('dependency_basis', {})}
+            proof.update({key: saved['fingerprint'][key] for key in ('environment', 'input_policy') if key in saved['fingerprint']})
         result[dep['upstream_task']] = digest(canonical(proof)) if proof is not None else None
     from .cross_dependencies import basis
     result.update(basis(connection, json.loads(task['definition_json'])))
@@ -273,7 +306,8 @@ def whole_definition(revision, peers):
             if path in context and context[path] != value:
                 raise EvolveError('CONTEXT', 'Task context versions disagree; revise the affected tasks: ' + path)
             context[path] = value
-    return {'whole_change': True, 'structured': True, 'scope': json.loads(revision['scope_json']),
+    policy = {'review_policy': 'independent'} if any(json.loads(task['definition_json']).get('review_policy') == 'independent' for task in peers) else {}
+    return {**policy, 'whole_change': True, 'structured': True, 'scope': json.loads(revision['scope_json']),
             'required_deliverables': json.loads(revision['scope_json']), 'context': context,
             'acceptance': json.loads(revision['acceptance_json']), 'required_checks': [c['id'] for c in checks], 'checks_basis': checks}
 
@@ -286,7 +320,13 @@ def implementation_state(connection, root, change, revision, task, definition):
         if saved and documents_complete and definition.get('responsible_action') in ('sync', 'init', 'learn'):
             saved = {**saved, 'fingerprint': {**saved['fingerprint'], 'scope': {p: current_digest(inside(root, p)) for p in definition['scope']}}}
         from .external_work import recorded_complete
-        return task['state'] == 'done' and documents_complete and recorded_complete(connection, root, task, definition, saved), saved
+        complete = task['state'] == 'done' and documents_complete and recorded_complete(connection, root, task, definition, saved)
+        from .work import context_changes
+        complete = complete and not context_changes(root, definition)
+        if complete and definition.get('pre_refactor'):
+            from .preservation import completion_proven
+            complete = bool(saved and completion_proven(connection, root, task, definition, saved, None))
+        return complete, saved
     peers = current_tasks(connection, change['id'], revision['id'])
     selected = peers if definition.get('whole_change') else [task]
     complete = documents_complete
@@ -337,6 +377,10 @@ def readiness(connection, root, task, peers, *, pending=None):
     from .formal import document_applications
     definition = json.loads(task['definition_json'])
     unmet = []
+    for impact in definition.get('input_impacts', []):
+        if impact['requires_review']:
+            unmet.append({'kind': 'planning_impact', 'reference': impact['paths'],
+                          'reason': 'Review producer/input overlap and revise the concrete dependency or independent-impact decision.'})
     change = connection.execute('SELECT state FROM changes WHERE id=?', (task['change_id'],)).fetchone()
     if task['state'] == 'cancelled' or change['state'] == 'cancelled':
         unmet.append({'kind': 'cancelled', 'reference': task['id'], 'reason': 'Work was explicitly cancelled; physical results remain historical.'})
@@ -354,6 +398,12 @@ def readiness(connection, root, task, peers, *, pending=None):
     for name, expected in definition.get('context', {}).items():
         if current_digest(inside(root, name)) != expected:
             unmet.append({'kind': 'context_changed', 'reference': name, 'reason': 'Declared context changed; inspect and revise the affected task'})
+    for name, target in definition.get('produced_context', {}).items():
+        path = inside(root, name)
+        if path.resolve().relative_to(root).as_posix() != target:
+            unmet.append({'kind': 'context_target_changed', 'reference': name, 'reason': 'Declared upstream context now resolves to a different output'})
+        elif not path.is_file():
+            unmet.append({'kind': 'context_missing', 'reference': name, 'reason': 'Declared upstream context has not been produced as a file'})
     by_key = {json.loads(row['definition_json'])['local_key']: row for row in peers}
     outputs = recorded_outputs(peers)
     for dep in definition.get('dependencies', []):
@@ -420,6 +470,8 @@ def propose(root, payload):
     require_effect(request, 'project_records')
     data = request['input']
     order, configured = validate(root, data)
+    from .planning_impacts import observe, workspace_observations
+    impacts = observe(root, data['tasks'], data.get('impact_resolutions'))
     if not request.get('project_id') or not request.get('expected_workspace_epoch'):
         raise EvolveError('INPUT', 'Prepared request must freeze project identity and epoch')
     with writer_lock(root):
@@ -431,6 +483,10 @@ def propose(root, payload):
             try:
                 change_id, revision_id = identifier(), identifier()
                 with store.transaction() as connection:
+                    workspace_impacts = workspace_observations(connection, root, data['scope'],
+                        [name for task in data['tasks'] for name in task['context_paths']])
+                    if workspace_impacts:
+                        store.event(run_id, 'workspace_impacts_observed', {'impacts': workspace_impacts})
                     acceptance = [{'key': item['key'], 'id': store.number('AC'), 'text': item['text'], 'required': True} for item in data['acceptance']]
                     planned = definitions(root, data, order, configured, acceptance, connection=connection, change_id=change_id)
                     plan_digest = store.blob(canonical(document(data)))
@@ -461,7 +517,8 @@ def propose(root, payload):
                 return store.finish(run_id, {'committed': True, 'outcome': 'planned', 'change_id': change_id,
                     'change_code': code, 'revision_id': revision_id, 'revision': 1, 'definition_digest': definition_digest,
                     'plan_digest': plan_digest, 'tasks': tasks, 'change_version': 1, 'acceptance': acceptance,
-                    'plan_ref': plan_ref, 'accepted': False})
+                    'plan_ref': plan_ref, 'accepted': False,
+                    'planning_impacts': impacts, 'workspace_impacts': workspace_impacts})
             except EvolveError as error:
                 if store.run_started(run_id):
                     store.finish(run_id, {'committed': True, 'outcome': 'blocked', 'error': {'code': error.code, 'message': str(error)}}, status='blocked')

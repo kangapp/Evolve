@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import sqlite3
 import subprocess
 import sys
 import zipfile
@@ -43,8 +44,9 @@ UPDATE = {
         '使用 Evolve 只读核对候选包、实际加载根、会话摘要、档案兼容、控制资料与旧正式知识。'
         '本会话是新会话，旧包及原始安装回执只读位于 .agents/evolve-acceptance/update/。'
         '用旧包摘要调用一次 status，实际观察 SESSION_PACKAGE_MISMATCH；然后沿本新会话实际摘要核对。'
-        '不迁移同协议档案、不重新初始化、不修改正文、不写项目记录，明确各项完成范围和接手指令。',
-    'update_continue': '使用更新后的 Evolve 完成 calc.py 总计修复：接受本轮展示的具体短方案，授权仅修改 calc.py，'
+        '当前包协议18、旧档案协议17，使用 doctor 观察兼容诊断，按旧完整包读取旧正式知识；本轮不迁移、不重新初始化、不修改正文、不写项目记录，明确各项完成范围和接手指令。',
+    'update_continue': '先由 Evolve 准备协议17→18的准确升级方案，核对并应用；本次完整临时验收授权明确接受保持旧事实及正式正文的该受控迁移，按实际方案范围连续推进。'
+        '再使用更新后的 Evolve 完成 calc.py 总计修复：接受本轮展示的具体短方案，授权仅修改 calc.py，'
         '保留 test_calc.py、README.md 和已登记正式规则。运行 original 检查，完成逐 AC、规格与规范审查、'
         '必要知识收尾、最新整体验收与封存。规则的求和定义保持不变，按现场声明知识影响和实际观察。'
         '这是完整实施验收授权，范围内连续接力；保留旧包产生的全部事实。',
@@ -58,15 +60,17 @@ def sha(data):
 def scope_for(package, journey='work'):
     from evolve_core.package import canonical, check_package
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) != (4, 17):
-        raise ValueError('Workflow acceptance requires actual schema 4 / protocol 17')
+    if (manifest['schema_version'], manifest['protocol_version']) != (4, 18):
+        raise ValueError('Workflow acceptance requires actual schema 4 / protocol 18')
     body = {'slice': 'workflow-closure', 'journey': journey, 'host': 'codex', 'first_files': FILES,
         'package_version': manifest['package_version'], 'content_digest': manifest['content_digest'],
         'cases': WORK if journey == 'work' else UPDATE, 'fresh_conversation_per_case': True,
         'business_write_paths': ['calc.py'], 'readonly_paths': ['test_calc.py', 'README.md'],
         'parent_mutations': ['After finish, remove only checks.json, external.json and init.json'] if journey == 'work' else
             ['Install actual 0.2.0 package in isolated profile, connect and register exact temporary rule',
-             'Replace isolated registered source with current complete package and refresh native installation'],
+             'Replace isolated registered source with current complete package and refresh native installation',
+             'Copy installation receipts into the readable update directory; old-package status/history bridge writes only declared request-staging receipts',
+             'Model presents and applies explicit protocol17-to-18 upgrade in update_continue'],
         'old_fixture_sha256': sha(OLD.read_bytes()) if journey == 'update' else None,
         'model_selection': 'Native model/list isDefault; account authentication stays in the host',
         'runner_files': {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in (
@@ -155,16 +159,35 @@ class Checks:
         if Path(installed['installedPath']).resolve() != self.package.resolve():
             raise AssertionError('Native update did not return the actual cache used by fresh sessions')
         (self.base / 'profile/config.toml').write_bytes(settings)
+        native_receipts = []
+        for label in ('install-actual-old', 'install-current-update'):
+            target = update / (label + '.json')
+            shutil.copyfile(self.evidence / target.name, target)
+            native_receipts.append(str(target))
+        self.old_query_receipts = self.project / '.evolve-local/control/requests/old-query-receipts'
+        self.old_query_receipts.mkdir()
+        self.old_readonly_bridge = update / 'old_readonly_bridge.py'
+        old_bridge = transport.HEADLESS_BRIDGE.replace('__RUNTIME__', repr(str(old / 'runtime/evolve.py'))).replace('__PROJECT__', repr(str(self.project)))
+        old_bridge = old_bridge.replace("folder=Path(project)/'.evolve-local/control/requests'",
+            "if len(sys.argv)<2 or sys.argv[1] not in ('status','history') or any(arg.split('=')[0] in ('--request','--project') for arg in sys.argv[2:]):\n"
+            "    raise SystemExit('Old-package bridge permits only fixed-project status/history queries')\n"
+            "if json.loads((Path(runtime).parent.parent/'evolve-package.json').read_text())['content_digest'] != " + repr(old_manifest['content_digest']) + ":\n"
+            "    raise SystemExit('Old package identity changed')\n"
+            "folder=Path(" + repr(str(self.old_query_receipts)) + ")")
+        self.old_readonly_bridge.write_text(old_bridge)
+        self.update_readonly_files = {str(path): path.read_bytes() for path in
+            [self.old_readonly_bridge, *(Path(path) for path in native_receipts)]}
         save(update / 'update-context.json', {'old_version': old_manifest['package_version'], 'old_digest': old_manifest['content_digest'],
             'new_version': self.scope['package_version'], 'new_digest': self.scope['content_digest'],
             'project_id': self.old_identity['project_id'], 'old_package': str(old), 'current_package': str(self.package),
-            'native_installation_receipts': [str(self.evidence / (label + '.json')) for label in ('install-actual-old', 'install-current-update')]})
+            'native_installation_receipts': native_receipts, 'old_readonly_bridge': str(self.old_readonly_bridge)})
 
     def rows(self):
         if not (self.project / 'evolve/history.db').is_file():
             return {}
-        from evolve_core.reading import history_snapshot
-        with history_snapshot(self.project) as (connection, _):
+        from evolve_core.maintenance import history_copy
+        with history_copy(self.project) as snapshot, sqlite3.connect(snapshot) as connection:
+            connection.row_factory = sqlite3.Row
             return {table: {r['resource' if table == 'resource_claims' else 'id']: dict(r) for r in connection.execute('SELECT * FROM ' + table)}
                     for table in ('phase_runs', 'changes', 'tasks', 'verifications', 'artifact_versions', 'events', 'resource_claims')}
 
@@ -185,17 +208,24 @@ class Checks:
         self.event_offset = (self.evidence / 'model-events.jsonl').stat().st_size if (self.evidence / 'model-events.jsonl').exists() else 0
 
     def context_for(self, case):
-        return '\n本轮所有 Evolve CLI 经控制侧只读桥接脚本 python3 -B ' + str(self.bridge) + \
+        context = '\n本轮所有 Evolve CLI 经控制侧只读桥接脚本 python3 -B ' + str(self.bridge) + \
             ' <action> [--method <method>] [其他CLI参数] 调用；桥接输出真实 receipt 路径和 workflow，可读全文。' \
             '桥接只在 .evolve-local/control/requests 保存控制侧验收回执；此暂存不代表运行时查询创建记录。' \
             '写请求文件按共享协议放 .evolve-local/control/requests，实际业务和知识变化经 Evolve 动作。' \
             '插件、宿主设置、桥接、测试与 README 只读。'
+        if case == 'update_inspect':
+            context += '\n旧包查询另有明确允许的受限入口：python3 -B ' + str(self.old_readonly_bridge) + \
+                ' history --owner evolve-maintain。该桥接只允许固定当前项目的 status/history，不接受写请求或项目覆盖；' \
+                '0.2.0 不使用新包的 session-package-digest 参数。其控制回执仅保存在项目 .evolve-local/control/requests/old-query-receipts。' \
+                'update-context.json 中的两份原生安装回执已复制到同目录可读范围，核对实际内容，保留原文件。'
+        return context
 
     def after(self, case):
         from evolve_core.package import check_package
         for package in (self.package, self.registered):
             assert check_package(package)['content_digest'] == self.scope['content_digest']
         assert sha(self.bridge.read_bytes()) == self.bridge_digest
+        assert all(Path(path).read_bytes() == content for path, content in getattr(self, 'update_readonly_files', {}).items())
         assert all(Path(p).read_bytes() == content for p, content in self.settings.items())
         for name in ('README.md', 'test_calc.py'):
             assert (self.project / name).read_text() == FILES[name], 'Independent fixture changed'
@@ -205,13 +235,16 @@ class Checks:
         assert receipts, 'Actual CLI usage is required'
         assert all(r['response'].get('workflow', {}).get('next_steps') for r in receipts)
         events = (self.evidence / 'model-events.jsonl').read_bytes()[self.event_offset:].decode()
-        messages = []
+        messages, source_reads = [], []
         for line in events.splitlines():
             event = json.loads(line)
             item = event.get('params', {}).get('item', {})
+            if event.get('method') == 'item/completed' and item.get('type') == 'commandExecution' and '/runtime/evolve_core/' in item.get('command', ''):
+                source_reads.append(item['command'])
             if event.get('method') == 'item/completed' and item.get('type') == 'agentMessage':
                 messages.append(item.get('text', ''))
         save(self.evidence / (case + '-visible-messages.json'), messages)
+        assert not source_reads, 'Ordinary workflow must use public routing/protocol instead of reading runtime source: ' + repr(source_reads)
         assert messages and any('[Evolve' in text for text in messages[:-1]) and '[Evolve' in messages[-1], 'Visible start/end markers missing'
         assert 'evolve-' in messages[-1], 'Final handoff skill missing'
         rows = self.rows()
@@ -243,6 +276,7 @@ class Checks:
             assert any(r['response'].get('error', {}).get('code') == 'SESSION_PACKAGE_MISMATCH' for r in receipts)
             assert (self.project / 'evolve/guides/rules.md').read_text() == self.rule
             assert all(rows[t].get(k) == v for t, values in self.old_rows.items() for k, v in values.items())
+            assert any(json.loads(path.read_text())['response'].get('ok') for path in self.old_query_receipts.glob('cli-receipt-*.json')), 'Actual old-package read-only history query missing'
         if case in ('finish', 'repair', 'update_continue'):
             checked = subprocess.run([sys.executable, '-B', '-m', 'unittest', 'test_calc', '-v'], cwd=self.project,
                                      capture_output=True, text=True, timeout=20)

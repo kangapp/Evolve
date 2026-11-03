@@ -91,12 +91,17 @@ def run_check(root, check, *, event_sink=None):
     execution_id = str(uuid.uuid4())
     metadata = {'execution_id': execution_id, 'check_id': check['id'],
                 'command_digest': digest(canonical(check)), 'host': socket.gethostname()}
+    from .check_environment import observe
+    observed_environment = observe(root, check)
+    metadata['environment_digest'] = observed_environment['digest']
     if event_sink:
         event_sink('check_dispatch_prepared', metadata)
     unfinished = False
     with tempfile.TemporaryFile() as output:
         process = None
         try:
+            if observed_environment['status'] != 'ready':
+                raise OSError('Required environment is unavailable: ' + json.dumps(observed_environment['missing']))
             process = subprocess.Popen(check['argv'], cwd=inside(root, check.get('cwd', '.')),
                                        env=environment, stdin=subprocess.DEVNULL, stdout=output,
                                        stderr=subprocess.STDOUT, start_new_session=os.name != 'nt')
@@ -144,4 +149,5 @@ def run_check(root, check, *, event_sink=None):
             'argv': [redact(arg) for arg in check['argv']], 'cwd': check.get('cwd', '.'),
             'elapsed_seconds': round(time.monotonic() - start, 6),
             'output': text, 'output_truncated': size > 65536,
-            'execution_id': execution_id, 'unfinished_processes': unfinished}
+            'execution_id': execution_id, 'unfinished_processes': unfinished,
+            'environment': observed_environment}

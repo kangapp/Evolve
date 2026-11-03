@@ -98,8 +98,14 @@ def execute_request(args, method):
                 or (args.action == 'init' and method == 'baseline.apply' and data.get('change_id'))
                 or (args.action == 'learn' and method == 'promote' and data.get('stage') == 'apply' and data.get('change_id'))):
             target = data.get('change_id') or args.target
+            if not target and fresh:
+                candidates = [item for item in state['changes'] if item['state'] not in ('archived', 'cancelled')]
+                if len(candidates) == 1:
+                    target = candidates[0]['id']
             if not target:
-                raise EvolveError('TARGET', 'An explicit or uniquely resolved work item is required')
+                raise EvolveError('TARGET', 'An explicit or uniquely resolved work item is required',
+                    details={'candidates': [{key: item[key] for key in ('id', 'code', 'title', 'state')}
+                                           for item in state['changes']], 'query': 'next'})
             selected = [c for c in state['changes'] if target in (c['id'], c['code'], c['title'])]
             if len(selected) != 1:
                 raise EvolveError('TARGET', 'Work item is missing or ambiguous')
@@ -168,6 +174,7 @@ def execute_request(args, method):
     from .knowledge_proposals import propose_knowledge, check_candidate, review_candidates
     from .formal import apply_knowledge, verify_knowledge
     from .exporting import export_analysis
+    from .review_materials import clean as clean_review_materials
     from .cancellation import cancel_change
     from .maintenance import backup, restore, upgrade, repair
     from .external import execute as external_execute, reconcile as external_reconcile
@@ -186,9 +193,16 @@ def execute_request(args, method):
                 ('sync', 'propose'): propose_knowledge, ('sync', 'check'): check_candidate, ('sync', 'review'): review_candidates,
                 ('sync', 'apply'): apply_knowledge, ('sync', 'facts'): maintain_facts, ('sync', 'assess'): assess_knowledge,
                 ('verify', 'knowledge'): verify_knowledge,
-                ('maintain', 'export'): export_analysis, ('maintain', 'cancel'): cancel_change, ('maintain', 'backup'): backup,
+                ('maintain', 'export'): export_analysis, ('maintain', 'clean'): clean_review_materials, ('maintain', 'cancel'): cancel_change, ('maintain', 'backup'): backup,
                 ('maintain', 'restore'): restore, ('maintain', 'upgrade'): upgrade, ('maintain', 'repair'): repair}
-    result = (learn(root, request, method=method) if args.action == 'learn' else handlers[(args.action, method)](root, request))
+    try:
+        result = (learn(root, request, method=method) if args.action == 'learn' else handlers[(args.action, method)](root, request))
+    except (EvolveError, OSError, ValueError, TypeError, KeyError, sqlite3.Error) as error:
+        error.prepared_request = {key: request[key] for key in
+            ('request_id', 'project_id', 'expected_workspace_epoch', 'expected_versions') if key in request}
+        error.prepared_bindings = {key: data[key] for key in
+            ('change_id', 'revision_id', 'task_id', 'definition_digest', 'accepted_plan_digest') if key in data}
+        raise
     receipt = {}
     if args.action == 'analyze' or (args.action == 'apply' and method.startswith('external.')):
         from .package import canonical, digest
@@ -242,6 +256,11 @@ def dispatch(args):
             raise EvolveError('INPUT', 'Experience search is a pure query without mutation requests')
         from .learning import search
         return search(Path(args.project), args.target)
+    if (action, method) == ('maintain', 'materials'):
+        if args.request or args.target:
+            raise EvolveError('INPUT', 'Review material inventory is a pure project query')
+        from .review_materials import query
+        return query(Path(args.project))
     if (action, method) not in {('status', 'show'), ('next', 'show'), ('resume', 'show'), ('history', 'show'), ('maintain', 'doctor')}:
         return execute_request(args, method)
     if args.request:
@@ -275,6 +294,7 @@ def dispatch(args):
             "project": project, "readiness": readiness(Path(args.project), project), "package_root": str(ROOT),
             "package_version": manifest["package_version"], "content_digest": manifest["content_digest"],
             "available_methods": manifest["available_methods"],
+            "action_owners": {action: "evolve-" + owner for action, owner in OWNERS.items()},
             "unavailable_methods": sorted(a + "." + m for a, ms in METHODS.items() for m in ms
                                           if a + "." + m not in AVAILABLE),
             "host_enablement": "not_observed", "warnings": []}
@@ -282,6 +302,7 @@ def dispatch(args):
         from .package import inspect_package, UPGRADE_PROTOCOLS
         candidate = inspect_package(args.candidate_package)
         result['candidate_package'] = {k: candidate[k] for k in ('package_version', 'protocol_version', 'schema_version', 'content_digest')}
+        result['candidate_package']['source_observation'] = candidate.get('source_observation', {'kind': 'not_observed'})
         result['candidate_package'].update(root=str(Path(args.candidate_package).resolve()),
             installation='not_performed', session_activation='not_observed', archive_upgrade='not_performed',
             supported_archive_upgrade_from=list(UPGRADE_PROTOCOLS))
@@ -313,21 +334,38 @@ def main(argv=None):
         parser.add_argument('--candidate-package', help='Read-only candidate release inspection for maintain.doctor')
         args = parser.parse_args(argv)
         action = args.action
+        manifest = check_package()
         data = dispatch(args)
+        change_id = data.get('change_id')
+        selected = data.get('context', {}).get('project', {}).get('changes', [])
+        if not change_id and len(selected) == 1:
+            change_id = selected[0]['id']
+        if change_id:
+            from .change_views import observe as observe_view
+            data['change_view'] = observe_view(Path(args.project).resolve(), change_id)
+        data['package_observation'] = {'executing_root': str(ROOT), 'resource_digest': manifest['content_digest'],
+            'source': manifest.get('source_observation', {'kind': 'not_observed'}),
+            'source_observation_digest': manifest.get('source_observation_digest'),
+            'host_configuration': 'not_observed', 'host_session_loading': 'not_observed'}
         data['activation'] = {'session_status': 'matching_package' if args.session_package_digest else 'not_observed',
                               'host_enablement': 'not_observed'}
         if args.action in ('next', 'resume'):
             from .guidance import readiness
             data['readiness'] = readiness(Path(args.project), data['context']['project'])
+            from .workflow_requests import execution_view
+            data['execution'] = execution_view(Path(args.project), data['context'], data['readiness'])
         response = {"ok": True, "action": action, "operation_id": data.get("operation_id"), "data": data, "warnings": []}
         code = 0
     except EvolveError as error:
         response = {"ok": False, "action": action, "operation_id": None,
-                    "data": {"committed": error.committed}, "warnings": [],
-                    "error": {"code": error.code, "message": str(error), "next_steps": error.next_steps}}
+                    "data": {"committed": error.committed, 'request_context': getattr(error, 'prepared_request', {}),
+                             'input_bindings': getattr(error, 'prepared_bindings', {})}, "warnings": [],
+                    "error": {"code": error.code, "message": str(error), "next_steps": error.next_steps, "details": error.details}}
         code = error.exit_code
     except (OSError, ValueError, TypeError, KeyError, sqlite3.Error) as error:
-        response = {"ok": False, "action": action, "operation_id": None, "data": {"committed": None}, "warnings": [],
+        response = {"ok": False, "action": action, "operation_id": None,
+                    "data": {"committed": None, 'request_context': getattr(error, 'prepared_request', {}),
+                             'input_bindings': getattr(error, 'prepared_bindings', {})}, "warnings": [],
                     "error": {"code": "OBSERVATION_REQUIRED", "message": "Execution did not return a reliable result: " + type(error).__name__,
                               "next_steps": ["Inspect status and pending operations before retrying effects"]}}
         code = 1
@@ -335,6 +373,9 @@ def main(argv=None):
     method = getattr(args, 'method', None) or (METHODS.get(action) or ['show'])[0]
     root = getattr(args, 'project', '.')
     response['workflow'] = workflow_view(root, action, method, response['data'], error=response.get('error'))
+    if response.get('error'):
+        from .workflow_requests import request_help
+        response['error']['request_help'] = request_help(action, method)
     if response.get('error') and not response['error']['next_steps']:
         response['error']['next_steps'] = [step['prompt'] for step in response['workflow']['next_steps']]
     print(json.dumps(response, ensure_ascii=False, indent=2))

@@ -24,7 +24,7 @@ class DataScopeTests(unittest.TestCase):
         self.assertEqual(scope['business_write_paths'], ['model.sql'])
         self.assertEqual(scope['readonly_paths'], ['orders.json', 'test_reconciliation.py'])
         self.assertEqual(len(scope['first_files']), 3)
-        self.assertEqual(scope['protocol_version'], 17)
+        self.assertEqual(scope['protocol_version'], 18)
 
     def test_absent_or_wrong_scope_refuses_before_creating_project(self):
         with tempfile.TemporaryDirectory() as directory:

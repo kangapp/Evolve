@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
 
@@ -56,6 +57,22 @@ def inventory(contents):
             'available_methods': sorted(AVAILABLE), 'files': files, 'content_digest': digest(canonical(files))}
 
 
+def source_observation(contents):
+    def git(*arguments):
+        try:
+            result = subprocess.run(['git', '-C', str(ROOT), *arguments], capture_output=True, text=True, timeout=10)
+            return result.stdout.strip() if result.returncode == 0 else None
+        except (OSError, subprocess.TimeoutExpired):
+            return None
+    top = git('rev-parse', '--show-toplevel')
+    revision = git('rev-parse', 'HEAD') if top and Path(top).resolve() == ROOT.resolve() else None
+    dirty = git('status', '--porcelain', '--untracked-files=normal') if revision else None
+    return {'kind': 'build_time_observation', 'source_root': str(ROOT), 'git_revision': revision,
+            'git_dirty': bool(dirty) if dirty is not None else None,
+            'source_content_digest': digest(canonical({name: digest(body) for name, body in sorted(contents.items())})),
+            'source_attestation': 'unsigned', 'host_loading': 'not_observed'}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, help='New independent package directory (must not exist)')
@@ -80,6 +97,8 @@ def main():
     except ValueError as error:
         parser.error(str(error))
     package = inventory(contents)
+    observation = source_observation({name: (ROOT / name).read_bytes() for name in sources()})
+    package.update(source_observation=observation, source_observation_digest=digest(canonical(observation)))
     data = json.dumps(package, ensure_ascii=False, indent=2).encode('utf-8') + b'\n'
     if args.out:
         target = args.out.absolute()

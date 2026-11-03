@@ -69,8 +69,13 @@ def markdown(report):
 
 
 def export_analysis(root, payload):
-    root = Path(root).resolve()
     request = normalize(payload)
+    if request['input'].get('kind') == 'change':
+        from .change_views import rebuild
+        return rebuild(root, request)
+    if request['input'].get('kind') not in (None, 'analysis', 'review_copy', 'review_index'):
+        raise EvolveError('EXPORT_KIND', 'Export kind must be analysis, change, review_copy or review_index')
+    root = Path(root).resolve()
     require_effect(request, 'project_records')
     with writer_lock(root):
         store = Store(root)
@@ -78,6 +83,9 @@ def export_analysis(root, payload):
             previous = store.lookup(request, action='maintain', method='export', owner='evolve-maintain')
             if previous is not None:
                 return previous[1]
+            if request['input'].get('kind') in ('review_copy', 'review_index'):
+                from .review_materials import export
+                return export(store, request)
             path, form = output_path(root, request['input'])
             source = request['input'].get('source')
             original, result = analysis_reference(store.connection, source)
@@ -109,6 +117,10 @@ def export_analysis(root, payload):
 
 
 def interrupted_export(store, original_id):
+    original = store.one('SELECT input_json FROM phase_runs WHERE id=?', (original_id,))
+    if json.loads(original['input_json'])['request']['input'].get('kind') in ('review_copy', 'review_index'):
+        from .review_materials import interrupted
+        return interrupted(store, original_id)
     rows = store.connection.execute("SELECT payload_json FROM events WHERE run_id=? AND kind='analysis_export_prepared'", (original_id,)).fetchall()
     if len(rows) != 1:
         return {'outcome': 'export_interrupted', 'view_status': 'not_prepared', 'business_sources_reobserved': False}

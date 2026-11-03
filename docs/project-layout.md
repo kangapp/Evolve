@@ -1,11 +1,11 @@
 # 实际工程目录
 
-版本 0.3.0，protocol 17／schema 4。本页由当前源码和运行包清单生成。
+版本 0.4.0，protocol 18／schema 4。本页由当前源码和运行包清单生成。
 
 <!-- source-only -->
 ## 源码工程
 
-维护文件共 232 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
+维护文件共 261 份；完整路径、字节数和摘要见[工程文件清单](../engineering-file-manifest.json)。源码、当前文档、测试及开发工具纳入维护清单；缓存、临时项目和构建输出不计入。
 
 ```text
 evolve/
@@ -48,6 +48,9 @@ evolve/
 │   │   ├── archive_sets.py
 │   │   ├── backup.py
 │   │   ├── cancellation.py
+│   │   ├── change_views.py
+│   │   ├── check_environment.py
+│   │   ├── check_reuse.py
 │   │   ├── checks.py
 │   │   ├── cli.py
 │   │   ├── config_edit.py
@@ -75,6 +78,7 @@ evolve/
 │   │   ├── maintenance.py
 │   │   ├── package.py
 │   │   ├── patches.py
+│   │   ├── planning_impacts.py
 │   │   ├── plans.py
 │   │   ├── preservation.py
 │   │   ├── privacy.py
@@ -84,12 +88,14 @@ evolve/
 │   │   ├── recover.py
 │   │   ├── requests.py
 │   │   ├── resume.py
+│   │   ├── review_materials.py
 │   │   ├── revisions.py
 │   │   ├── rules.py
 │   │   ├── store.py
 │   │   ├── structured.py
 │   │   ├── verify.py
 │   │   ├── work.py
+│   │   ├── workflow_requests.py
 │   │   └── workspace.py
 │   └── evolve.py
 ├── scripts/
@@ -99,6 +105,7 @@ evolve/
 │   ├── daily_inputs.py
 │   ├── daily_smoke.py
 │   ├── data_smoke.py
+│   ├── engineering_smoke.py
 │   ├── external_smoke.py
 │   ├── learning_fixture.py
 │   ├── learning_smoke.py
@@ -107,6 +114,7 @@ evolve/
 │   ├── model_daily_acceptance.py
 │   ├── model_daily_checks.py
 │   ├── model_data_acceptance.py
+│   ├── model_engineering_acceptance.py
 │   ├── model_external_acceptance.py
 │   ├── model_external_checks.py
 │   ├── model_knowledge_checks.py
@@ -164,6 +172,19 @@ evolve/
 │       └── SKILL.md
 ├── tests/
 │   ├── fixtures/
+│   │   ├── engineering-next/
+│   │   │   ├── app/
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── src/
+│   │   │   │   └── total.ts
+│   │   │   ├── tests/
+│   │   │   │   └── total.test.ts
+│   │   │   ├── README.md
+│   │   │   ├── next-env.d.ts
+│   │   │   ├── package-lock.json
+│   │   │   ├── package.json
+│   │   │   └── tsconfig.json
 │   │   ├── README.md
 │   │   ├── application-package-alpha8.zip
 │   │   ├── candidate-package-alpha7.zip
@@ -189,7 +210,10 @@ evolve/
 │   ├── test_archive_sets.py
 │   ├── test_backup.py
 │   ├── test_cancellation.py
+│   ├── test_change_views.py
+│   ├── test_check_environment.py
 │   ├── test_check_lifecycle.py
+│   ├── test_check_reuse.py
 │   ├── test_cli_workflow.py
 │   ├── test_configuration.py
 │   ├── test_connect.py
@@ -201,6 +225,7 @@ evolve/
 │   ├── test_diagnostic_workflow.py
 │   ├── test_document_workflow.py
 │   ├── test_documentation.py
+│   ├── test_engineering_execution.py
 │   ├── test_external_actions.py
 │   ├── test_external_cli.py
 │   ├── test_external_execute.py
@@ -224,6 +249,7 @@ evolve/
 │   ├── test_model_complex_acceptance.py
 │   ├── test_model_daily_acceptance.py
 │   ├── test_model_data_acceptance.py
+│   ├── test_model_engineering_acceptance.py
 │   ├── test_model_external_acceptance.py
 │   ├── test_model_knowledge_acceptance.py
 │   ├── test_model_learning_acceptance.py
@@ -235,15 +261,20 @@ evolve/
 │   ├── test_package.py
 │   ├── test_package_lifecycle.py
 │   ├── test_patch_application.py
+│   ├── test_planning_impacts.py
 │   ├── test_plans.py
 │   ├── test_preservation.py
 │   ├── test_privacy.py
 │   ├── test_project_knowledge.py
+│   ├── test_protocol18_upgrade.py
 │   ├── test_recover.py
 │   ├── test_resume.py
+│   ├── test_review_coverage.py
+│   ├── test_review_materials.py
 │   ├── test_revisions.py
 │   ├── test_rule_owner.py
 │   ├── test_scope_aliases.py
+│   ├── test_short_preservation.py
 │   ├── test_sql_workflow.py
 │   ├── test_status_projection.py
 │   ├── test_store.py
@@ -251,7 +282,9 @@ evolve/
 │   ├── test_structured_execution.py
 │   ├── test_structured_plans.py
 │   ├── test_verify_archive.py
+│   ├── test_work_knowledge_review.py
 │   ├── test_workflow_guidance.py
+│   ├── test_workflow_requests.py
 │   ├── test_workspace.py
 │   └── workflow_fixture.py
 ├── .gitignore
@@ -268,7 +301,7 @@ evolve/
 
 ## 独立运行包
 
-完整运行包含 102 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
+完整运行包含 108 份运行资源及 evolve-package.json 自身。实际资源摘要以[包清单](../evolve-package.json)为准；目录可整体安装、移动并离线定位资源。以下各路径在工程中有真实文件，构建时只复制这些资源。
 
 ```text
 evolve/
@@ -310,6 +343,9 @@ evolve/
 │   │   ├── archive_sets.py
 │   │   ├── backup.py
 │   │   ├── cancellation.py
+│   │   ├── change_views.py
+│   │   ├── check_environment.py
+│   │   ├── check_reuse.py
 │   │   ├── checks.py
 │   │   ├── cli.py
 │   │   ├── config_edit.py
@@ -337,6 +373,7 @@ evolve/
 │   │   ├── maintenance.py
 │   │   ├── package.py
 │   │   ├── patches.py
+│   │   ├── planning_impacts.py
 │   │   ├── plans.py
 │   │   ├── preservation.py
 │   │   ├── privacy.py
@@ -346,12 +383,14 @@ evolve/
 │   │   ├── recover.py
 │   │   ├── requests.py
 │   │   ├── resume.py
+│   │   ├── review_materials.py
 │   │   ├── revisions.py
 │   │   ├── rules.py
 │   │   ├── store.py
 │   │   ├── structured.py
 │   │   ├── verify.py
 │   │   ├── work.py
+│   │   ├── workflow_requests.py
 │   │   └── workspace.py
 │   └── evolve.py
 ├── shared/

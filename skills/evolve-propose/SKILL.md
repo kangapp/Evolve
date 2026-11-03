@@ -7,9 +7,15 @@ description: 为 Evolve 工作形成短方案或复杂 spec、修订方案，或
 
 归属 propose、update、analyze。复用当前资料，区分事实、假设和未知。复杂方案给目标、边界、行为、验收和真实任务依赖；调查保存可重复症状判据、来源与限制，不凭分析请求开始修复。
 
+已有相关经验时先按 evolve-learn 检索并复核实际适用性；采用或不采用及具体影响交 learn 记录，候选经验不充当正式要求或修改授权。
+
 形成方案或调查前，按[按缺口梳理项目](../../shared/context.md)说明选择的深度、理由、范围、未知与停止条件；已有可信背景可复用，复杂度不决定梳理深度。
 
+重构按实际风险声明保行为要求，简短方案同样可用 pre_refactor；调用前读[检查环境与保行为](../../shared/protocol.md#检查环境与保行为)，明确原判据、只读输入及需要在修改前运行的环境检查。
+
 已登记项目知识的方案，按[知识影响](../../shared/project-knowledge.md#方案中的知识影响)声明 knowledge_impact，区分必需更新、附带建议与保持不变；核对关联来源之外的业务含义影响。旧主题的修订迁入 evolve/ 并登记替代范围，必要文档纳入实际交付及 owner Task。
+
+新方案按[每项工作的知识复核](../../shared/project-knowledge.md#每项工作的知识复核)给 knowledge_review；按实际含义分组覆盖八类视角，允许有依据的不变、未知或不适用。按风险选择 review_policy；任务输入相交先核对 planning_impacts 及真实依据，不把保存方案当作已经处理风险。
 
 保存复杂 spec／任务清单或修订既有方案时，先读[复杂规格与任务](../../shared/structured-plans.md)，整体呈现后保存完整文档；必要预重构保留前后判据及只读输入。修订先读该文档的[REV 分支](../../shared/structured-plans.md#revision)，呈现具体变化，再按实际确认登记接受。
 

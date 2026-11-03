@@ -15,7 +15,7 @@ class ExternalAcceptanceScopeTests(unittest.TestCase):
         result = subprocess.run([*command, '--preflight-only'], capture_output=True, text=True, timeout=20)
         self.assertEqual(result.returncode, 0, result.stderr)
         scope = json.loads(result.stdout)['expanded_scope']
-        self.assertEqual((scope['slice'], scope['maximum_sessions'], scope['protocol_version']), ('IMP-013', 6, 17))
+        self.assertEqual((scope['slice'], scope['maximum_sessions'], scope['protocol_version']), ('IMP-013', 6, 18))
         self.assertEqual(scope['business_write_paths'], [])
         self.assertEqual(len(scope['readonly_paths']), 6)
         with tempfile.TemporaryDirectory() as directory:

@@ -3,12 +3,23 @@ import copy
 import json
 import re
 import tomllib
+from pathlib import PurePosixPath, PureWindowsPath
 
 from .errors import EvolveError
 
 
+def validate_generated_paths(paths):
+    if (not isinstance(paths, list) or any(not isinstance(name, str) or not name or '\x00' in name
+            or PurePosixPath(name).is_absolute() or PureWindowsPath(name).drive or '\\' in name
+            or '..' in PurePosixPath(name).parts or not PurePosixPath(name).parts for name in paths)
+            or len(paths) != len(set(paths))):
+        raise EvolveError('INPUT', 'generated_paths requires distinct explicit project-relative files or directories')
+    return paths
+
+
 def encoded_check(check):
-    return {'id': check['id'], 'argv': check['argv'], 'cwd': check.get('cwd', '.'), 'timeout': check.get('timeout', 60)}
+    return {'id': check['id'], 'argv': check['argv'], 'cwd': check.get('cwd', '.'), 'timeout': check.get('timeout', 60),
+            **{field: check[field] for field in ('preflight', 'reuse', 'environment_tools', 'environment_files', 'environment_variables') if field in check}}
 
 
 def set_value(lines, start, end, key, value):
@@ -38,6 +49,19 @@ def edit_configuration(original, data):
     before = tomllib.loads(original.decode('utf-8'))
     expected = copy.deepcopy(before)
     text = original.decode('utf-8')
+    if 'generated_paths' in data:
+        paths = validate_generated_paths(data['generated_paths'])
+        lines = text.splitlines(keepends=True)
+        starts = [i for i, line in enumerate(lines) if re.match(r'^\[verification\]\s*(?:#.*)?$', line.strip())]
+        if len(starts) > 1:
+            raise EvolveError('CONFIG_UNSUPPORTED', 'Cannot uniquely locate verification settings')
+        if starts:
+            start = starts[0] + 1
+            end = next((i for i in range(start, len(lines)) if lines[i].lstrip().startswith('[')), len(lines))
+            text = ''.join(set_value(lines, start, end, 'generated_paths', paths))
+        else:
+            text += '\n[verification]\ngenerated_paths = ' + json.dumps(paths, ensure_ascii=False) + '\n'
+        expected.setdefault('verification', {})['generated_paths'] = paths
     if 'name' in data and data['name'] != before['project'].get('name'):
         lines = text.splitlines(keepends=True)
         starts = [i for i, line in enumerate(lines) if re.match(r'^\[project\]\s*(?:#.*)?$', line.strip())]

@@ -2,10 +2,10 @@
 name: evolve-workflow
 description: 询问 Evolve 怎么用、首次描述项目修改目标、选择下一步、查看状态或跨会话续接时使用；结合现场引导并分派工作流。
 ---
-进入、阶段切换和结束时遵守[工作流引导与交接](../../shared/workflow-experience.md)。
+读取本 Skill 后，先按[进入与会话核对](../../shared/workflow-experience.md#进入与会话核对)显示流程开始标记，再执行首次 Evolve 查询；只读指南咨询也执行这一步。阶段切换和结束按同页交接。
 
 
-归属 status、next、resume。指南咨询保持只读；首次修改按目标和实际缺口选择必要接入范围，空项目先明确目标与最小验收行为。先解释用户意图和唯一目标，再按[运行时动作归属](../../runtime/evolve_core/package.py)的 OWNERS 确定 owner，读取实际 `skills/evolve-<owner>/SKILL.md` 后分派；Skill 路径使用 owner 而非动作名。router 不代写业务。无动作使用 status。resume／next 从封存事实恢复方案、进度、失败与现场差异；多个目标明确选择。查询不写入或授权，不接管旧执行。读取[续接请求](../../shared/protocol.md#normal-continuation)，用户明确继续后由原 owner 核对范围并新建 run。
+归属 status、next、resume。指南咨询保持只读；首次修改按目标和实际缺口选择必要接入范围，空项目先明确目标与最小验收行为。先解释用户意图和唯一目标，从 status／doctor 的 data.action_owners 或 next／resume 的 execution.owner_skill 取得准确负责者，再读取实际 `skills/<owner_skill>/SKILL.md` 分派。普通路由直接使用公开映射，无需阅读内核源码；Skill 路径使用负责者而非动作名。router 不代写业务。无动作使用 status。resume／next 从封存事实恢复方案、进度、失败与现场差异；多个目标明确选择。查询不写入或授权，不接管旧执行。读取[续接请求](../../shared/protocol.md#normal-continuation)，用户明确继续后由原 owner 核对范围并新建 run。
 
 损坏档案恢复或旧协议升级直接交 evolve-maintain，按其维护分支处理；当前正式知识／经验或 status 不可读不阻止安全维护方案，不手改库绕过。
 
@@ -14,6 +14,8 @@ description: 询问 Evolve 怎么用、首次描述项目修改目标、选择�
 完整接入交 evolve-init 执行[项目知识交付](../../shared/project-knowledge.md)。新工作或续接读取 project.md 与 status.project.knowledge 的当前主题和替代关系，核对相关来源适用性；记录设施已连接不等于知识初始化完成。
 
 新工作分派或续接后准备实施时，按[按缺口梳理项目](../../shared/context.md)选择并说明深度、范围与停止条件；纯状态查询直接返回实际记录。
+
+优先读取 next／resume 的 data.execution，按准确目标、必需环境、就绪任务、review_subject 和接手动作准备；原授权或历史细节需要时再展开 context／history。公开准备提示与失败重试见[请求协议](../../shared/protocol.md#公开准备与工作文档)，不通过读取内核拼装普通请求。
 
 复杂工作按[复杂规格与任务](../../shared/structured-plans.md)恢复逐项结果和条件；完整实施验证授权内，依序交 owner 推进就绪项、必要任务验收及最终整体验收。只请求单阶段则保持边界，没有可推进条件时说明实际阻碍。
 

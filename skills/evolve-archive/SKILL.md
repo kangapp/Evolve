@@ -9,6 +9,8 @@ description: 封存 Evolve 成果，或保存、审阅与应用正式项目知�
 
 知识映射／主题迁入、受限事实维护、迭代收尾时读[项目知识流程](../../shared/project-knowledge.md)。封存前以 sync.assess 核对本 REV 的全部知识影响和当前来源；required 不得降为 deferred。自动事实只限明确授权的受限路径差异，业务含义和重要取舍仍走具体候选决定。
 
+方案声明 knowledge_review 时，收尾按[每项工作的知识复核](../../shared/project-knowledge.md#每项工作的知识复核)记录八类视角的实际判断、依据和当前来源；不变需要核对，未知如实保留。派生摘要与正式知识分别处理，change_view 待重建不改写已封存事实。
+
 撰写及检查正式正文时读[文档内容与图文约定](../../shared/knowledge-documents.md)，沿固定职责增量更新，保持当前正文完整及图文一致。
 
 外部正式版本采纳或旧提案被后续工作替代时，读取[采纳与后继约定](../../shared/knowledge-adoption.md)，展示实际旧新全文及关联，按具体批准登记，不覆盖后来的有效含义。

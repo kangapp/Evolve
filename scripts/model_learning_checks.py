@@ -62,7 +62,7 @@ PROMPTS['seed'] += ('\n原检查完整定义：' + json.dumps(CHECKS, ensure_asc
 def scope_for(package):
     from evolve_core.package import canonical, check_package
     manifest = check_package(package)
-    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 14), (4, 15), (4, 16), (4, 17)):
+    if (manifest['schema_version'], manifest['protocol_version']) not in ((4, 14), (4, 15), (4, 16), (4, 17), (4, 18)):
         raise ValueError('Learning-cycle acceptance requires actual schema4/protocol14-or-15')
     required = {'learn.record', 'learn.search', 'learn.review', 'learn.promote', 'update.revise', 'verify.knowledge', 'apply.implement'}
     if not required.issubset(manifest['available_methods']):

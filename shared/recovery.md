@@ -1,6 +1,6 @@
 # 完整档案维护
 
-当前包提供 protocol 17／schema 4 的 maintain.backup、maintain.restore 和定向 maintain.upgrade，实际方法由完整包清单校验。维护的知识正文来自已批准版本，恢复准确旧版本不构成新知识批准；业务文件、真实数据和外部效果不随档案回退。
+当前包提供 protocol 18／schema 4 的 maintain.backup、maintain.restore 和定向 maintain.upgrade，实际方法由完整包清单校验。维护的知识正文来自已批准版本，恢复准确旧版本不构成新知识批准；业务文件、真实数据和外部效果不随档案回退。
 
 ## 完整备份
 
@@ -26,15 +26,15 @@ check_observations 只用于特定 launch_unknown／foreign_host 的停止事实
 
 ## 已知外部效果与局限
 
-control/external 的 running／unknown 引用和资源独立保护，恢复后仍 unknown／requires_reconciliation；旧库缺记录不释放它们。协议 16／17 的外部保护索引缺失时拒绝恢复；旧 14／15 的缺失保留 external_coverage=unverified，不能派发新数据操作。当前健康库的未知登记、当前独立保护与选中快照的未决来源合并；准确胶囊附件受保护且不覆盖冲突值。真实 sender 的进程组或未知 launch 均纳入排空，停止观察位于 input.sender_observations，格式同检查停止协议。维护仅保护来源，不核实业务效果，恢复后按[数据操作](external-work.md)另行只读核实。数据派发的机制及环境要求见[兼容说明](../docs/compatibility.md)。
+control/external 的 running／unknown 引用和资源独立保护，恢复后仍 unknown／requires_reconciliation；旧库缺记录不释放它们。协议 16／17／18 的外部保护索引缺失时拒绝恢复；旧 14／15 的缺失保留 external_coverage=unverified，不能派发新数据操作。当前健康库的未知登记、当前独立保护与选中快照的未决来源合并；准确胶囊附件受保护且不覆盖冲突值。真实 sender 的进程组或未知 launch 均纳入排空，停止观察位于 input.sender_observations，格式同检查停止协议。维护仅保护来源，不核实业务效果，恢复后按[数据操作](external-work.md)另行只读核实。数据派发的机制及环境要求见[兼容说明](../docs/compatibility.md)。
 
 受管文件保护索引只识别已登记路径和活跃本地执行，不批准内容。guard／索引不一致时拒绝从损坏库猜测集合；保留现场，用可验证的健康历史核查。旧项目缺少这些保护材料时不支持直接损坏库恢复。没有活跃进程和外部保护的可核事实，就不能放宽为在线恢复。外部编辑器不受工具锁保证，重新核对字节可阻止相关覆盖。
 
 分叉双方分别保存完整包和现场，不自动合并库或选分支；恢复明确选择一个准确包并更换 epoch，之后重新核对业务现场。Git／档案恢复不回退业务数据，不构成重新执行外部操作的许可。恢复保留历史测试事实，但不说明当前工作目录仍满足它；恢复后由原 owner 只验收或按实际新指令修复。
 
-## 14／15／16→17 定向升级
+## 14／15／16／17→18 定向升级
 
-保留与旧项目 protocol 14、15 或 16 匹配的完整包。普通 init、安装和读取不迁移旧档案。健康 protocol 14／15／16 档案先由兼容包处理未完运行／file journal／检查；关闭所有旧执行和连接。
+保留与旧项目 protocol 14、15、16 或 17 匹配的完整包。普通 init、安装和读取不迁移旧档案。健康 protocol 14／15／16／17 档案先由兼容包处理未完运行／file journal／检查；关闭所有旧执行和连接。
 
 调用 maintain.upgrade，input={stage:plan}，呈现准确原字节、协议与新 epoch；再用同样的 plan_id／plan_digest 和预存完整唯一请求执行 stage=apply。先保护旧原始库／sidecar／资料，再从一致副本更新 protocol、package_version、epoch 与新检查点并安装保护索引。原历史与正式正文保留；不支持任意未来迁移、不清库或改业务文件。旧写入器的新请求与旧 epoch 重试均被拒绝。升级中断沿同一日志恢复。
 

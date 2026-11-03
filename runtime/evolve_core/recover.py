@@ -67,7 +67,12 @@ def seal_unexecuted(store, request, original, operation=None):
         selected = [t for t in tasks if source['input'].get('task_id') in (None, t['id'])]
         if selected:
             paths = sorted({name for t in selected for name in json.loads(t['definition_json'])['scope']})
-    observations = {'state': 'observation-only-no-file-dispatch', 'files': [{'path': p} for p in paths]}
+    is_cleanup = (original['action'], original['method']) == ('maintain', 'clean')
+    if is_cleanup:
+        prepared = store.connection.execute("SELECT payload_json FROM events WHERE run_id=? AND kind='review_cleanup_prepared'", (original['id'],)).fetchone()
+        paths = [item['path'] for item in json.loads(prepared[0])['entries']] if prepared else []
+    observations = {'state': 'review-cleanup-observation-only-no-replay' if is_cleanup else 'observation-only-no-file-dispatch',
+                    'files': [{'path': p} for p in paths]}
     protection = protect_recovery(store, dict(operation) if operation else {'run_id': original['id'], 'registered_operation': None},
                                   observations, identifier())
     run_id, previous = store.start(request, action='maintain', method='recover', owner='evolve-maintain')
@@ -85,6 +90,9 @@ def seal_unexecuted(store, request, original, operation=None):
     if (original['action'], original['method']) == ('maintain', 'export'):
         from .exporting import interrupted_export
         export = interrupted_export(store, original['id'])
+    if (original['action'], original['method']) == ('maintain', 'clean'):
+        from .review_materials import interrupted
+        export = interrupted(store, original['id'])
     store.finish(original['id'], {'committed': True, 'outcome': 'partial', 'finalized_by': run_id,
                                   'remaining': ['review saved facts and continue in a new run'], **export}, status='interrupted')
     return store.finish(run_id, {'committed': True, 'outcome': 'recovered_registration', 'original_run_id': original['id'],
@@ -189,7 +197,7 @@ def recover(root, payload):
                                                       "WHERE r.status='started' AND (r.action IN ('apply','verify','archive','update','sync') OR (r.action='learn' AND r.method='promote') OR "
                                                       "(r.action='init' AND r.method IN ('baseline.apply','baseline.propose','connect','survey','complete')) OR (r.action='maintain' AND r.method='cancel'))").fetchall()
                 no_operations = store.connection.execute("SELECT r.* FROM phase_runs r LEFT JOIN operations o ON o.run_id=r.id "
-                                                        "WHERE r.status='started' AND o.id IS NULL AND (r.action IN ('apply','propose','verify','archive','init','analyze','learn','update','sync') OR (r.action='maintain' AND r.method IN ('export','cancel')))").fetchall()
+                                                        "WHERE r.status='started' AND o.id IS NULL AND (r.action IN ('apply','propose','verify','archive','init','analyze','learn','update','sync') OR (r.action='maintain' AND r.method IN ('export','cancel','clean')))").fetchall()
                 run_target = request['input'].get('run_id')
                 if run_target:
                     no_operations = [r for r in no_operations if r['id'] == run_target]
